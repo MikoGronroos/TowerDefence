@@ -8,25 +8,29 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_InputField createRoomInput;
     [SerializeField] private TMP_InputField joinRoomInput;
 
-    private bool _isCreatingARoom = false;
+    private bool _isCreatingOrJoiningARoom = false;
 
     public void CreateRoom()
     {
-        if (!_isCreatingARoom)
+        if (!_isCreatingOrJoiningARoom)
         {
-            _isCreatingARoom = true;
+            _isCreatingOrJoiningARoom = true;
             PhotonNetwork.CreateRoom(createRoomInput.text);
         }
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(joinRoomInput.text);
+        if (!_isCreatingOrJoiningARoom)
+        {
+            _isCreatingOrJoiningARoom = true;
+            PhotonNetwork.JoinRoom(joinRoomInput.text);
+        }
     }
 
     public override void OnJoinedRoom()
     {
-        _isCreatingARoom = false;
+        _isCreatingOrJoiningARoom = false;
         PhotonNetwork.LoadLevel("Game");
     }
 
