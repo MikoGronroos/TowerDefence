@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf77d8e7159cb6742b1d1c4b0c1c3cbd, type: 3}
-  m_Name: TurretShopInventory
+  m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
+  m_Name: Turret2
   m_EditorClassIdentifier: 
-  Inventory:
-  - {fileID: 11400000, guid: 79bb56cc92465084ca87b52e9000e766, type: 2}
-  - {fileID: 11400000, guid: be1d076dd1d8cc947a70e16fc121abb6, type: 2}
+  Cost: 15
+  Icon: {fileID: 21300000, guid: d4a88abd21ca87b4f94278472deabe58, type: 3}
+  itemPrefab: {fileID: 5728865167009762987, guid: fa14ef4e8d7f2e942a3120b04049adeb, type: 3}

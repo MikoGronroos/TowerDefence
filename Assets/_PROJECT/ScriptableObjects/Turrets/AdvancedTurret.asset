@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf77d8e7159cb6742b1d1c4b0c1c3cbd, type: 3}
-  m_Name: TurretShopInventory
+  m_Script: {fileID: 11500000, guid: 2ad0400a76e571548baa8799bcfec588, type: 3}
+  m_Name: AdvancedTurret
   m_EditorClassIdentifier: 
-  Inventory:
-  - {fileID: 11400000, guid: 79bb56cc92465084ca87b52e9000e766, type: 2}
-  - {fileID: 11400000, guid: be1d076dd1d8cc947a70e16fc121abb6, type: 2}
+  Name: Advanced Turret
+  Damage: 125
+  Range: 7
+  AttackSpeed: 0.7
+  Projectile: {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
