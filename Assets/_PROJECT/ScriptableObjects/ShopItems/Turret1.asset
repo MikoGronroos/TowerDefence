@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
+  m_Name: Turret1
+  m_EditorClassIdentifier: 
+  Cost: 10
+  Icon: {fileID: 21300000, guid: d4a88abd21ca87b4f94278472deabe58, type: 3}
+  itemPrefab: {fileID: 5728865167009762987, guid: 89e754eefcef36546b03017703920591, type: 3}
