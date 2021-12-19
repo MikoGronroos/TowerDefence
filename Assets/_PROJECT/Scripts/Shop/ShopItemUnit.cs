@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Shop Item/Unit")]
 public class ShopItemUnit : ShopItem
 {
-    public override void Buy()
+    public override void BuyAction()
     {
-        UnitSpawner.Instance.SpawnUnit(itemPrefab.name, PlayerManager.Instance.GetLocalPlayer().GetPlayerID());
+        UnitSpawner.Instance.SpawnUnit(ItemPrefab.name, PlayerManager.Instance.GetLocalPlayer().GetPlayerID());
     }
 }

@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Shop Item/Turret")]
 public class ShopItemTurret : ShopItem
 {
-    public override void Buy()
+    public override void BuyAction()
     {
-        BuildingManager.Instance.SetBuilding(itemPrefab);
+        BuildingManager.Instance.SetBuilding(ItemPrefab);
     }
 }

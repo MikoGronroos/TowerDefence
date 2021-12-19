@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using PathCreation;
 
 public class LocalPlayer : MonoBehaviour
 {
