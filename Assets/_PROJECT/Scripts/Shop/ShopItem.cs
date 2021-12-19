@@ -10,9 +10,9 @@ public abstract class ShopItem : ScriptableObject
 
     public void Buy()
     {
-        if (VitrualCurrencyManager.Instance.CheckIfPlayerHasEnoughCurrency(Cost))
+        if (VirtualCurrencyManager.Instance.CheckIfPlayerHasEnoughCurrency(Cost))
         {
-            VitrualCurrencyManager.Instance.RemoveCurrency(Cost);
+            VirtualCurrencyManager.Instance.RemoveCurrency(Cost);
             BuyAction();
         }
         else

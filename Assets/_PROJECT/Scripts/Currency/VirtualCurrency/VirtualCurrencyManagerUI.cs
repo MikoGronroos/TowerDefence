@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class VitrualCurrencyManagerUI : MonoBehaviour
+public class VirtualCurrencyManagerUI : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI currencyText;

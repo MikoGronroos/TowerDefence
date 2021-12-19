@@ -3,10 +3,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
 
-    [SerializeField] private int currentRound;
-
-    [SerializeField] private RoundMoneyChart roundMoneyChart;
-
     [SerializeField] private int currentlyReadyPlayers = 0;
     [SerializeField] private int playersInTheRoom = 0;
 

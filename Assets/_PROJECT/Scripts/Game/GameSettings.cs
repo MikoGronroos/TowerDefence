@@ -4,6 +4,12 @@
 public class GameSettings : ScriptableObject
 {
 
-    public int AmountOfPlayers;
+    [Header("Currency")]
+    public int StartingCurrency;
+    public int StartingIncome;
+
+    [Header("Player Stats")]
+    public int StartingHealth;
+
 
 }

@@ -6,6 +6,8 @@ public class GameSetup : MonoBehaviour
 
     [SerializeField] private GameObject playerPrefab;
 
+    [SerializeField] private GameSettings settings;
+
     private PhotonView _photonView;
 
     private void Awake()
@@ -15,6 +17,8 @@ public class GameSetup : MonoBehaviour
 
     private void Start()
     {
+
+        #region SpawnLocalPlayer
 
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, Vector2.zero, Quaternion.identity);
         if (player.TryGetComponent(out LocalPlayer local))
@@ -34,6 +38,12 @@ public class GameSetup : MonoBehaviour
             local.SetPlayerID(amountOfPlayers);
 
         }
+
+        #endregion
+
+        VirtualCurrencyManager.Instance.SetCurrency(settings.StartingCurrency);
+        VirtualCurrencyManager.Instance.SetIncome(settings.StartingIncome);
+
     }
 
     [PunRPC]
