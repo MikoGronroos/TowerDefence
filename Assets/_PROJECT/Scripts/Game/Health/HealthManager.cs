@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviourSingleton<HealthManager>
 {
 
     [SerializeField] private List<PlayerHealth> playerHealths = new List<PlayerHealth>();
@@ -30,11 +30,6 @@ public class HealthManager : MonoBehaviour
         _instance = this;
         _healthManagerUI = GetComponent<HealthManagerUI>();
         _photonView = GetComponent<PhotonView>();
-    }
-
-    private void Start()
-    {
-        UpdateHealthOfEveryPlayer();
     }
 
     public void RemoveHealthWithID(int amount, int id)
@@ -69,6 +64,15 @@ public class HealthManager : MonoBehaviour
         {
             _healthManagerUI.UpdateHealthText(player);
         }
+    }
+
+    public void SetHealhtOfEveryPlayer(int value)
+    {
+        foreach (var player in playerHealths)
+        {
+            player.Health = value;
+        }
+        UpdateHealthOfEveryPlayer();
     }
 
     private PlayerHealth GetPlayerHealthWithID(int id)

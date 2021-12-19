@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  AmountOfPlayers: 3
+  StartingCurrency: 350
+  StartingIncome: 100
+  StartingHealth: 250
