@@ -6,6 +6,8 @@ public abstract class ShopItem : ScriptableObject
     public int Cost;
     public Sprite Icon;
 
+    public int LevelToUnlock;
+
     public GameObject ItemPrefab;
 
     public void Buy()

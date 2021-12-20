@@ -56,4 +56,13 @@ public class ShopUI : MonoBehaviour
 
     }
 
+    public void EraseDrawnShopItems()
+    {
+        foreach (var item in drawnShopItems)
+        {
+            Destroy(item);
+        }
+        drawnShopItems.Clear();
+    }
+
 }

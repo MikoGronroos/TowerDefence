@@ -1,18 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class PlayerLevel : MonoBehaviour
+public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private int currentLevel;
+    [SerializeField] private int currentXp;
+
+    [SerializeField] private LevelXpRequirementChart levelXpRequirementChart;
+
+    private PlayerLevelUI _playerLevelUI;
+
+    public static Action OnLevelUpEvent;
+
+    private void Awake()
     {
-        
+        _playerLevelUI = GetComponent<PlayerLevelUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnLevelUp()
     {
-        
+
+        currentXp = currentXp - levelXpRequirementChart.XpRequirements[currentLevel];
+
+        currentLevel++;
+
+        _playerLevelUI.UpdateLevelText(currentLevel);
+
+        OnLevelUpEvent?.Invoke();
+
     }
+
+    public void AddXp(int value)
+    {
+        currentXp += value;
+        var levelXpReq = levelXpRequirementChart.XpRequirements[currentLevel];
+        if (currentXp >= levelXpReq)
+        {
+            OnLevelUp();
+        }
+        _playerLevelUI.UpdateXpProgressBar(currentXp, levelXpReq);
+    }
+
 }

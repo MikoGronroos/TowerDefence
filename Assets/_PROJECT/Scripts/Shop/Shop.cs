@@ -14,6 +14,16 @@ public class Shop : MonoBehaviour
         _shopUI = GetComponent<ShopUI>();
     }
 
+    private void OnEnable()
+    {
+        PlayerLevel.OnLevelUpEvent += RefreshShop;
+    }
+
+    private void OnDisable()
+    {
+        PlayerLevel.OnLevelUpEvent -= RefreshShop;
+    }
+
     private void Start()
     {
         InitializeShop();
@@ -21,6 +31,14 @@ public class Shop : MonoBehaviour
 
     private void InitializeShop()
     {
+        RefreshShop();
+    }
+
+    private void RefreshShop()
+    {
+
+        _shopUI.EraseDrawnShopItems();
+
         foreach (var item in unitShopInventory.Inventory)
         {
             _shopUI.DrawShopItem(item);
