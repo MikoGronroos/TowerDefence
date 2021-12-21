@@ -12,7 +12,7 @@ public class TurretStats : ScriptableObject
 
     public float AttackSpeed;
 
-    public ProjectileType Projectile;
+    public ProjectileType[] Projectiles;
 
 
 }

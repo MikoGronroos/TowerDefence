@@ -3,7 +3,7 @@ using UnityEngine;
 public interface IDamageable
 {
 
-    void Damage(float damage, ProjectileType type);
+    void Damage(float damage, ProjectileType[] types);
 
     Player Owner();
 

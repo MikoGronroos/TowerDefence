@@ -89,7 +89,7 @@ public class Turret : MonoBehaviour
 
         _shooting = true;
 
-        _target.GetComponent<IDamageable>().Damage(turretStats.Damage, turretStats.Projectile);
+        _target.GetComponent<IDamageable>().Damage(turretStats.Damage, turretStats.Projectiles);
 
         yield return new WaitForSeconds(turretStats.AttackSpeed);
 

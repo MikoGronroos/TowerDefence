@@ -16,4 +16,5 @@ MonoBehaviour:
   Damage: 100
   Range: 5
   AttackSpeed: 2
-  Projectile: {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
+  Projectiles:
+  - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
