@@ -16,7 +16,7 @@ public class Turret : MonoBehaviour
 
     private Transform _target = null;
 
-    public Player TurretOwner;
+    public int TurretOwnerID;
 
     private void Update()
     {
@@ -41,7 +41,7 @@ public class Turret : MonoBehaviour
         {
             if (collider.TryGetComponent(out IDamageable target))
             {
-                if (TurretOwner != target.Owner())
+                if (TurretOwnerID != target.OwnerID())
                 {
                     float distance = Vector3.Distance(transform.position, target.Position());
                     if (distance < shortestDistance)

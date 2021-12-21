@@ -13,7 +13,7 @@ public class Unit : MonoBehaviour
 
     private PhotonView _photonView;
 
-    public Player UnitOwner;
+    public int UnitOwnerID;
 
     private void Awake()
     {

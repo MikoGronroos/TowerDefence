@@ -17,6 +17,7 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
 
         GameObject unit = PhotonNetwork.Instantiate(unitPrefabName, _spawnPoint, Quaternion.identity);
         unit.GetComponent<FollowPath>().SetPath(_pathCreator);
+        unit.GetComponent<Unit>().UnitOwnerID = PlayerManager.Instance.GetLocalPlayer().GetPlayerID();
     }
 
 }
