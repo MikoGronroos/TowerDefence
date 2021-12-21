@@ -41,11 +41,17 @@ public class Shop : MonoBehaviour
 
         foreach (var item in unitShopInventory.Inventory)
         {
-            _shopUI.DrawShopItem(item);
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                _shopUI.DrawShopItem(item);
+            }
         }
         foreach (var item in turretShopInventory.Inventory)
         {
-            _shopUI.DrawShopItem(item);
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                _shopUI.DrawShopItem(item);
+            }
         }
     }
 

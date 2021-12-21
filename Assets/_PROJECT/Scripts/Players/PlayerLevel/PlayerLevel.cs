@@ -52,4 +52,9 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
     }
 
 
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
 }
