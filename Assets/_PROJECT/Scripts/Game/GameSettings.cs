@@ -8,8 +8,11 @@ public class GameSettings : ScriptableObject
     public int StartingCurrency;
     public int StartingIncome;
 
+    public float IncomeInterval;
+
     [Header("Player Stats")]
     public int StartingHealth;
+    public int StartingLevel;
 
 
 }

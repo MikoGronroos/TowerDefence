@@ -12,4 +12,6 @@ public class UnitStats : ScriptableObject
 
     public ProjectileType[] ProjectileTypesAllowed;
 
+    public int XpAddonOnDestroyed;
+
 }

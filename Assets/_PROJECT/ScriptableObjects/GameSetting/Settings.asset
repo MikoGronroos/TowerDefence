@@ -15,3 +15,4 @@ MonoBehaviour:
   StartingCurrency: 350
   StartingIncome: 100
   StartingHealth: 100000
+  StartingLevel: 1
