@@ -14,9 +14,7 @@ public class ShopObject : MonoBehaviour
     //Called from shop button
     public void BuyThisItem() 
     {
-
         _thisItem.Buy();
-
     }
 
     public void SetCostText(string content)
