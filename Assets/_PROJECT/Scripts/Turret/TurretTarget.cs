@@ -10,9 +10,9 @@ public class TurretTarget : MonoBehaviour, IDamageable
         _unit = GetComponent<Unit>();
     }
 
-    public void Damage(float damage, ProjectileType projectileType)
+    public void Damage(float damage, ProjectileType[] projectileTypes)
     {
-        _unit.RemoveCurrentHealth(damage, projectileType);
+        _unit.RemoveCurrentHealth(damage, projectileTypes);
     }
 
     public Player Owner()

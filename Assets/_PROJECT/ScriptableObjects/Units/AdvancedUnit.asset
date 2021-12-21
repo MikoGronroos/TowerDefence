@@ -17,3 +17,4 @@ MonoBehaviour:
   Damage: 11
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+  XpAddonOnDestroyed: 0

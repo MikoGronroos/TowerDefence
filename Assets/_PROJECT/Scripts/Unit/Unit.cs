@@ -27,9 +27,9 @@ public class Unit : MonoBehaviour
         _followPath.SetSpeed(unitStats.Speed);
     }
 
-    public void RemoveCurrentHealth(float amount, ProjectileType source)
+    public void RemoveCurrentHealth(float amount, ProjectileType[] projectiles)
     {
-        if (AllowedToMakeDamage(source))
+        if (AllowedToMakeDamage(projectiles))
         {
             currentHealth -= amount;
         }
@@ -44,13 +44,16 @@ public class Unit : MonoBehaviour
         }
     }
 
-    private bool AllowedToMakeDamage(ProjectileType type)
+    private bool AllowedToMakeDamage(ProjectileType[] types)
     {
         foreach (var projectileType in unitStats.ProjectileTypesAllowed)
         {
-            if (projectileType == type)
+            foreach (var type in types)
             {
-                return true;
+                if (projectileType == type)
+                {
+                    return true;
+                }
             }
         }
         return false;
