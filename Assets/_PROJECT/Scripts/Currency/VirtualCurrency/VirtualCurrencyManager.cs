@@ -11,6 +11,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     [SerializeField] private int currentIncome;
     [SerializeField] private float incomeInterval;
     private float _timeLeft;
+    private bool _timerActive;
 
     private void Awake()
     {
@@ -19,6 +20,9 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     private void Update()
     {
+
+        if (!_timerActive) return;
+
         if (_timeLeft > 0)
         {
             _timeLeft -= Time.deltaTime;
@@ -34,6 +38,12 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     {
         GiveIncome();
         _timeLeft = incomeInterval;
+    }
+
+    public void SetInterval(float value)
+    {
+        incomeInterval = value;
+        _timerActive = true;
     }
 
     #region Currency

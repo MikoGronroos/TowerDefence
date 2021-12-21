@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingCurrency: 350
   StartingIncome: 100
+  IncomeInterval: 20
   StartingHealth: 100000
   StartingLevel: 1

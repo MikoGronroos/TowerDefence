@@ -43,6 +43,8 @@ public class GameSetup : MonoBehaviour
 
         VirtualCurrencyManager.Instance.SetCurrency(settings.StartingCurrency);
         VirtualCurrencyManager.Instance.SetIncome(settings.StartingIncome);
+        VirtualCurrencyManager.Instance.SetInterval(settings.IncomeInterval);
+
         HealthManager.Instance.SetHealhtOfEveryPlayer(settings.StartingHealth);
         PlayerLevel.Instance.SetLevel(settings.StartingLevel);
 
