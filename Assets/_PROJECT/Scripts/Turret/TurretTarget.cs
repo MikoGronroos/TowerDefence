@@ -15,13 +15,15 @@ public class TurretTarget : MonoBehaviour, IDamageable
         _unit.RemoveCurrentHealth(damage, projectileTypes);
     }
 
-    public Player Owner()
-    {
-        return _unit.UnitOwner;
-    }
-
     public Vector3 Position()
     {
         return transform.position;
+    }
+
+    public int OwnerID()
+    {
+
+        return _unit.UnitOwnerID;
+
     }
 }

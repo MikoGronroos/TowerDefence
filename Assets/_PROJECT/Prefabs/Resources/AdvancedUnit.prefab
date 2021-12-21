@@ -103,8 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: 9a3c320327069774bb04adf162e9be70, type: 2}
   currentHealth: 10
-  UnitOwner:
-    PlayerNumber: 0
+  UnitOwnerID: 0
 --- !u!114 &1750303906499475428
 MonoBehaviour:
   m_ObjectHideFlags: 0

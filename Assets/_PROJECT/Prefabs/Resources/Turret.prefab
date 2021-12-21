@@ -100,8 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats: {fileID: 11400000, guid: e3f15e29e07c0504bbd1d071405c09d2, type: 2}
   currentState: 0
-  TurretOwner:
-    PlayerNumber: 0
+  TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:
   m_ObjectHideFlags: 0
