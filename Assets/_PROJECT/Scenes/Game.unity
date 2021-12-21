@@ -5093,7 +5093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitShopItemParent: {fileID: 1478450805}
   turretShopItemParent: {fileID: 1550361875}
-  shopItemPrefab: {fileID: 6274360707340995544, guid: 9bfc362610ed1c14b9eea1650d47bc4f, type: 3}
+  shopItemPrefab: {fileID: 8291492878275696557, guid: aebcb4efec4f06049b0cc7b7e2e5d99b, type: 3}
   shopGameObject: {fileID: 1744796654}
   suffix: $
   closeShopButton: {fileID: 316256510}
