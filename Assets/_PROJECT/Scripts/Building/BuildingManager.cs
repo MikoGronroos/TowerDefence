@@ -13,6 +13,8 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     private RaycastHit2D _hit;
 
+    private int _price;
+
     private void Update()
     {
 
@@ -32,6 +34,9 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
                 if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
                 {
                     GameObject turret = PhotonNetwork.Instantiate(buildingPrefab.name, _hit.point, Quaternion.identity);
+                    VirtualCurrencyManager.Instance.RemoveCurrency(_price);
+                    buildingPrefab = null;
+                    _price = 0;
                 }
             }
         }
@@ -47,9 +52,10 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     }
 
-    public void SetBuilding(GameObject building)
+    public void SetBuilding(GameObject building, int price)
     {
         buildingPrefab = building;
+        _price = price;
     }
 
 

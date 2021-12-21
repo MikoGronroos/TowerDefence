@@ -10,7 +10,7 @@ public abstract class ShopItem : ScriptableObject
 
     public GameObject ItemPrefab;
 
-    public void Buy()
+    public virtual void Buy()
     {
         if (VirtualCurrencyManager.Instance.CheckIfPlayerHasEnoughCurrency(Cost))
         {
