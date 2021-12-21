@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cost: 5
   Icon: {fileID: 21300000, guid: f37512c252f974a48a16303d231641db, type: 3}
+  LevelToUnlock: 0
   ItemPrefab: {fileID: 1750303906499475433, guid: 71b9b2fb138061b4db54740d3b445f90, type: 3}
   IncomeAddonFromSpawning: 1
+  XpAddonWhenBought: 2

@@ -40,7 +40,7 @@ public class Unit : MonoBehaviour
     {
         if (health <= 0)
         {
-            PhotonNetwork.Destroy(_photonView);
+            OnUnitDestroyed();
         }
     }
 
@@ -54,6 +54,12 @@ public class Unit : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void OnUnitDestroyed()
+    {
+        PhotonNetwork.Destroy(_photonView);
+        PlayerLevel.Instance.AddXp(unitStats.XpAddonOnDestroyed);
     }
 
     public UnitStats GetUnitStats()

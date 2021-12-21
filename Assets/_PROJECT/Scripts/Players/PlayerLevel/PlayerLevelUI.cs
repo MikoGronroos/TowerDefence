@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerLevelUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private TextMeshProUGUI levelText;
+
+    [SerializeField] private Image xpProgressBar;
+
+    public void UpdateXpProgressBar(int currentXp, int maxXp)
     {
-        
+        xpProgressBar.fillAmount = (float)currentXp / (float)maxXp;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateLevelText(int value)
     {
-        
+        levelText.text = $"{value}";
     }
+
 }
