@@ -19,7 +19,7 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private Button openShopButton;
 
-    [SerializeField] private List<GameObject> drawnShopItems = new List<GameObject>();
+    private List<GameObject> _drawnShopItems = new List<GameObject>();
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class ShopUI : MonoBehaviour
         }
 
         GameObject shopItem = Instantiate(shopItemPrefab, parent);
-        drawnShopItems.Add(shopItem);
+        _drawnShopItems.Add(shopItem);
 
         var itemScript = shopItem.GetComponent<ShopObject>();
 
@@ -58,11 +58,11 @@ public class ShopUI : MonoBehaviour
 
     public void EraseDrawnShopItems()
     {
-        foreach (var item in drawnShopItems)
+        foreach (var item in _drawnShopItems)
         {
             Destroy(item);
         }
-        drawnShopItems.Clear();
+        _drawnShopItems.Clear();
     }
 
 }

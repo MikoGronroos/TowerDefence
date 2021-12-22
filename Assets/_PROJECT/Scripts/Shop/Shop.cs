@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Shop : MonoBehaviour
+public class Shop : MonoBehaviourSingleton<Shop>
 {
 
     [SerializeField] private ShopInventory unitShopInventory;
