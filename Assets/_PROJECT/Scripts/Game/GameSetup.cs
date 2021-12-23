@@ -46,7 +46,10 @@ public class GameSetup : MonoBehaviour
         VirtualCurrencyManager.Instance.SetInterval(settings.IncomeInterval);
 
         HealthManager.Instance.SetHealhtOfEveryPlayer(settings.StartingHealth);
+
         PlayerLevel.Instance.SetLevel(settings.StartingLevel);
+
+        PvpMissionManager.Instance.GetNewMissions(settings.StartingAmountOfMissions);
 
     }
 
