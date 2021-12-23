@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Pvp Mission/Kill")]
@@ -19,4 +20,5 @@ public class PvpMissionKill : PvpMission
     public override void Init()
     {
     }
+
 }
