@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: e97600fd304929141adc7faf23e6e308, type: 3}
+  m_Name: KillSimpleUnit
   m_EditorClassIdentifier: 
-  StartingCurrency: 350
-  StartingIncome: 100
-  IncomeInterval: 20
-  StartingHealth: 100000
-  StartingLevel: 1
-  StartingAmountOfMissions: 1
+  Name: 
+  Description: 
+  MissionRewards: {fileID: 0}
+  CurrentAmount: 0
+  AmountNeeded: 0
+  UnitType: {fileID: 11400000, guid: bad1871f181dffd47973f954c01bfe18, type: 2}
