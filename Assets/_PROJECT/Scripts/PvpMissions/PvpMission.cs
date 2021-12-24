@@ -8,6 +8,8 @@ public abstract class PvpMission :ScriptableObject
 
     public PvpMissionRewards MissionRewards;
 
+    public abstract void Evaluate();
+
     //Subscribe To Necessary Events
     public abstract void Init();
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Photon.Pun;
 
 [RequireComponent(typeof(FollowPath))]
@@ -61,8 +62,13 @@ public class Unit : MonoBehaviour
 
     private void OnUnitDestroyed()
     {
-        PhotonNetwork.Destroy(_photonView);
+
         PlayerLevel.Instance.AddXp(unitStats.XpAddonOnDestroyed);
+
+        EventManager.InvokeEvent("OnUnitKilled", new Dictionary<string, object> { { "UnitID", unitStats.UnitID } });
+
+        PhotonNetwork.Destroy(_photonView);
+
     }
 
     public UnitStats GetUnitStats()

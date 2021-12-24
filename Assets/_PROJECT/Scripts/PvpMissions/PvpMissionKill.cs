@@ -7,18 +7,29 @@ public class PvpMissionKill : PvpMission
 
     public int CurrentAmount;
     public int AmountNeeded;
-    public UnitStats UnitType;
+    public int UnitID;
 
-    public bool IsReached
+    public override void Evaluate()
     {
-        get
+        if (CurrentAmount >= AmountNeeded)
         {
-            return CurrentAmount >= AmountNeeded;
+            PvpMissionManager.Instance.CompleteMission(this);
         }
     }
 
     public override void Init()
     {
+        EventManager.SubscribeToEvent("OnUnitKilled", OnUnitKilled);
+    }
+
+    void OnUnitKilled(Dictionary<string, object> message)
+    {
+        var id = (int)message["UnitID"];
+        if (id == UnitID)
+        {
+            CurrentAmount++;
+            Evaluate();
+        }
     }
 
 }

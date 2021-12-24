@@ -4,6 +4,8 @@ using UnityEngine;
 public class UnitStats : ScriptableObject
 {
 
+    public int UnitID;
+
     public float StartHealth;
 
     public float Speed;
