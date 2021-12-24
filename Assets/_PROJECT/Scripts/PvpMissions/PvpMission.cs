@@ -11,6 +11,9 @@ public abstract class PvpMission :ScriptableObject
     public abstract void Evaluate();
 
     //Subscribe To Necessary Events
-    public abstract void Init();
+    public abstract void Load();
+
+    //Unsubscribe Events
+    public abstract void Unload();
 
 }

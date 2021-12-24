@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97600fd304929141adc7faf23e6e308, type: 3}
   m_Name: KillSimpleUnit
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: Killer Queen
+  Description: Kill 5 Simple Units
   MissionRewards: {fileID: 11400000, guid: c40b2d5faef3cf84f83f55bbe636cd54, type: 2}
   CurrentAmount: 0
   AmountNeeded: 5
-  UnitType: {fileID: 11400000, guid: bad1871f181dffd47973f954c01bfe18, type: 2}
+  UnitID: 0

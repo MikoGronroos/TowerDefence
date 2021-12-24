@@ -13,13 +13,19 @@ public class PvpMissionKill : PvpMission
     {
         if (CurrentAmount >= AmountNeeded)
         {
+            EventManager.UnsubscribeToEvent("OnUnitKilled", OnUnitKilled);
             PvpMissionManager.Instance.CompleteMission(this);
         }
     }
 
-    public override void Init()
+    public override void Load()
     {
         EventManager.SubscribeToEvent("OnUnitKilled", OnUnitKilled);
+    }
+
+    public override void Unload()
+    {
+        EventManager.UnsubscribeToEvent("OnUnitKilled", OnUnitKilled);
     }
 
     void OnUnitKilled(Dictionary<string, object> message)
