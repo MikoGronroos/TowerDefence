@@ -51,6 +51,8 @@ public class GameSetup : MonoBehaviour
 
         PvpMissionManager.Instance.GetNewMissions(settings.StartingAmountOfMissions);
 
+        EventCreator.CreateAllEvents();
+
     }
 
     [PunRPC]
