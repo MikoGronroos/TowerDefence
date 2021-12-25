@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Killer Queen
   Description: Kill 5 Simple Units
+  Icon: {fileID: 21300000, guid: 06f64fc4d6a1cfd4b8b40e49664b48cf, type: 3}
   MissionRewards: {fileID: 11400000, guid: c40b2d5faef3cf84f83f55bbe636cd54, type: 2}
   CurrentAmount: 0
   AmountNeeded: 5

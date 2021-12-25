@@ -17,4 +17,4 @@ MonoBehaviour:
   IncomeInterval: 20
   StartingHealth: 100000
   StartingLevel: 1
-  StartingAmountOfMissions: 1
+  StartingAmountOfMissions: 2

@@ -5,6 +5,7 @@ public abstract class PvpMission :ScriptableObject
 
     public string Name;
     public string Description;
+    public Sprite Icon;
 
     public PvpMissionRewards MissionRewards;
 

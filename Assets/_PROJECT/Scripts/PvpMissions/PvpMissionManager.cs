@@ -12,6 +12,13 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
 
     [SerializeField] private List<PvpMission> missions = new List<PvpMission>();
 
+    private PvpMissionUI _missionUI;
+
+    private void Awake()
+    {
+        _missionUI = GetComponent<PvpMissionUI>();
+    }
+
     public void GetNewMissions(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -21,6 +28,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
             currentMissions.Add(quest);
             missions.Remove(quest);
         }
+        _missionUI.DrawPvpMissionsToLog(currentMissions);
     }
 
     public void CompleteMission(PvpMission mission)
