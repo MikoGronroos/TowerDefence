@@ -36,6 +36,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         currentMissions.Remove(mission);
         completedMissions.Add(mission);
         mission.Unload();
+        GiveMissionRewards(mission.MissionRewards);
         _missionUI.DrawPvpMissionsToLog(currentMissions);
     }
 
@@ -45,6 +46,12 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         failedMissions.Add(mission);
         mission.Unload();
         _missionUI.DrawPvpMissionsToLog(currentMissions);
+    }
+
+    private void GiveMissionRewards(PvpMissionRewards rewards)
+    {
+        PlayerLevel.Instance.AddXp(rewards.XpReward);
+        VirtualCurrencyManager.Instance.AddCurrency(rewards.MoneyReward);
     }
 
 }
