@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d9e58736e6278b94a8326cfbda48a0f1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3f24a530cfdd903459ad6f30d6f8e57a, type: 3}
+  m_Color: {r: 1, g: 0.6628426, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,8 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats: {fileID: 11400000, guid: 949b4263e8046a74f86a1a191f60cff1, type: 2}
   currentState: 0
-  TurretOwner:
-    PlayerNumber: 0
+  TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:
   m_ObjectHideFlags: 0
