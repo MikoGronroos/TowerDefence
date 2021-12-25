@@ -4,6 +4,7 @@ using UnityEngine;
 public class Account : ScriptableObject
 {
 
-
+    public int SoftCurrency;
+    public int HardCurrency;
 
 }

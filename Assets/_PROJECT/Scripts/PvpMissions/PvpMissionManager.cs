@@ -21,6 +21,9 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
 
     public void GetNewMissions(int amount)
     {
+
+        if (missions.Count <= 0) return;
+
         for (int i = 0; i < amount; i++)
         {
             var quest = missions[UnityEngine.Random.Range(0, missions.Count)];
@@ -37,6 +40,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         completedMissions.Add(mission);
         mission.Unload();
         GiveMissionRewards(mission.MissionRewards);
+        _missionUI.MissionCompletedScreen(mission);
         _missionUI.DrawPvpMissionsToLog(currentMissions);
     }
 

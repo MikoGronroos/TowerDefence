@@ -16,7 +16,6 @@ public class MissionLog : MonoBehaviour
         missionDescription.text = description;
 
         missionIcon.sprite = icon;
-
     }
 
 }
