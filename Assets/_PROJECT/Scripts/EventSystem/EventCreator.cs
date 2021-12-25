@@ -3,6 +3,7 @@
 
     public static void CreateAllEvents()
     {
+        EventManager.CreateEvent("OnUnitReachedGoal");
         EventManager.CreateEvent("OnUnitKilled");
     }
 

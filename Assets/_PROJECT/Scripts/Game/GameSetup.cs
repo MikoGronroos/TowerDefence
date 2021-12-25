@@ -41,6 +41,8 @@ public class GameSetup : MonoBehaviour
 
         #endregion
 
+        EventCreator.CreateAllEvents();
+
         VirtualCurrencyManager.Instance.SetCurrency(settings.StartingCurrency);
         VirtualCurrencyManager.Instance.SetIncome(settings.StartingIncome);
         VirtualCurrencyManager.Instance.SetInterval(settings.IncomeInterval);
@@ -50,8 +52,6 @@ public class GameSetup : MonoBehaviour
         PlayerLevel.Instance.SetLevel(settings.StartingLevel);
 
         PvpMissionManager.Instance.GetNewMissions(settings.StartingAmountOfMissions);
-
-        EventCreator.CreateAllEvents();
 
     }
 

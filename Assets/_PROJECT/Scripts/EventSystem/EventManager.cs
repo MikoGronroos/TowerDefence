@@ -5,7 +5,7 @@ using UnityEngine;
 public static class EventManager
 {
 
-    private static Dictionary<string, Action<Dictionary<string, object>>> events = new Dictionary<string, Action<Dictionary<string, object>>>();
+    private static Dictionary<string, Action<Dictionary<string, object>>> _events = new Dictionary<string, Action<Dictionary<string, object>>>();
 
     public static void CreateEvent(string name)
     {
@@ -15,7 +15,7 @@ public static class EventManager
             return;
         }
 
-        events.Add(name, null);
+        _events.Add(name, null);
 
     }
 
@@ -23,7 +23,7 @@ public static class EventManager
     {
         if (CheckIfDictionaryContainsKey(name))
         {
-            events[name]?.Invoke(message);
+            _events[name]?.Invoke(message);
         }
     }
 
@@ -31,7 +31,7 @@ public static class EventManager
     {
         if (CheckIfDictionaryContainsKey(name))
         {
-            events[name] += listener;
+            _events[name] += listener;
         }
     }
 
@@ -39,13 +39,13 @@ public static class EventManager
     {
         if (CheckIfDictionaryContainsKey(name))
         {
-            events[name] -= listener;
+            _events[name] -= listener;
         }
     }
 
     private static bool CheckIfDictionaryContainsKey(string name)
     {
-        return events.ContainsKey(name);
+        return _events.ContainsKey(name);
     }
 
 }

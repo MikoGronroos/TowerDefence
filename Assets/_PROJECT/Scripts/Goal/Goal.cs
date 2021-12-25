@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class Goal : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Goal : MonoBehaviour
         {
 
             HealthManager.Instance.RemoveHealthWithID(unit.GetUnitStats().Damage, goalOwnerID);
+
+            EventManager.InvokeEvent("OnUnitReachedGoal", new Dictionary<string, object> { { "UnitID", unit.GetUnitStats().UnitID }, { "GoalOwnerID", goalOwnerID } });
 
             PhotonNetwork.Destroy(collision.GetComponent<PhotonView>());
         }
