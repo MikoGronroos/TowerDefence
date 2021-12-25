@@ -36,6 +36,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         currentMissions.Remove(mission);
         completedMissions.Add(mission);
         mission.Unload();
+        _missionUI.DrawPvpMissionsToLog(currentMissions);
     }
 
     public void MissionFailed(PvpMission mission)
@@ -43,6 +44,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         currentMissions.Remove(mission);
         failedMissions.Add(mission);
         mission.Unload();
+        _missionUI.DrawPvpMissionsToLog(currentMissions);
     }
 
 }
