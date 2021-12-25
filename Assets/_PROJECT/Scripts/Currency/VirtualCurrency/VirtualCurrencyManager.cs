@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyManager>
@@ -50,6 +51,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     public void RemoveCurrency(int value)
     {
+        EventManager.InvokeEvent("OnMoneyUsed", new Dictionary<string, object> { { "money", value } });
         var currency = Mathf.Clamp(currentCurrency - value, 0, maxCurrency);
         SetCurrency(currency);
     }

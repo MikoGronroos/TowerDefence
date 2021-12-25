@@ -5,6 +5,7 @@
     {
         EventManager.CreateEvent("OnUnitReachedGoal");
         EventManager.CreateEvent("OnUnitKilled");
+        EventManager.CreateEvent("OnMoneyUsed");
     }
 
 }

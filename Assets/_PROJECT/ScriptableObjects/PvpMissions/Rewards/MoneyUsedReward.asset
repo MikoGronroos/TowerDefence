@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: 15c68d82ba72d9441a6d89ae425d67da, type: 3}
+  m_Name: MoneyUsedReward
   m_EditorClassIdentifier: 
-  StartingCurrency: 350
-  StartingIncome: 100
-  IncomeInterval: 20
-  StartingHealth: 100000
-  StartingLevel: 1
-  StartingAmountOfMissions: 3
+  XpReward: 40
+  MoneyReward: 50
