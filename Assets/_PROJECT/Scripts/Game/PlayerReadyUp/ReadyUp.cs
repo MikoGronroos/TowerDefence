@@ -26,7 +26,7 @@ public class ReadyUp : MonoBehaviour
     [PunRPC]
     private void RPCLocalPlayerReadyUp()
     {
-        GameManager.Instance.IncreaseAmountOfReadyPlayers();
+        GameStart.Instance.IncreaseAmountOfReadyPlayers();
     }
 
 }

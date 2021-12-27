@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LocalPlayer : MonoBehaviour
+[System.Serializable]
+public class LocalPlayer
 {
 
     [SerializeField] private List<GameObject> unitQueue = new List<GameObject>();

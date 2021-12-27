@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class GameManagerUI : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI amountOfPlayersReadyText;
-
     [Header("Game End Screen")]
 
     [SerializeField] private GameObject gameEndScreen;
@@ -19,8 +17,6 @@ public class GameManagerUI : MonoBehaviour
             GameManager.Instance.LeaveRoom();
         });
     }
-
-    public void UpdateAmountOfPlayersText(int currentlyReady, int playersInTheGame) => amountOfPlayersReadyText.text = $"{currentlyReady}/{playersInTheGame}";
 
     public void GameEndedUI(int loserID)
     {

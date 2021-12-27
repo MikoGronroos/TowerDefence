@@ -2392,8 +2392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb2ee10acb37b1409dd929e9f68b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primarySceneToLoad: Game
-  secondarySceneToLoad: RoomView
+  sceneToLoad: RoomView
   createRoomInput: {fileID: 1483579964}
   joinRoomInput: {fileID: 646611961}
 --- !u!4 &2014006971

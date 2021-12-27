@@ -25,6 +25,7 @@ public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
         else
         {
             _singletons.Add(GetType(), this);
+            DontDestroyOnLoad(this);
         }
     }
 }
