@@ -13,15 +13,12 @@ public class FollowPath : MonoBehaviour
 
     private void Update()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            if (pathCreator == null) return;
+        if (pathCreator == null) return;
 
-            _distanceTraveled += speed * Time.deltaTime;
-            Vector3 point = pathCreator.path.GetPointAtDistance(_distanceTraveled);
+        _distanceTraveled += speed * Time.deltaTime;
+        Vector3 point = pathCreator.path.GetPointAtDistance(_distanceTraveled);
 
-            transform.position = point;
-        }
+        transform.position = point;
     }
 
     public void SetSpeed(float speed)

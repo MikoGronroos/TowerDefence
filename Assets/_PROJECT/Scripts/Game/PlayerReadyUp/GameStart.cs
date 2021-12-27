@@ -26,16 +26,13 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
 
         LocalPlayer local = new LocalPlayer();
 
-        PlayerManager.Instance.AddLocalPlayer(local);
-
         int amountOfPlayers = PhotonNetwork.PlayerList.Length - 1;
 
-        if (_photonView.IsMine)
-        {
-            local.IsLocal = true;
-        }
+        local.IsLocal = true;
 
         local.SetPlayerID(amountOfPlayers);
+
+        PlayerManager.Instance.AddLocalPlayer(local);
 
         #endregion
 
