@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppSettings:
     AppIdRealtime: ed7f853d-fe7e-444d-9d2b-41413f43fd5a
+    AppIdFusion: 
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 
@@ -21,9 +22,13 @@ MonoBehaviour:
     FixedRegion: 
     Server: 
     Port: 0
+    ProxyServer: 
     Protocol: 0
+    EnableProtocolFallback: 1
+    AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
@@ -31,22 +36,9 @@ MonoBehaviour:
   RpcList:
   - ClickRpc
   - DestroyRpc
-  - DestroySpaceship
-  - Fire
-  - RespawnSpaceship
-  - LocalPlayerReadyUp
   - RPCLocalPlayerReadyUp
-  - RPCUpdatePlayerCount
-  - PlayerJoinedRoom
-  - SetupUnit
-  - RPCMoveUnit
-  - SpawnUnit
-  - RPCSpawnUnit
-  - RPCSpawnTurret
-  - ValidatePlayer
-  - RPCValidatePlayer
-  - RPCAddPlayerToTheList
-  - RPCSpawnNewPlayer
   - RPCRemoveHealthWithID
+  - RPCValidatePlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 0
+  DevRegionSetOnce: 0

@@ -8,30 +8,49 @@
 // <author>developer@exitgames.com</author>
 // ----------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using UnityEditor;
-using UnityEngine;
-
-using System.IO;
-using System.Text;
-using UnityEngine.Networking;
+#pragma warning disable 618 // Deprecation warnings
 
 
-namespace Photon.Pun
+#if UNITY_2017_4_OR_NEWER
+#define SUPPORTED_UNITY
+#endif
+
+
+#if UNITY_EDITOR
+
+namespace Photon.Realtime
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using UnityEditor;
+    using UnityEngine;
+
+    using System.IO;
+    using System.Text;
+    using UnityEngine.Networking;
+
+
     [InitializeOnLoad]
-    public class PhotonEditorUtils
+    public static class PhotonEditorUtils
     {
+        /// <summary>Stores a flag which tells Editor scripts if the PhotonEditor.OnProjectChanged got called since initialization.</summary>
+        /// <remarks>If not, the AssetDatabase is likely not usable yet and instances of ScriptableObject can't be loaded.</remarks>
+        public static bool ProjectChangedWasCalled;
+
+
         /// <summary>True if the ChatClient of the Photon Chat API is available. If so, the editor may (e.g.) show additional options in settings.</summary>
         public static bool HasChat;
 
         /// <summary>True if the VoiceClient of the Photon Voice API is available. If so, the editor may (e.g.) show additional options in settings.</summary>
         public static bool HasVoice;
 
+        /// <summary>True if PUN is in the project.</summary>
         public static bool HasPun;
+
+        /// <summary>True if Photon Fusion is available in the project (and enabled).</summary>
+        public static bool HasFusion;
 
         /// <summary>True if the PhotonEditorUtils checked the available products / APIs. If so, the editor may (e.g.) show additional options in settings.</summary>
         public static bool HasCheckedProducts;
@@ -41,7 +60,15 @@ namespace Photon.Pun
             HasVoice = Type.GetType("Photon.Voice.VoiceClient, Assembly-CSharp") != null || Type.GetType("Photon.Voice.VoiceClient, Assembly-CSharp-firstpass") != null || Type.GetType("Photon.Voice.VoiceClient, PhotonVoice.API") != null;
             HasChat = Type.GetType("Photon.Chat.ChatClient, Assembly-CSharp") != null || Type.GetType("Photon.Chat.ChatClient, Assembly-CSharp-firstpass") != null || Type.GetType("Photon.Chat.ChatClient, PhotonChat") != null;
             HasPun = Type.GetType("Photon.Pun.PhotonNetwork, Assembly-CSharp") != null || Type.GetType("Photon.Pun.PhotonNetwork, Assembly-CSharp-firstpass") != null || Type.GetType("Photon.Pun.PhotonNetwork, PhotonUnityNetworking") != null;
+            #if FUSION_WEAVER
+            HasFusion = true;
+            #endif
             PhotonEditorUtils.HasCheckedProducts = true;
+
+            if (EditorPrefs.HasKey("DisablePun") && EditorPrefs.GetBool("DisablePun"))
+            {
+                HasPun = false;
+            }
 
             if (HasPun)
             {
@@ -56,6 +83,10 @@ namespace Photon.Pun
 
                 #if !PUN_2_OR_NEWER
                 AddScriptingDefineSymbolToAllBuildTargetGroups("PUN_2_OR_NEWER");
+                #endif
+
+                #if !PUN_2_19_OR_NEWER
+                AddScriptingDefineSymbolToAllBuildTargetGroups("PUN_2_19_OR_NEWER");
                 #endif
             }
         }
@@ -172,7 +203,9 @@ namespace Photon.Pun
 		/// <param name="go">The GameObject to check</param>
 		public static bool IsPrefab(GameObject go)
 		{
-            #if UNITY_2018_3_OR_NEWER
+            #if UNITY_2021_2_OR_NEWER
+            return UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(go) != null || EditorUtility.IsPersistent(go);
+            #elif UNITY_2018_3_OR_NEWER
             return UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetPrefabStage(go) != null || EditorUtility.IsPersistent(go);
             #else
             return EditorUtility.IsPersistent(go);
@@ -202,7 +235,7 @@ namespace Photon.Pun
 
             EditorApplication.update += closureCallback;
         }
-        
+
         public static System.Collections.IEnumerator HttpPost(string url, Dictionary<string, string> headers, byte[] payload, Action<string> successCallback, Action<string> errorCallback)
         {
             using (UnityWebRequest w = new UnityWebRequest(url, "POST"))
@@ -229,10 +262,10 @@ namespace Photon.Pun
                 while (w.isDone == false)
                     yield return null;
 
-                #if UNITY_2017_1_OR_NEWER
+                #if UNITY_2020_2_OR_NEWER
+                if (w.result == UnityWebRequest.Result.ProtocolError || w.result == UnityWebRequest.Result.ConnectionError || w.result == UnityWebRequest.Result.DataProcessingError)
+                #elif UNITY_2017_1_OR_NEWER
                 if (w.isNetworkError || w.isHttpError)
-                #else
-                if (w.isError)
                 #endif
                 {
                     if (errorCallback != null)
@@ -248,6 +281,38 @@ namespace Photon.Pun
                     }
                 }
             }
+        }
+        /// <summary>
+        /// Creates a Foldout using a toggle with (GUIStyle)"Foldout") and a separate label. This is a workaround for 2019.3 foldout arrows not working.
+        /// </summary>
+        /// <param name="isExpanded"></param>
+        /// <param name="label"></param>
+        /// <returns>Returns the new isExpanded value.</returns>
+        public static bool Foldout(this SerializedProperty isExpanded, GUIContent label)
+        {
+            var rect = EditorGUILayout.GetControlRect();
+            bool newvalue = EditorGUI.Toggle(new Rect(rect) { xMin = rect.xMin + 2 }, GUIContent.none, isExpanded.boolValue, (GUIStyle)"Foldout");
+            EditorGUI.LabelField(new Rect(rect) { xMin = rect.xMin + 15 }, label);
+            if (newvalue != isExpanded.boolValue)
+            {
+                isExpanded.boolValue = newvalue;
+                isExpanded.serializedObject.ApplyModifiedProperties();
+            }
+            return newvalue;
+        }
+
+        /// <summary>
+        /// Creates a Foldout using a toggle with (GUIStyle)"Foldout") and a separate label. This is a workaround for 2019.3 foldout arrows not working.
+        /// </summary>
+        /// <param name="isExpanded"></param>
+        /// <param name="label"></param>
+        /// <returns>Returns the new isExpanded value.</returns>
+        public static bool Foldout(this bool isExpanded, GUIContent label)
+        {
+            var rect = EditorGUILayout.GetControlRect();
+            bool newvalue = EditorGUI.Toggle(new Rect(rect) { xMin = rect.xMin + 2 }, GUIContent.none, isExpanded, (GUIStyle)"Foldout");
+            EditorGUI.LabelField(new Rect(rect) { xMin = rect.xMin + 15 }, label);
+            return newvalue;
         }
     }
 
@@ -265,3 +330,4 @@ namespace Photon.Pun
         }
     }
 }
+#endif

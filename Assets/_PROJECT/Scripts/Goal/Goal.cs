@@ -17,6 +17,7 @@ public class Goal : MonoBehaviour
             EventManager.InvokeEvent("OnUnitReachedGoal", new Dictionary<string, object> { { "UnitID", unit.GetUnitStats().UnitID }, { "GoalOwnerID", goalOwnerID } });
 
             PhotonNetwork.Destroy(collision.GetComponent<PhotonView>());
+
         }
     }
 
