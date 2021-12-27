@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
 
-    [SerializeField] private string sceneToLoad;
+    [SerializeField] private string primarySceneToLoad;
+    [SerializeField] private string secondarySceneToLoad;
 
     [SerializeField] private TMP_InputField createRoomInput;
     [SerializeField] private TMP_InputField joinRoomInput;
@@ -33,7 +35,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         _isCreatingOrJoiningARoom = false;
-        PhotonNetwork.LoadLevel(sceneToLoad);
+        PhotonNetwork.LoadLevel(primarySceneToLoad);
+        SceneManager.LoadScene(secondarySceneToLoad, LoadSceneMode.Additive);
     }
 
 } 
