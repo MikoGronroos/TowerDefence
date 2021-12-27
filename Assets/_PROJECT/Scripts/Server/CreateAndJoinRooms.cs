@@ -5,6 +5,8 @@ using Photon.Pun;
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
 
+    [SerializeField] private string sceneToLoad;
+
     [SerializeField] private TMP_InputField createRoomInput;
     [SerializeField] private TMP_InputField joinRoomInput;
 
@@ -31,7 +33,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         _isCreatingOrJoiningARoom = false;
-        PhotonNetwork.LoadLevel("Game");
+        PhotonNetwork.LoadLevel(sceneToLoad);
     }
 
 } 
