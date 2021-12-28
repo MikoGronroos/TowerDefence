@@ -79,7 +79,7 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
 
     private void StartGame()
     {
-        if (currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1)
+        if ((currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1) || GameSettingsManager.Instance.GetGameSettings().Singleplayer)
         {
             _photonView.RPC("RPCStartGame", RpcTarget.All);
         }

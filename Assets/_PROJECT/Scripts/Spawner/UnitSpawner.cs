@@ -13,7 +13,7 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
 
     public void RequestUnitSpawn(string unitPrefabName, int id)
     {
-        if (GameManager.Instance.Singleplayer)
+        if (GameSettingsManager.Instance.GetGameSettings().Singleplayer)
         {
             //When game is singleplayer
             SpawnUnit(unitPrefabName, id);

@@ -3,8 +3,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private GameManagerUI _gameManagerUI;
 
-    public bool Singleplayer;
-
     private void Awake()
     {
         _gameManagerUI = GetComponent<GameManagerUI>();

@@ -25,8 +25,6 @@ public class GameSetup : MonoBehaviour
 
         PvpMissionManager.Instance.GetNewMissions(GameSettingsManager.Instance.GetGameSettings().StartingAmountOfMissions);
 
-        GameManager.Instance.Singleplayer = GameSettingsManager.Instance.GetGameSettings().Singleplayer;
-
     }
 
 
