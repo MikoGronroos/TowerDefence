@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void LeaveRoom()
     {
+        CleanUp.Instance.CleanUpScene();
         RoomController.LeaveTheRoom();
     }
 
