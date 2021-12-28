@@ -8,9 +8,10 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
     {
         var path = PathManager.Instance.GetPathWithPlayerID(id);
 
-        GameObject unit = PhotonNetwork.Instantiate(unitPrefabName, path.PathStartPos.position, Quaternion.identity);
+        object[] data = new object[1];
+        data[0] = PlayerManager.Instance.GetLocalPlayer().GetPlayerID();
+        GameObject unit = PhotonNetwork.Instantiate(unitPrefabName, path.PathStartPos.position, Quaternion.identity, 0, data);
         unit.GetComponent<FollowPath>().SetPath(path.ThisPath);
-        unit.GetComponent<Unit>().UnitOwnerID = PlayerManager.Instance.GetLocalPlayer().GetPlayerID();
     }
 
 }

@@ -3,7 +3,7 @@ using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
 
     [SerializeField] private TurretStats turretStats;
@@ -136,4 +136,12 @@ public class Turret : MonoBehaviour
         return turretStats;
     }
 
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        object[] data = this.gameObject.GetPhotonView().InstantiationData;
+        if (data != null && data.Length == 1)
+        {
+            TurretOwnerID = (int)data[0];
+        }
+    }
 }

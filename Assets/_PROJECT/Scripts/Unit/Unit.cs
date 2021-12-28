@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 
 [RequireComponent(typeof(FollowPath))]
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 {
 
     [SerializeField] private UnitStats unitStats;
@@ -76,4 +76,12 @@ public class Unit : MonoBehaviour
         return unitStats;
     }
 
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        object[] data = this.gameObject.GetPhotonView().InstantiationData;
+        if (data != null && data.Length == 1)
+        {
+            UnitOwnerID = (int)data[0];
+        }
+    }
 }
