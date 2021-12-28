@@ -14,6 +14,9 @@ public class GameSettings : ScriptableObject
     public int StartingHealth;
     public int StartingLevel;
 
+    [Header("General Game Settings")]
+    public bool Singleplayer;
+
     [Header("Pvp Missions")]
     public int StartingAmountOfMissions;
 

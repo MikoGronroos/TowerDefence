@@ -11,7 +11,7 @@ public class ShopItemUnit : ShopItem
 
     public override void BuyAction()
     {
-        UnitSpawner.Instance.SpawnUnit(ItemPrefab.name, PlayerManager.Instance.GetLocalPlayer().GetPlayerID());
+        UnitSpawner.Instance.RequestUnitSpawn(ItemPrefab.name, PlayerManager.Instance.GetLocalPlayer().GetPlayerID());
         VirtualCurrencyManager.Instance.AddIncome(IncomeAddonFromSpawning);
         PlayerLevel.Instance.AddXp(XpAddonWhenBought);
     }

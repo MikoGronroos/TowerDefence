@@ -4,8 +4,6 @@ using Photon.Pun;
 public class GameSetup : MonoBehaviour
 {
 
-    [SerializeField] private GameSettings settings;
-
     private PhotonView _photonView;
 
     private void Awake()
@@ -17,15 +15,17 @@ public class GameSetup : MonoBehaviour
     {
         EventCreator.CreateAllEvents();
 
-        VirtualCurrencyManager.Instance.SetCurrency(settings.StartingCurrency);
-        VirtualCurrencyManager.Instance.SetIncome(settings.StartingIncome);
-        VirtualCurrencyManager.Instance.SetInterval(settings.IncomeInterval);
+        VirtualCurrencyManager.Instance.SetCurrency(GameSettingsManager.Instance.GetGameSettings().StartingCurrency);
+        VirtualCurrencyManager.Instance.SetIncome(GameSettingsManager.Instance.GetGameSettings().StartingIncome);
+        VirtualCurrencyManager.Instance.SetInterval(GameSettingsManager.Instance.GetGameSettings().IncomeInterval);
 
-        HealthManager.Instance.SetHealhtOfEveryPlayer(settings.StartingHealth);
+        HealthManager.Instance.SetHealhtOfEveryPlayer(GameSettingsManager.Instance.GetGameSettings().StartingHealth);
 
-        PlayerLevel.Instance.SetLevel(settings.StartingLevel);
+        PlayerLevel.Instance.SetLevel(GameSettingsManager.Instance.GetGameSettings().StartingLevel);
 
-        PvpMissionManager.Instance.GetNewMissions(settings.StartingAmountOfMissions);
+        PvpMissionManager.Instance.GetNewMissions(GameSettingsManager.Instance.GetGameSettings().StartingAmountOfMissions);
+
+        GameManager.Instance.Singleplayer = GameSettingsManager.Instance.GetGameSettings().Singleplayer;
 
     }
 
