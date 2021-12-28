@@ -33,7 +33,7 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
             {
                 if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
                 {
-                    GameObject turret = PhotonNetwork.Instantiate(buildingPrefab.name, _hit.point, Quaternion.identity);
+                    TurretSpawner.Instance.SpawnTurret(buildingPrefab.name, _hit.point);
                     VirtualCurrencyManager.Instance.RemoveCurrency(_price);
                     buildingPrefab = null;
                     _price = 0;

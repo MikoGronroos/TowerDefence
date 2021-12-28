@@ -1,6 +1,5 @@
 using PathCreation;
 using UnityEngine;
-using Photon.Pun;
 
 public class FollowPath : MonoBehaviour
 {

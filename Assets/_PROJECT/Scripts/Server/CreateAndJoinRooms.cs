@@ -17,6 +17,9 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (!_isCreatingOrJoiningARoom)
         {
+
+            if (createRoomInput.text == "") return;
+
             _isCreatingOrJoiningARoom = true;
             PhotonNetwork.CreateRoom(createRoomInput.text);
         }
@@ -26,6 +29,9 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         if (!_isCreatingOrJoiningARoom)
         {
+
+            if (joinRoomInput.text == "") return;
+
             _isCreatingOrJoiningARoom = true;
             PhotonNetwork.JoinRoom(joinRoomInput.text);
         }

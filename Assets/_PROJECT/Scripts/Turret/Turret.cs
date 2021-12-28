@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Linq;
-using System.Collections.Generic;
 using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
@@ -16,11 +14,18 @@ public class Turret : MonoBehaviour
 
     private Transform _target = null;
 
+    private PhotonView _photonView;
+
     public int TurretOwnerID;
+
+    private void Awake()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
 
     private void Update()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (_photonView.IsMine)
         {
             StateMachine();
         }
