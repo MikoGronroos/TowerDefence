@@ -78,9 +78,14 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
-        object[] data = this.gameObject.GetPhotonView().InstantiationData;
+        var photonView = gameObject.GetPhotonView();
+        object[] data = photonView.InstantiationData;
         if (data != null && data.Length == 1)
         {
+            if (!photonView.IsMine)
+            {
+                photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
+            }
             UnitOwnerID = (int)data[0];
         }
     }

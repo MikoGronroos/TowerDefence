@@ -10,9 +10,9 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private TurretState currentState = TurretState.Idle;
 
-    private bool _shooting = false;
+    [SerializeField] private Transform target = null;
 
-    private Transform _target = null;
+    private bool _shooting = false;
 
     private PhotonView _photonView;
 
@@ -25,10 +25,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     private void Update()
     {
-        if (_photonView.IsMine)
-        {
-            StateMachine();
-        }
+        StateMachine();
     }
 
     #region Target Methods
@@ -60,7 +57,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         if (nearestTarget != null)
         {
-            _target = nearestTarget;
+            target = nearestTarget;
         }
 
         if (!NoTarget()) currentState = TurretState.Agro;
@@ -72,7 +69,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         if (NoTarget()) return;
 
-        var direction = MyUtils.GetDirectionVector2(transform.position, _target.position);
+        var direction = MyUtils.GetDirectionVector2(transform.position, target.position);
 
         float rot_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
@@ -94,7 +91,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         _shooting = true;
 
-        _target.GetComponent<IDamageable>().Damage(turretStats.Damage, turretStats.Projectiles);
+        target.GetComponent<IDamageable>().Damage(turretStats.Damage, turretStats.Projectiles);
 
         yield return new WaitForSeconds(turretStats.AttackSpeed);
 
@@ -128,7 +125,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     private bool NoTarget()
     {
-        return _target == null;
+        return target == null;
     }
 
     public TurretStats GetTurretStats()
