@@ -25,7 +25,10 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     private void Update()
     {
-        StateMachine();
+        if (_photonView.IsMine)
+        {
+            StateMachine();
+        }
     }
 
     #region Target Methods
