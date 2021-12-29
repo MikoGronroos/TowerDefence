@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Turret Stats")]
-public class TurretStats : ScriptableObject
+[System.Serializable]
+public class TurretStats
 {
 
     public string Name;

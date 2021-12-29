@@ -98,7 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb1c3952955ac24090b3d55fbc887c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretStats: {fileID: 11400000, guid: e3f15e29e07c0504bbd1d071405c09d2, type: 2}
+  turretStats:
+    Name: Simple Turret
+    Damage: 100
+    Range: 5
+    AttackSpeed: 2
+    Projectiles:
+    - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
   currentState: 0
   target: {fileID: 0}
   TurretOwnerID: 0
