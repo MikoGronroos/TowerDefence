@@ -1,27 +1,30 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CleanUp : MonoBehaviourSingleton<CleanUp>
 {
 
-    [SerializeField] private List<GameObject> objectsToCleanUp = new List<GameObject>();
+    private Dictionary<GameObject, Action> objectsToCleanUp = new Dictionary<GameObject, Action>();
 
     public void CleanUpScene()
     {
+
         foreach (var obj in objectsToCleanUp)
         {
 
-            if (obj.GetComponent<CleanUp>()) continue;
+            if (obj.Key.GetComponent<CleanUp>()) continue;
 
-            Destroy(obj);
+            obj.Value?.Invoke();
+            Destroy(obj.Key);
         }
         objectsToCleanUp.Clear();
-        objectsToCleanUp.Add(gameObject);
+        objectsToCleanUp.Add(gameObject, null);
     }
 
-    public void AddToCleanUp(GameObject obj)
+    public void AddToCleanUp(GameObject obj, Action callback)
     {
-        objectsToCleanUp.Add(obj);
+        objectsToCleanUp.Add(obj, callback);
     }
 
 }

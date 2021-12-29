@@ -27,8 +27,14 @@ public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
             _singletons.Add(GetType(), this);
             DontDestroyOnLoad(this);
 
-            CleanUp.Instance.AddToCleanUp(gameObject);
+            CleanUp.Instance.AddToCleanUp(gameObject, Callback);
 
         }
     }
+
+    private void Callback()
+    {
+        _singletons.Clear();
+    }
+
 }
