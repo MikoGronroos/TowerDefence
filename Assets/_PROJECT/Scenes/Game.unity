@@ -1962,8 +1962,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1971936841}
   - {fileID: 1751713887}
+  - {fileID: 1971936841}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3122,8 +3122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f05feb64c840e4ca426947dfaf3ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4913282841265707834, guid: 6e716c8fe2be17f49bb748fdc5b0029e, type: 3}
-  settings: {fileID: 11400000, guid: f02d455bb45d5cc478ac98956e2a54ea, type: 2}
 --- !u!114 &1011211221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4896,7 +4894,7 @@ RectTransform:
   m_Children:
   - {fileID: 1810256142}
   m_Father: {fileID: 687206999}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -5323,7 +5321,7 @@ RectTransform:
   - {fileID: 1245789784}
   - {fileID: 1716483203}
   m_Father: {fileID: 687206999}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
