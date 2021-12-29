@@ -5,23 +5,27 @@ using UnityEngine;
 public class LocalPlayer
 {
 
-    [SerializeField] private List<GameObject> unitQueue = new List<GameObject>();
-
     [SerializeField] private bool playerIsReady;
 
     [SerializeField] private int playerId;
 
+    [SerializeField] private List<Turret> playerTurrets = new List<Turret>();
+
     public bool IsLocal;
 
-    public void AddUnitToQueue(GameObject unit)
+    #region Turret
+
+    public void AddTurret(Turret turret)
     {
-        unitQueue.Add(unit);
+        playerTurrets.Add(turret);
     }
 
-    public void RemoveUnitFromQueue(GameObject unit)
+    public IEnumerable<Turret> GetPlayerTurrets()
     {
-
+        return playerTurrets;
     }
+
+    #endregion
 
     public void TogglePlayerIsReady(bool value)
     {

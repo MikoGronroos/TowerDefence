@@ -4,4 +4,9 @@
 public class LoanSettings : ScriptableObject
 {
     public float LoanPaymentTime;
+
+    public Effect[] LoanEffects;
+
+    public Effect[] LoanPaymentFailedEffects;
+
 }

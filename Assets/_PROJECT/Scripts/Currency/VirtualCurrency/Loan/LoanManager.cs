@@ -19,6 +19,12 @@ public class LoanManager : MonoBehaviourSingleton<LoanManager>
             VirtualCurrencyManager.Instance.AddCurrency(_currentLoan);
             hasTakenLoan = true;
             hasPaidLoan = false;
+
+            foreach (var effect in loanSettings.LoanEffects)
+            {
+                EffectManager.Instance.AddEffect(effect);
+            }
+
             StartCoroutine(LoanTimer());
         }
     }
@@ -37,6 +43,12 @@ public class LoanManager : MonoBehaviourSingleton<LoanManager>
             VirtualCurrencyManager.Instance.RemoveCurrency(_currentLoan);
             hasPaidLoan = true;
             hasTakenLoan = false;
+
+            foreach (var effect in loanSettings.LoanEffects)
+            {
+                EffectManager.Instance.RemoveEffect(effect);
+            }
+
         }
     }
 
