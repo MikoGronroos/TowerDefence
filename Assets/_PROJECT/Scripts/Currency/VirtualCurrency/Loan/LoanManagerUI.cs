@@ -10,6 +10,8 @@ public class LoanManagerUI : MonoBehaviour
     [SerializeField] private Button loanMenuButton;
     [SerializeField] private GameObject loanMenuPanel;
 
+    [SerializeField] private Button payLoanButton;
+
     [Header("Loan")]
 
     [SerializeField] private Button loanButton;
@@ -24,6 +26,10 @@ public class LoanManagerUI : MonoBehaviour
 
         loanMenuButton.onClick.AddListener(() => {
             ToggleLoanMenu();
+        });
+
+        payLoanButton.onClick.AddListener(() => {
+            LoanManager.Instance.PayLoan();
         });
 
     }
