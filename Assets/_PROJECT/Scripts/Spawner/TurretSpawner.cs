@@ -8,7 +8,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     {
         object[] data = new object[1];
         data[0] = PlayerManager.Instance.GetLocalPlayer().GetPlayerID();
-        GameObject turret = PhotonNetwork.Instantiate(turretPrefabName, point, Quaternion.identity, 0, data);
+        GameObject turret = PhotonNetwork.Instantiate("Turrets/" + turretPrefabName, point, Quaternion.identity, 0, data);
         PlayerManager.Instance.GetLocalPlayer().AddTurret(turret.GetComponent<Turret>());
     }
 

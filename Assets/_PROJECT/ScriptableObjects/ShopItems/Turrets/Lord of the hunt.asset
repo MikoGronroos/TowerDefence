@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
+  m_Name: Lord of the hunt
   m_EditorClassIdentifier: 
-  StartingCurrency: 350
-  StartingIncome: 100
-  IncomeInterval: 20
-  StartingHealth: 1000
-  StartingLevel: 1
-  Singleplayer: 1
-  StartingAmountOfMissions: 3
+  Cost: 75
+  Icon: {fileID: 0}
+  LevelToUnlock: 3
+  ItemPrefab: {fileID: 5728865167009762987, guid: 84695cb7e1d731f4d852d88fe8c20003, type: 3}
