@@ -4,15 +4,18 @@ using UnityEngine;
 public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyManager>
 {
 
-    private VirtualCurrencyManagerUI _virtualCurrencyManagerUI;
-
     [SerializeField] private int currentCurrency;
     [SerializeField] private int maxCurrency;
 
-    [SerializeField] private int currentIncome;
+    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
+
+    [SerializeField] private CustomFloat currentIncome;
     [SerializeField] private float incomeInterval;
+
     private float _timeLeft;
     private bool _timerActive;
+
+    private VirtualCurrencyManagerUI _virtualCurrencyManagerUI;
 
     private void Awake()
     {
@@ -83,25 +86,70 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     public void RemoveIncome(int value)
     {
-        var income = currentIncome - value;
-        SetIncome(income);
+        var income = currentIncome.BaseValue - value;
+        SetIncome((int)income);
     }
 
     public void AddIncome(int value)
     {
-        var income = currentIncome + value;
-        SetIncome(income);
+        var income = currentIncome.BaseValue + value;
+        SetIncome((int)income);
     }
 
     public void SetIncome(int value)
     {
-        currentIncome = value;
-        _virtualCurrencyManagerUI.UpdatePlayerIncome(currentIncome);
+        currentIncome.BaseValue = value;
+        UpdateIncome();
     }
 
     public void GiveIncome()
     {
-        AddCurrency(currentIncome);
+        AddCurrency((int)currentIncome.Value);
+    }
+
+    private void UpdateIncome()
+    {
+        CalculateEffects();
+    }
+
+    #endregion
+
+    #region Effects
+
+    public void AddEffect(Effect effect)
+    {
+        if (!currentEffects.Contains(effect))
+        {
+            currentEffects.Add(effect);
+            CalculateEffects();
+        }
+    }
+
+    public void RemoveEffect(Effect effect)
+    {
+        if (currentEffects.Contains(effect))
+        {
+            currentEffects.Remove(effect);
+            CalculateEffects();
+        }
+    }
+
+    public void CalculateEffects()
+    {
+        currentIncome.Value = currentIncome.BaseValue;
+        foreach (var newEffect in currentEffects)
+        {
+
+            var effect = newEffect as CurrencyEffect;
+
+            switch (effect.EffectType)
+            {
+                case CurrencyEffectType.Income:
+                    currentIncome.Value *= effect.Addon;
+                    break;
+            }
+        }
+        _virtualCurrencyManagerUI.UpdatePlayerIncome((int)currentIncome.Value);
     }
 
     #endregion

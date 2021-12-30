@@ -100,9 +100,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats:
     Name: Simple Turret
-    Damage: 100
-    Range: 5
-    AttackSpeed: 2
+    Damage:
+      BaseValue: 100
+      Value: 0
+    Range:
+      BaseValue: 5
+      Value: 0
+    AttackSpeed:
+      BaseValue: 2
+      Value: 0
     Projectiles:
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
   currentState: 0

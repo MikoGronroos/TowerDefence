@@ -1,24 +1,20 @@
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "Effects/Turret Effect")]
+[System.Serializable]
 public class TurretEffect : Effect
 {
 
-    public int DamageAddon;
-
-    public override void AddEffect()
+    public TurretEffect(float addon, TurretEffectType type)
     {
-        foreach (var turret in PlayerManager.Instance.GetLocalPlayer().GetPlayerTurrets())
-        {
-            turret.GetTurretStats().Damage += DamageAddon;
-        }
+        Addon = addon;
+        EffectType = type;
     }
 
-    public override void RemoveEffect()
-    {
-        foreach (var turret in PlayerManager.Instance.GetLocalPlayer().GetPlayerTurrets())
-        {
-            turret.GetTurretStats().Damage -= DamageAddon;
-        }
-    }
+    public TurretEffectType EffectType;
+
+}
+
+public enum TurretEffectType
+{
+    Damage,
+    Range,
+    AttackSpeed
 }

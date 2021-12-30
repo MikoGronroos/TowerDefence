@@ -1,10 +1,4 @@
-using UnityEngine;
-
-public abstract class Effect : ScriptableObject
+public abstract class Effect
 {
-
-    public abstract void AddEffect();
-
-    public abstract void RemoveEffect();
-
+    public float Addon;
 }

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5684f4fd9d7fe73429546bed155cdc77, type: 3}
   m_Name: LoanSettings
   m_EditorClassIdentifier: 
-  LoanPaymentTime: 15
+  LoanPaymentTime: 5
   LoanEffects:
   - {fileID: 11400000, guid: 7502cadf3796d924fbdf994df460b9b2, type: 2}
-  LoanPaymentFailedEffects: []
+  - {fileID: 11400000, guid: da8259a199ca13341beace8304d93cb8, type: 2}
+  LoanPaymentFailedEffects:
+  - {fileID: 11400000, guid: 2bf100461c0f2a54da29f2673656de1a, type: 2}

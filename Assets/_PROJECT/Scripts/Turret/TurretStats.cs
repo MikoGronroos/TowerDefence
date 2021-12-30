@@ -1,16 +1,14 @@
-using UnityEngine;
-
 [System.Serializable]
 public class TurretStats
 {
 
     public string Name;
 
-    public float Damage;
+    public CustomFloat Damage;
 
-    public float Range;
+    public CustomFloat Range;
 
-    public float AttackSpeed;
+    public CustomFloat AttackSpeed;
 
     public ProjectileType[] Projectiles;
 

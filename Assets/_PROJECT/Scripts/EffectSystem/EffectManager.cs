@@ -11,7 +11,6 @@ public class EffectManager : MonoBehaviourSingleton<EffectManager>
         if (!currentEffects.Contains(effect))
         {
             currentEffects.Add(effect);
-            effect.AddEffect();
         }
     }
 
@@ -20,7 +19,6 @@ public class EffectManager : MonoBehaviourSingleton<EffectManager>
         if (currentEffects.Contains(effect))
         {
             currentEffects.Remove(effect);
-            effect.RemoveEffect();
         }
     }
 }

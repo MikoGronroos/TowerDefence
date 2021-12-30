@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
+public abstract class MonoBehaviourSingletonDontDestroyOnLoad<T> : MonoBehaviour
 {
 
     private static Dictionary<Type, object> _singletons
@@ -25,8 +25,7 @@ public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
         else
         {
             _singletons.Add(GetType(), this);
-
+            DontDestroyOnLoad(this);
         }
     }
-
 }

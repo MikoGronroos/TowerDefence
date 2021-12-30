@@ -15,7 +15,7 @@ MonoBehaviour:
   StartingCurrency: 350
   StartingIncome: 100
   IncomeInterval: 20
-  StartingHealth: 10000
+  StartingHealth: 15
   StartingLevel: 1
   Singleplayer: 1
   StartingAmountOfMissions: 3

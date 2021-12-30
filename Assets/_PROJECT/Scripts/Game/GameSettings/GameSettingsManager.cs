@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameSettingsManager : MonoBehaviourSingleton<GameSettingsManager>
+public class GameSettingsManager : MonoBehaviourSingletonDontDestroyOnLoad<GameSettingsManager>
 {
 
     [SerializeField] private GameSettings currentSettings;

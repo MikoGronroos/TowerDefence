@@ -2,6 +2,7 @@ using UnityEngine;
 using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -12,6 +13,8 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private Transform target = null;
 
+    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
+
     private bool _shooting = false;
 
     private PhotonView _photonView;
@@ -21,6 +24,13 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     private void Awake()
     {
         _photonView = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        turretStats.Damage.Value = turretStats.Damage.BaseValue;
+        turretStats.Range.Value = turretStats.Damage.BaseValue;
+        turretStats.AttackSpeed.Value = turretStats.Damage.BaseValue;
     }
 
     private void Update()
@@ -36,7 +46,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     private void GetValidTarget()
     {
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, turretStats.Range);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, turretStats.Range.Value);
 
         float shortestDistance = Mathf.Infinity;
         Transform nearestTarget = null;
@@ -94,9 +104,9 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         _shooting = true;
 
-        target.GetComponent<IDamageable>().Damage(turretStats.Damage, turretStats.Projectiles);
+        target.GetComponent<IDamageable>().Damage(turretStats.Damage.Value, turretStats.Projectiles);
 
-        yield return new WaitForSeconds(turretStats.AttackSpeed);
+        yield return new WaitForSeconds(turretStats.AttackSpeed.Value);
 
         _shooting = false;
     }
@@ -121,6 +131,55 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
                 FollowClosestTarget();
                 if (!_shooting) StartCoroutine(Shoot());
                 break;
+        }
+    }
+
+    #endregion
+
+    #region Effects
+
+    public void AddEffect(Effect effect)
+    {
+        if (!currentEffects.Contains(effect))
+        {
+            currentEffects.Add(effect);
+            CalculateEffects();
+        }
+    }
+
+    public void RemoveEffect(Effect effect)
+    {
+        if (currentEffects.Contains(effect))
+        {
+            currentEffects.Remove(effect);
+            CalculateEffects();
+        }
+    }
+
+    public void CalculateEffects()
+    {
+
+        turretStats.Damage.Value = turretStats.Damage.BaseValue;
+        turretStats.Range.Value = turretStats.Damage.BaseValue;
+        turretStats.AttackSpeed.Value = turretStats.Damage.BaseValue;
+
+        foreach (var newEffect in currentEffects)
+        {
+
+            var effect = newEffect as TurretEffect;
+
+            switch (effect.EffectType)
+            {
+                case TurretEffectType.AttackSpeed:
+                    turretStats.AttackSpeed.Value *= effect.Addon;
+                    break;
+                case TurretEffectType.Damage:
+                    turretStats.Damage.Value *= effect.Addon;
+                    break;
+                case TurretEffectType.Range:
+                    turretStats.Range.Value *= effect.Addon;
+                    break;
+            }
         }
     }
 
