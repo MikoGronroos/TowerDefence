@@ -5355,6 +5355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec84f5b23db63c4cb0df7eca0eefe3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Turrets/
 --- !u!114 &1614889372
 MonoBehaviour:
   m_ObjectHideFlags: 0
