@@ -4,21 +4,11 @@ using UnityEngine;
 public class EffectManager : MonoBehaviourSingleton<EffectManager>
 {
 
-    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
+    public Dictionary<int, Effect> EffectDictionary = new Dictionary<int, Effect>();
 
-    public void AddEffect(Effect effect)
+    public Sprite GetEffectIcon(string iconName)
     {
-        if (!currentEffects.Contains(effect))
-        {
-            currentEffects.Add(effect);
-        }
+        return Resources.Load("Icons/Effects/" + iconName) as Sprite;
     }
 
-    public void RemoveEffect(Effect effect)
-    {
-        if (currentEffects.Contains(effect))
-        {
-            currentEffects.Remove(effect);
-        }
-    }
 }

@@ -1,6 +1,3 @@
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "Effects/Currency Effect")]
 public class CurrencyEffect : Effect
 {
 
