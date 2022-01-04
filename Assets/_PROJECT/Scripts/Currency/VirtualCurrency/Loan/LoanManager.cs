@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LoanManager : MonoBehaviourSingleton<LoanManager>
@@ -9,8 +8,6 @@ public class LoanManager : MonoBehaviourSingleton<LoanManager>
     [SerializeField] private bool hasPaidLoan;
 
     [SerializeField] private LoanSettings loanSettings;
-
-    private List<Effect> _givenEffects = new List<Effect>();
 
     private int _currentLoan;
 
@@ -23,26 +20,8 @@ public class LoanManager : MonoBehaviourSingleton<LoanManager>
             hasTakenLoan = true;
             hasPaidLoan = false;
 
-            GiveEffects();
-
             StartCoroutine(LoanTimer());
         }
-    }
-
-    private void GiveEffects()
-    {
-        foreach (var turret in PlayerManager.Instance.GetLocalPlayer().GetPlayerTurrets())
-        {
-            var effect = new TurretEffect(0.75f, TurretEffectType.Damage);
-            turret.AddEffect(effect);
-            _givenEffects.Add(effect);
-        }
-
-        VirtualCurrencyManager.Instance.AddEffect(new CurrencyEffect(0.85f, CurrencyEffectType.Income));
-    }
-    private void RemoveEffects()
-    {
-
     }
 
 

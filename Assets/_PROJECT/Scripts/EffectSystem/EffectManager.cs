@@ -4,11 +4,14 @@ using UnityEngine;
 public class EffectManager : MonoBehaviourSingleton<EffectManager>
 {
 
-    public Dictionary<int, Effect> EffectDictionary = new Dictionary<int, Effect>();
+    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
 
-    public Sprite GetEffectIcon(string iconName)
+    private void Update()
     {
-        return Resources.Load("Icons/Effects/" + iconName) as Sprite;
+        foreach (var effect in currentEffects)
+        {
+            effect.Tick();
+        }
     }
 
 }

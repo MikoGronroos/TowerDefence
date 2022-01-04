@@ -58,5 +58,10 @@ namespace Finark.Utils
             return worldPosition;
         }
 
+        public static float DotProduct(Vector3 firstVector, Vector3 secondVector)
+        {
+            return Vector3.Dot(firstVector, secondVector);
+        }
+
     }
 }

@@ -1,9 +1,13 @@
-public abstract class Effect
+using UnityEngine;
+
+public abstract class Effect : ScriptableObject
 {
     public float Addon;
 
-    public string IconName;
+    public Sprite IconName;
 
     public int Id;
+
+    public abstract void Tick();
 
 }

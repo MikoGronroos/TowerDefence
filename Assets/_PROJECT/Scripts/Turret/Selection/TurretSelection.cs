@@ -47,6 +47,8 @@ public class TurretSelection : MonoBehaviour
             }
             else
             {
+                if (MyUtils.IsPointerOverUI()) return;
+
                 selectedTurret = null;
                 _turretSelectionUI.CloseSelectionUI();
             }

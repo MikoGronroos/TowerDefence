@@ -1,17 +1,11 @@
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Effects/Currency")]
 public class CurrencyEffect : Effect
 {
-
-    public CurrencyEffect(float addon, CurrencyEffectType type)
+    public override void Tick()
     {
-        Addon = addon;
-        EffectType = type;
+
     }
 
-    public CurrencyEffectType EffectType;
-
-}
-
-public enum CurrencyEffectType
-{
-    Income
 }
