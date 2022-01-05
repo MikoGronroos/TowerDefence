@@ -4831,6 +4831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76c938fd0a12fe4fb8b13cf32fb502d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEffects:
+  - {fileID: 11400000, guid: f5004d1c0e0eb0e4382cf867a1154bf2, type: 2}
 --- !u!1 &1182223429
 GameObject:
   m_ObjectHideFlags: 0
@@ -5604,6 +5606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCurrency: 0
   maxCurrency: 2147483647
+  currentEffects: []
   currentIncome:
     BaseValue: 0
     Value: 0

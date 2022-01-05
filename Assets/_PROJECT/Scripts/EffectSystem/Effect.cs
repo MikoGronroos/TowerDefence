@@ -1,12 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Effect : ScriptableObject
 {
-    public float Addon;
 
-    public Sprite IconName;
+    public Sprite Icon;
 
-    public int Id;
+    public List<object> EffectTargets = new List<object>();
 
     public abstract void Tick();
 
