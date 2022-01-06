@@ -1,3 +1,3 @@
-public class TurretEffect : Effect
+public class TurretEffect : EntityEffect
 {
 }

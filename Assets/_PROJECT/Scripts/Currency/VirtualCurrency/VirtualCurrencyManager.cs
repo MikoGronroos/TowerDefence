@@ -7,8 +7,6 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     [SerializeField] private int currentCurrency;
     [SerializeField] private int maxCurrency;
 
-    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
-
     [SerializeField] private CustomFloat currentIncome;
     [SerializeField] private float incomeInterval;
 

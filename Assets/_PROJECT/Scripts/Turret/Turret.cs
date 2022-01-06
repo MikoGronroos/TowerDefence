@@ -2,7 +2,6 @@ using UnityEngine;
 using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
-using System.Collections.Generic;
 
 public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -12,8 +11,6 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField] private TurretState currentState = TurretState.Idle;
 
     [SerializeField] private Transform target = null;
-
-    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
 
     private bool _shooting = false;
 

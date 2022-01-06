@@ -1,3 +1,3 @@
-public class CurrencyEffect : Effect
+public class CurrencyEffect : GlobalEffect
 {
 }
