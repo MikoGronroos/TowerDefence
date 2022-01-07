@@ -7,8 +7,6 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     [SerializeField] private int currentCurrency;
     [SerializeField] private int maxCurrency;
 
-    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
-
     [SerializeField] private CustomFloat currentIncome;
     [SerializeField] private float incomeInterval;
 
@@ -109,49 +107,9 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     private void UpdateIncome()
     {
-        CalculateEffects();
-    }
-
-    #endregion
-
-    #region Effects
-
-    public void AddEffect(Effect effect)
-    {
-        if (!currentEffects.Contains(effect))
-        {
-            currentEffects.Add(effect);
-            CalculateEffects();
-        }
-    }
-
-    public void RemoveEffect(Effect effect)
-    {
-        if (currentEffects.Contains(effect))
-        {
-            currentEffects.Remove(effect);
-            CalculateEffects();
-        }
-    }
-
-    public void CalculateEffects()
-    {
         currentIncome.Value = currentIncome.BaseValue;
-        foreach (var newEffect in currentEffects)
-        {
-
-            var effect = newEffect as CurrencyEffect;
-
-            switch (effect.EffectType)
-            {
-                case CurrencyEffectType.Income:
-                    currentIncome.Value *= effect.Addon;
-                    break;
-            }
-        }
         _virtualCurrencyManagerUI.UpdatePlayerIncome((int)currentIncome.Value);
     }
 
     #endregion
-
 }

@@ -1,17 +1,3 @@
-public class CurrencyEffect : Effect
+public class CurrencyEffect : GlobalEffect
 {
-
-    public CurrencyEffect(float addon, CurrencyEffectType type)
-    {
-        Addon = addon;
-        EffectType = type;
-    }
-
-    public CurrencyEffectType EffectType;
-
-}
-
-public enum CurrencyEffectType
-{
-    Income
 }

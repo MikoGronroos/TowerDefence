@@ -2,7 +2,6 @@ using UnityEngine;
 using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
-using System.Collections.Generic;
 
 public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -12,8 +11,6 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField] private TurretState currentState = TurretState.Idle;
 
     [SerializeField] private Transform target = null;
-
-    [SerializeField] private List<Effect> currentEffects = new List<Effect>();
 
     private bool _shooting = false;
 
@@ -29,8 +26,8 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     private void Start()
     {
         turretStats.Damage.Value = turretStats.Damage.BaseValue;
-        turretStats.Range.Value = turretStats.Damage.BaseValue;
-        turretStats.AttackSpeed.Value = turretStats.Damage.BaseValue;
+        turretStats.Range.Value = turretStats.Range.BaseValue;
+        turretStats.AttackSpeed.Value = turretStats.AttackSpeed.BaseValue;
     }
 
     private void Update()
@@ -131,55 +128,6 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
                 FollowClosestTarget();
                 if (!_shooting) StartCoroutine(Shoot());
                 break;
-        }
-    }
-
-    #endregion
-
-    #region Effects
-
-    public void AddEffect(Effect effect)
-    {
-        if (!currentEffects.Contains(effect))
-        {
-            currentEffects.Add(effect);
-            CalculateEffects();
-        }
-    }
-
-    public void RemoveEffect(Effect effect)
-    {
-        if (currentEffects.Contains(effect))
-        {
-            currentEffects.Remove(effect);
-            CalculateEffects();
-        }
-    }
-
-    public void CalculateEffects()
-    {
-
-        turretStats.Damage.Value = turretStats.Damage.BaseValue;
-        turretStats.Range.Value = turretStats.Damage.BaseValue;
-        turretStats.AttackSpeed.Value = turretStats.Damage.BaseValue;
-
-        foreach (var newEffect in currentEffects)
-        {
-
-            var effect = newEffect as TurretEffect;
-
-            switch (effect.EffectType)
-            {
-                case TurretEffectType.AttackSpeed:
-                    turretStats.AttackSpeed.Value *= effect.Addon;
-                    break;
-                case TurretEffectType.Damage:
-                    turretStats.Damage.Value *= effect.Addon;
-                    break;
-                case TurretEffectType.Range:
-                    turretStats.Range.Value *= effect.Addon;
-                    break;
-            }
         }
     }
 
