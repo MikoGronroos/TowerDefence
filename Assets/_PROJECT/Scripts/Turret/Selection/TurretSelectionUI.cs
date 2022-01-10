@@ -18,6 +18,15 @@ public class TurretSelectionUI : MonoBehaviour
     [SerializeField] private Button sellTurretButton;
     [SerializeField] private TextMeshProUGUI sellPriceText;
 
+    private void Awake()
+    {
+        sellTurretButton.onClick.AddListener(() => {
+
+            TurretSelection.Instance.SellSelectedTurret();
+
+        });
+    }
+
     public void OpenSelectionUI(Turret turret)
     {
 
@@ -26,6 +35,8 @@ public class TurretSelectionUI : MonoBehaviour
         damageValueText.text = turret.GetTurretStats().Damage.Value.ToString();
         rangeValueText.text = turret.GetTurretStats().Range.Value.ToString();
         attackSpeedValueText.text = turret.GetTurretStats().AttackSpeed.Value.ToString();
+
+        sellPriceText.text = $"{turret.GetTurretStats().SellPrice}$";
 
         turretSelectionMenu.SetActive(true);
     }

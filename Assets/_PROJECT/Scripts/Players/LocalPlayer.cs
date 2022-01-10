@@ -9,23 +9,7 @@ public class LocalPlayer
 
     [SerializeField] private int playerId;
 
-    [SerializeField] private List<Turret> playerTurrets = new List<Turret>();
-
     public bool IsLocal;
-
-    #region Turret
-
-    public void AddTurret(Turret turret)
-    {
-        playerTurrets.Add(turret);
-    }
-
-    public IEnumerable<Turret> GetPlayerTurrets()
-    {
-        return playerTurrets;
-    }
-
-    #endregion
 
     public void TogglePlayerIsReady(bool value)
     {

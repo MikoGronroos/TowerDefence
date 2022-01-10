@@ -12,5 +12,6 @@ public class TurretStats
 
     public ProjectileType[] Projectiles;
 
+    public int SellPrice;
 
 }

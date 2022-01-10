@@ -111,6 +111,7 @@ MonoBehaviour:
       Value: 0
     Projectiles:
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
+    SellPrice: 100
   currentState: 0
   target: {fileID: 0}
   TurretOwnerID: 0

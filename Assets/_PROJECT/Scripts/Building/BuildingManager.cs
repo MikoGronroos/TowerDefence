@@ -15,6 +15,8 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     private int _price;
 
+    private bool _isBuilding;
+
     private void Update()
     {
 
@@ -58,5 +60,9 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
         _price = price;
     }
 
+    public bool IsBuilding()
+    {
+        return _isBuilding;
+    }
 
 }

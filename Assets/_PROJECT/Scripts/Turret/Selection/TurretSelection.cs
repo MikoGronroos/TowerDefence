@@ -1,16 +1,18 @@
 using UnityEngine;
 using Finark.Utils;
 
-public class TurretSelection : MonoBehaviour
+public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 {
 
     [SerializeField] private Turret selectedTurret;
 
     private TurretSelectionUI _turretSelectionUI;
+    private RangeVisualisation _rangeVisualisation;
 
     private void Awake()
     {
         _turretSelectionUI = GetComponent<TurretSelectionUI>();
+        _rangeVisualisation = GetComponent<RangeVisualisation>();
     }
 
     private void Update()
@@ -42,13 +44,23 @@ public class TurretSelection : MonoBehaviour
 
             if (hit.transform.TryGetComponent(out Turret turret))
             {
+
+                if (selectedTurret != null)
+                {
+                    _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
+                }
+
                 selectedTurret = turret;
                 _turretSelectionUI.OpenSelectionUI(selectedTurret);
+                _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretStats().Range.Value, .3f);
             }
             else
             {
                 if (MyUtils.IsPointerOverUI()) return;
 
+                if (selectedTurret == null) return;
+
+                _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
                 selectedTurret = null;
                 _turretSelectionUI.CloseSelectionUI();
             }
@@ -57,6 +69,12 @@ public class TurretSelection : MonoBehaviour
 
 #endif
 
+    }
+
+    public void SellSelectedTurret()
+    {
+        Destroy(selectedTurret.gameObject);
+        VirtualCurrencyManager.Instance.AddCurrency(selectedTurret.GetTurretStats().SellPrice);
     }
 
 }
