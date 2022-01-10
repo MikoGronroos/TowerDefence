@@ -12,6 +12,8 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private Transform target = null;
 
+    [SerializeField] private UpgradePaths turretUpgradePaths;
+
     private bool _shooting = false;
 
     private PhotonView _photonView;
