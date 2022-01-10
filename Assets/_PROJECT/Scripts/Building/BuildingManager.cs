@@ -35,7 +35,8 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
             {
                 if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
                 {
-                    TurretSpawner.Instance.SpawnTurret(buildingPrefab.name, _hit.point);
+                    var turret = TurretSpawner.Instance.SpawnTurret(buildingPrefab.name, _hit.point);
+                    turret.GetTurretStats().SellPrice = _price / 2;
                     VirtualCurrencyManager.Instance.RemoveCurrency(_price);
                     buildingPrefab = null;
                     _price = 0;

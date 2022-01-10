@@ -1,5 +1,6 @@
 using UnityEngine;
 using Finark.Utils;
+using Photon.Pun;
 
 public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 {
@@ -73,7 +74,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
     public void SellSelectedTurret()
     {
-        Destroy(selectedTurret.gameObject);
+        PhotonNetwork.Destroy(selectedTurret.gameObject.GetPhotonView());
         VirtualCurrencyManager.Instance.AddCurrency(selectedTurret.GetTurretStats().SellPrice);
     }
 
