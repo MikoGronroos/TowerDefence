@@ -75,7 +75,13 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
     public void SellSelectedTurret()
     {
         PhotonNetwork.Destroy(selectedTurret.gameObject.GetPhotonView());
+
         VirtualCurrencyManager.Instance.AddCurrency(selectedTurret.GetTurretStats().SellPrice);
+
+        selectedTurret = null;
+
+        _turretSelectionUI.CloseSelectionUI();
+
     }
 
 }
