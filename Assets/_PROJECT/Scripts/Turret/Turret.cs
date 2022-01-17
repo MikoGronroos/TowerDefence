@@ -145,6 +145,11 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
         return turretStats;
     }
 
+    public UpgradePaths GetUpgradePaths()
+    {
+        return turretUpgradePaths;
+    }
+
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         object[] data = this.gameObject.GetPhotonView().InstantiationData;

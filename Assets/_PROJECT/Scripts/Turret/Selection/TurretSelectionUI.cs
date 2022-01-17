@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class TurretSelectionUI : MonoBehaviour
 {
@@ -17,6 +18,16 @@ public class TurretSelectionUI : MonoBehaviour
 
     [SerializeField] private Button sellTurretButton;
     [SerializeField] private TextMeshProUGUI sellPriceText;
+
+    [Header("Prefabs")]
+
+    [SerializeField] private GameObject upgradePathPrefab;
+
+    [Header("Parent Transforms")]
+
+    [SerializeField] private Transform upgradePathParent;
+
+    private List<GameObject> drawnUpgradePaths = new List<GameObject>();
 
     private void Awake()
     {
@@ -38,12 +49,30 @@ public class TurretSelectionUI : MonoBehaviour
 
         sellPriceText.text = $"{turret.GetTurretStats().SellPrice}$";
 
+        EraseDrawnUpgradePaths();
+
+        foreach (var path in turret.GetUpgradePaths().Paths)
+        {
+            GameObject pathGameObject = Instantiate(upgradePathPrefab, upgradePathParent);
+            drawnUpgradePaths.Add(pathGameObject);
+        }
+
         turretSelectionMenu.SetActive(true);
     }
 
     public void CloseSelectionUI()
     {
         turretSelectionMenu.SetActive(false);
+    }
+
+    private void EraseDrawnUpgradePaths()
+    {
+        for (int i = drawnUpgradePaths.Count - 1; i >= 0; i--)
+        {
+            Destroy(drawnUpgradePaths[i]);
+        }
+
+        drawnUpgradePaths.Clear();
     }
 
 }
