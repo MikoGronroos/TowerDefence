@@ -53,7 +53,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
                 selectedTurret = turret;
                 _turretSelectionUI.OpenSelectionUI(selectedTurret);
-                _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretStats().Range.Value, .3f);
+                _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetPrimaryTurretExecutable().Range.Value, .3f);
             }
             else
             {

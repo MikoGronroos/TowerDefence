@@ -11,11 +11,15 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private TurretState currentState = TurretState.Idle;
 
+    [SerializeField] private TurretExecutable primaryExecutable;
+
+    [SerializeField] private TurretExecutable secondaryExecutable;
+
     [SerializeField] private Transform target = null;
 
     [SerializeField] private UpgradePaths turretUpgradePaths;
 
-    [SerializeField] private int[] turretUpgradePathIndex;
+    [SerializeField] private int[] turretUpgradePathIndex = new int[3];
 
     private bool _shooting = false;
 
@@ -30,9 +34,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     private void Start()
     {
-        turretStats.Damage.Value = turretStats.Damage.BaseValue;
-        turretStats.Range.Value = turretStats.Range.BaseValue;
-        turretStats.AttackSpeed.Value = turretStats.AttackSpeed.BaseValue;
+        RefreshValues();
     }
 
     private void Update()
@@ -48,7 +50,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     private void GetValidTarget()
     {
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, turretStats.Range.Value);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, primaryExecutable.Range.Value);
 
         float shortestDistance = Mathf.Infinity;
         Transform nearestTarget = null;
@@ -106,9 +108,9 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         _shooting = true;
 
-        target.GetComponent<IDamageable>().Damage(turretStats.Damage.Value, turretStats.Projectiles);
+        target.GetComponent<IDamageable>().Damage(primaryExecutable.Damage.Value, primaryExecutable.ProjectileTypes);
 
-        yield return new WaitForSeconds(turretStats.AttackSpeed.Value);
+        yield return new WaitForSeconds(primaryExecutable.AttackSpeed.Value);
 
         _shooting = false;
     }
@@ -142,7 +144,9 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     public void UpgaredTurret(int turretPathIndex)
     {
+        turretUpgradePaths.Paths[turretPathIndex].Upgrades[turretUpgradePathIndex[turretPathIndex]].UseUpgrade(this);
         turretUpgradePathIndex[turretPathIndex]++;
+        RefreshValues();
     }
 
     public UpgradePaths GetUpgradePaths()
@@ -156,6 +160,37 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     }
 
     #endregion
+
+    #region Turret Executable
+
+    public void AddNewPrimaryExecutable(TurretExecutable executable)
+    {
+        primaryExecutable = executable;
+    }
+
+    public void AddNewSecondaryExecutable(TurretExecutable executable)
+    {
+        secondaryExecutable = executable;
+    }
+
+    public TurretExecutable GetPrimaryTurretExecutable()
+    {
+        return primaryExecutable;
+    }
+
+    public TurretExecutable GetSecondaryTurretExecutable()
+    {
+        return secondaryExecutable;
+    }
+
+    #endregion
+
+    private void RefreshValues()
+    {
+        primaryExecutable.Damage.Value = primaryExecutable.Damage.BaseValue;
+        primaryExecutable.Range.Value = primaryExecutable.Range.BaseValue;
+        primaryExecutable.AttackSpeed.Value = primaryExecutable.AttackSpeed.BaseValue;
+    }
 
     private bool NoTarget()
     {

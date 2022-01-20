@@ -28,9 +28,9 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         _followPath.SetSpeed(unitStats.Speed);
     }
 
-    public void RemoveCurrentHealth(float amount, ProjectileType[] projectiles)
+    public void RemoveCurrentHealth(float amount, IEnumerable<ProjectileType> types)
     {
-        if (AllowedToMakeDamage(projectiles))
+        if (AllowedToMakeDamage(types))
         {
             currentHealth -= amount;
         }
@@ -45,7 +45,7 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         }
     }
 
-    private bool AllowedToMakeDamage(ProjectileType[] types)
+    private bool AllowedToMakeDamage(IEnumerable<ProjectileType> types)
     {
         foreach (var projectileType in unitStats.ProjectileTypesAllowed)
         {

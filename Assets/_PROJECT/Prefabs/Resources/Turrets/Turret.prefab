@@ -100,6 +100,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats:
     Name: Simple Turret
+    SellPrice: 100
+  currentState: 0
+  primaryExecutable:
+    IsPrimaryExecutable: 1
+    NeedsTarget: 0
+    ProjectileTypes: []
     Damage:
       BaseValue: 100
       Value: 0
@@ -109,10 +115,23 @@ MonoBehaviour:
     AttackSpeed:
       BaseValue: 2
       Value: 0
-    Projectiles:
-    - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
-    SellPrice: 100
-  currentState: 0
+    ExecutablePrefab: {fileID: 0}
+    Job: {fileID: 0}
+  secondaryExecutable:
+    IsPrimaryExecutable: 0
+    NeedsTarget: 0
+    ProjectileTypes: []
+    Damage:
+      BaseValue: 0
+      Value: 0
+    Range:
+      BaseValue: 0
+      Value: 0
+    AttackSpeed:
+      BaseValue: 0
+      Value: 0
+    ExecutablePrefab: {fileID: 0}
+    Job: {fileID: 0}
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
   turretUpgradePathIndex: 000000000000000000000000

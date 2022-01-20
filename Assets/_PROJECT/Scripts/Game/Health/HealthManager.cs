@@ -11,23 +11,8 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
 
     private PhotonView _photonView;
 
-    #region Singleton
-
-    private static HealthManager _instance;
-
-    public static HealthManager Instance
-    {
-        get
-        {
-            return _instance;
-        }
-    }
-
-    #endregion
-
     private void Awake()
     {
-        _instance = this;
         _healthManagerUI = GetComponent<HealthManagerUI>();
         _photonView = GetComponent<PhotonView>();
     }

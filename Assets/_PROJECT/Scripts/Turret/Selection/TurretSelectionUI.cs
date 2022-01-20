@@ -43,9 +43,9 @@ public class TurretSelectionUI : MonoBehaviour
 
         turretNameText.text = turret.GetTurretStats().Name;
 
-        damageValueText.text = turret.GetTurretStats().Damage.Value.ToString();
-        rangeValueText.text = turret.GetTurretStats().Range.Value.ToString();
-        attackSpeedValueText.text = turret.GetTurretStats().AttackSpeed.Value.ToString();
+        damageValueText.text = turret.GetPrimaryTurretExecutable().Damage.Value.ToString();
+        rangeValueText.text = turret.GetPrimaryTurretExecutable().Range.Value.ToString();
+        attackSpeedValueText.text = turret.GetPrimaryTurretExecutable().AttackSpeed.Value.ToString();
 
         sellPriceText.text = $"{turret.GetTurretStats().SellPrice}$";
 
