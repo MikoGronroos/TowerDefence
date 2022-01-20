@@ -2,6 +2,7 @@ using UnityEngine;
 using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
+using System;
 
 public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -13,6 +14,8 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField] private Transform target = null;
 
     [SerializeField] private UpgradePaths turretUpgradePaths;
+
+    [SerializeField] private int[] turretUpgradePathIndex;
 
     private bool _shooting = false;
 
@@ -135,6 +138,25 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     #endregion
 
+    #region Turret Upgrade Paths
+
+    public void UpgaredTurret(int turretPathIndex)
+    {
+        turretUpgradePathIndex[turretPathIndex]++;
+    }
+
+    public UpgradePaths GetUpgradePaths()
+    {
+        return turretUpgradePaths;
+    }
+
+    public int[] GetTurretPathIndex()
+    {
+        return turretUpgradePathIndex;
+    }
+
+    #endregion
+
     private bool NoTarget()
     {
         return target == null;
@@ -145,11 +167,6 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
         return turretStats;
     }
 
-    public UpgradePaths GetUpgradePaths()
-    {
-        return turretUpgradePaths;
-    }
-
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         object[] data = this.gameObject.GetPhotonView().InstantiationData;
@@ -158,4 +175,14 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
             TurretOwnerID = (int)data[0];
         }
     }
+
+    private void OnValidate()
+    {
+        if (turretUpgradePathIndex.Length != 3)
+        {
+            Debug.LogWarning("Don't change the 'Paths' field's array size!");
+            Array.Resize(ref turretUpgradePathIndex, 3);
+        }
+    }
+
 }

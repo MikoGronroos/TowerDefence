@@ -116,6 +116,7 @@ MonoBehaviour:
   currentState: 0
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
+  turretUpgradeIndex: 000000000000000000000000
   TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:

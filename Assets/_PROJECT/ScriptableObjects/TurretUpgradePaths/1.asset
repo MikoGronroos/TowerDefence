@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   Paths:
-  - Upgrades: []
-  - Upgrades: []
-  - Upgrades: []
+  - Upgrades:
+    - Name: 
+      Icon: {fileID: 21300000, guid: d4a88abd21ca87b4f94278472deabe58, type: 3}
+  - Upgrades:
+    - Name: 
+      Icon: {fileID: 21300000, guid: 8b6118f111e1d2c4195228384dc3b396, type: 3}
+  - Upgrades:
+    - Name: 
+      Icon: {fileID: 21300000, guid: f37512c252f974a48a16303d231641db, type: 3}

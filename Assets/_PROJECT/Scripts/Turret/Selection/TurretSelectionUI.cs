@@ -51,10 +51,24 @@ public class TurretSelectionUI : MonoBehaviour
 
         EraseDrawnUpgradePaths();
 
+        int index = 0;
+
         foreach (var path in turret.GetUpgradePaths().Paths)
         {
+
+
             GameObject pathGameObject = Instantiate(upgradePathPrefab, upgradePathParent);
+            var holder = pathGameObject.GetComponent<TurretUpgradeHolder>();
+
+            holder.ChangeIconSprite(turret.GetUpgradePaths().Paths[index].Upgrades[turret.GetTurretPathIndex()[index]].Icon);
+
+            holder.UpgradePathIndex = index;
+            holder.OwnerTurret = turret;
+
             drawnUpgradePaths.Add(pathGameObject);
+
+            index++;
+
         }
 
         turretSelectionMenu.SetActive(true);
