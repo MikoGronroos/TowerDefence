@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretTarget : MonoBehaviour, IDamageable
@@ -10,9 +11,9 @@ public class TurretTarget : MonoBehaviour, IDamageable
         _unit = GetComponent<Unit>();
     }
 
-    public void Damage(float damage, ProjectileType[] projectileTypes)
+    public void Damage(float damage, IEnumerable<ProjectileType> types)
     {
-        _unit.RemoveCurrentHealth(damage, projectileTypes);
+        _unit.RemoveCurrentHealth(damage, types);
     }
 
     public Vector3 Position()

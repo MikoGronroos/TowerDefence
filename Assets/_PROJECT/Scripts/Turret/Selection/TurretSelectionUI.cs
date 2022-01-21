@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class TurretSelectionUI : MonoBehaviour
 {
@@ -18,6 +19,16 @@ public class TurretSelectionUI : MonoBehaviour
     [SerializeField] private Button sellTurretButton;
     [SerializeField] private TextMeshProUGUI sellPriceText;
 
+    [Header("Prefabs")]
+
+    [SerializeField] private GameObject upgradePathPrefab;
+
+    [Header("Parent Transforms")]
+
+    [SerializeField] private Transform upgradePathParent;
+
+    private List<GameObject> drawnUpgradePaths = new List<GameObject>();
+
     private void Awake()
     {
         sellTurretButton.onClick.AddListener(() => {
@@ -32,11 +43,33 @@ public class TurretSelectionUI : MonoBehaviour
 
         turretNameText.text = turret.GetTurretStats().Name;
 
-        damageValueText.text = turret.GetTurretStats().Damage.Value.ToString();
-        rangeValueText.text = turret.GetTurretStats().Range.Value.ToString();
-        attackSpeedValueText.text = turret.GetTurretStats().AttackSpeed.Value.ToString();
+        damageValueText.text = turret.GetTurretExecutable().Damage.Value.ToString();
+        rangeValueText.text = turret.GetTurretExecutable().Range.Value.ToString();
+        attackSpeedValueText.text = turret.GetTurretExecutable().AttackSpeed.Value.ToString();
 
         sellPriceText.text = $"{turret.GetTurretStats().SellPrice}$";
+
+        EraseDrawnUpgradePaths();
+
+        int index = 0;
+
+        foreach (var path in turret.GetUpgradePaths().Paths)
+        {
+
+
+            GameObject pathGameObject = Instantiate(upgradePathPrefab, upgradePathParent);
+            var holder = pathGameObject.GetComponent<TurretUpgradeHolder>();
+
+            holder.ChangeIconSprite(turret.GetUpgradePaths().Paths[index].Upgrades[turret.GetTurretPathIndex()[index]].Icon);
+
+            holder.UpgradePathIndex = index;
+            holder.OwnerTurret = turret;
+
+            drawnUpgradePaths.Add(pathGameObject);
+
+            index++;
+
+        }
 
         turretSelectionMenu.SetActive(true);
     }
@@ -44,6 +77,16 @@ public class TurretSelectionUI : MonoBehaviour
     public void CloseSelectionUI()
     {
         turretSelectionMenu.SetActive(false);
+    }
+
+    private void EraseDrawnUpgradePaths()
+    {
+        for (int i = drawnUpgradePaths.Count - 1; i >= 0; i--)
+        {
+            Destroy(drawnUpgradePaths[i]);
+        }
+
+        drawnUpgradePaths.Clear();
     }
 
 }

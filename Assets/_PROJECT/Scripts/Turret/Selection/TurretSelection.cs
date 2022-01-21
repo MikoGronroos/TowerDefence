@@ -46,14 +46,19 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
             if (hit.transform.TryGetComponent(out Turret turret))
             {
 
-                if (selectedTurret != null)
+                if(turret != selectedTurret)
                 {
-                    _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
-                }
 
-                selectedTurret = turret;
-                _turretSelectionUI.OpenSelectionUI(selectedTurret);
-                _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretStats().Range.Value, .3f);
+                    if (selectedTurret != null)
+                    {
+                        _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
+                    }
+
+                    selectedTurret = turret;
+
+                    _turretSelectionUI.OpenSelectionUI(selectedTurret);
+                    _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, .3f);
+                }
             }
             else
             {
