@@ -100,22 +100,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats:
     Name: Lord of the hunt
-    Damage:
-      BaseValue: 200
-      Value: 0
-    Range:
-      BaseValue: 15
-      Value: 0
-    AttackSpeed:
-      BaseValue: 4
-      Value: 0
-    Projectiles:
-    - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
-    - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
     SellPrice: 100
   currentState: 0
+  turretExecutable:
+    IsPrimaryExecutable: 0
+    NeedsTarget: 0
+    ProjectileTypes: []
+    Damage:
+      BaseValue: 0
+      Value: 0
+    Range:
+      BaseValue: 0
+      Value: 0
+    AttackSpeed:
+      BaseValue: 0
+      Value: 0
+    ExecutablePrefab: {fileID: 0}
+    Job: {fileID: 0}
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
+  turretUpgradePathIndex: 000000000000000000000000
   TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:

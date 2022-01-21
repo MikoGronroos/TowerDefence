@@ -12,34 +12,29 @@ public class TurretUpgrade
 
     public Sprite Icon;
 
-    public TurretExecutable[] TurretExecutableAddons;
+    [Header("Turret Executable")]
 
-    public UpgradeType Type;
-    public UpgradeTarget Target;
+    public bool ChangeTurretExecutable;
+
+    public TurretExecutable TurretExecutableAddon;
 
     [Header("Value Addons")]
+
+    public UpgradeType Type;
+
     public float DamageAddon;
     public float RangeAddon;
     public float AttackSpeedAddon;
 
     public void UseUpgrade(Turret turret)
     {
-        if (TurretExecutableAddons.Length > 0)
+
+        if (ChangeTurretExecutable)
         {
-            foreach (var addon in TurretExecutableAddons)
-            {
-                if (addon.IsPrimaryExecutable)
-                {
-                    turret.AddNewPrimaryExecutable(addon);
-                }
-                else
-                {
-                    turret.AddNewSecondaryExecutable(addon);
-                }
-            }
+            turret.AddNewTurretExecutable(TurretExecutableAddon);
         }
 
-        TurretExecutable target = DetermineTarget(turret);
+        TurretExecutable target = turret.GetTurretExecutable();
 
         switch (Type)
         {
@@ -54,34 +49,11 @@ public class TurretUpgrade
                 target.AttackSpeed.BaseValue += AttackSpeedAddon;
                 break;
         }
-
     }
-
-    private TurretExecutable DetermineTarget(Turret turret)
-    {
-        TurretExecutable target = null;
-        switch (Target)
-        {
-            case UpgradeTarget.Primary:
-                target = turret.GetPrimaryTurretExecutable();
-                break;
-            case UpgradeTarget.Secondary:
-                target = turret.GetSecondaryTurretExecutable();
-                break;
-        }
-        return target;
-    }
-
 }
 
 public enum UpgradeType
 {
     Percentage,
     Whole
-}
-
-public enum UpgradeTarget
-{
-    Primary,
-    Secondary
 }

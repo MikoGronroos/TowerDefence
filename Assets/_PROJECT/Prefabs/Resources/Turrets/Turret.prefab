@@ -102,7 +102,7 @@ MonoBehaviour:
     Name: Simple Turret
     SellPrice: 100
   currentState: 0
-  primaryExecutable:
+  turretExecutable:
     IsPrimaryExecutable: 1
     NeedsTarget: 0
     ProjectileTypes: []
@@ -114,21 +114,6 @@ MonoBehaviour:
       Value: 0
     AttackSpeed:
       BaseValue: 2
-      Value: 0
-    ExecutablePrefab: {fileID: 0}
-    Job: {fileID: 0}
-  secondaryExecutable:
-    IsPrimaryExecutable: 0
-    NeedsTarget: 0
-    ProjectileTypes: []
-    Damage:
-      BaseValue: 0
-      Value: 0
-    Range:
-      BaseValue: 0
-      Value: 0
-    AttackSpeed:
-      BaseValue: 0
       Value: 0
     ExecutablePrefab: {fileID: 0}
     Job: {fileID: 0}
