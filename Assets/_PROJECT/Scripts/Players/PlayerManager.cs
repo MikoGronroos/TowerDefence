@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviourSingleton<PlayerManager>
+public class PlayerManager : MonoBehaviourSingletonDontDestroyOnLoad<PlayerManager>
 {
 
     [SerializeField] private LocalPlayer localPlayer;
 
     public void AddLocalPlayer(LocalPlayer player)
     {
+        Debug.Log(transform.name);
         localPlayer = player;
     }
 

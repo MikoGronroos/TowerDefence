@@ -22,7 +22,7 @@ public class TurretExecutable
 
     public void Execute()
     {
-        Job.Job();
+        Job.Job(ExecutablePrefab);
     }
 
 }

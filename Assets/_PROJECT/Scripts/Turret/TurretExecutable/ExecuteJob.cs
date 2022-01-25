@@ -3,6 +3,6 @@
 public abstract class ExecuteJob : ScriptableObject
 {
 
-    public abstract void Job();
+    public abstract void Job(GameObject prefab);
 
 }
