@@ -106,7 +106,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         _executing = true;
 
-        turretExecutable.Execute();
+        turretExecutable.Execute(transform.position, MyUtils.GetDirectionVector2(transform.position, target.position));
 
         yield return new WaitForSeconds(turretExecutable.AttackSpeed.Value);
 
