@@ -19,7 +19,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private int[] turretUpgradePathIndex = new int[3];
 
-    private bool _shooting = false;
+    private bool _executing = false;
 
     private PhotonView _photonView;
 
@@ -93,26 +93,25 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     #endregion
 
-    #region Shoot Methods
+    #region Execute Methods
 
-    private IEnumerator Shoot()
+    private IEnumerator Execute()
     {
 
-        if (NoTarget())
+        if (NoTarget() && turretExecutable.NeedsTarget)
         {
             currentState = TurretState.Idle;
             yield break;
         }
 
-        _shooting = true;
+        _executing = true;
 
-        //target.GetComponent<IDamageable>().Damage(primaryExecutable.Damage.Value, primaryExecutable.ProjectileTypes);
-
-        turretExecutable.Execute();
+        turretExecutable.Execute(transform.position, MyUtils.GetDirectionVector2(transform.position, target.position));
 
         yield return new WaitForSeconds(turretExecutable.AttackSpeed.Value);
 
-        _shooting = false;
+        _executing = false;
+
     }
 
     #endregion
@@ -133,7 +132,7 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
                 if (NoTarget()) currentState = TurretState.Idle;
                 CancelInvoke();
                 FollowClosestTarget();
-                if (!_shooting) StartCoroutine(Shoot());
+                if (!_executing) StartCoroutine(Execute());
                 break;
         }
     }

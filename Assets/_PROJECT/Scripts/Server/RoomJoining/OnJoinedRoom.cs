@@ -9,7 +9,7 @@ public class OnJoinedRoom : MonoBehaviour
     {
         foreach (var item in objectsToInstantiateOnStart)
         {
-            GameObject.Instantiate(item, Vector3.zero, Quaternion.identity);
+            Instantiate(item, Vector3.zero, Quaternion.identity);
         }
     }
 
