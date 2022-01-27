@@ -20,9 +20,9 @@ public class TurretExecutable
 
     public ExecuteJob Job;
 
-    public void Execute(Vector3 position, Vector3 rotation)
+    public void Execute(Vector3 position, Vector3 rotation, TurretExecutable exec)
     {
-        Job.Job(ExecutablePrefab, position, rotation);
+        Job.Job(ExecutablePrefab, position, rotation, exec);
     }
 
 }

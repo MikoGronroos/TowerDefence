@@ -103,9 +103,11 @@ MonoBehaviour:
     SellPrice: 100
   currentState: 0
   turretExecutable:
-    IsPrimaryExecutable: 0
+    IsPrimaryExecutable: 1
     NeedsTarget: 0
-    ProjectileTypes: []
+    ProjectileTypes:
+    - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+    - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
     Damage:
       BaseValue: 125
       Value: 0
@@ -115,8 +117,8 @@ MonoBehaviour:
     AttackSpeed:
       BaseValue: 0.7
       Value: 0
-    ExecutablePrefab: {fileID: 0}
-    Job: {fileID: 0}
+    ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
+    Job: {fileID: 11400000, guid: d4d2c926e3a030445aeecc59f726b6e0, type: 2}
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
   turretUpgradePathIndex: 000000000000000000000000

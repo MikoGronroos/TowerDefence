@@ -46,6 +46,8 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
             if (hit.transform.TryGetComponent(out Turret turret))
             {
 
+                if (turret.TurretOwnerID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID()) return;
+
                 if(turret != selectedTurret)
                 {
 

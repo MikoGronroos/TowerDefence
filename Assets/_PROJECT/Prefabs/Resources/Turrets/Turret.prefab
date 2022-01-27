@@ -105,7 +105,8 @@ MonoBehaviour:
   turretExecutable:
     IsPrimaryExecutable: 1
     NeedsTarget: 0
-    ProjectileTypes: []
+    ProjectileTypes:
+    - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
     Damage:
       BaseValue: 100
       Value: 0
