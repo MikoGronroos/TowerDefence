@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviourSingletonDontDestroyOnLoad<PlayerManag
 
     public void AddLocalPlayer(LocalPlayer player)
     {
-        Debug.Log(transform.name);
         localPlayer = player;
     }
 
