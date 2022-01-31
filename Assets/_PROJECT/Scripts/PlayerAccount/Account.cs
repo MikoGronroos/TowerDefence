@@ -1,7 +1,5 @@
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "Account")]
-public class Account : ScriptableObject
+[System.Serializable]
+public class Account
 {
 
     public string AccountName;
