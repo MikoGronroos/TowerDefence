@@ -1,8 +1,11 @@
-using UnityEngine;
-
-[CreateAssetMenu(menuName = "Account")]
-public class Account : ScriptableObject
+[System.Serializable]
+public class Account
 {
+
+    public string AccountName;
+    public string AccountId;
+
+    public int AccountLevel;
 
     public int SoftCurrency;
     public int HardCurrency;
