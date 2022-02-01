@@ -7,7 +7,4 @@ public class Account
 
     public int AccountLevel;
 
-    public int SoftCurrency;
-    public int HardCurrency;
-
 }

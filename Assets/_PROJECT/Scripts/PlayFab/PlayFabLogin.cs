@@ -1,9 +1,12 @@
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using UnityEngine.Events;
 
 public class PlayFabLogin : MonoBehaviour
 {
+
+    [SerializeField] private UnityEvent onLoginEvent;
 
     private void Start()
     {
@@ -29,5 +32,6 @@ public class PlayFabLogin : MonoBehaviour
     private void OnSuccess(LoginResult result)
     {
         Debug.Log($"{result.PlayFabId}: has logged in!");
+        onLoginEvent?.Invoke();
     }
 }
