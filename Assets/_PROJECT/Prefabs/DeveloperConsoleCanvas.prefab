@@ -388,12 +388,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
+  m_fontSize: 32
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -523,12 +523,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
+  m_fontSize: 32
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -597,6 +597,8 @@ GameObject:
   - component: {fileID: 6261381938361641870}
   - component: {fileID: 6261381938361641871}
   - component: {fileID: 6261381938361641856}
+  - component: {fileID: 2120750425042654613}
+  - component: {fileID: 4436995620330733150}
   m_Layer: 5
   m_Name: DeveloperConsoleCanvas
   m_TagString: Untagged
@@ -685,6 +687,35 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2120750425042654613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261381938361641857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c998dbaafdd4fa41a05ffba6bfce3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  developerConsole: {fileID: 6261381938361641870}
+  developerConsoleToggleKey: 106
+  consoleCommands:
+  - {fileID: 11400000, guid: 4deff3b5ae1165f46889a6d58129d7bd, type: 2}
+--- !u!114 &4436995620330733150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261381938361641857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead7fc47411633f41b805eb83eac7c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commandLine: {fileID: 6261381938711702112}
 --- !u!1 &6261381938584546419
 GameObject:
   m_ObjectHideFlags: 0
