@@ -41,6 +41,26 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
         PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubstractSCSuccess, OnSubstractSCError);
     }
 
+    public void AddHardCurrency(int value)
+    {
+        var request = new AddUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = "HC",
+            Amount = value
+        };
+        PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddHCSuccess, OnAddHCError);
+    }
+
+    public void AddSoftCurrency(int value)
+    {
+        var request = new AddUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = "SC",
+            Amount = value
+        };
+        PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddSCSuccess, OnAddSCError);
+    }
+
     private void RefreshCurrencies()
     {
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnRefreshSuccess, OnRefreshError);
@@ -58,12 +78,15 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
         softCurrency = result.VirtualCurrency["SC"];
     }
 
+    #region Substract
+
     private void OnSubstractHCError(PlayFabError error)
     {
     }
 
     private void OnSubstractHCSuccess(ModifyUserVirtualCurrencyResult result)
     {
+        RefreshCurrencies();
     }
 
     private void OnSubstractSCError(PlayFabError error)
@@ -72,7 +95,30 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
 
     private void OnSubstractSCSuccess(ModifyUserVirtualCurrencyResult result)
     {
+        RefreshCurrencies();
     }
+
+    #endregion
+
+    #region Add
+
+    private void OnAddSCError(PlayFabError obj)
+    {
+    }
+
+    private void OnAddSCSuccess(ModifyUserVirtualCurrencyResult obj)
+    {
+    }
+
+    private void OnAddHCError(PlayFabError obj)
+    {
+    }
+
+    private void OnAddHCSuccess(ModifyUserVirtualCurrencyResult obj)
+    {
+    }
+
+    #endregion
 
     #endregion
 
