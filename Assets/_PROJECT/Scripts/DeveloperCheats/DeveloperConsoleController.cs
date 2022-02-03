@@ -12,8 +12,8 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
     [SerializeField] private List<BaseCommand> consoleCommands = new List<BaseCommand>();
 
-    [SerializeField] private Color ErrorColor;
-    [SerializeField] private Color SuccessColor;
+    private List<string> _previousCommands = new List<string>();
+    private int _previousCommandIndex = 0;
 
     private DeveloperConsoleControllerUI _developerConsoleControllerUI;
 
@@ -34,10 +34,41 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
             ProcessCommand(_developerConsoleControllerUI.GetCommandLineText());
         }
 
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+
+            _previousCommandIndex++;
+
+            if (_previousCommandIndex > _previousCommands.Count)
+            {
+                _previousCommandIndex = 1;
+            }
+
+            _developerConsoleControllerUI.SetCommandLineText(_previousCommands[_previousCommandIndex - 1]); // If _previousCommandIndex == 1 then this is index 0
+
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+
+            if (_previousCommandIndex <= 1)
+            {
+                _previousCommandIndex = _previousCommands.Count;
+            }
+            else
+            {
+                _previousCommandIndex--;
+            }
+
+            _developerConsoleControllerUI.SetCommandLineText(_previousCommands[_previousCommandIndex - 1]);
+
+        }
     }
 
     public void ProcessCommand(string inputValue)
     {
+
+        _previousCommands.Add(inputValue);
+
         string[] inputSplit = inputValue.Split(' ');
 
         string commandInput = inputSplit[0];
@@ -48,12 +79,12 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
         if (!executed)
         {
-            PrintToConsole($"The keyword: {commandInput} Was Not Found. Please Enter A Valid Command.");
+            PrintToConsole($"The keyword: {commandInput} Was Not Found. Please Enter A Valid Command.", PrintType.Error);
         }
 
     }
 
-    public void PrintToConsole(string text) => _developerConsoleControllerUI.Print(text);
+    public void PrintToConsole(string text, PrintType type) => _developerConsoleControllerUI.Print(text, type);
 
     public void ClearConsole() => _developerConsoleControllerUI.ClearConsolePrints();
 

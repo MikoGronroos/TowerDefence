@@ -13,7 +13,7 @@ public class EconomyCmdAddSCurrency : BaseCommand
 
         PlayFabCurrencyManager.Instance.AddSoftCurrency(amount);
 
-        DeveloperConsoleController.Instance.PrintToConsole(print);
+        DeveloperConsoleController.Instance.PrintToConsole(print, PrintType.Success);
 
         return true;
 
