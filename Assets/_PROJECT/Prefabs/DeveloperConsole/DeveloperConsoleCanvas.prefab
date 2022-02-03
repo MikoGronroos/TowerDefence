@@ -705,6 +705,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4deff3b5ae1165f46889a6d58129d7bd, type: 2}
   - {fileID: 11400000, guid: cdbfbce8d700a0d4280f7c7c9f72b642, type: 2}
   - {fileID: 11400000, guid: 01119b244da6b70479fdacd51659b746, type: 2}
+  - {fileID: 11400000, guid: 1aa22339e2118ea4596d7297deeac388, type: 2}
+  - {fileID: 11400000, guid: e1eebbaacb8837e4f902338457083f2e, type: 2}
+  - {fileID: 11400000, guid: ac96885adc1807849aa7a90881b6c902, type: 2}
+  - {fileID: 11400000, guid: 7d2d53a81e90abc44a3ca24f167a6dd6, type: 2}
 --- !u!114 &4436995620330733150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +726,6 @@ MonoBehaviour:
   commandPrintParent: {fileID: 6261381937829102362}
   errorColor: {r: 1, g: 0, b: 0, a: 1}
   successColor: {r: 0, g: 1, b: 0.011662245, a: 1}
-  commandPrints: []
 --- !u!1 &6261381938584546419
 GameObject:
   m_ObjectHideFlags: 0
