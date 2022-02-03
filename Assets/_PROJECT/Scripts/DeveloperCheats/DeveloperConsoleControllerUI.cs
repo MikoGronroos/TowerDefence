@@ -14,7 +14,7 @@ public class DeveloperConsoleControllerUI : MonoBehaviour
     [SerializeField] private Color errorColor;
     [SerializeField] private Color successColor;
 
-    [SerializeField] private List<GameObject> commandPrints = new List<GameObject>();
+    private List<GameObject> _commandPrints = new List<GameObject>();
 
     public string GetCommandLineText()
     {
@@ -33,7 +33,7 @@ public class DeveloperConsoleControllerUI : MonoBehaviour
         GameObject textBox = Instantiate(commandPrintPrefab, commandPrintParent);
         var textElement = textBox.GetComponent<TextMeshProUGUI>();
         textElement.text = text;
-        commandPrints.Add(textBox);
+        _commandPrints.Add(textBox);
 
         switch (type)
         {
@@ -50,12 +50,12 @@ public class DeveloperConsoleControllerUI : MonoBehaviour
     public void ClearConsolePrints()
     {
 
-        foreach (var print in commandPrints)
+        foreach (var print in _commandPrints)
         {
             Destroy(print);
         }
 
-        commandPrints.Clear();
+        _commandPrints.Clear();
 
     }
 
