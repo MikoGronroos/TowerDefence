@@ -703,6 +703,7 @@ MonoBehaviour:
   developerConsoleToggleKey: 106
   consoleCommands:
   - {fileID: 11400000, guid: 4deff3b5ae1165f46889a6d58129d7bd, type: 2}
+  - {fileID: 11400000, guid: cdbfbce8d700a0d4280f7c7c9f72b642, type: 2}
 --- !u!114 &4436995620330733150
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ConsoleCommands/Economy/AddHardCurrency")]
@@ -5,7 +6,12 @@ public class EconomyCmdAddHCurrency : BaseCommand
 {
     public override bool Process(string[] args)
     {
-        Debug.Log($"Added {args[1]} Hard Currency To PlayFab");
+
+        int amount = Int32.Parse(args[0]);
+
+        Debug.Log($"Added {amount} Hard Currency To PlayFab");
+
+        PlayFabCurrencyManager.Instance.AddHardCurrency(amount);
 
         return true;
 

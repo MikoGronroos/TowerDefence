@@ -8,7 +8,7 @@ public class DeveloperConsoleControllerUI : MonoBehaviour
 
     public string GetCommandLineText()
     {
-        WhenCommandLineExecuted();
+        //WhenCommandLineExecuted();
         return commandLine.text;
     }
 

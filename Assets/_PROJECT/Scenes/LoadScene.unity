@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06060a377d8ca146872898f5aa47113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hardCurrency: 0
+  softCurrency: 0
 --- !u!1 &418772814
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +559,18 @@ MonoBehaviour:
       - m_Target: {fileID: 959571758}
         m_TargetAssemblyTypeName: AccountManager, Assembly-CSharp
         m_MethodName: LoadData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 69826755}
+        m_TargetAssemblyTypeName: PlayFabCurrencyManager, Assembly-CSharp
+        m_MethodName: RefreshCurrencies
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
