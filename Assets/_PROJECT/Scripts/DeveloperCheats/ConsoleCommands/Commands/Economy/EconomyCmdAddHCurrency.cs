@@ -9,9 +9,11 @@ public class EconomyCmdAddHCurrency : BaseCommand
 
         int amount = Int32.Parse(args[0]);
 
-        Debug.Log($"Added {amount} Hard Currency To PlayFab");
+        string print = $"Added {amount} Hard Currency To PlayFab";
 
         PlayFabCurrencyManager.Instance.AddHardCurrency(amount);
+
+        DeveloperConsoleController.Instance.PrintToConsole(print);
 
         return true;
 

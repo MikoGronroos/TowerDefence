@@ -45,6 +45,10 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
     }
 
+    public void PrintToConsole(string text) => _developerConsoleControllerUI.Print(text);
+
+    public void ClearConsole() => _developerConsoleControllerUI.ClearConsolePrints();
+
     private void ExecuteCommand(string commandInput, string[] args)
     {
         foreach (var command in consoleCommands)
@@ -61,4 +65,5 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
         }
     }
+
 }

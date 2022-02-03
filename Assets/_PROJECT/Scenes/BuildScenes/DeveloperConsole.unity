@@ -312,6 +312,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6261381937829102362, guid: afdca1de475cd6647804969dabece443, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261381937829102362, guid: afdca1de475cd6647804969dabece443, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6261381938361641857, guid: afdca1de475cd6647804969dabece443, type: 3}
       propertyPath: m_Name
       value: DeveloperConsoleCanvas
