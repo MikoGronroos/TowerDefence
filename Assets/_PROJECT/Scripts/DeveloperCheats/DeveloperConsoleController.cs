@@ -12,6 +12,9 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
     [SerializeField] private List<BaseCommand> consoleCommands = new List<BaseCommand>();
 
+    [SerializeField] private Color ErrorColor;
+    [SerializeField] private Color SuccessColor;
+
     private DeveloperConsoleControllerUI _developerConsoleControllerUI;
 
     private void Awake()
@@ -41,7 +44,12 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
         string[] args = inputSplit.Skip(1).ToArray();
 
-        ExecuteCommand(commandInput, args);
+        bool executed = ExecuteCommand(commandInput, args);
+
+        if (!executed)
+        {
+            PrintToConsole($"The keyword: {commandInput} Was Not Found. Please Enter A Valid Command.");
+        }
 
     }
 
@@ -49,7 +57,7 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
     public void ClearConsole() => _developerConsoleControllerUI.ClearConsolePrints();
 
-    private void ExecuteCommand(string commandInput, string[] args)
+    private bool ExecuteCommand(string commandInput, string[] args)
     {
         foreach (var command in consoleCommands)
         {
@@ -60,10 +68,11 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
             if (command.Process(args))
             {
-                return;
+                return true;
             }
 
         }
+        return false;
     }
 
 }
