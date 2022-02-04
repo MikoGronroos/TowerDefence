@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,6 +8,8 @@ public class TurretExecutable
     public bool IsPrimaryExecutable;
 
     public bool NeedsTarget;
+
+    public bool FollowsTarget;
 
     public ProjectileType[] ProjectileTypes;
 
@@ -20,9 +23,12 @@ public class TurretExecutable
 
     public ExecuteJob Job;
 
-    public void Execute(Vector3 position, Vector3 rotation, TurretExecutable exec)
+    public void Execute(Dictionary<string, object> args)
     {
-        Job.Job(ExecutablePrefab, position, rotation, exec);
+
+        args.Add("Prefab", ExecutablePrefab);
+
+        Job.Job(args);
     }
 
 }

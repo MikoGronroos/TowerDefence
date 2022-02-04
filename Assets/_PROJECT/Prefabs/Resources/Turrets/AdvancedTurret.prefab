@@ -104,7 +104,8 @@ MonoBehaviour:
   currentState: 0
   turretExecutable:
     IsPrimaryExecutable: 1
-    NeedsTarget: 0
+    NeedsTarget: 1
+    FollowsTarget: 1
     ProjectileTypes:
     - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}

@@ -3,6 +3,7 @@ using Finark.Utils;
 using System.Collections;
 using Photon.Pun;
 using System;
+using System.Collections.Generic;
 
 public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -75,8 +76,6 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
             target = nearestTarget;
         }
 
-        if (!NoTarget()) currentState = TurretState.Agro;
-
     }
 
     private void FollowClosestTarget()
@@ -106,7 +105,14 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
         _executing = true;
 
-        turretExecutable.Execute(transform.position, MyUtils.GetDirectionVector2(transform.position, target.position), turretExecutable);
+        turretExecutable.Execute(new Dictionary<string, object>(){
+                                {"Position", transform.position},
+                                {"TargetPosition", target.position},
+                                {"Rotation", MyUtils.GetDirectionVector2(transform.position, target.position)},
+                                {"TurretExecutable", turretExecutable} }
+        );
+
+        target = null;
 
         yield return new WaitForSeconds(turretExecutable.AttackSpeed.Value);
 
@@ -127,12 +133,20 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
                 currentState = TurretState.Searching;
                 break;
             case TurretState.Searching:
+
+                if (!NoTarget()) currentState = TurretState.Agro;
+
                 break;
             case TurretState.Agro:
+
                 if (NoTarget()) currentState = TurretState.Idle;
+
                 CancelInvoke();
-                FollowClosestTarget();
+
+                if(turretExecutable.FollowsTarget) FollowClosestTarget();
+
                 if (!_executing) StartCoroutine(Execute());
+
                 break;
         }
     }

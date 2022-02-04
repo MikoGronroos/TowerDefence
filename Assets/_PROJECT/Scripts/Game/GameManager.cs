@@ -1,3 +1,5 @@
+using System.Collections;
+
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
 
@@ -6,6 +8,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void Awake()
     {
         _gameManagerUI = GetComponent<GameManagerUI>();
+    }
+
+    public void StartChildCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
     }
 
     #region Game End
