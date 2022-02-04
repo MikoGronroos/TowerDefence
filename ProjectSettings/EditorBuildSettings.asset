@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_PROJECT/Scenes/RoomView.unity
     guid: 5c47f247e3812694989213fc8af8cdd8
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/DeveloperConsole.unity
+    guid: 8f073ad9a324cf342b715df428077daf
   m_configObjects: {}

@@ -37,6 +37,8 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
 
+            if (_previousCommands.Count <= 0) return;
+
             _previousCommandIndex++;
 
             if (_previousCommandIndex > _previousCommands.Count)
@@ -49,6 +51,8 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+
+            if (_previousCommands.Count <= 0) return;
 
             if (_previousCommandIndex <= 1)
             {
@@ -86,7 +90,12 @@ public class DeveloperConsoleController : MonoBehaviourSingletonDontDestroyOnLoa
 
     public void PrintToConsole(string text, PrintType type) => _developerConsoleControllerUI.Print(text, type);
 
-    public void ClearConsole() => _developerConsoleControllerUI.ClearConsolePrints();
+    public void ClearConsole() 
+    { 
+        _developerConsoleControllerUI.ClearConsolePrints();
+        _previousCommandIndex = 0;
+        _previousCommands.Clear();
+    }
 
     private bool ExecuteCommand(string commandInput, string[] args)
     {
