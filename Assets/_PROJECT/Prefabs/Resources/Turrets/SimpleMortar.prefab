@@ -118,7 +118,7 @@ MonoBehaviour:
     AttackSpeed:
       BaseValue: 6
       Value: 0
-    ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
+    ExecutablePrefab: {fileID: 1674684417496924349, guid: c0e185b1e5a8f9244a429e8d718822c7, type: 3}
     Job: {fileID: 11400000, guid: a4923d159ea522e449f5a46024dea0be, type: 2}
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
