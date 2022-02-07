@@ -1,5 +1,6 @@
 using PathCreation;
 using UnityEngine;
+using Photon.Pun;
 
 public class FollowPath : MonoBehaviour
 {
@@ -8,10 +9,20 @@ public class FollowPath : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    private PhotonView _view;
+
     private float _distanceTraveled;
+
+    private void Awake()
+    {
+        _view = GetComponent<PhotonView>();
+    }
 
     private void Update()
     {
+
+        if (!_view.IsMine) return;
+
         if (pathCreator == null) return;
 
         _distanceTraveled += speed * Time.deltaTime;

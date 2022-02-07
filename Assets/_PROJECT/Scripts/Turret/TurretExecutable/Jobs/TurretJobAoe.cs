@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public abstract class TurretJobAoe : ExecuteJob
 {
@@ -24,8 +25,7 @@ public abstract class TurretJobAoe : ExecuteJob
 
         CollidersLogic(GetCollidersInArea(position, exec.Range.Value), exec);
 
-        GameObject clone = Instantiate(projectileprefab);
-        clone.transform.position = position;
+        GameObject clone = PhotonNetwork.Instantiate(projectileprefab.name, position, Quaternion.identity);
 
         FindObjectOfType<RangeVisualisation>().DrawCircle(clone, exec.Range.Value, 0.1f);
 

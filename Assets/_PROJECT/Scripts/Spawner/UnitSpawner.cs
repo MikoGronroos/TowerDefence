@@ -4,8 +4,6 @@ using UnityEngine;
 public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
 {
 
-    [SerializeField] private Transform unitParent;
-
     private PhotonView _photonView;
 
     private void Awake()
@@ -18,7 +16,7 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
         if (GameSettingsManager.Instance.GetGameSettings().Singleplayer)
         {
             //When game is singleplayer
-            SpawnUnit(unitPrefabName, id);
+            //SpawnUnit(unitPrefabName, id);
         }
         else
         {
@@ -32,6 +30,7 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
     {
         if (id != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
         {
+            Debug.Log("Hei");
             SpawnUnit(unitPrefabName, id);
         }
     }
@@ -44,7 +43,6 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
         data[0] = id;
         GameObject unit = PhotonNetwork.Instantiate(unitPrefabName, path.PathStartPos.position, Quaternion.identity, 0, data);
         unit.GetComponent<FollowPath>().SetPath(path.ThisPath);
-        unit.transform.SetParent(unitParent);
     }
 
 }
