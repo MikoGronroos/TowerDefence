@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Projectile : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class Projectile : MonoBehaviour
 
             unit.RemoveCurrentHealth(_damage, _types);
 
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject.GetPhotonView());
+
         }
     }
 

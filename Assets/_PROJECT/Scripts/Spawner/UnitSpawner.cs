@@ -13,24 +13,15 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
 
     public void RequestUnitSpawn(string unitPrefabName, int id)
     {
-        if (GameSettingsManager.Instance.GetGameSettings().Singleplayer)
-        {
-            //When game is singleplayer
-            //SpawnUnit(unitPrefabName, id);
-        }
-        else
-        {
-            //When game is multiplayer
-            _photonView.RPC("RPCSpawnUnit", RpcTarget.All, unitPrefabName, id);
-        }
+        _photonView.RPC("RPCSpawnUnit", RpcTarget.All, unitPrefabName, id);
     }
 
     [PunRPC]
     private void RPCSpawnUnit(string unitPrefabName, int id)
     {
-        if (id != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
+
+        if (id != PlayerManager.Instance.GetLocalPlayer().GetPlayerID() || GameSettingsManager.Instance.GetGameSettings().Singleplayer)
         {
-            Debug.Log("Hei");
             SpawnUnit(unitPrefabName, id);
         }
     }
@@ -41,7 +32,7 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
 
         object[] data = new object[1];
         data[0] = id;
-        GameObject unit = PhotonNetwork.Instantiate(unitPrefabName, path.PathStartPos.position, Quaternion.identity, 0, data);
+        GameObject unit = PhotonNetwork.Instantiate($"Units/{unitPrefabName}", path.PathStartPos.position, Quaternion.identity, 0, data);
         unit.GetComponent<FollowPath>().SetPath(path.ThisPath);
     }
 

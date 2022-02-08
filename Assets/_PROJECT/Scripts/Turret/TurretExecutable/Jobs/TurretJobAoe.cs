@@ -25,7 +25,7 @@ public abstract class TurretJobAoe : ExecuteJob
 
         CollidersLogic(GetCollidersInArea(position, exec.Range.Value), exec);
 
-        GameObject clone = PhotonNetwork.Instantiate(projectileprefab.name, position, Quaternion.identity);
+        GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
 
         FindObjectOfType<RangeVisualisation>().DrawCircle(clone, exec.Range.Value, 0.1f);
 

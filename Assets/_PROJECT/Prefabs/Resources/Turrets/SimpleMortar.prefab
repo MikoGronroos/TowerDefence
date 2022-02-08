@@ -116,7 +116,7 @@ MonoBehaviour:
       BaseValue: 20
       Value: 0
     AttackSpeed:
-      BaseValue: 6
+      BaseValue: 8.3
       Value: 0
     ExecutablePrefab: {fileID: 1674684417496924349, guid: c0e185b1e5a8f9244a429e8d718822c7, type: 3}
     Job: {fileID: 11400000, guid: a4923d159ea522e449f5a46024dea0be, type: 2}

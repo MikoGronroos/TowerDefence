@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [CreateAssetMenu(menuName = "Execute Jobs/Basic Shoot")]
 public class TurretJobBasicShoot : ExecuteJob
@@ -13,8 +14,7 @@ public class TurretJobBasicShoot : ExecuteJob
         var rotation = (Vector2)args["Rotation"];
         var exec = (TurretExecutable)args["TurretExecutable"];
 
-        GameObject clone = Instantiate(prefab);
-        clone.transform.position = position;
+        GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{prefab.name}", position, Quaternion.identity);
         var projectile = clone.GetComponent<Projectile>();
         projectile.Setup(rotation, exec);
     }
