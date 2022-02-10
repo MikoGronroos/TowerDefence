@@ -20,6 +20,11 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
         _virtualCurrencyManagerUI = GetComponent<VirtualCurrencyManagerUI>();
     }
 
+    private void Start()
+    {
+        _timeLeft = incomeInterval;
+    }
+
     private void Update()
     {
 

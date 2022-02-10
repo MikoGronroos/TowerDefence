@@ -37,7 +37,7 @@ public class GameSettingsManagerUI : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        EventManager.UnsubscribeToEvent("OnMapChanged", DrawMap);
     }
 
 
