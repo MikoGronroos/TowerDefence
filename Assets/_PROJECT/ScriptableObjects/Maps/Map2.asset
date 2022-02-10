@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: ec73e94a07a3b5f468a52ff1d8cb0741, type: 3}
+  m_Name: Map2
   m_EditorClassIdentifier: 
-  StartingCurrency: 350
-  StartingIncome: 100
-  IncomeInterval: 10
-  StartingHealth: 1000
-  StartingLevel: 1
-  Singleplayer: 0
-  CurrentMapIndex: 0
-  StartingAmountOfMissions: 3
+  Name: Farm
+  Icon: {fileID: 21300000, guid: 15e984b64cb74fb4888c356cf6082984, type: 3}
+  SceneName: Map_Farm

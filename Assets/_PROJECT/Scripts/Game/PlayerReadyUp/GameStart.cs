@@ -6,6 +6,8 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
 
     [SerializeField] private string sceneToLoad;
 
+    public string SceneToLoad { set { sceneToLoad = value; } }
+
     [SerializeField] private int currentlyReadyPlayers = 0;
     [SerializeField] private int playersInTheRoom = 0;
 

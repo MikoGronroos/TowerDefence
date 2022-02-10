@@ -14,11 +14,6 @@ public class GameSetup : MonoBehaviour
     private void Start()
     {
 
-        if (!EventCreator.EventsCreated)
-        {
-            EventCreator.CreateAllEvents();
-        }
-
         VirtualCurrencyManager.Instance.SetCurrency(GameSettingsManager.Instance.GetGameSettings().StartingCurrency);
         VirtualCurrencyManager.Instance.SetIncome(GameSettingsManager.Instance.GetGameSettings().StartingIncome);
         VirtualCurrencyManager.Instance.SetInterval(GameSettingsManager.Instance.GetGameSettings().IncomeInterval);

@@ -17,6 +17,8 @@ public class GameSettings : ScriptableObject
     [Header("General Game Settings")]
     public bool Singleplayer;
 
+    public int CurrentMapIndex;
+
     [Header("Pvp Missions")]
     public int StartingAmountOfMissions;
 

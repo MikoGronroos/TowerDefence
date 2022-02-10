@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_PROJECT/Scenes/DeveloperConsole.unity
     guid: 8f073ad9a324cf342b715df428077daf
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/Levels/Map_Harbour.unity
+    guid: df5aaf4350cb3ae429b4f4989eda93d7
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/Levels/Map_Farm.unity
+    guid: 08fcb0ff394688744a86caa8aecd8faa
   m_configObjects: {}
