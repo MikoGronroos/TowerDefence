@@ -3,22 +3,22 @@ using PlayFab.ClientModels;
 using System;
 using UnityEngine;
 
-public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<PlayFabCurrencyManager>
+public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyManager>
 {
 
     [SerializeField] private int hardCurrency;
     [SerializeField] private int softCurrency;
 
-    public int GetHardCurrency()
+    private PlayFabCurrencyUI _playFabCurrencyUI;
+
+    private void Awake()
     {
-        RefreshCurrencies();
-        return hardCurrency;
+        _playFabCurrencyUI = GetComponent<PlayFabCurrencyUI>();
     }
 
-    public int GetSoftCurrency()
+    private void Start()
     {
         RefreshCurrencies();
-        return softCurrency;
     }
 
     public void RemoveHardCurrency(int value)
@@ -76,6 +76,8 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
     {
         hardCurrency = result.VirtualCurrency["HC"];
         softCurrency = result.VirtualCurrency["SC"];
+        _playFabCurrencyUI.SetHardCurrencyText(hardCurrency.ToString());
+        _playFabCurrencyUI.SetSoftCurrencyText(softCurrency.ToString());
     }
 
     #region Substract
@@ -108,6 +110,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
 
     private void OnAddSCSuccess(ModifyUserVirtualCurrencyResult obj)
     {
+        RefreshCurrencies();
     }
 
     private void OnAddHCError(PlayFabError obj)
@@ -116,6 +119,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
 
     private void OnAddHCSuccess(ModifyUserVirtualCurrencyResult obj)
     {
+        RefreshCurrencies();
     }
 
     #endregion
