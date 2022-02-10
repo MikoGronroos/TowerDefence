@@ -25,14 +25,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
             RaycastHit2D hit = Physics2D.Raycast(touchRay, (Input.GetTouch(0).position));
 
-            if (hit.transform.TryGetComponent(out Turret turret))
-            {
-                selectedTurret = turret;
-            }
-            else
-            {
-                selectedTurret = null;
-            }
+            ProcessHit(hit.transform);
 
         }
 
@@ -43,35 +36,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
             RaycastHit2D hit = Physics2D.Raycast(MyUtils.GetMouseWorldPosition(), Vector2.zero);
 
-            if (hit.transform.TryGetComponent(out Turret turret))
-            {
-
-                if (turret.TurretOwnerID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID()) return;
-
-                if(turret != selectedTurret)
-                {
-
-                    if (selectedTurret != null)
-                    {
-                        _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
-                    }
-
-                    selectedTurret = turret;
-
-                    _turretSelectionUI.OpenSelectionUI(selectedTurret);
-                    _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, .3f);
-                }
-            }
-            else
-            {
-                if (MyUtils.IsPointerOverUI()) return;
-
-                if (selectedTurret == null) return;
-
-                _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
-                selectedTurret = null;
-                _turretSelectionUI.CloseSelectionUI();
-            }
+            ProcessHit(hit.transform);
 
         }
 
@@ -88,6 +53,40 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
         selectedTurret = null;
 
         _turretSelectionUI.CloseSelectionUI();
+
+    }
+
+    private void ProcessHit(Transform hit)
+    {
+        if (hit.transform.TryGetComponent(out Turret turret))
+        {
+
+            if (turret.TurretOwnerID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID()) return;
+
+            if (turret != selectedTurret)
+            {
+
+                if (selectedTurret != null)
+                {
+                    _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
+                }
+
+                selectedTurret = turret;
+
+                _turretSelectionUI.OpenSelectionUI(selectedTurret);
+                _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, .3f);
+            }
+        }
+        else
+        {
+            if (MyUtils.IsPointerOverUI()) return;
+
+            if (selectedTurret == null) return;
+
+            _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
+            selectedTurret = null;
+            _turretSelectionUI.CloseSelectionUI();
+        }
 
     }
 

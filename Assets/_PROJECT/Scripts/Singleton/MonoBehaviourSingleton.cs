@@ -5,28 +5,21 @@ using System;
 public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
 {
 
-    private static Dictionary<Type, object> _singletons
-        = new Dictionary<Type, object>();
+    private static object _instance;
 
     public static T Instance
     {
         get
         {
-            return (T)_singletons[typeof(T)];
+            return (T)_instance;
         }
     }
 
     void OnEnable()
     {
-        if (_singletons.ContainsKey(GetType()))
-        {
-            Destroy(this);
-        }
-        else
-        {
-            _singletons.Add(GetType(), this);
 
-        }
+        _instance = this;
+
     }
 
 }
