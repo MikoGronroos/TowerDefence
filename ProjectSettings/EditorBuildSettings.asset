@@ -12,18 +12,24 @@ EditorBuildSettings:
     path: Assets/_PROJECT/Scenes/Headquarter.unity
     guid: 2540e34db97563f4e8ecdcf9220d78ce
   - enabled: 1
-    path: Assets/_PROJECT/Scenes/Game.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/_PROJECT/Scenes/RoomView.unity
     guid: 5c47f247e3812694989213fc8af8cdd8
   - enabled: 1
-    path: Assets/_PROJECT/Scenes/DeveloperConsole.unity
-    guid: 8f073ad9a324cf342b715df428077daf
+    path: Assets/_PROJECT/Scenes/Levels/Map_City.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/_PROJECT/Scenes/Levels/Map_Harbour.unity
     guid: df5aaf4350cb3ae429b4f4989eda93d7
   - enabled: 1
     path: Assets/_PROJECT/Scenes/Levels/Map_Farm.unity
     guid: 08fcb0ff394688744a86caa8aecd8faa
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/DeveloperConsole.unity
+    guid: 8f073ad9a324cf342b715df428077daf
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/GameModules/GameSystems.unity
+    guid: b172285f5b250d9409a3da5cb011334a
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/GameModules/UserInterface.unity
+    guid: 30982cf59789fa143bf0f2ac697bea22
   m_configObjects: {}

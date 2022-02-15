@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1311092130975638200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311092130975638203}
+  - component: {fileID: 1311092130975638202}
+  - component: {fileID: 1311092130975638149}
+  m_Layer: 0
+  m_Name: PvpMissionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1311092130975638203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311092130975638200}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1241.072, y: -540.18384, z: 17.826014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1311092130975638202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311092130975638200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac90a36f5e80cce4198a4701e63f7e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMissions: []
+  completedMissions: []
+  failedMissions: []
+  missions:
+  - {fileID: 11400000, guid: 8fe62027c3e86bf42b32f5cbe9dcf98d, type: 2}
+  - {fileID: 11400000, guid: ef6f98700c441f640a9a0b0e786e050d, type: 2}
+  - {fileID: 11400000, guid: fc686da0862088743bf1bf429d3fd20c, type: 2}
+--- !u!114 &1311092130975638149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311092130975638200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3963f43b1cd5492498ff16056c1ac6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pvpMissionLog: {fileID: 0}
+  pvpMissionLogButton: {fileID: 0}
+  pvpMissionLogContentParent: {fileID: 0}
+  missionLogPrefab: {fileID: 1377814461531533745, guid: 4dc26711f1050a648982606e98a89f1e, type: 3}
+  pvpMissionCompletedUI: {fileID: 0}
+  onScreenTime: 4

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1816853942750674796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816853942750674795}
+  - component: {fileID: 1816853942750674793}
+  - component: {fileID: 1816853942750674794}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1816853942750674795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816853942750674796}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -661.3537, y: -216.60986, z: -0.50249815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1816853942750674793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816853942750674796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf57b66a7769050468ac2aed6e64ae0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitShopInventory: {fileID: 11400000, guid: 075a7fc0f623f2d46a5b73555eb7c362, type: 2}
+  turretShopInventory: {fileID: 11400000, guid: 4db23919e9b0c1b4391d4e6e60f22a7d, type: 2}
+--- !u!114 &1816853942750674794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816853942750674796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9a8c87e3c5e3548be0ffca58907849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitShopItemParent: {fileID: 0}
+  turretShopItemParent: {fileID: 0}
+  shopItemPrefab: {fileID: 8291492878275696557, guid: aebcb4efec4f06049b0cc7b7e2e5d99b, type: 3}
+  shopGameObject: {fileID: 0}
+  suffix: $
+  closeShopButton: {fileID: 0}
+  openShopButton: {fileID: 0}

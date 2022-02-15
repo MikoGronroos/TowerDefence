@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4731959715603722461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4731959715603722274}
+  - component: {fileID: 4731959715603722272}
+  - component: {fileID: 4731959715603722275}
+  m_Layer: 0
+  m_Name: LoanManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4731959715603722274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731959715603722461}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1239.317, y: -538.5441, z: -166.46167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4731959715603722272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731959715603722461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52270bf2d5d9714cb21ddcd5915a57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasTakenLoan: 0
+  hasPaidLoan: 0
+  loanSettings: {fileID: 11400000, guid: a890c8d3aa71f814e9a5896067764dee, type: 2}
+--- !u!114 &4731959715603722275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731959715603722461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8220140b28c82447a60e7872bce1f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loanMenuButton: {fileID: 0}
+  loanMenuPanel: {fileID: 0}
+  payLoanButton: {fileID: 0}
+  loanButton: {fileID: 0}
+  availableLoanAmountText: {fileID: 0}

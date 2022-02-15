@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &347891149674648684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347891149674648685}
+  - component: {fileID: 347891149674648686}
+  - component: {fileID: 347891149674648687}
+  - component: {fileID: 347891149674648680}
+  m_Layer: 0
+  m_Name: TurretSelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &347891149674648685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347891149674648684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &347891149674648686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347891149674648684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397a73e835bea9e40920ca0561bf7103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTurret: {fileID: 0}
+--- !u!114 &347891149674648687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347891149674648684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48fc22a61ae77c94a9c68829b6d528ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretSelectionMenu: {fileID: 0}
+  turretNameText: {fileID: 0}
+  damageValueText: {fileID: 0}
+  rangeValueText: {fileID: 0}
+  attackSpeedValueText: {fileID: 0}
+  sellTurretButton: {fileID: 0}
+  sellPriceText: {fileID: 0}
+  upgradePathPrefab: {fileID: 7810786407821893707, guid: bb76c8dfb4a41044c9f645a927a45e70, type: 3}
+  upgradePathParent: {fileID: 0}
+--- !u!114 &347891149674648680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347891149674648684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cb6efa9c50619468f2e314a942c024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretRangeMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
