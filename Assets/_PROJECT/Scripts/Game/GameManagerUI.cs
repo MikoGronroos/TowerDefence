@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,8 +19,11 @@ public class GameManagerUI : MonoBehaviour
         });
     }
 
-    public void GameEndedUI(int loserID)
+    public void GameEndedUIToggle(Dictionary<string,object> args)
     {
+
+        int loserID = (int)args["loserID"];
+
         gameEndScreen.SetActive(true);
 
         string gameEndText;

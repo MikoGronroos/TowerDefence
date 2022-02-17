@@ -38,7 +38,12 @@ public class TurretSelectionUI : MonoBehaviour
         });
     }
 
-    public void OpenSelectionUI(Turret turret)
+    public void ToggleTurretSelection(Dictionary<string, object> args)
+    {
+
+    }
+
+    private void OpenSelectionUI(Turret turret)
     {
 
         turretNameText.text = turret.GetTurretStats().Name;
@@ -74,7 +79,7 @@ public class TurretSelectionUI : MonoBehaviour
         turretSelectionMenu.SetActive(true);
     }
 
-    public void CloseSelectionUI()
+    private void CloseSelectionUI()
     {
         turretSelectionMenu.SetActive(false);
     }

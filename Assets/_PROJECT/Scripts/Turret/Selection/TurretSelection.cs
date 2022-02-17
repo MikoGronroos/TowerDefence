@@ -1,18 +1,19 @@
 using UnityEngine;
 using Finark.Utils;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 {
 
     [SerializeField] private Turret selectedTurret;
 
-    private TurretSelectionUI _turretSelectionUI;
+    [SerializeField] private EventChannel selectedTurretChannel;
+
     private RangeVisualisation _rangeVisualisation;
 
     private void Awake()
     {
-        _turretSelectionUI = GetComponent<TurretSelectionUI>();
         _rangeVisualisation = GetComponent<RangeVisualisation>();
     }
 
@@ -52,7 +53,12 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
         selectedTurret = null;
 
-        _turretSelectionUI.CloseSelectionUI();
+        //_turretSelectionUI.CloseSelectionUI();
+
+        selectedTurretChannel.RaiseEvent(new Dictionary<string, object> {
+            { "toggleValue", false },
+            { "turret", null }
+        });
 
     }
 
@@ -73,7 +79,13 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
                 selectedTurret = turret;
 
-                _turretSelectionUI.OpenSelectionUI(selectedTurret);
+                //_turretSelectionUI.OpenSelectionUI(selectedTurret);
+
+                selectedTurretChannel.RaiseEvent(new Dictionary<string, object> {
+                    { "toggleValue", true },
+                    { "turret", selectedTurret }
+                });
+
                 _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, .3f);
             }
         }
@@ -85,7 +97,14 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
             _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
             selectedTurret = null;
-            _turretSelectionUI.CloseSelectionUI();
+
+            //_turretSelectionUI.CloseSelectionUI();
+
+            selectedTurretChannel.RaiseEvent(new Dictionary<string, object> {
+                { "toggleValue", false },
+                { "turret", null }
+            });
+
         }
 
     }
