@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 463572498408512073, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_Name
+      value: LevelText
+      objectReference: {fileID: 0}
     - target: {fileID: 463572498427892618, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: m_Name
       value: NonStaticUI
@@ -218,8 +222,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 463572499504685519, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+--- !u!1 &242568183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 463572499504685513, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+  m_PrefabInstance: {fileID: 242568182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &242568184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242568183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channelListeners:
+  - channel: {fileID: 11400000, guid: 2617529454eead249b2986efa1622c2d, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - channel: {fileID: 11400000, guid: f0270d69895801248a757cb985fd633f, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1001 &1030965051
 PrefabInstance:
   m_ObjectHideFlags: 0

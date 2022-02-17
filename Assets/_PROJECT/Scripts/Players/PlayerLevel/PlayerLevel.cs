@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
@@ -9,14 +10,10 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
 
     [SerializeField] private LevelXpRequirementChart levelXpRequirementChart;
 
-    private PlayerLevelUI _playerLevelUI;
+    [SerializeField] private EventChannel playerLevelUpChannel;
+    [SerializeField] private EventChannel playerXpAddonChannel;
 
     public static Action OnLevelUpEvent;
-
-    private void Awake()
-    {
-        _playerLevelUI = GetComponent<PlayerLevelUI>();
-    }
 
     public void OnLevelUp()
     {
@@ -37,7 +34,8 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
         currentLevel = value;
         OnLevelUp();
 
-        _playerLevelUI.UpdateLevelText(currentLevel);
+        playerLevelUpChannel.RaiseEvent(new Dictionary<string, object> { { "CurrentLevel", currentLevel } });
+
     }
 
     public void SetXP(int value)
@@ -48,7 +46,7 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
         {
             SetLevel(currentLevel + 1);
         }
-        _playerLevelUI.UpdateXpProgressBar(currentXp, levelXpReq);
+        playerXpAddonChannel.RaiseEvent(new Dictionary<string, object> { { "CurrentXP", currentXp }, { "LevelXpReq", levelXpReq } });
     }
 
 

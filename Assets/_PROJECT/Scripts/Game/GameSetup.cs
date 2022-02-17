@@ -1,5 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
+using System.Collections.Generic;
+using System;
 
 public class GameSetup : MonoBehaviour
 {
@@ -25,6 +27,4 @@ public class GameSetup : MonoBehaviour
         PvpMissionManager.Instance.GetNewMissions(GameSettingsManager.Instance.GetGameSettings().StartingAmountOfMissions);
 
     }
-
-
 }

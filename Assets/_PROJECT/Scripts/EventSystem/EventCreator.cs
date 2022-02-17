@@ -5,9 +5,13 @@
 
     public static void CreateAllEvents()
     {
+        #region Game Events
+
         EventManager.CreateEvent("OnUnitReachedGoal");
         EventManager.CreateEvent("OnUnitKilled");
         EventManager.CreateEvent("OnMoneyUsed");
+
+        #endregion
 
         #region Settings
 
