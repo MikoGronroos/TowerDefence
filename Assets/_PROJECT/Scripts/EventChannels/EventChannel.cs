@@ -6,12 +6,15 @@ using UnityEngine;
 public class EventChannel : ScriptableObject
 {
 
-    public Action<Dictionary<string, object>> Callback;
+    public Action Callback;
+
+    public Dictionary<string, object> Arguments { get; private set; }
 
     //Happens from where you get the data
     public void RaiseEvent(Dictionary<string, object> args)
     {
-        Callback?.Invoke(args);
+        Arguments = args;
+        Callback?.Invoke();
     }
 
 }
