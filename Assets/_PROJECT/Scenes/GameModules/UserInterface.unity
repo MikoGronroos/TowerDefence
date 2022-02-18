@@ -222,7 +222,12 @@ PrefabInstance:
       propertyPath: openShopButton
       value: 
       objectReference: {fileID: 1030965052}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+    - {fileID: 4200186837473791873, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+    - {fileID: 8517379940373150124, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+    - {fileID: 7939799307305847438, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+    - {fileID: 1088703623558931534, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
 --- !u!1001 &1030965051
 PrefabInstance:
@@ -331,7 +336,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -203.84595
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3355465610481396603, guid: bbb03ae6c87477444aa7cf1493ffd42c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bbb03ae6c87477444aa7cf1493ffd42c, type: 3}
 --- !u!114 &1030965052 stripped
 MonoBehaviour:

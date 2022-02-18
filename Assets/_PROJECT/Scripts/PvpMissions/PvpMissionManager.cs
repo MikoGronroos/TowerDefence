@@ -11,8 +11,8 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
 
     [SerializeField] private List<PvpMission> missions = new List<PvpMission>();
 
-    [SerializeField] private EventChannel missionCompletedChannel;
-    [SerializeField] private EventChannel refreshMissionLogChannel;
+    //[SerializeField] private EventChannel missionCompletedChannel;
+    //[SerializeField] private EventChannel refreshMissionLogChannel;
 
     public void GetNewMissions(int amount)
     {
@@ -26,7 +26,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
             currentMissions.Add(quest);
             missions.Remove(quest);
         }
-        refreshMissionLogChannel.RaiseEvent(new Dictionary<string, object> { { "Missions", currentMissions } });
+        //refreshMissionLogChannel.RaiseEvent(new Dictionary<string, object> { { "Missions", currentMissions } });
     }
 
     public void CompleteMission(PvpMission mission)
@@ -35,8 +35,8 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         completedMissions.Add(mission);
         mission.Unload();
         GiveMissionRewards(mission.MissionRewards);
-        missionCompletedChannel.RaiseEvent(new Dictionary<string, object> { { "Mission", mission } });
-        refreshMissionLogChannel.RaiseEvent(new Dictionary<string, object> { { "Missions", currentMissions } });
+        //missionCompletedChannel.RaiseEvent(new Dictionary<string, object> { { "Mission", mission } });
+        //refreshMissionLogChannel.RaiseEvent(new Dictionary<string, object> { { "Missions", currentMissions } });
     }
 
     public void MissionFailed(PvpMission mission)
@@ -44,7 +44,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         currentMissions.Remove(mission);
         failedMissions.Add(mission);
         mission.Unload();
-        refreshMissionLogChannel.RaiseEvent(new Dictionary<string, object> { { "Missions", currentMissions } });
+        //refreshMissionLogChannel.RaiseEvent(new Dictionary<string, object> { { "Missions", currentMissions } });
     }
 
     private void GiveMissionRewards(PvpMissionRewards rewards)

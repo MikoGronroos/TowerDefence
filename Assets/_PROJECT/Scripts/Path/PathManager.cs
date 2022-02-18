@@ -6,6 +6,13 @@ public class PathManager : MonoBehaviourSingleton<PathManager>
 
     [SerializeField] private List<Path> paths = new List<Path>();
 
+    //[SerializeField] private EventChannel pathManagerLoadedChannel;
+
+    private void Start()
+    {
+        //pathManagerLoadedChannel.RaiseEvent(null);
+    }
+
     public Path GetPathWithPlayerID(int id)
     {
         foreach (var path in paths)
@@ -16,6 +23,14 @@ public class PathManager : MonoBehaviourSingleton<PathManager>
             }
         }
         return null;
+    }
+
+    public void SetupNewPath(Dictionary<string, object> args)
+    {
+        var path = (Path)args["Path"];
+
+        paths.Add(path);
+
     }
 
 }

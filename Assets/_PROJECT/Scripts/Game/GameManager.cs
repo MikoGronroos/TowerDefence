@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
 
-    [SerializeField] private EventChannel gameEndedChannel;
+    //[SerializeField] private EventChannel gameEndedChannel;
 
     public void StartChildCoroutine(IEnumerator coroutine)
     {
@@ -16,9 +16,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void EndGame(int loserID)
     {
-        gameEndedChannel.RaiseEvent(new Dictionary<string, object> {
-            { "loserID", loserID }
-        });
+        //gameEndedChannel.RaiseEvent(new Dictionary<string, object> {{ "loserID", loserID }});
     }
 
     public void LeaveRoom()

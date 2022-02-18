@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2425136198786527040, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
+      propertyPath: paths.Array.data[0].PlayedId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425136198786527040, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
+      propertyPath: paths.Array.data[0].PathOwner
+      value: Player 2 Path
+      objectReference: {fileID: 0}
     - target: {fileID: 2425136198879211748, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -186,5 +194,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6865239625804703385, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
