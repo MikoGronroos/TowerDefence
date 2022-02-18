@@ -11,7 +11,7 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private GameObject shopItemPrefab;
 
-    [SerializeField] private GameObject shopGameObject;
+    [SerializeField] private GameObject shopPanel;
 
     [SerializeField] private string suffix;
 
@@ -24,10 +24,10 @@ public class ShopUI : MonoBehaviour
     private void Awake()
     {
         closeShopButton.onClick.AddListener(() => {
-            shopGameObject.SetActive(false);
+            shopPanel.SetActive(false);
         });
         openShopButton.onClick.AddListener(() => {
-            shopGameObject.SetActive(true);
+            shopPanel.SetActive(true);
         });
     }
 

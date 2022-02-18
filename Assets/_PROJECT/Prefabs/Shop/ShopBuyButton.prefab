@@ -347,7 +347,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costText: {fileID: 432107693276825860}
   itemIcon: {fileID: 7498172010748387433}
-  outline: {fileID: 6645034606569525202}
 --- !u!114 &8291492878275696566
 MonoBehaviour:
   m_ObjectHideFlags: 0

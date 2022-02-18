@@ -641,8 +641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0010549, y: 12.109985}
-  m_SizeDelta: {x: 444.22, y: 78.05951}
+  m_AnchoredPosition: {x: -0.001071, y: -0.5985}
+  m_SizeDelta: {x: 406.9, y: 54.6525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &463572498080143524
 CanvasRenderer:
@@ -1807,7 +1807,7 @@ RectTransform:
   - {fileID: 463572499590150994}
   - {fileID: 463572499000640458}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1986,9 +1986,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 8753096954025896482}
   - {fileID: 463572498402146019}
   - {fileID: 463572499504685518}
+  - {fileID: 8753096954025896482}
   - {fileID: 463572498670663795}
   - {fileID: 463572499377101884}
   - {fileID: 463572499065130944}
@@ -3126,7 +3126,6 @@ GameObject:
   - component: {fileID: 463572498930981221}
   - component: {fileID: 463572498930981243}
   - component: {fileID: 463572498930981242}
-  - component: {fileID: 2273411426801549461}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -3155,8 +3154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -222.11084, y: -0.010253906}
-  m_SizeDelta: {x: 444.2221, y: 0}
+  m_AnchoredPosition: {x: -203.44669, y: -0.010253906}
+  m_SizeDelta: {x: 406.8939, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &463572498930981243
 CanvasRenderer:
@@ -3179,7 +3178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3196,25 +3195,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2273411426801549461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463572498930981220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9a8c87e3c5e3548be0ffca58907849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitShopItemParent: {fileID: 0}
-  turretShopItemParent: {fileID: 0}
-  shopItemPrefab: {fileID: 8291492878275696557, guid: aebcb4efec4f06049b0cc7b7e2e5d99b, type: 3}
-  shopGameObject: {fileID: 0}
-  suffix: $
-  closeShopButton: {fileID: 0}
-  openShopButton: {fileID: 0}
 --- !u!1 &463572498962384351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,7 +3894,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 8b6118f111e1d2c4195228384dc3b396, type: 3}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4222,6 +4202,7 @@ GameObject:
   - component: {fileID: 463572499504685516}
   - component: {fileID: 463572499504685519}
   - component: {fileID: 7486641947581170318}
+  - component: {fileID: 3247013072879669533}
   - component: {fileID: 5216192908291960234}
   m_Layer: 5
   m_Name: GameInfoPanel
@@ -4247,7 +4228,7 @@ RectTransform:
   - {fileID: 463572498619040907}
   - {fileID: 463572498408512078}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4306,6 +4287,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 463572498408512079}
   xpProgressBar: {fileID: 463572498619040904}
+--- !u!114 &3247013072879669533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463572499504685513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aabf549381b1f74298efcbf6f3fee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyText: {fileID: 463572498325962713}
+  incomeText: {fileID: 463572499213038574}
+  incomeIntervalProgressBar: {fileID: 463572499583788119}
+  suffix: $
 --- !u!114 &5216192908291960234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,6 +4339,54 @@ MonoBehaviour:
         - m_Target: {fileID: 7486641947581170318}
           m_TargetAssemblyTypeName: PlayerLevelUI, Assembly-CSharp
           m_MethodName: PlayerXpAddonChannelListener
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Channel: {fileID: 11400000, guid: 682c81fde294d9e479af7c3bb941be44, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3247013072879669533}
+          m_TargetAssemblyTypeName: VirtualCurrencyManagerUI, Assembly-CSharp
+          m_MethodName: UpdatePlayerCurrency
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Channel: {fileID: 11400000, guid: 7c7d28b44207172458f1d5acb23e4122, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3247013072879669533}
+          m_TargetAssemblyTypeName: VirtualCurrencyManagerUI, Assembly-CSharp
+          m_MethodName: UpdatePlayerIncome
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Channel: {fileID: 11400000, guid: a03d603dea8d11b40a722127abef153c, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3247013072879669533}
+          m_TargetAssemblyTypeName: VirtualCurrencyManagerUI, Assembly-CSharp
+          m_MethodName: UpdatePlayerIncomeProgressBar
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4431,8 +4476,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0010813, y: -39.03003}
-  m_SizeDelta: {x: 444.22, y: 78.05951}
+  m_AnchoredPosition: {x: -0.001071, y: -29.5209}
+  m_SizeDelta: {x: 406.9, y: 54.6525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &463572499517882794
 CanvasRenderer:
@@ -4565,8 +4610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 177.58}
-  m_SizeDelta: {x: 0, y: 256.73}
+  m_AnchoredPosition: {x: 0, y: 133.29}
+  m_SizeDelta: {x: 0, y: 213.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &463572499520290045
 CanvasRenderer:
@@ -4843,8 +4888,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 178.5401}
-  m_SizeDelta: {x: 0, y: 357.08}
+  m_AnchoredPosition: {x: -0.0040893555, y: 134.39}
+  m_SizeDelta: {x: 0, y: 268.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &463572499594741663
 CanvasRenderer:
@@ -5276,6 +5321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8753096954025896482}
+  - component: {fileID: 5543426168717563705}
   m_Layer: 5
   m_Name: ShopMenu
   m_TagString: Untagged
@@ -5296,13 +5342,32 @@ RectTransform:
   m_Children:
   - {fileID: 463572498930981221}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5543426168717563705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729165344135514040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9a8c87e3c5e3548be0ffca58907849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitShopItemParent: {fileID: 463572499520290047}
+  turretShopItemParent: {fileID: 463572499594741657}
+  shopItemPrefab: {fileID: 8291492878275696557, guid: aebcb4efec4f06049b0cc7b7e2e5d99b, type: 3}
+  shopPanel: {fileID: 463572498930981220}
+  suffix: $
+  closeShopButton: {fileID: 463572498610197108}
+  openShopButton: {fileID: 0}
 --- !u!1 &7897364408766126591
 GameObject:
   m_ObjectHideFlags: 0

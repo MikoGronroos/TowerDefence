@@ -62,6 +62,9 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
     private void ProcessHit(Transform hit)
     {
+
+        if (hit == null)  return;
+
         if (hit.transform.TryGetComponent(out Turret turret))
         {
 

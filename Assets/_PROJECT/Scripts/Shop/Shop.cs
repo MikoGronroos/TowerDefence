@@ -7,13 +7,6 @@ public class Shop : MonoBehaviourSingleton<Shop>
 
     [SerializeField] private ShopInventory turretShopInventory;
 
-    private ShopUI _shopUI;
-
-    private void Awake()
-    {
-        _shopUI = GetComponent<ShopUI>();
-    }
-
     private void OnEnable()
     {
         PlayerLevel.OnLevelUpEvent += RefreshShop;
@@ -37,20 +30,20 @@ public class Shop : MonoBehaviourSingleton<Shop>
     private void RefreshShop()
     {
 
-        _shopUI.EraseDrawnShopItems();
+        //_shopUI.EraseDrawnShopItems();
 
         foreach (var item in unitShopInventory.Inventory)
         {
             if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
             {
-                _shopUI.DrawShopItem(item);
+                //_shopUI.DrawShopItem(item);
             }
         }
         foreach (var item in turretShopInventory.Inventory)
         {
             if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
             {
-                _shopUI.DrawShopItem(item);
+                //_shopUI.DrawShopItem(item);
             }
         }
     }

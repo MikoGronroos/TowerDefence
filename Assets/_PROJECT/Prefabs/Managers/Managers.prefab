@@ -653,6 +653,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2425136199628284728}
     m_Modifications:
+    - target: {fileID: 8824569226368512474, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
+      propertyPath: incomeChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c7d28b44207172458f1d5acb23e4122, type: 2}
+    - target: {fileID: 8824569226368512474, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
+      propertyPath: currencyChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 682c81fde294d9e479af7c3bb941be44, type: 2}
+    - target: {fileID: 8824569226368512474, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
+      propertyPath: incomeProgressChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: a03d603dea8d11b40a722127abef153c, type: 2}
     - target: {fileID: 8824569226368512475, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
       propertyPath: incomeText
       value: 

@@ -1,17 +1,8 @@
 using UnityEngine;
 using Photon.Pun;
-using System.Collections.Generic;
-using System;
 
 public class GameSetup : MonoBehaviour
 {
-
-    private PhotonView _photonView;
-
-    private void Awake()
-    {
-        _photonView = GetComponent<PhotonView>();
-    }
 
     private void Start()
     {
