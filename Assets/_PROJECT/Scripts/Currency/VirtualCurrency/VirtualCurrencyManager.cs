@@ -67,9 +67,6 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     public void SetCurrency(int value)
     {
-
-        Debug.Log("Called Xdd");
-
         currentCurrency = value;
         currencyChannel.RaiseEvent(new Dictionary<string, object> { { "Currency", currentCurrency } });
     }

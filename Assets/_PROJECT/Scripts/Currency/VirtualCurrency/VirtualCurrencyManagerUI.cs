@@ -17,11 +17,10 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
     public void UpdatePlayerCurrency(Dictionary<string, object> args)
     {
 
-        Debug.Log("Called");
-
         int value = (int)args["Currency"];
 
         currencyText.text = $"{value}{suffix}";
+
     }
 
     public void UpdatePlayerIncome(Dictionary<string, object> args)

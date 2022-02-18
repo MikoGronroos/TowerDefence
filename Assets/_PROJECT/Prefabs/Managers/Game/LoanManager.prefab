@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4731959715603722274}
   - component: {fileID: 4731959715603722272}
-  - component: {fileID: 4731959715603722275}
   m_Layer: 0
   m_Name: LoanManager
   m_TagString: Untagged
@@ -47,20 +46,3 @@ MonoBehaviour:
   hasTakenLoan: 0
   hasPaidLoan: 0
   loanSettings: {fileID: 11400000, guid: a890c8d3aa71f814e9a5896067764dee, type: 2}
---- !u!114 &4731959715603722275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4731959715603722461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8220140b28c82447a60e7872bce1f7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loanMenuButton: {fileID: 0}
-  loanMenuPanel: {fileID: 0}
-  payLoanButton: {fileID: 0}
-  loanButton: {fileID: 0}
-  availableLoanAmountText: {fileID: 0}
