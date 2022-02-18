@@ -53,8 +53,6 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
         selectedTurret = null;
 
-        //_turretSelectionUI.CloseSelectionUI();
-
         selectedTurretChannel.RaiseEvent(new Dictionary<string, object> {
             { "toggleValue", false },
             { "turret", null }
@@ -79,8 +77,6 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
                 selectedTurret = turret;
 
-                //_turretSelectionUI.OpenSelectionUI(selectedTurret);
-
                 selectedTurretChannel.RaiseEvent(new Dictionary<string, object> {
                     { "toggleValue", true },
                     { "turret", selectedTurret }
@@ -97,8 +93,6 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
             _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
             selectedTurret = null;
-
-            //_turretSelectionUI.CloseSelectionUI();
 
             selectedTurretChannel.RaiseEvent(new Dictionary<string, object> {
                 { "toggleValue", false },

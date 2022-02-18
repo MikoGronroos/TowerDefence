@@ -41,6 +41,17 @@ public class TurretSelectionUI : MonoBehaviour
     public void ToggleTurretSelection(Dictionary<string, object> args)
     {
 
+        bool toggleValue = (bool)args["toggleValue"];
+        Turret turret = (Turret)args["turret"];
+
+        if (toggleValue)
+        {
+            OpenSelectionUI(turret);
+        }
+        else
+        {
+            CloseSelectionUI();
+        }
     }
 
     private void OpenSelectionUI(Turret turret)
