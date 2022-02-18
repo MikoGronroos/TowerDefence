@@ -7,13 +7,12 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
 
     [SerializeField] private List<PlayerHealth> playerHealths = new List<PlayerHealth>();
 
-    private HealthManagerUI _healthManagerUI;
+    [SerializeField] private EventChannel playerHealthChannel;
 
     private PhotonView _photonView;
 
     private void Awake()
     {
-        _healthManagerUI = GetComponent<HealthManagerUI>();
         _photonView = GetComponent<PhotonView>();
     }
 
@@ -29,7 +28,7 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
     {
         var player = GetPlayerHealthWithID(id);
         player.Health = Mathf.Clamp(player.Health -= amount, 0, player.Health);
-        _healthManagerUI.UpdateHealthText(player);
+        playerHealthChannel.RaiseEvent(new Dictionary<string, object> { { "PlayerHealth", player } });
 
         if (PlayerHealthBelowZero(player))
         {
@@ -47,7 +46,7 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
     {
         foreach (var player in playerHealths)
         {
-            _healthManagerUI.UpdateHealthText(player);
+            playerHealthChannel.RaiseEvent(new Dictionary<string, object> { { "PlayerHealth", player }});
         }
     }
 

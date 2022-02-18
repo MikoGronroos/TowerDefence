@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 463572498402146019}
   - component: {fileID: 463572498402146017}
   m_Layer: 5
-  m_Name: PlayersHealthBar
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,13 +1800,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463572498402146018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463572499590150994}
   - {fileID: 463572499000640458}
-  m_Father: {fileID: 463572498427892622}
+  m_Father: {fileID: 733761814325651037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -1986,12 +1986,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 463572498402146019}
   - {fileID: 463572499504685518}
   - {fileID: 8753096954025896482}
   - {fileID: 1034751686835149529}
   - {fileID: 4654861028852479445}
   - {fileID: 8298862390950021703}
+  - {fileID: 733761814325651037}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4225,7 +4225,7 @@ RectTransform:
   - {fileID: 463572498619040907}
   - {fileID: 463572498408512078}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -5340,7 +5340,7 @@ RectTransform:
   m_Children:
   - {fileID: 463572498930981221}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5428,7 +5428,7 @@ RectTransform:
   - {fileID: 463572499065130944}
   - {fileID: 463572498670663795}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5529,7 +5529,7 @@ RectTransform:
   - {fileID: 463572498345091329}
   - {fileID: 463572498605107006}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5553,6 +5553,88 @@ MonoBehaviour:
   payLoanButton: {fileID: 463572499607790193}
   loanButton: {fileID: 463572498459280349}
   availableLoanAmountText: {fileID: 463572498886552617}
+--- !u!1 &5811790623289362095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733761814325651037}
+  - component: {fileID: 3345152724923440089}
+  - component: {fileID: 1088703623558931534}
+  m_Layer: 5
+  m_Name: PlayerHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &733761814325651037
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811790623289362095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 463572498402146019}
+  m_Father: {fileID: 463572498427892622}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3345152724923440089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811790623289362095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767808452643849449401a757b1a49dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthTexts:
+  - {fileID: 463572499590150995}
+  - {fileID: 463572499000640459}
+--- !u!114 &1088703623558931534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811790623289362095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channelListeners:
+  - Channel: {fileID: 11400000, guid: 5a298c9739e5e6948be7ead3d7f2683c, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3345152724923440089}
+          m_TargetAssemblyTypeName: HealthManagerUI, Assembly-CSharp
+          m_MethodName: UpdateHealthText
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7897364408766126591
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,7 +5666,7 @@ RectTransform:
   m_Children:
   - {fileID: 463572498343429109}
   m_Father: {fileID: 463572498427892622}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

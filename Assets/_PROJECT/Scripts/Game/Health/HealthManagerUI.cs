@@ -1,14 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class HealthManagerUI : MonoBehaviour
 {
 
-    public void UpdateHealthText(PlayerHealth health)
+    [SerializeField] private List<TextMeshProUGUI> playerHealthTexts = new List<TextMeshProUGUI>();
+
+    public void UpdateHealthText(Dictionary<string, object> args)
     {
-        health.HealthText.text = $"Health: {health.Health}";
+        var health = (PlayerHealth)args["PlayerHealth"];
+
+        var id = health.PlayerID;
+
+        var healthText = playerHealthTexts[id];
+
+        healthText.text = $"Health: {health.Health}";
     }
-
-
 }
