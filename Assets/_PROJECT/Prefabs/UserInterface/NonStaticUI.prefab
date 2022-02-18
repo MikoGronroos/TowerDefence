@@ -5322,6 +5322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8753096954025896482}
   - component: {fileID: 5543426168717563705}
+  - component: {fileID: 4200186837473791873}
   m_Layer: 5
   m_Name: ShopMenu
   m_TagString: Untagged
@@ -5368,6 +5369,35 @@ MonoBehaviour:
   suffix: $
   closeShopButton: {fileID: 463572498610197108}
   openShopButton: {fileID: 0}
+--- !u!114 &4200186837473791873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729165344135514040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channelListeners:
+  - Channel: {fileID: 11400000, guid: 034e237d4c832504b832caea45671caf, type: 2}
+    OnChannelHeardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5543426168717563705}
+          m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
+          m_MethodName: RefreshShopUI
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7897364408766126591
 GameObject:
   m_ObjectHideFlags: 0

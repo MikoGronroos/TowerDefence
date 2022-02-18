@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitShopInventory: {fileID: 11400000, guid: 075a7fc0f623f2d46a5b73555eb7c362, type: 2}
   turretShopInventory: {fileID: 11400000, guid: 4db23919e9b0c1b4391d4e6e60f22a7d, type: 2}
+  refreshShopChannel: {fileID: 11400000, guid: 034e237d4c832504b832caea45671caf, type: 2}

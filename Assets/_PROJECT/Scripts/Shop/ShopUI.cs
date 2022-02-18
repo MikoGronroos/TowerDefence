@@ -31,7 +31,7 @@ public class ShopUI : MonoBehaviour
         });
     }
 
-    public void DrawShopItem(ShopItem item)
+    private void DrawShopItem(ShopItem item)
     {
 
         Transform parent = null;
@@ -56,13 +56,38 @@ public class ShopUI : MonoBehaviour
 
     }
 
-    public void EraseDrawnShopItems()
+    private void EraseDrawnShopItems()
     {
         foreach (var item in _drawnShopItems)
         {
             Destroy(item);
         }
         _drawnShopItems.Clear();
+    }
+
+    public void RefreshShopUI(Dictionary<string, object> args)
+    {
+
+        var units = (ShopInventory)args["Units"];
+        var turrets = (ShopInventory)args["Turrets"];
+
+        EraseDrawnShopItems();
+
+        foreach (var item in units.Inventory)
+        {
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                DrawShopItem(item);
+            }
+        }
+
+        foreach (var item in turrets.Inventory)
+        {
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                DrawShopItem(item);
+            }
+        }
     }
 
 }

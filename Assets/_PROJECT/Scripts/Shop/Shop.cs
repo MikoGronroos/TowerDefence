@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Shop : MonoBehaviourSingleton<Shop>
 {
@@ -6,6 +7,8 @@ public class Shop : MonoBehaviourSingleton<Shop>
     [SerializeField] private ShopInventory unitShopInventory;
 
     [SerializeField] private ShopInventory turretShopInventory;
+
+    [SerializeField] private EventChannel refreshShopChannel;
 
     private void OnEnable()
     {
@@ -30,22 +33,8 @@ public class Shop : MonoBehaviourSingleton<Shop>
     private void RefreshShop()
     {
 
-        //_shopUI.EraseDrawnShopItems();
+        refreshShopChannel.RaiseEvent(new Dictionary<string, object> { {"Units", unitShopInventory }, { "Turrets", turretShopInventory } });
 
-        foreach (var item in unitShopInventory.Inventory)
-        {
-            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
-            {
-                //_shopUI.DrawShopItem(item);
-            }
-        }
-        foreach (var item in turretShopInventory.Inventory)
-        {
-            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
-            {
-                //_shopUI.DrawShopItem(item);
-            }
-        }
     }
 
 }
