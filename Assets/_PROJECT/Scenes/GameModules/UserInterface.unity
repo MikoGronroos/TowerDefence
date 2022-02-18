@@ -218,38 +218,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 463572499352079046, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463572499583788119, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: channelListeners.Array.data[3].OnChannelHeardEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: channelListeners.Array.data[3].OnChannelHeardEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: channelListeners.Array.data[3].OnChannelHeardEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: channelListeners.Array.data[3].OnChannelHeardEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: channelListeners.Array.data[3].OnChannelHeardEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PlayerLevelUI, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: channelListeners.Array.data[3].OnChannelHeardEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5543426168717563705, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: openShopButton
       value: 

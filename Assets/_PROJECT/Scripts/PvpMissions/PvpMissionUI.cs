@@ -31,8 +31,10 @@ public class PvpMissionUI : MonoBehaviour
         pvpMissionLog.SetActive(!pvpMissionLog.activeSelf);
     }
 
-    public void DrawPvpMissionsToLog(List<PvpMission> currentMissions)
+    public void RefreshMissionLog(Dictionary<string, object> args)
     {
+
+        List<PvpMission> currentMissions = (List<PvpMission>)args["Missions"];
 
         EraseDrawnMissionLogs();
 
@@ -54,8 +56,13 @@ public class PvpMissionUI : MonoBehaviour
         _drawnMissionLogs.Clear();
     }
 
-    public void MissionCompletedScreen(PvpMission mission)
+    #region Mission Completed
+
+    public void MissionCompletedUI(Dictionary<string, object> args)
     {
+
+        var mission = (PvpMission)args["Mission"];
+
         StartCoroutine(MissionCompleted(mission));
     }
 
@@ -72,4 +79,5 @@ public class PvpMissionUI : MonoBehaviour
 
     }
 
+    #endregion
 }
