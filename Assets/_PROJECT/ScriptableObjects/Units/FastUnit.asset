@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
-  m_Name: DebugSettings
+  m_Script: {fileID: 11500000, guid: 119c9667f985ee3468276d0ffcdcbc94, type: 3}
+  m_Name: FastUnit
   m_EditorClassIdentifier: 
-  StartingCurrency: 500
-  StartingIncome: 100
-  IncomeInterval: 5
-  StartingHealth: 40
-  StartingLevel: 10
-  Singleplayer: 1
-  CurrentMapIndex: 0
-  StartingAmountOfMissions: 3
+  UnitID: 0
+  StartHealth: 250
+  Speed: 9
+  Damage: 11
+  ProjectileTypesAllowed:
+  - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+  XpAddonOnDestroyed: 0

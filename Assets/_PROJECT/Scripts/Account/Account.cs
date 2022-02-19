@@ -7,4 +7,6 @@ public class Account
     public int AccountLevel;
     public int AccountXp;
 
+    public int Winstreak;
+
 }

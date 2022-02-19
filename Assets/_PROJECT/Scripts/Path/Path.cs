@@ -11,6 +11,6 @@ public class Path
 
     public Transform PathStartPos;
 
-    public int PlayedId;
+    public int EnemyPlayerID;
 
 }

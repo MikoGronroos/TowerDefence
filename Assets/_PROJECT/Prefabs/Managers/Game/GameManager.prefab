@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
+  sceneManagementEventChannel: {fileID: 11400000, guid: 7c65dc6f0e4a1e44d8330f9968daaf8a, type: 2}
+  gameEnded: 0

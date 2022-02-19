@@ -8,8 +8,7 @@ public abstract class TurretJobAoe : ExecuteJob
     public override void Job(Dictionary<string, object> args)
     {
 
-        Debug.Log("Executed");
-        GameManager.Instance.StartChildCoroutine(MakeAoe(args));
+        //GameManager.Instance.StartChildCoroutine(MakeAoe(args));
 
     }
 

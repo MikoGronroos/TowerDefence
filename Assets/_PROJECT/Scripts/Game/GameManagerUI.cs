@@ -10,16 +10,15 @@ public class GameManagerUI : MonoBehaviour
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
-    [Header("Game End Screen")]
+    [Header("Game End Panel")]
 
-    [SerializeField] private GameObject gameEndScreen;
     [SerializeField] private TextMeshProUGUI winnerText;
     [SerializeField] private Button leaveTheRoomButton;
 
     private void Awake()
     {
         leaveTheRoomButton.onClick.AddListener(() => {
-            GameManager.Instance.LeaveRoom();
+            //GameManager.Instance.LeaveRoom();
         });
     }
 
@@ -37,8 +36,6 @@ public class GameManagerUI : MonoBehaviour
     {
 
         int loserID = (int)args["loserID"];
-
-        gameEndScreen.SetActive(true);
 
         string gameEndText;
 

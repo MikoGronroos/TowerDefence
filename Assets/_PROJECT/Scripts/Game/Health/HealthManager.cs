@@ -33,7 +33,7 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
 
         if (PlayerHealthBelowZero(player))
         {
-            GameManager.Instance.EndGame(id);
+            playerEventChannel?.OnPlayerDead(new Dictionary<string, object> { { "loserID", id} });
         }
 
     }

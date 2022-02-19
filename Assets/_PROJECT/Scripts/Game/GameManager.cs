@@ -1,12 +1,32 @@
 using Finark.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviourSingleton<GameManager>
+public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
+
+    [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
+
+    [SerializeField] private bool gameEnded = false;
+
+    private void OnEnable()
+    {
+        sceneManagementEventChannel.GameEndSceneLoaded += GameEndSceneLoaded;
+        playerEventChannel.OnPlayerDead += EndGame;
+    }
+
+
+
+    private void OnDisable()
+    {
+        sceneManagementEventChannel.GameEndSceneLoaded -= GameEndSceneLoaded;
+        playerEventChannel.OnPlayerDead -= EndGame;
+    }
 
     public void StartChildCoroutine(IEnumerator coroutine)
     {
@@ -15,12 +35,34 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     #region Game End
 
-    public void EndGame(int loserID)
+    private void EndGame(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        playerEventChannel?.OnPlayerDead(new Dictionary<string, object> {{ "loserID", loserID }});
+
+        if (gameEnded) return;
+
+        gameEnded = true;
+
+        int loserID = (int)args["loserID"];
+
+        SceneManager.LoadScene("GameEndScreen", LoadSceneMode.Additive);
+
+        if (loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
+        {
+            AccountManager.Instance.CurrentAccount.Winstreak++;
+        }
+        else
+        {
+            AccountManager.Instance.CurrentAccount.Winstreak = 0;
+        }
+
     }
 
-    public void LeaveRoom()
+    private void GameEndSceneLoaded(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        sceneManagementEventChannel?.UnloadScenes(null);
+    }
+
+    private void LeaveRoom()
     {
         RoomController.LeaveTheRoom();
     }

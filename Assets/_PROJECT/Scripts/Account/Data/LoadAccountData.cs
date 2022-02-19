@@ -17,8 +17,6 @@ public class LoadAccountData
     private static void OnDataReceived(GetUserDataResult result)
     {
 
-        Debug.Log($"Data Received Successfully");
-
         Account data = null;
 
         if (result.Data != null && result.Data.ContainsKey("AccountData"))

@@ -642,7 +642,7 @@ MonoBehaviour:
     PathOwner: Player 1 Path
     ThisPath: {fileID: 843838816}
     PathStartPos: {fileID: 300667733}
-    PlayedId: 0
+    EnemyPlayerID: 1
   pathEventChannel: {fileID: 11400000, guid: ac1abc452a968bf42a7489b5da4da013, type: 2}
 --- !u!212 &370319044
 SpriteRenderer:
@@ -1794,7 +1794,7 @@ MonoBehaviour:
     PathOwner: Player 2 Path
     ThisPath: {fileID: 469850200}
     PathStartPos: {fileID: 164007585}
-    PlayedId: 1
+    EnemyPlayerID: 0
   pathEventChannel: {fileID: 11400000, guid: ac1abc452a968bf42a7489b5da4da013, type: 2}
 --- !u!61 &1688670325
 BoxCollider2D:
@@ -1969,9 +1969,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12d396efc714b34aab007c84283e16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScene: Map_City
   scenesToLoad:
   - GameSystems
   - UserInterface
+  sceneManagementEventChannel: {fileID: 11400000, guid: 7c65dc6f0e4a1e44d8330f9968daaf8a, type: 2}
 --- !u!1 &1936116796
 GameObject:
   m_ObjectHideFlags: 0

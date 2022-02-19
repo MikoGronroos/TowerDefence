@@ -18,7 +18,7 @@ public class PathManager : MonoBehaviourSingleton<PathManager>
     {
         foreach (var path in paths)
         {
-            if (path.PlayedId == id)
+            if (path.EnemyPlayerID == id)
             {
                 return path;
             }
