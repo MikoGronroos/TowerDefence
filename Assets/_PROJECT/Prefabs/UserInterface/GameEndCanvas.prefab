@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 8501608876225597515}
   - component: {fileID: 8501608876225597512}
   - component: {fileID: 4293367964982874523}
+  - component: {fileID: 7907162529257300140}
   m_Layer: 5
   m_Name: GameEndCanvas
   m_TagString: Untagged
@@ -583,6 +584,19 @@ MonoBehaviour:
   playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
   winnerText: {fileID: 8501608876526441430}
   leaveTheRoomButton: {fileID: 8501608875601943570}
+--- !u!114 &7907162529257300140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501608876225597513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8ac79735eb677448bd57fccf4912c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraEventChannel: {fileID: 11400000, guid: 1cdbf2e821701034193002093256deee, type: 2}
 --- !u!1 &8501608876526441428
 GameObject:
   m_ObjectHideFlags: 0
