@@ -12,6 +12,8 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
 
+    [SerializeField] private bool unloadScenes;
+
     private void Awake()
     {
         foreach (var scene in scenesToLoad)
@@ -22,11 +24,16 @@ public class SceneLoader : MonoBehaviour
 
     private void OnEnable()
     {
+
+        if (!unloadScenes) return;
+
         sceneManagementEventChannel.UnloadScenes += UnloadScenes;
     }
 
     private void OnDisable()
     {
+        if (!unloadScenes) return;
+
         sceneManagementEventChannel.UnloadScenes -= UnloadScenes;
     }
 

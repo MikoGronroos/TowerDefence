@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_PROJECT/Scenes/GameEndScreen.unity
     guid: b126ad219854f824bbeac1b8574d3e1d
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/GameModules/MainCamera.unity
+    guid: 9ab1171f7f44ba14894a523666dc17ee
   m_configObjects: {}

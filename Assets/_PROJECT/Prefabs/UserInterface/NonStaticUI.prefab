@@ -1968,6 +1968,7 @@ GameObject:
   - component: {fileID: 463572498427892617}
   - component: {fileID: 463572498427892616}
   - component: {fileID: 463572498427892619}
+  - component: {fileID: 4431839000527805797}
   m_Layer: 5
   m_Name: NonStaticUI
   m_TagString: Untagged
@@ -2061,6 +2062,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4431839000527805797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463572498427892618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8ac79735eb677448bd57fccf4912c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraEventChannel: {fileID: 11400000, guid: 1cdbf2e821701034193002093256deee, type: 2}
 --- !u!1 &463572498446181701
 GameObject:
   m_ObjectHideFlags: 0
