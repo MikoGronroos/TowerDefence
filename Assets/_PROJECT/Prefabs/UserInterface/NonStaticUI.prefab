@@ -5331,6 +5331,7 @@ MonoBehaviour:
   missionLogPrefab: {fileID: 1377814461531533745, guid: 4dc26711f1050a648982606e98a89f1e, type: 3}
   pvpMissionCompletedUI: {fileID: 463572499065130951}
   onScreenTime: 4
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
 --- !u!1 &4852544463557648775
 GameObject:
   m_ObjectHideFlags: 0

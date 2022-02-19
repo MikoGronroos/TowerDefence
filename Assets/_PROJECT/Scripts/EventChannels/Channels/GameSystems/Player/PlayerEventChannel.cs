@@ -14,5 +14,8 @@ namespace Finark.Events
 
 		public EventChannel OnPlayerDead;
 
+		public EventChannel RefreshMissionLog;
+		public EventChannel OnMissionCompleted;
+
 	}
 }
