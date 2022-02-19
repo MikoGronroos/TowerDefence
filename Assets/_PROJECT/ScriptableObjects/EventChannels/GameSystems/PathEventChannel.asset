@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee48e8e3702560446b9f7dd4e2f3e03d, type: 3}
-  m_Name: Channel_PlayerLevelUp
+  m_Script: {fileID: 11500000, guid: b06cc7dc81d845c4a802d5dcf4a95c2d, type: 3}
+  m_Name: PathEventChannel
   m_EditorClassIdentifier: 

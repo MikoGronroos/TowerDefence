@@ -1,12 +1,14 @@
 using Finark.Events;
+using UnityEngine;
 
+[CreateAssetMenu(menuName = "EventChannels/PlayerEventChannel", fileName ="PlayerEventChannel")]
 public class PlayerEventChannel : EventChannelBase
 {
 
-	public readonly EventChannel OnHealthChanged;
+	public EventChannel OnHealthChanged;
 
-	public readonly EventChannel OnPlayerLevelChanged;
-	public readonly EventChannel OnPlayerXPChanged;
+	public EventChannel OnPlayerLevelChanged;
+	public EventChannel OnPlayerXPChanged;
 
 
 }

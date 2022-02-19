@@ -199,11 +199,11 @@ PrefabInstance:
     - target: {fileID: 3972716490865483018, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
       propertyPath: playerLevelUpChannel
       value: 
-      objectReference: {fileID: 11400000, guid: 2617529454eead249b2986efa1622c2d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3972716490865483018, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
       propertyPath: playerXpAddonChannel
       value: 
-      objectReference: {fileID: 11400000, guid: f0270d69895801248a757cb985fd633f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3972716490865483124, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -248,20 +248,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3972716490865483125, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
-      propertyPath: levelText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3972716490865483125, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
-      propertyPath: xpProgressBar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3972716490865483127, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
       propertyPath: m_Name
       value: PlayerLevelManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3972716490865483125, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 938a56325b742ab4d9c4ffcf80c54c5b, type: 3}
 --- !u!4 &2427168366427320075 stripped
 Transform:
@@ -512,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 1816853942750674793, guid: 559b66f88a8816a47831935bb96b28e7, type: 3}
       propertyPath: refreshShopChannel
       value: 
-      objectReference: {fileID: 11400000, guid: 034e237d4c832504b832caea45671caf, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1816853942750674794, guid: 559b66f88a8816a47831935bb96b28e7, type: 3}
       propertyPath: openShopButton
       value: 
@@ -660,15 +651,15 @@ PrefabInstance:
     - target: {fileID: 8824569226368512474, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
       propertyPath: incomeChannel
       value: 
-      objectReference: {fileID: 11400000, guid: 7c7d28b44207172458f1d5acb23e4122, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8824569226368512474, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
       propertyPath: currencyChannel
       value: 
-      objectReference: {fileID: 11400000, guid: 682c81fde294d9e479af7c3bb941be44, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8824569226368512474, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
       propertyPath: incomeProgressChannel
       value: 
-      objectReference: {fileID: 11400000, guid: a03d603dea8d11b40a722127abef153c, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8824569226368512475, guid: ac9ae62fb0bf13440bc7b1d29571d53e, type: 3}
       propertyPath: incomeText
       value: 
@@ -826,6 +817,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2425136199628284728}
     m_Modifications:
     - target: {fileID: 5391625867866881090, guid: c17e0688e14f4ea4e832242ff31f2007, type: 3}
+      propertyPath: pathEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: ac1abc452a968bf42a7489b5da4da013, type: 2}
+    - target: {fileID: 5391625867866881090, guid: c17e0688e14f4ea4e832242ff31f2007, type: 3}
       propertyPath: paths.Array.data[0].ThisPath
       value: 
       objectReference: {fileID: 0}
@@ -889,7 +884,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3761364131997414811, guid: c17e0688e14f4ea4e832242ff31f2007, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c17e0688e14f4ea4e832242ff31f2007, type: 3}
 --- !u!4 &2425136198786527103 stripped
 Transform:

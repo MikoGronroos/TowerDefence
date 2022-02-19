@@ -6,11 +6,11 @@ public class PathManager : MonoBehaviourSingleton<PathManager>
 
     [SerializeField] private List<Path> paths = new List<Path>();
 
-    //[SerializeField] private EventChannel pathManagerLoadedChannel;
+    [SerializeField] private PathEventChannel pathEventChannel;
 
     private void Start()
     {
-        //pathManagerLoadedChannel.RaiseEvent(null);
+        pathEventChannel?.SetupPaths(null, SetupNewPath);
     }
 
     public Path GetPathWithPlayerID(int id)

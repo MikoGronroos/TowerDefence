@@ -7,7 +7,7 @@ namespace Finark.Events
     public abstract class EventChannelBase : ScriptableObject
     {
 
-        public delegate void EventChannel(Dictionary<string, object> args, Action callback = null);
+        public delegate void EventChannel(Dictionary<string, object> args, Action<Dictionary<string, object>> callback = null);
 
     }
 }

@@ -4200,7 +4200,6 @@ GameObject:
   - component: {fileID: 463572499504685519}
   - component: {fileID: 7486641947581170318}
   - component: {fileID: 3247013072879669533}
-  - component: {fileID: 5216192908291960234}
   m_Layer: 5
   m_Name: GameInfoPanel
   m_TagString: Untagged
@@ -4284,6 +4283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 463572498408512079}
   xpProgressBar: {fileID: 463572498619040904}
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
 --- !u!114 &3247013072879669533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4300,99 +4300,6 @@ MonoBehaviour:
   incomeText: {fileID: 463572499213038574}
   incomeIntervalProgressBar: {fileID: 463572499583788119}
   suffix: $
---- !u!114 &5216192908291960234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463572499504685513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channelListeners:
-  - Channel: {fileID: 11400000, guid: 2617529454eead249b2986efa1622c2d, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7486641947581170318}
-          m_TargetAssemblyTypeName: PlayerLevelUI, Assembly-CSharp
-          m_MethodName: PlayerLevelUpChannelListener
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Channel: {fileID: 11400000, guid: f0270d69895801248a757cb985fd633f, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7486641947581170318}
-          m_TargetAssemblyTypeName: PlayerLevelUI, Assembly-CSharp
-          m_MethodName: PlayerXpAddonChannelListener
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Channel: {fileID: 11400000, guid: 682c81fde294d9e479af7c3bb941be44, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3247013072879669533}
-          m_TargetAssemblyTypeName: VirtualCurrencyManagerUI, Assembly-CSharp
-          m_MethodName: UpdatePlayerCurrency
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Channel: {fileID: 11400000, guid: 7c7d28b44207172458f1d5acb23e4122, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3247013072879669533}
-          m_TargetAssemblyTypeName: VirtualCurrencyManagerUI, Assembly-CSharp
-          m_MethodName: UpdatePlayerIncome
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Channel: {fileID: 11400000, guid: a03d603dea8d11b40a722127abef153c, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3247013072879669533}
-          m_TargetAssemblyTypeName: VirtualCurrencyManagerUI, Assembly-CSharp
-          m_MethodName: UpdatePlayerIncomeProgressBar
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &463572499515627428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,7 +5226,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8753096954025896482}
   - component: {fileID: 5543426168717563705}
-  - component: {fileID: 4200186837473791873}
   m_Layer: 5
   m_Name: ShopMenu
   m_TagString: Untagged
@@ -5366,35 +5272,6 @@ MonoBehaviour:
   suffix: $
   closeShopButton: {fileID: 463572498610197108}
   openShopButton: {fileID: 0}
---- !u!114 &4200186837473791873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3729165344135514040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channelListeners:
-  - Channel: {fileID: 11400000, guid: 034e237d4c832504b832caea45671caf, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5543426168717563705}
-          m_TargetAssemblyTypeName: ShopUI, Assembly-CSharp
-          m_MethodName: RefreshShopUI
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &3825025649252420778
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,7 +5282,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8298862390950021703}
   - component: {fileID: 462148663639542257}
-  - component: {fileID: 7939799307305847438}
   m_Layer: 5
   m_Name: PvpMissionLog
   m_TagString: Untagged
@@ -5453,51 +5329,6 @@ MonoBehaviour:
   missionLogPrefab: {fileID: 1377814461531533745, guid: 4dc26711f1050a648982606e98a89f1e, type: 3}
   pvpMissionCompletedUI: {fileID: 463572499065130951}
   onScreenTime: 4
---- !u!114 &7939799307305847438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825025649252420778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channelListeners:
-  - Channel: {fileID: 11400000, guid: 11f4331bd7fe32949912168d4a31c211, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 462148663639542257}
-          m_TargetAssemblyTypeName: PvpMissionUI, Assembly-CSharp
-          m_MethodName: MissionCompletedUI
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Channel: {fileID: 11400000, guid: 3543eb0de326b5143aa746cd28f25098, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 462148663639542257}
-          m_TargetAssemblyTypeName: PvpMissionUI, Assembly-CSharp
-          m_MethodName: RefreshMissionLog
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &4852544463557648775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,7 +5394,6 @@ GameObject:
   m_Component:
   - component: {fileID: 733761814325651037}
   - component: {fileID: 3345152724923440089}
-  - component: {fileID: 1088703623558931534}
   m_Layer: 5
   m_Name: PlayerHealth
   m_TagString: Untagged
@@ -5606,35 +5436,6 @@ MonoBehaviour:
   playerHealthTexts:
   - {fileID: 463572499590150995}
   - {fileID: 463572499000640459}
---- !u!114 &1088703623558931534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5811790623289362095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channelListeners:
-  - Channel: {fileID: 11400000, guid: 5a298c9739e5e6948be7ead3d7f2683c, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3345152724923440089}
-          m_TargetAssemblyTypeName: HealthManagerUI, Assembly-CSharp
-          m_MethodName: UpdateHealthText
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &7897364408766126591
 GameObject:
   m_ObjectHideFlags: 0
@@ -5645,7 +5446,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1034751686835149529}
   - component: {fileID: 1335916621858640637}
-  - component: {fileID: 8517379940373150124}
   m_Layer: 5
   m_Name: SelectedTurretMenu
   m_TagString: Untagged
@@ -5694,32 +5494,3 @@ MonoBehaviour:
   sellPriceText: {fileID: 463572498312418808}
   upgradePathPrefab: {fileID: 7810786407821893707, guid: bb76c8dfb4a41044c9f645a927a45e70, type: 3}
   upgradePathParent: {fileID: 463572497906080658}
---- !u!114 &8517379940373150124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7897364408766126591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4f0910c826cc34a91ef79a95384dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channelListeners:
-  - Channel: {fileID: 11400000, guid: ba457790c8861a34d9c14625d7ee2a5c, type: 2}
-    OnChannelHeardEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1335916621858640637}
-          m_TargetAssemblyTypeName: TurretSelectionUI, Assembly-CSharp
-          m_MethodName: ToggleTurretSelection
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
