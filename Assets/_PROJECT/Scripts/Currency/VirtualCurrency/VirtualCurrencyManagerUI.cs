@@ -16,20 +16,20 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
 
     [SerializeField] private string suffix;
 
-    [SerializeField] private PlayerEventChannel playerEventChannel;
+    [SerializeField] private CurrencyEventChannel currencyEventChannel;
 
     private void OnEnable()
     {
-        playerEventChannel.OnPlayerCurrencyIncomeChanged += UpdatePlayerIncome;
-        playerEventChannel.OnPlayerCurrencyChanged += UpdatePlayerCurrency;
-        playerEventChannel.OnPlayerCurrencyIntervalUpdate += UpdatePlayerIncomeProgressBar;
+        currencyEventChannel.OnCurrencyIncomeChanged += UpdatePlayerIncome;
+        currencyEventChannel.OnCurrencyChanged += UpdatePlayerCurrency;
+        currencyEventChannel.OnCurrencyIntervalUpdate += UpdatePlayerIncomeProgressBar;
     }
 
     private void OnDisable()
     {
-        playerEventChannel.OnPlayerCurrencyIncomeChanged -= UpdatePlayerIncome;
-        playerEventChannel.OnPlayerCurrencyChanged -= UpdatePlayerCurrency;
-        playerEventChannel.OnPlayerCurrencyIntervalUpdate -= UpdatePlayerIncomeProgressBar;
+        currencyEventChannel.OnCurrencyIncomeChanged -= UpdatePlayerIncome;
+        currencyEventChannel.OnCurrencyChanged -= UpdatePlayerCurrency;
+        currencyEventChannel.OnCurrencyIntervalUpdate -= UpdatePlayerIncomeProgressBar;
     }
 
     private void UpdatePlayerCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

@@ -12,10 +12,6 @@ namespace Finark.Events
 		public EventChannel OnPlayerLevelUp;
 		public EventChannel OnPlayerXPChanged;
 
-		public EventChannel OnPlayerCurrencyChanged;
-		public EventChannel OnPlayerCurrencyIncomeChanged;
-		public EventChannel OnPlayerCurrencyIntervalUpdate;
-
 		public EventChannel OnPlayerDead;
 
 	}
