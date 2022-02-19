@@ -1,3 +1,5 @@
+using Finark.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +19,10 @@ public class PvpMissionUI : MonoBehaviour
     [SerializeField] private PvpMissionCompletedUI pvpMissionCompletedUI;
     [SerializeField] private float onScreenTime;
 
+    [Header("Event Channels")]
+
+    [SerializeField] private PlayerEventChannel playerEventChannel;
+
     private List<GameObject> _drawnMissionLogs = new List<GameObject>();
 
     private void Awake()
@@ -26,13 +32,27 @@ public class PvpMissionUI : MonoBehaviour
         });
     }
 
+    private void OnEnable()
+    {
+        playerEventChannel.RefreshMissionLog += RefreshMissionLog;
+        playerEventChannel.OnMissionCompleted += MissionCompletedUI;
+    }
+
+    private void OnDisable()
+    {
+        playerEventChannel.RefreshMissionLog -= RefreshMissionLog;
+        playerEventChannel.OnMissionCompleted -= MissionCompletedUI;
+    }
+
     public void TogglePvpMissionLog()
     {
         pvpMissionLog.SetActive(!pvpMissionLog.activeSelf);
     }
 
-    public void DrawPvpMissionsToLog(List<PvpMission> currentMissions)
+    public void RefreshMissionLog(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
+
+        List<PvpMission> currentMissions = (List<PvpMission>)args["Missions"];
 
         EraseDrawnMissionLogs();
 
@@ -54,8 +74,13 @@ public class PvpMissionUI : MonoBehaviour
         _drawnMissionLogs.Clear();
     }
 
-    public void MissionCompletedScreen(PvpMission mission)
+    #region Mission Completed
+
+    private void MissionCompletedUI(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
+
+        var mission = (PvpMission)args["Mission"];
+
         StartCoroutine(MissionCompleted(mission));
     }
 
@@ -72,4 +97,5 @@ public class PvpMissionUI : MonoBehaviour
 
     }
 
+    #endregion
 }

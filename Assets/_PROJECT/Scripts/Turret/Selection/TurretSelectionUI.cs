@@ -2,13 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using System;
+using Finark.Events;
 
 public class TurretSelectionUI : MonoBehaviour
 {
 
-    [SerializeField] private GameObject turretSelectionMenu;
-
     [Header("Selection Menu References")]
+
+    [SerializeField] private GameObject turretSelectionMenu;
 
     [SerializeField] private TextMeshProUGUI turretNameText;
 
@@ -27,6 +29,10 @@ public class TurretSelectionUI : MonoBehaviour
 
     [SerializeField] private Transform upgradePathParent;
 
+    [Header("Event Channels")]
+
+    [SerializeField] private TurretEventChannel turretEventChannel;
+
     private List<GameObject> drawnUpgradePaths = new List<GameObject>();
 
     private void Awake()
@@ -38,7 +44,33 @@ public class TurretSelectionUI : MonoBehaviour
         });
     }
 
-    public void OpenSelectionUI(Turret turret)
+    private void OnEnable()
+    {
+        turretEventChannel.OnTurretSelected += ToggleTurretSelection;
+    }
+
+    private void OnDisable()
+    {
+        turretEventChannel.OnTurretSelected -= ToggleTurretSelection;
+    }
+
+    private void ToggleTurretSelection(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        bool toggleValue = (bool)args["toggleValue"];
+        Turret turret = (Turret)args["turret"];
+
+        if (toggleValue)
+        {
+            OpenSelectionUI(turret);
+        }
+        else
+        {
+            CloseSelectionUI();
+        }
+    }
+
+    private void OpenSelectionUI(Turret turret)
     {
 
         turretNameText.text = turret.GetTurretStats().Name;
@@ -74,7 +106,7 @@ public class TurretSelectionUI : MonoBehaviour
         turretSelectionMenu.SetActive(true);
     }
 
-    public void CloseSelectionUI()
+    private void CloseSelectionUI()
     {
         turretSelectionMenu.SetActive(false);
     }

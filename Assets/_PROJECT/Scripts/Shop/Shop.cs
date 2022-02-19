@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
+using Finark.Events;
+using System;
 
 public class Shop : MonoBehaviourSingleton<Shop>
 {
@@ -7,21 +10,17 @@ public class Shop : MonoBehaviourSingleton<Shop>
 
     [SerializeField] private ShopInventory turretShopInventory;
 
-    private ShopUI _shopUI;
-
-    private void Awake()
-    {
-        _shopUI = GetComponent<ShopUI>();
-    }
+    [SerializeField] private ShopEventChannel shopEventChannel;
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     private void OnEnable()
     {
-        PlayerLevel.OnLevelUpEvent += RefreshShop;
+        playerEventChannel.OnPlayerLevelUp += RefreshShop;
     }
 
     private void OnDisable()
     {
-        PlayerLevel.OnLevelUpEvent -= RefreshShop;
+        playerEventChannel.OnPlayerLevelUp -= RefreshShop;
     }
 
     private void Start()
@@ -31,28 +30,14 @@ public class Shop : MonoBehaviourSingleton<Shop>
 
     private void InitializeShop()
     {
-        RefreshShop();
+        RefreshShop(null, null);
     }
 
-    private void RefreshShop()
+    private void RefreshShop(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        _shopUI.EraseDrawnShopItems();
+        shopEventChannel?.RefreshShop(new Dictionary<string, object> { {"Units", unitShopInventory }, { "Turrets", turretShopInventory } });
 
-        foreach (var item in unitShopInventory.Inventory)
-        {
-            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
-            {
-                _shopUI.DrawShopItem(item);
-            }
-        }
-        foreach (var item in turretShopInventory.Inventory)
-        {
-            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
-            {
-                _shopUI.DrawShopItem(item);
-            }
-        }
     }
 
 }

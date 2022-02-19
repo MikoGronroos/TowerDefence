@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2867021074434060657}
   - component: {fileID: 2867021074434060666}
-  - component: {fileID: 2867021074434060661}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,18 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c8185a6275aa9439615d89ea542c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2867021074434060661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2867021074434060656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5fd798efa622de45bd15fdb29210649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEndScreen: {fileID: 0}
-  winnerText: {fileID: 0}
-  leaveTheRoomButton: {fileID: 0}
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}

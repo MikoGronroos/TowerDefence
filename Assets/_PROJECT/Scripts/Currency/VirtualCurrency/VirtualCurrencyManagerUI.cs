@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
+using System;
+using Finark.Events;
 
 public class VirtualCurrencyManagerUI : MonoBehaviour
 {
@@ -13,18 +16,45 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
 
     [SerializeField] private string suffix;
 
-    public void UpdatePlayerCurrency(int value)
+    [SerializeField] private CurrencyEventChannel currencyEventChannel;
+
+    private void OnEnable()
     {
-        currencyText.text = $"{value}{suffix}";
+        currencyEventChannel.OnCurrencyIncomeChanged += UpdatePlayerIncome;
+        currencyEventChannel.OnCurrencyChanged += UpdatePlayerCurrency;
+        currencyEventChannel.OnCurrencyIntervalUpdate += UpdatePlayerIncomeProgressBar;
     }
 
-    public void UpdatePlayerIncome(int value)
+    private void OnDisable()
     {
+        currencyEventChannel.OnCurrencyIncomeChanged -= UpdatePlayerIncome;
+        currencyEventChannel.OnCurrencyChanged -= UpdatePlayerCurrency;
+        currencyEventChannel.OnCurrencyIntervalUpdate -= UpdatePlayerIncomeProgressBar;
+    }
+
+    private void UpdatePlayerCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        int value = (int)args["Currency"];
+
+        currencyText.text = $"{value}{suffix}";
+
+    }
+
+    private void UpdatePlayerIncome(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        int value = (int)args["Income"];
+
         incomeText.text = $"{value}{suffix}";
     }
 
-    public void UpdatePlayerIncomeProgressBar(float current, float max)
+    private void UpdatePlayerIncomeProgressBar(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
+
+        float current = (float)args["TimeLeft"];
+        float max = (float)args["IncomeInterval"];
+
         incomeIntervalProgressBar.fillAmount = current / max;
     }
 

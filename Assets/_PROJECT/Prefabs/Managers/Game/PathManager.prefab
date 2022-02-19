@@ -43,12 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d6487405cdb5c45a71acfccf1566dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paths:
-  - PathOwner: Player 1 Path
-    ThisPath: {fileID: 0}
-    PathStartPos: {fileID: 0}
-    PlayedId: 0
-  - PathOwner: Player 2 Path
-    ThisPath: {fileID: 0}
-    PathStartPos: {fileID: 0}
-    PlayedId: 1
+  paths: []
+  pathEventChannel: {fileID: 0}

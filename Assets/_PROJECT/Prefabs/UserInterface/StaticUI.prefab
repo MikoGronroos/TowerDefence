@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 1753163137374097085}
   - component: {fileID: 1753163137374097086}
   - component: {fileID: 1753163137374097087}
+  - component: {fileID: 734399898096737307}
   m_Layer: 5
   m_Name: StaticUI
   m_TagString: Untagged
@@ -327,7 +328,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 160846817
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1753163137374097086
 MonoBehaviour:
@@ -369,6 +370,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &734399898096737307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753163137374097080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fd798efa622de45bd15fdb29210649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
+  gameEndScreen: {fileID: 1753163138255200931}
+  winnerText: {fileID: 1753163138553120879}
+  leaveTheRoomButton: {fileID: 1753163137949549234}
 --- !u!1 &1753163137949549244
 GameObject:
   m_ObjectHideFlags: 0

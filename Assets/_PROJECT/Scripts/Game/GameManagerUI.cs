@@ -1,9 +1,14 @@
+using Finark.Events;
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManagerUI : MonoBehaviour
 {
+
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     [Header("Game End Screen")]
 
@@ -18,8 +23,21 @@ public class GameManagerUI : MonoBehaviour
         });
     }
 
-    public void GameEndedUI(int loserID)
+    private void OnEnable()
     {
+        playerEventChannel.OnPlayerDead += GameEndedUIToggle;
+    }
+
+    private void OnDisable()
+    {
+        playerEventChannel.OnPlayerDead -= GameEndedUIToggle;
+    }
+
+    private void GameEndedUIToggle(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        int loserID = (int)args["loserID"];
+
         gameEndScreen.SetActive(true);
 
         string gameEndText;

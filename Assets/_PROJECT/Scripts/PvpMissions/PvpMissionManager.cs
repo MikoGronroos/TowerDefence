@@ -1,4 +1,4 @@
-using System;
+using Finark.Events;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,12 +12,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
 
     [SerializeField] private List<PvpMission> missions = new List<PvpMission>();
 
-    private PvpMissionUI _missionUI;
-
-    private void Awake()
-    {
-        _missionUI = GetComponent<PvpMissionUI>();
-    }
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     public void GetNewMissions(int amount)
     {
@@ -31,7 +26,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
             currentMissions.Add(quest);
             missions.Remove(quest);
         }
-        _missionUI.DrawPvpMissionsToLog(currentMissions);
+        playerEventChannel?.RefreshMissionLog(new Dictionary<string, object> { { "Missions", currentMissions } });
     }
 
     public void CompleteMission(PvpMission mission)
@@ -40,8 +35,8 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         completedMissions.Add(mission);
         mission.Unload();
         GiveMissionRewards(mission.MissionRewards);
-        _missionUI.MissionCompletedScreen(mission);
-        _missionUI.DrawPvpMissionsToLog(currentMissions);
+        playerEventChannel?.OnMissionCompleted(new Dictionary<string, object> { { "Mission", mission } });
+        playerEventChannel?.RefreshMissionLog(new Dictionary<string, object> { { "Missions", currentMissions } });
     }
 
     public void MissionFailed(PvpMission mission)
@@ -49,7 +44,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         currentMissions.Remove(mission);
         failedMissions.Add(mission);
         mission.Unload();
-        _missionUI.DrawPvpMissionsToLog(currentMissions);
+        playerEventChannel?.RefreshMissionLog(new Dictionary<string, object> { { "Missions", currentMissions } });
     }
 
     private void GiveMissionRewards(PvpMissionRewards rewards)

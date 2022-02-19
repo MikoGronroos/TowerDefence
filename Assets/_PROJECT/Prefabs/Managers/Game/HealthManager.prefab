@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2432044945963526122}
   - component: {fileID: 2432044945963526120}
-  - component: {fileID: 2432044945963526121}
   - component: {fileID: 2432044945963526127}
   m_Layer: 0
   m_Name: HealthManager
@@ -48,22 +47,9 @@ MonoBehaviour:
   playerHealths:
   - Health: 0
     PlayerID: 0
-    HealthText: {fileID: 0}
   - Health: 0
     PlayerID: 1
-    HealthText: {fileID: 0}
---- !u!114 &2432044945963526121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2432044945963526123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 767808452643849449401a757b1a49dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
 --- !u!114 &2432044945963526127
 MonoBehaviour:
   m_ObjectHideFlags: 0

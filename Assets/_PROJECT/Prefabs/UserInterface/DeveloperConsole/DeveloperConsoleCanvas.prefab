@@ -599,7 +599,6 @@ GameObject:
   - component: {fileID: 6261381938361641856}
   - component: {fileID: 2120750425042654613}
   - component: {fileID: 4436995620330733150}
-  - component: {fileID: 2489594143171179908}
   m_Layer: 5
   m_Name: DeveloperConsoleCanvas
   m_TagString: Untagged
@@ -711,6 +710,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac96885adc1807849aa7a90881b6c902, type: 2}
   - {fileID: 11400000, guid: 7d2d53a81e90abc44a3ca24f167a6dd6, type: 2}
   - {fileID: 11400000, guid: db47d33c5c155824f9d1e20922174d48, type: 2}
+  - {fileID: 11400000, guid: 87d99d7d7ddf98342ad8b12d7add5cb7, type: 2}
+  - {fileID: 11400000, guid: 6599fc548d5095542b891508da7d8632, type: 2}
 --- !u!114 &4436995620330733150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,18 +729,6 @@ MonoBehaviour:
   commandPrintParent: {fileID: 6261381937829102362}
   errorColor: {r: 1, g: 0, b: 0, a: 1}
   successColor: {r: 0, g: 1, b: 0.011662245, a: 1}
---- !u!114 &2489594143171179908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6261381938361641857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8545940d30063e442964da4af43dbb5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6261381938584546419
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8824569226368512476}
   - component: {fileID: 8824569226368512474}
-  - component: {fileID: 8824569226368512475}
   m_Layer: 0
   m_Name: CurrencyManager
   m_TagString: Untagged
@@ -50,19 +49,4 @@ MonoBehaviour:
     BaseValue: 0
     Value: 0
   incomeInterval: 30
---- !u!114 &8824569226368512475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8824569226368512477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aabf549381b1f74298efcbf6f3fee44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currencyText: {fileID: 0}
-  incomeText: {fileID: 0}
-  incomeIntervalProgressBar: {fileID: 0}
-  suffix: $
+  currencyEventChannel: {fileID: 11400000, guid: d779b8d58fa92a646ab56add75104e88, type: 2}

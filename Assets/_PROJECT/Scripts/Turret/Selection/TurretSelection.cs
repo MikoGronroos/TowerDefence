@@ -1,18 +1,20 @@
 using UnityEngine;
 using Finark.Utils;
 using Photon.Pun;
+using System.Collections.Generic;
+using Finark.Events;
 
 public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 {
 
     [SerializeField] private Turret selectedTurret;
 
-    private TurretSelectionUI _turretSelectionUI;
+    [SerializeField] private TurretEventChannel turretEventChannel;
+
     private RangeVisualisation _rangeVisualisation;
 
     private void Awake()
     {
-        _turretSelectionUI = GetComponent<TurretSelectionUI>();
         _rangeVisualisation = GetComponent<RangeVisualisation>();
     }
 
@@ -52,12 +54,15 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
         selectedTurret = null;
 
-        _turretSelectionUI.CloseSelectionUI();
+        turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", false },{ "turret", null }});
 
     }
 
     private void ProcessHit(Transform hit)
     {
+
+        if (hit == null)  return;
+
         if (hit.transform.TryGetComponent(out Turret turret))
         {
 
@@ -73,7 +78,8 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
                 selectedTurret = turret;
 
-                _turretSelectionUI.OpenSelectionUI(selectedTurret);
+                turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", true },{ "turret", selectedTurret }});
+
                 _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, .3f);
             }
         }
@@ -85,7 +91,9 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
             _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
             selectedTurret = null;
-            _turretSelectionUI.CloseSelectionUI();
+
+            turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", false },{ "turret", null }});
+
         }
 
     }

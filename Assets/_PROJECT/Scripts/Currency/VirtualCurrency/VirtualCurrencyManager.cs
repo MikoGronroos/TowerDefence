@@ -1,3 +1,4 @@
+using Finark.Events;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,15 +11,10 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     [SerializeField] private CustomFloat currentIncome;
     [SerializeField] private float incomeInterval;
 
+    [SerializeField] private CurrencyEventChannel currencyEventChannel;
+
     private float _timeLeft;
     private bool _timerActive;
-
-    private VirtualCurrencyManagerUI _virtualCurrencyManagerUI;
-
-    private void Awake()
-    {
-        _virtualCurrencyManagerUI = GetComponent<VirtualCurrencyManagerUI>();
-    }
 
     private void Start()
     {
@@ -33,7 +29,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
         if (_timeLeft > 0)
         {
             _timeLeft -= Time.deltaTime;
-            _virtualCurrencyManagerUI.UpdatePlayerIncomeProgressBar(_timeLeft, incomeInterval);
+            currencyEventChannel?.OnCurrencyIntervalUpdate(new Dictionary<string, object> { { "TimeLeft", _timeLeft}, { "IncomeInterval", incomeInterval } });
         }
         else
         {
@@ -71,7 +67,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     public void SetCurrency(int value)
     {
         currentCurrency = value;
-        _virtualCurrencyManagerUI.UpdatePlayerCurrency(currentCurrency);
+        currencyEventChannel?.OnCurrencyChanged(new Dictionary<string, object> { { "Currency", currentCurrency } });
     }
 
     public bool CheckIfPlayerHasEnoughCurrency(int value)
@@ -113,7 +109,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     private void UpdateIncome()
     {
         currentIncome.Value = currentIncome.BaseValue;
-        _virtualCurrencyManagerUI.UpdatePlayerIncome((int)currentIncome.Value);
+        currencyEventChannel?.OnCurrencyIncomeChanged(new Dictionary<string, object> { { "Income", (int)currentIncome.Value } });
     }
 
     #endregion

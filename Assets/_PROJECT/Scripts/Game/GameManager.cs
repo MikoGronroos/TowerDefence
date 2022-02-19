@@ -1,14 +1,12 @@
+using Finark.Events;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
 
-    private GameManagerUI _gameManagerUI;
-
-    private void Awake()
-    {
-        _gameManagerUI = GetComponent<GameManagerUI>();
-    }
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     public void StartChildCoroutine(IEnumerator coroutine)
     {
@@ -19,7 +17,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void EndGame(int loserID)
     {
-        _gameManagerUI.GameEndedUI(loserID);
+        playerEventChannel?.OnPlayerDead(new Dictionary<string, object> {{ "loserID", loserID }});
     }
 
     public void LeaveRoom()

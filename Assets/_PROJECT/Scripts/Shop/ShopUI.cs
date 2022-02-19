@@ -1,3 +1,5 @@
+using Finark.Events;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +13,7 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private GameObject shopItemPrefab;
 
-    [SerializeField] private GameObject shopGameObject;
+    [SerializeField] private GameObject shopPanel;
 
     [SerializeField] private string suffix;
 
@@ -19,19 +21,31 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private Button openShopButton;
 
+    [SerializeField] private ShopEventChannel shopEventChannel;
+
     private List<GameObject> _drawnShopItems = new List<GameObject>();
 
     private void Awake()
     {
         closeShopButton.onClick.AddListener(() => {
-            shopGameObject.SetActive(false);
+            shopPanel.SetActive(false);
         });
         openShopButton.onClick.AddListener(() => {
-            shopGameObject.SetActive(true);
+            shopPanel.SetActive(true);
         });
     }
 
-    public void DrawShopItem(ShopItem item)
+    private void OnEnable()
+    {
+        shopEventChannel.RefreshShop += RefreshShopUI;
+    }
+
+    private void OnDisable()
+    {
+        shopEventChannel.RefreshShop -= RefreshShopUI;
+    }
+
+    private void DrawShopItem(ShopItem item)
     {
 
         Transform parent = null;
@@ -56,13 +70,38 @@ public class ShopUI : MonoBehaviour
 
     }
 
-    public void EraseDrawnShopItems()
+    private void EraseDrawnShopItems()
     {
         foreach (var item in _drawnShopItems)
         {
             Destroy(item);
         }
         _drawnShopItems.Clear();
+    }
+
+    public void RefreshShopUI(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        var units = (ShopInventory)args["Units"];
+        var turrets = (ShopInventory)args["Turrets"];
+
+        EraseDrawnShopItems();
+
+        foreach (var item in units.Inventory)
+        {
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                DrawShopItem(item);
+            }
+        }
+
+        foreach (var item in turrets.Inventory)
+        {
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                DrawShopItem(item);
+            }
+        }
     }
 
 }

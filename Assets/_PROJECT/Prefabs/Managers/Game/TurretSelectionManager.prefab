@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 347891149674648685}
   - component: {fileID: 347891149674648686}
-  - component: {fileID: 347891149674648687}
   - component: {fileID: 347891149674648680}
   m_Layer: 0
   m_Name: TurretSelectionManager
@@ -46,27 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedTurret: {fileID: 0}
---- !u!114 &347891149674648687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347891149674648684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fc22a61ae77c94a9c68829b6d528ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretSelectionMenu: {fileID: 0}
-  turretNameText: {fileID: 0}
-  damageValueText: {fileID: 0}
-  rangeValueText: {fileID: 0}
-  attackSpeedValueText: {fileID: 0}
-  sellTurretButton: {fileID: 0}
-  sellPriceText: {fileID: 0}
-  upgradePathPrefab: {fileID: 7810786407821893707, guid: bb76c8dfb4a41044c9f645a927a45e70, type: 3}
-  upgradePathParent: {fileID: 0}
+  turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
 --- !u!114 &347891149674648680
 MonoBehaviour:
   m_ObjectHideFlags: 0
