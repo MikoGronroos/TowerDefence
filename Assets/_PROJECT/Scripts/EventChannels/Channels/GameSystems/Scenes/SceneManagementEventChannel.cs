@@ -7,7 +7,6 @@ namespace Finark.Events
 	{
 
 		public EventChannel UnloadScenes;
-		public EventChannel GameEndSceneLoaded;
 
 	}
 }

@@ -4,30 +4,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
     [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
-    [SerializeField] private ServerEventChannel serverEventChannel;
 
     [SerializeField] private bool gameEnded = false;
 
     private void OnEnable()
     {
-        sceneManagementEventChannel.GameEndSceneLoaded += GameEndSceneLoaded;
         playerEventChannel.OnPlayerDead += EndGame;
-        serverEventChannel.LeaveRoom += LeaveRoom;
     }
-
-
 
     private void OnDisable()
     {
-        sceneManagementEventChannel.GameEndSceneLoaded -= GameEndSceneLoaded;
+
         playerEventChannel.OnPlayerDead -= EndGame;
-        serverEventChannel.LeaveRoom -= LeaveRoom;
     }
 
     public void StartChildCoroutine(IEnumerator coroutine)
@@ -42,11 +37,11 @@ public class GameManager : MonoBehaviour
 
         if (gameEnded) return;
 
+        Debug.Log("Game Ended");
+
         gameEnded = true;
 
         int loserID = (int)args["loserID"];
-
-        SceneManager.LoadScene("GameEndScreen", LoadSceneMode.Additive);
 
         if (loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
         {
@@ -57,16 +52,13 @@ public class GameManager : MonoBehaviour
             AccountManager.Instance.CurrentAccount.Winstreak = 0;
         }
 
+        sceneManagementEventChannel?.UnloadScenes(null, OnScenesUnloaded);
+
     }
 
-    private void GameEndSceneLoaded(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    private void OnScenesUnloaded(Dictionary<string, object> obj)
     {
-        sceneManagementEventChannel?.UnloadScenes(null);
-    }
-
-    private void LeaveRoom(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
-    {
-        RoomController.LeaveTheRoom();
+        PhotonNetwork.LoadLevel("GameEndScreen");
     }
 
     #endregion

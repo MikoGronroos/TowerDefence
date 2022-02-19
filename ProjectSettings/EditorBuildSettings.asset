@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_PROJECT/Scenes/GameModules/MainCamera.unity
     guid: 9ab1171f7f44ba14894a523666dc17ee
+  - enabled: 1
+    path: Assets/_PROJECT/Scenes/RoomController.unity
+    guid: 1099ccab9aff1a74bbec9e5fefa7d25b
   m_configObjects: {}

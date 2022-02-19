@@ -10,40 +10,50 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private string[] scenesToLoad;
 
+    [SerializeField] private string[] scenesToUnload;
+
     [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
 
+    [SerializeField] private bool loadScenes;
     [SerializeField] private bool unloadScenes;
 
     private void Awake()
     {
+        LoadScenes();
+    }
+
+    private void OnEnable()
+    {
+        sceneManagementEventChannel.UnloadScenes += UnloadScenes;
+    }
+
+    private void OnDisable()
+    {
+        sceneManagementEventChannel.UnloadScenes -= UnloadScenes;
+    }
+
+    private void LoadScenes()
+    {
+        if (!loadScenes) return;
+
         foreach (var scene in scenesToLoad)
         {
             SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
     }
 
-    private void OnEnable()
-    {
-
-        if (!unloadScenes) return;
-
-        sceneManagementEventChannel.UnloadScenes += UnloadScenes;
-    }
-
-    private void OnDisable()
-    {
-        if (!unloadScenes) return;
-
-        sceneManagementEventChannel.UnloadScenes -= UnloadScenes;
-    }
-
     private void UnloadScenes(Dictionary<string, object> args, System.Action<Dictionary<string, object>> callback)
     {
-        foreach (var scene in scenesToLoad)
+        if (!unloadScenes) return;
+
+        foreach (var scene in scenesToUnload)
         {
             SceneManager.UnloadSceneAsync(scene);
         }
         SceneManager.UnloadSceneAsync(currentScene);
+
+        callback?.Invoke(null);
+
     }
 
 

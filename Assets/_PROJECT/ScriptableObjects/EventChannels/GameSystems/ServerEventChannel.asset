@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119c9667f985ee3468276d0ffcdcbc94, type: 3}
-  m_Name: FastUnit
+  m_Script: {fileID: 11500000, guid: ddd467f1f5e8dd847b01ca6e927f75c5, type: 3}
+  m_Name: ServerEventChannel
   m_EditorClassIdentifier: 
-  UnitID: 0
-  StartHealth: 250
-  Speed: 35
-  Damage: 11
-  ProjectileTypesAllowed:
-  - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
-  XpAddonOnDestroyed: 0

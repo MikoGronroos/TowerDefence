@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
+  serverEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
   winnerText: {fileID: 8501608876526441430}
   leaveTheRoomButton: {fileID: 8501608875601943570}
 --- !u!114 &7907162529257300140

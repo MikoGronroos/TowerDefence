@@ -17,9 +17,16 @@ public class GameManagerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winnerText;
     [SerializeField] private Button leaveTheRoomButton;
 
+    private bool _pressedLeftButton;
+
     private void Awake()
     {
         leaveTheRoomButton.onClick.AddListener(() => {
+
+            if (_pressedLeftButton) return;
+
+            _pressedLeftButton = true;
+
             serverEventChannel?.LeaveRoom(null);
         });
     }
