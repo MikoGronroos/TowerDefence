@@ -5437,6 +5437,7 @@ MonoBehaviour:
   playerHealthTexts:
   - {fileID: 463572499590150995}
   - {fileID: 463572499000640459}
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
 --- !u!1 &7897364408766126591
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
+using Finark.Events;
 
 public class PlayerLevelUI : MonoBehaviour
 {

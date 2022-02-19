@@ -47,11 +47,9 @@ MonoBehaviour:
   playerHealths:
   - Health: 0
     PlayerID: 0
-    HealthText: {fileID: 0}
   - Health: 0
     PlayerID: 1
-    HealthText: {fileID: 0}
-  playerHealthChannel: {fileID: 11400000, guid: 5a298c9739e5e6948be7ead3d7f2683c, type: 2}
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
 --- !u!114 &2432044945963526127
 MonoBehaviour:
   m_ObjectHideFlags: 0

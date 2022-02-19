@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Finark.Events;
 
 public class HealthManager : MonoBehaviourSingleton<HealthManager>
 {
 
     [SerializeField] private List<PlayerHealth> playerHealths = new List<PlayerHealth>();
 
-    //[SerializeField] private EventChannel playerHealthChannel;
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     private PhotonView _photonView;
 
@@ -28,7 +29,7 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
     {
         var player = GetPlayerHealthWithID(id);
         player.Health = Mathf.Clamp(player.Health -= amount, 0, player.Health);
-        //playerHealthChannel.RaiseEvent(new Dictionary<string, object> { { "PlayerHealth", player } });
+        playerEventChannel?.OnHealthChanged(new Dictionary<string, object> { { "PlayerHealth", player } });
 
         if (PlayerHealthBelowZero(player))
         {
@@ -46,7 +47,7 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
     {
         foreach (var player in playerHealths)
         {
-            //playerHealthChannel.RaiseEvent(new Dictionary<string, object> { { "PlayerHealth", player }});
+            playerEventChannel?.OnHealthChanged(new Dictionary<string, object> { { "PlayerHealth", player } });
         }
     }
 

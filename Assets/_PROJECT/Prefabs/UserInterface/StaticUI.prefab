@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fd798efa622de45bd15fdb29210649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
   gameEndScreen: {fileID: 1753163138255200931}
   winnerText: {fileID: 1753163138553120879}
   leaveTheRoomButton: {fileID: 1753163137949549234}
