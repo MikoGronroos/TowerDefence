@@ -45,4 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitShopInventory: {fileID: 11400000, guid: 075a7fc0f623f2d46a5b73555eb7c362, type: 2}
   turretShopInventory: {fileID: 11400000, guid: 4db23919e9b0c1b4391d4e6e60f22a7d, type: 2}
-  refreshShopChannel: {fileID: 11400000, guid: 034e237d4c832504b832caea45671caf, type: 2}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}

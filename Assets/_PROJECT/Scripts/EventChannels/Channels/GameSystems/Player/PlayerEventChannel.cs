@@ -9,7 +9,7 @@ namespace Finark.Events
 
 		public EventChannel OnHealthChanged;
 
-		public EventChannel OnPlayerLevelChanged;
+		public EventChannel OnPlayerLevelUp;
 		public EventChannel OnPlayerXPChanged;
 
 		public EventChannel OnPlayerCurrencyChanged;

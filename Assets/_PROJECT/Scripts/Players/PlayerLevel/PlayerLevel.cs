@@ -13,19 +13,12 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
-    public static Action OnLevelUpEvent;
-
     private void Start()
     {
         playerEventChannel?.OnPlayerXPChanged(new Dictionary<string, object> { 
             { "CurrentXP", currentXp }, 
             { "LevelXpReq", levelXpRequirementChart.XpRequirements[currentLevel] } 
         });
-    }
-
-    public void OnLevelUp()
-    {
-        OnLevelUpEvent?.Invoke();
     }
 
     public void AddXp(int value)
@@ -38,9 +31,8 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
     {
 
         currentLevel = value;
-        OnLevelUp();
 
-        playerEventChannel?.OnPlayerLevelChanged(new Dictionary<string, object> { { "CurrentLevel", currentLevel } });
+        playerEventChannel?.OnPlayerLevelUp(new Dictionary<string, object> { { "CurrentLevel", currentLevel } });
 
         SetXP(currentXp > 0 ? currentXp - levelXpRequirementChart.XpRequirements[currentLevel] : 0);
 

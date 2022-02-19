@@ -16,13 +16,13 @@ public class PlayerLevelUI : MonoBehaviour
 
     private void OnEnable()
     {
-        playerEventChannel.OnPlayerLevelChanged += UpdateLevelText;
+        playerEventChannel.OnPlayerLevelUp += UpdateLevelText;
         playerEventChannel.OnPlayerXPChanged += UpdateXpProgressBar;
     }
 
     private void OnDisable()
     {
-        playerEventChannel.OnPlayerLevelChanged -= UpdateLevelText;
+        playerEventChannel.OnPlayerLevelUp -= UpdateLevelText;
         playerEventChannel.OnPlayerXPChanged -= UpdateXpProgressBar;
     }
 

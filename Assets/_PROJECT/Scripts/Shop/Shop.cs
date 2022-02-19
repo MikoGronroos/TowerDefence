@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Finark.Events;
+using System;
 
 public class Shop : MonoBehaviourSingleton<Shop>
 {
@@ -8,16 +10,17 @@ public class Shop : MonoBehaviourSingleton<Shop>
 
     [SerializeField] private ShopInventory turretShopInventory;
 
-    //[SerializeField] private EventChannel refreshShopChannel;
+    [SerializeField] private ShopEventChannel shopEventChannel;
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     private void OnEnable()
     {
-        PlayerLevel.OnLevelUpEvent += RefreshShop;
+        playerEventChannel.OnPlayerLevelUp += RefreshShop;
     }
 
     private void OnDisable()
     {
-        PlayerLevel.OnLevelUpEvent -= RefreshShop;
+        playerEventChannel.OnPlayerLevelUp -= RefreshShop;
     }
 
     private void Start()
@@ -27,13 +30,13 @@ public class Shop : MonoBehaviourSingleton<Shop>
 
     private void InitializeShop()
     {
-        RefreshShop();
+        RefreshShop(null, null);
     }
 
-    private void RefreshShop()
+    private void RefreshShop(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        //refreshShopChannel.RaiseEvent(new Dictionary<string, object> { {"Units", unitShopInventory }, { "Turrets", turretShopInventory } });
+        shopEventChannel?.RefreshShop(new Dictionary<string, object> { {"Units", unitShopInventory }, { "Turrets", turretShopInventory } });
 
     }
 

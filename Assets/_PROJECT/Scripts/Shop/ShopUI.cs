@@ -1,3 +1,5 @@
+using Finark.Events;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +21,8 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private Button openShopButton;
 
+    [SerializeField] private ShopEventChannel shopEventChannel;
+
     private List<GameObject> _drawnShopItems = new List<GameObject>();
 
     private void Awake()
@@ -29,6 +33,16 @@ public class ShopUI : MonoBehaviour
         openShopButton.onClick.AddListener(() => {
             shopPanel.SetActive(true);
         });
+    }
+
+    private void OnEnable()
+    {
+        shopEventChannel.RefreshShop += RefreshShopUI;
+    }
+
+    private void OnDisable()
+    {
+        shopEventChannel.RefreshShop -= RefreshShopUI;
     }
 
     private void DrawShopItem(ShopItem item)
@@ -65,7 +79,7 @@ public class ShopUI : MonoBehaviour
         _drawnShopItems.Clear();
     }
 
-    public void RefreshShopUI(Dictionary<string, object> args)
+    public void RefreshShopUI(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
         var units = (ShopInventory)args["Units"];
