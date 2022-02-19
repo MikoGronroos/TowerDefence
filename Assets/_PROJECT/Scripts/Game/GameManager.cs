@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
-
     [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
+    [SerializeField] private ServerEventChannel serverEventChannel;
 
     [SerializeField] private bool gameEnded = false;
 
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     {
         sceneManagementEventChannel.GameEndSceneLoaded += GameEndSceneLoaded;
         playerEventChannel.OnPlayerDead += EndGame;
+        serverEventChannel.LeaveRoom += LeaveRoom;
     }
 
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         sceneManagementEventChannel.GameEndSceneLoaded -= GameEndSceneLoaded;
         playerEventChannel.OnPlayerDead -= EndGame;
+        serverEventChannel.LeaveRoom -= LeaveRoom;
     }
 
     public void StartChildCoroutine(IEnumerator coroutine)
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
         sceneManagementEventChannel?.UnloadScenes(null);
     }
 
-    private void LeaveRoom()
+    private void LeaveRoom(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
         RoomController.LeaveTheRoom();
     }

@@ -10,6 +10,8 @@ public class GameManagerUI : MonoBehaviour
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
+    [SerializeField] private ServerEventChannel serverEventChannel;
+
     [Header("Game End Panel")]
 
     [SerializeField] private TextMeshProUGUI winnerText;
@@ -18,7 +20,7 @@ public class GameManagerUI : MonoBehaviour
     private void Awake()
     {
         leaveTheRoomButton.onClick.AddListener(() => {
-            //GameManager.Instance.LeaveRoom();
+            serverEventChannel?.LeaveRoom(null);
         });
     }
 
