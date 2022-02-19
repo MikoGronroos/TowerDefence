@@ -49,3 +49,4 @@ MonoBehaviour:
     BaseValue: 0
     Value: 0
   incomeInterval: 30
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}

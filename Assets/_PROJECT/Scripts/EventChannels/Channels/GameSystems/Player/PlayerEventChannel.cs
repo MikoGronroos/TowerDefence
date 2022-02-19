@@ -10,5 +10,7 @@ public class PlayerEventChannel : EventChannelBase
 	public EventChannel OnPlayerLevelChanged;
 	public EventChannel OnPlayerXPChanged;
 
-
+	public EventChannel OnPlayerCurrencyChanged;
+	public EventChannel OnPlayerCurrencyIncomeChanged;
+	public EventChannel OnPlayerCurrencyIntervalUpdate;
 }

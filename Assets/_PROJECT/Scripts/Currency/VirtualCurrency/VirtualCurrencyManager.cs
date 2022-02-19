@@ -10,9 +10,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     [SerializeField] private CustomFloat currentIncome;
     [SerializeField] private float incomeInterval;
 
-    //[SerializeField] private EventChannel incomeChannel;
-    //[SerializeField] private EventChannel currencyChannel;
-    //[SerializeField] private EventChannel incomeProgressChannel;
+    [SerializeField] private PlayerEventChannel playerEventChannel;
 
     private float _timeLeft;
     private bool _timerActive;
@@ -30,7 +28,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
         if (_timeLeft > 0)
         {
             _timeLeft -= Time.deltaTime;
-            //incomeProgressChannel.RaiseEvent(new Dictionary<string, object> { { "TimeLeft", _timeLeft}, { "IncomeInterval", incomeInterval } });
+            playerEventChannel?.OnPlayerCurrencyIntervalUpdate(new Dictionary<string, object> { { "TimeLeft", _timeLeft}, { "IncomeInterval", incomeInterval } });
         }
         else
         {
@@ -68,7 +66,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     public void SetCurrency(int value)
     {
         currentCurrency = value;
-        //currencyChannel.RaiseEvent(new Dictionary<string, object> { { "Currency", currentCurrency } });
+        playerEventChannel?.OnPlayerCurrencyChanged(new Dictionary<string, object> { { "Currency", currentCurrency } });
     }
 
     public bool CheckIfPlayerHasEnoughCurrency(int value)
@@ -110,7 +108,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     private void UpdateIncome()
     {
         currentIncome.Value = currentIncome.BaseValue;
-        //incomeChannel.RaiseEvent(new Dictionary<string, object> { { "Income", (int)currentIncome.Value } });
+        playerEventChannel?.OnPlayerCurrencyIncomeChanged(new Dictionary<string, object> { { "Income", (int)currentIncome.Value } });
     }
 
     #endregion

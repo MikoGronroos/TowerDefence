@@ -4300,6 +4300,7 @@ MonoBehaviour:
   incomeText: {fileID: 463572499213038574}
   incomeIntervalProgressBar: {fileID: 463572499583788119}
   suffix: $
+  playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
 --- !u!1 &463572499515627428
 GameObject:
   m_ObjectHideFlags: 0
