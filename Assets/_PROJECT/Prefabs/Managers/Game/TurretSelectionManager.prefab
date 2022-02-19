@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedTurret: {fileID: 0}
-  selectedTurretChannel: {fileID: 11400000, guid: ba457790c8861a34d9c14625d7ee2a5c, type: 2}
+  turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
 --- !u!114 &347891149674648680
 MonoBehaviour:
   m_ObjectHideFlags: 0
