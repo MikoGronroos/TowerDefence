@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Finark.Events;
 
 public class MapManager : MonoBehaviourSingleton<MapManager>
 {
 
     [SerializeField] private Map[] Maps;
+
+    [SerializeField] private RoomEventChannel roomEventChannel; 
 
     private int _currentMapIndex = 0;
 
@@ -42,7 +45,7 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
             { "Map", Maps[index]}
         });
 
-        //GameStart.Instance.SceneToLoad = Maps[index].SceneName;
+        roomEventChannel.OnMapChanged?.Invoke(new Dictionary<string, object> { { "MapName", Maps[index].SceneName } });
     }
 
 }

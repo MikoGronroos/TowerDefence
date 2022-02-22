@@ -10,6 +10,9 @@ namespace Finark.Events
 		public EventChannel OnJoinedRoom;
 
 		public EventChannel OnPlayerAmountChanged;
+		public EventChannel OnPlayerReadyUp;
+
+		public EventChannel OnMapChanged;
 
 	}
 }

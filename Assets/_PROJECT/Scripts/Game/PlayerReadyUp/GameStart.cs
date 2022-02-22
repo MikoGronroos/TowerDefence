@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStart : MonoBehaviourSingleton<GameStart>
+public class GameStart : MonoBehaviour
 {
 
     [SerializeField] private RoomEventChannel roomEventChannel;
 
-    public string SceneToLoad { private get; set; }
-
     [SerializeField] private int currentlyReadyPlayers = 0;
     [SerializeField] private int playersInTheRoom = 0;
+
+    private string _sceneToLoad;
 
     private PhotonView _photonView;
 
@@ -43,11 +43,27 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     private void OnEnable()
     {
         roomEventChannel.OnJoinedRoom += OnJoined;
+        roomEventChannel.OnPlayerReadyUp += LocalPlayerReadyUp;
+        roomEventChannel.OnMapChanged += OnMapChangedListener;
     }
 
     private void OnDisable()
     {
         roomEventChannel.OnJoinedRoom -= OnJoined;
+        roomEventChannel.OnPlayerReadyUp -= LocalPlayerReadyUp;
+        roomEventChannel.OnMapChanged -= OnMapChangedListener;
+    }
+
+    public void LocalPlayerReadyUp(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        var localPlayer = PlayerManager.Instance.GetLocalPlayer();
+
+        if (!localPlayer.IsPlayerReady())
+        {
+            _photonView.RPC("RPCLocalPlayerReadyUp", RpcTarget.AllBuffered);
+            localPlayer.TogglePlayerIsReady(true);
+        }
     }
 
     #region Player Amounts
@@ -97,6 +113,13 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
 
     #endregion
 
+    private void OnMapChangedListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        _sceneToLoad = (string)args["MapName"];
+
+    }
+
     private void StartGame()
     {
         if ((currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1) || GameSettingsManager.Instance.GetGameSettings().Singleplayer)
@@ -104,6 +127,8 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
             _photonView.RPC("RPCStartGame", RpcTarget.All);
         }
     }
+
+    #region RPC Methods
 
     [PunRPC]
     private void PlayerJoinedOrLeft(bool value)
@@ -114,7 +139,15 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     [PunRPC]
     private void RPCStartGame()
     {
-        PhotonNetwork.LoadLevel(SceneToLoad);
+        PhotonNetwork.LoadLevel(_sceneToLoad);
     }
+
+    [PunRPC]
+    private void RPCLocalPlayerReadyUp()
+    {
+        IncreaseAmountOfReadyPlayers();
+    }
+
+    #endregion
 
 }
