@@ -1,4 +1,5 @@
 using Finark.Events;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,10 +18,26 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private bool loadScenes;
     [SerializeField] private bool unloadScenes;
 
+    [SerializeField] private bool loadScenesOnAwake;
+    [SerializeField] private bool loadScenesOnStart;
+
+
     private void Awake()
     {
-        LoadScenes();
+        if (loadScenesOnAwake)
+        {
+            LoadScenes();
+        }
     }
+
+    private void Start()
+    {
+        if (loadScenesOnStart)
+        {
+            LoadScenes();
+        }
+    }
+
 
     private void OnEnable()
     {
@@ -40,10 +57,14 @@ public class SceneLoader : MonoBehaviour
         {
             SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
+
+        sceneManagementEventChannel.OnScenesLoaded?.Invoke(null);
+
     }
 
     private void UnloadScenes(Dictionary<string, object> args, System.Action<Dictionary<string, object>> callback)
     {
+
         if (!unloadScenes) return;
 
         foreach (var scene in scenesToUnload)

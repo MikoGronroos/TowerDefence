@@ -391,6 +391,9 @@ GameObject:
   - component: {fileID: 248366340}
   - component: {fileID: 248366339}
   - component: {fileID: 248366343}
+  - component: {fileID: 248366344}
+  - component: {fileID: 248366345}
+  - component: {fileID: 248366346}
   m_Layer: 5
   m_Name: UserInterface
   m_TagString: Untagged
@@ -475,7 +478,7 @@ RectTransform:
   - {fileID: 866393699}
   - {fileID: 1969345267}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -495,6 +498,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraEventChannel: {fileID: 11400000, guid: 1cdbf2e821701034193002093256deee, type: 2}
+--- !u!114 &248366344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248366338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a3c8e6c77e66840b4b0f93ea5e7487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  readyUpButton: {fileID: 866393700}
+--- !u!114 &248366345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248366338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c34c020c4ab7c2489c540f00c8a5936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleplayerToggle: {fileID: 1579097235}
+  decrementMapIndexButton: {fileID: 1377464126}
+  incrementMapIndexButton: {fileID: 1215962780}
+  mapIcon: {fileID: 233109755}
+  mapNameText: {fileID: 1174550637}
+--- !u!114 &248366346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248366338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84092f11ba6884d43af27fec6f5e92cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfPlayersReadyText: {fileID: 862497551}
+  roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
 --- !u!1 &360909141
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +884,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484833312}
   m_CullTransparentMesh: 1
+--- !u!1 &610873245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610873246}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610873246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610873245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1360.3143, y: 642.45593, z: -179.14944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641860802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToInstantiateOnStart:
   - {fileID: 7241158508028986698, guid: e07424a024cbbac45af416d9615a3314, type: 3}
+  roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
+  sceneManagementEventChannel: {fileID: 11400000, guid: 7c65dc6f0e4a1e44d8330f9968daaf8a, type: 2}
 --- !u!4 &844338893
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,11 +1376,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844338891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 601.9498, y: 259.381, z: -252.90408}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862497549
 GameObject:
@@ -1568,7 +1647,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1116836972}
   - component: {fileID: 1116836971}
-  - component: {fileID: 1116836970}
   - component: {fileID: 1116836969}
   m_Layer: 0
   m_Name: PlayerReadyUp
@@ -1600,19 +1678,6 @@ MonoBehaviour:
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1116836970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116836968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47a3c8e6c77e66840b4b0f93ea5e7487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  readyUpButton: {fileID: 866393700}
 --- !u!114 &1116836971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,7 +1702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1174550635
 GameObject:
@@ -2288,7 +2353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504553916
 GameObject:
@@ -2300,7 +2365,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1504553917}
   - component: {fileID: 1504553919}
-  - component: {fileID: 1504553918}
   - component: {fileID: 1504553920}
   m_Layer: 0
   m_Name: GameStart
@@ -2321,21 +2385,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1504553918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504553916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84092f11ba6884d43af27fec6f5e92cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountOfPlayersReadyText: {fileID: 862497551}
 --- !u!114 &1504553919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2348,7 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdfdffcd5b155f4eacc7803c2ffafd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Game
+  roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
   currentlyReadyPlayers: 0
   playersInTheRoom: 0
 --- !u!114 &1504553920
@@ -2468,7 +2519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1588617073}
   - component: {fileID: 1588617072}
-  - component: {fileID: 1588617071}
   m_Layer: 0
   m_Name: GameSettingsManager
   m_TagString: Untagged
@@ -2476,23 +2526,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1588617071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588617070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c34c020c4ab7c2489c540f00c8a5936, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  singleplayerToggle: {fileID: 1579097235}
-  decrementMapIndexButton: {fileID: 1377464126}
-  incrementMapIndexButton: {fileID: 1215962780}
-  mapIcon: {fileID: 233109755}
-  mapNameText: {fileID: 1174550637}
 --- !u!114 &1588617072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2518,7 +2551,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1675400262
 GameObject:
@@ -2549,7 +2582,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1675400264
 MonoBehaviour:

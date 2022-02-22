@@ -10,7 +10,7 @@ public class GameManagerUI : MonoBehaviour
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
-    [SerializeField] private ServerEventChannel serverEventChannel;
+    [SerializeField] private RoomEventChannel roomEventChannel;
 
     [Header("Game End Panel")]
 
@@ -27,7 +27,7 @@ public class GameManagerUI : MonoBehaviour
 
             _pressedLeftButton = true;
 
-            serverEventChannel?.LeaveRoom(null);
+            roomEventChannel?.LeaveRoom(null);
         });
     }
 

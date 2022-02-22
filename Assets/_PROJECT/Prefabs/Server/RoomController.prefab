@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50509496015a56f44b86ed9084fc63a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
+  roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}

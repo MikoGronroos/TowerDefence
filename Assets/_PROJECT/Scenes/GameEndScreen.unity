@@ -235,11 +235,11 @@ MonoBehaviour:
   currentScene: 
   scenesToLoad:
   - RoomController
-  scenesToUnload:
-  - RoomController
+  scenesToUnload: []
   sceneManagementEventChannel: {fileID: 11400000, guid: 7c65dc6f0e4a1e44d8330f9968daaf8a, type: 2}
   loadScenes: 1
   unloadScenes: 0
+  loadScenesOnAwake: 1
 --- !u!1001 &8501608875982754541
 PrefabInstance:
   m_ObjectHideFlags: 0

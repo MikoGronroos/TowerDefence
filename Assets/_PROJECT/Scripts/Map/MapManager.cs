@@ -42,7 +42,7 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
             { "Map", Maps[index]}
         });
 
-        GameStart.Instance.SceneToLoad = Maps[index].SceneName;
+        //GameStart.Instance.SceneToLoad = Maps[index].SceneName;
     }
 
 }

@@ -9,16 +9,16 @@ using UnityEngine.SceneManagement;
 public class RoomController : MonoBehaviourPunCallbacks
 {
 
-    [SerializeField] private ServerEventChannel serverEventChannel;
+    [SerializeField] private RoomEventChannel roomEventChannel;
 
     public override void OnEnable()
     {
-        serverEventChannel.LeaveRoom += LeaveTheRoom;
+        roomEventChannel.LeaveRoom += LeaveTheRoom;
     }
 
     public override void OnDisable()
     {
-        serverEventChannel.LeaveRoom -= LeaveTheRoom;
+        roomEventChannel.LeaveRoom -= LeaveTheRoom;
     }
 
     private void LeaveTheRoom(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

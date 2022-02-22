@@ -1,23 +1,23 @@
+using Finark.Events;
 using Photon.Pun;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStart : MonoBehaviourSingleton<GameStart>
 {
 
-    [SerializeField] private string sceneToLoad;
+    [SerializeField] private RoomEventChannel roomEventChannel;
 
-    public string SceneToLoad { set { sceneToLoad = value; } }
+    public string SceneToLoad { private get; set; }
 
     [SerializeField] private int currentlyReadyPlayers = 0;
     [SerializeField] private int playersInTheRoom = 0;
-
-    private GameStartUI _gameStartUI;
 
     private PhotonView _photonView;
 
     private void Awake()
     {
-        _gameStartUI = GetComponent<GameStartUI>();
         _photonView = GetComponent<PhotonView>();
     }
 
@@ -38,28 +38,46 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
 
         #endregion
 
+    }
 
-        _photonView.RPC("RPCValidatePlayer", RpcTarget.AllBuffered);
+    private void OnEnable()
+    {
+        roomEventChannel.OnJoinedRoom += OnJoined;
+    }
+
+    private void OnDisable()
+    {
+        roomEventChannel.OnJoinedRoom -= OnJoined;
     }
 
     #region Player Amounts
 
-    public void IncreaseAmountOfPlayerInTheRoom()
+    private void OnJoined(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        playersInTheRoom++;
-        _gameStartUI.UpdateAmountOfPlayersText(currentlyReadyPlayers, playersInTheRoom);
+        _photonView.RPC("PlayerJoinedOrLeft", RpcTarget.AllBuffered, true);
     }
 
-    public void DecreaseAmountOfPlayerInTheRoom()
+    private void OnLeft(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        _photonView.RPC("PlayerJoinedOrLeft", RpcTarget.AllBuffered, false);
+    }
+
+    private void IncreaseAmountOfPlayerInTheRoom(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        playersInTheRoom++;
+        roomEventChannel.OnPlayerAmountChanged?.Invoke(new Dictionary<string, object> { { "CurrentlyReady", currentlyReadyPlayers }, { "PlayerInTheRoom", playersInTheRoom } });
+    }
+
+    public void DecreaseAmountOfPlayerInTheRoom(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
         playersInTheRoom--;
-        _gameStartUI.UpdateAmountOfPlayersText(currentlyReadyPlayers, playersInTheRoom);
+        roomEventChannel.OnPlayerAmountChanged?.Invoke(new Dictionary<string, object> { { "CurrentlyReady", currentlyReadyPlayers }, { "PlayerInTheRoom", playersInTheRoom} });
     }
 
     public void IncreaseAmountOfReadyPlayers()
     {
         currentlyReadyPlayers++;
-        _gameStartUI.UpdateAmountOfPlayersText(currentlyReadyPlayers, playersInTheRoom);
+        roomEventChannel?.OnPlayerAmountChanged(new Dictionary<string, object> { { "CurrentlyReady", currentlyReadyPlayers }, { "PlayerInTheRoom", playersInTheRoom } });
         if (PhotonNetwork.IsMasterClient)
         {
             StartGame();
@@ -69,7 +87,7 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     public void DecreaseAmountOfReadyPlayers()
     {
         currentlyReadyPlayers--;
-        _gameStartUI.UpdateAmountOfPlayersText(currentlyReadyPlayers, playersInTheRoom);
+        roomEventChannel.OnPlayerAmountChanged?.Invoke(new Dictionary<string, object> { { "CurrentlyReady", currentlyReadyPlayers }, { "PlayerInTheRoom", playersInTheRoom } });
     }
 
     public int GetAmountOfPlayersInTheRoom()
@@ -88,15 +106,15 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     }
 
     [PunRPC]
-    private void RPCValidatePlayer()
+    private void PlayerJoinedOrLeft(bool value)
     {
-        GameStart.Instance.IncreaseAmountOfPlayerInTheRoom();
+        IncreaseAmountOfPlayerInTheRoom(null, null);
     }
 
     [PunRPC]
     private void RPCStartGame()
     {
-        PhotonNetwork.LoadLevel(sceneToLoad);
+        PhotonNetwork.LoadLevel(SceneToLoad);
     }
 
 }

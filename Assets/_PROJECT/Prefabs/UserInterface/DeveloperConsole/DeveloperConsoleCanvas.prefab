@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 6261381938361641856}
   - component: {fileID: 2120750425042654613}
   - component: {fileID: 4436995620330733150}
+  - component: {fileID: 7885579318402191704}
   m_Layer: 5
   m_Name: DeveloperConsoleCanvas
   m_TagString: Untagged
@@ -635,7 +636,7 @@ Canvas:
   m_GameObject: {fileID: 6261381938361641857}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -729,6 +730,19 @@ MonoBehaviour:
   commandPrintParent: {fileID: 6261381937829102362}
   errorColor: {r: 1, g: 0, b: 0, a: 1}
   successColor: {r: 0, g: 1, b: 0.011662245, a: 1}
+--- !u!114 &7885579318402191704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261381938361641857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8ac79735eb677448bd57fccf4912c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraEventChannel: {fileID: 11400000, guid: 1cdbf2e821701034193002093256deee, type: 2}
 --- !u!1 &6261381938584546419
 GameObject:
   m_ObjectHideFlags: 0

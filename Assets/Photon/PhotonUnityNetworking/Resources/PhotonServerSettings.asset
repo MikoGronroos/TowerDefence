@@ -41,6 +41,7 @@ MonoBehaviour:
   - RPCValidatePlayer
   - RPCStartGame
   - RPCSpawnUnit
+  - PlayerJoinedOrLeft
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
