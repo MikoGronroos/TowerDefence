@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Finark.Events;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class PvpMissionUnitReachGoal : PvpMission
     public int CurrentAmount;
     public int AmountNeeded;
     public int UnitID;
+
+    [SerializeField] private UnitEventChannel unitEventChannel;
 
     public override void Evaluate()
     {
@@ -22,18 +25,18 @@ public class PvpMissionUnitReachGoal : PvpMission
 
     public override void Load()
     {
-        EventManager.SubscribeToEvent("OnUnitReachedGoal", OnUnitReachedGoal);
+        unitEventChannel.OnUnitReachedGoal += OnUnitReachedGoal;
     }
 
     public override void Unload()
     {
-        EventManager.UnsubscribeToEvent("OnUnitReachedGoal", OnUnitReachedGoal);
+        unitEventChannel.OnUnitReachedGoal -= OnUnitReachedGoal;
     }
 
-    void OnUnitReachedGoal(Dictionary<string, object> message)
+    void OnUnitReachedGoal(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        int unitID = (int)message["UnitID"];
-        int goalOwnerID = (int)message["GoalOwnerID"];
+        int unitID = (int)args["UnitID"];
+        int goalOwnerID = (int)args["GoalOwnerID"];
         if (unitID == UnitID && PlayerManager.Instance.GetLocalPlayer().GetPlayerID() != goalOwnerID)
         {
             CurrentAmount++;

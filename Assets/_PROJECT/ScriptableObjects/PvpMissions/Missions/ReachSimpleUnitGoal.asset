@@ -19,3 +19,4 @@ MonoBehaviour:
   CurrentAmount: 0
   AmountNeeded: 1
   UnitID: 0
+  unitEventChannel: {fileID: 11400000, guid: 9cb7e6870d3751a4296a155f06a74c3f, type: 2}

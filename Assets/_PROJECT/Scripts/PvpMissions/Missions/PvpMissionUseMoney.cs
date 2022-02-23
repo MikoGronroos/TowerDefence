@@ -1,3 +1,5 @@
+using Finark.Events;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +9,8 @@ public class PvpMissionUseMoney : PvpMission
 
     public int CurrentAmount;
     public int NeededAmount;
+
+    [SerializeField] private CurrencyEventChannel currencyEventChannel;
 
     public override void Evaluate()
     {
@@ -18,17 +22,17 @@ public class PvpMissionUseMoney : PvpMission
 
     public override void Load()
     {
-        EventManager.SubscribeToEvent("OnMoneyUsed", OnMoneyUsed);
+        currencyEventChannel.OnMoneyUsed += OnMoneyUsed;
     }
 
     public override void Unload()
     {
-        EventManager.UnsubscribeToEvent("OnMoneyUsed", OnMoneyUsed);
+        currencyEventChannel.OnMoneyUsed -= OnMoneyUsed;
     }
 
-    private void OnMoneyUsed(Dictionary<string, object> message)
+    private void OnMoneyUsed(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        var money = (int)message["money"];
+        var money = (int)args["money"];
 
         CurrentAmount += money;
         Evaluate();

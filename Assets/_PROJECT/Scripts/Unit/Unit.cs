@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Photon.Pun;
+using Finark.Events;
 
 [RequireComponent(typeof(FollowPath))]
 public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
@@ -9,6 +10,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField] private UnitStats unitStats;
 
     [SerializeField] private float currentHealth;
+
+    [SerializeField] private UnitEventChannel unitEventChannel;
 
     private FollowPath _followPath;
 
@@ -65,7 +68,7 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
         PlayerLevel.Instance.AddXp(unitStats.XpAddonOnDestroyed);
 
-        EventManager.InvokeEvent("OnUnitKilled", new Dictionary<string, object> { { "UnitID", unitStats.UnitID } });
+        unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> { { "UnitID", unitStats.UnitID } });
 
         PhotonNetwork.Destroy(_photonView);
 

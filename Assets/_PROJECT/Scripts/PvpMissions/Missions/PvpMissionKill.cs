@@ -1,3 +1,5 @@
+using Finark.Events;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +11,8 @@ public class PvpMissionKill : PvpMission
     public int AmountNeeded;
     public int UnitID;
 
+    [SerializeField] private UnitEventChannel unitEventChannel;
+
     public override void Evaluate()
     {
         if (CurrentAmount >= AmountNeeded)
@@ -19,17 +23,17 @@ public class PvpMissionKill : PvpMission
 
     public override void Load()
     {
-        EventManager.SubscribeToEvent("OnUnitKilled", OnUnitKilled);
+        unitEventChannel.OnUnitKilled += OnUnitKilled;
     }
 
     public override void Unload()
     {
-        EventManager.UnsubscribeToEvent("OnUnitKilled", OnUnitKilled);
+        unitEventChannel.OnUnitKilled += OnUnitKilled;
     }
 
-    void OnUnitKilled(Dictionary<string, object> message)
+    void OnUnitKilled(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        var id = (int)message["UnitID"];
+        var id = (int)args["UnitID"];
         if (id == UnitID)
         {
             CurrentAmount++;

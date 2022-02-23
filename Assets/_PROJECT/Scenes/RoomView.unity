@@ -529,6 +529,7 @@ MonoBehaviour:
   incrementMapIndexButton: {fileID: 1215962780}
   mapIcon: {fileID: 233109755}
   mapNameText: {fileID: 1174550637}
+  roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
 --- !u!114 &248366346
 MonoBehaviour:
   m_ObjectHideFlags: 0

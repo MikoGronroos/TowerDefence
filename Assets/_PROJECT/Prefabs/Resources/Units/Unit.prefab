@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: bad1871f181dffd47973f954c01bfe18, type: 2}
   currentHealth: 10
+  unitEventChannel: {fileID: 11400000, guid: 9cb7e6870d3751a4296a155f06a74c3f, type: 2}
   UnitOwnerID: 0
 --- !u!114 &1750303906499475428
 MonoBehaviour:

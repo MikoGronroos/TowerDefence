@@ -116,7 +116,9 @@ public class GameStart : MonoBehaviour
     private void OnMapChangedListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        _sceneToLoad = (string)args["MapName"];
+        var map = (Map)args["Map"];
+
+        _sceneToLoad = map.SceneName;
 
     }
 

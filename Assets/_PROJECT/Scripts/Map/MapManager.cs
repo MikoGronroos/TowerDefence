@@ -40,12 +40,7 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
     {
         GameSettingsManager.Instance.GetGameSettings().CurrentMapIndex = index;
 
-        EventManager.InvokeEvent("OnMapChanged", new Dictionary<string, object>
-        {
-            { "Map", Maps[index]}
-        });
-
-        roomEventChannel.OnMapChanged?.Invoke(new Dictionary<string, object> { { "MapName", Maps[index].SceneName } });
+        roomEventChannel.OnMapChanged?.Invoke(new Dictionary<string, object> { { "Map", Maps[index] } });
     }
 
 }

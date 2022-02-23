@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using Finark.Events;
+using System;
 
 public class GameSettingsManagerUI : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class GameSettingsManagerUI : MonoBehaviour
 
     [SerializeField] private Image mapIcon;
     [SerializeField] private TextMeshProUGUI mapNameText;
+
+    [SerializeField] private RoomEventChannel roomEventChannel;
 
     private void Awake()
     {
@@ -32,18 +36,18 @@ public class GameSettingsManagerUI : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.SubscribeToEvent("OnMapChanged", DrawMap);
+        roomEventChannel.OnMapChanged += DrawMap;
     }
+
 
     private void OnDisable()
     {
-        EventManager.UnsubscribeToEvent("OnMapChanged", DrawMap);
+        roomEventChannel.OnMapChanged -= DrawMap;
     }
 
 
-    private void DrawMap(Dictionary<string, object> args)
+    private void DrawMap(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-
         var map = (Map)args["Map"];
 
         mapIcon.sprite = map.Icon;

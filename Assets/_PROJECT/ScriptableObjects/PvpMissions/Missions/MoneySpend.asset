@@ -18,3 +18,4 @@ MonoBehaviour:
   MissionRewards: {fileID: 11400000, guid: 4bfc819f3aca1a748967cfe81c196102, type: 2}
   CurrentAmount: 0
   NeededAmount: 250
+  currencyEventChannel: {fileID: 11400000, guid: d779b8d58fa92a646ab56add75104e88, type: 2}
