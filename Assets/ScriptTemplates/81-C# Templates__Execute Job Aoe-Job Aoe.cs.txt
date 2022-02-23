@@ -1,0 +1,7 @@
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Execute Jobs/#SCRIPTNAME#", fileName ="#SCRIPTNAME#")]
+public class #SCRIPTNAME# : TurretJobAoe
+{
+	
+}

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Execute Jobs/Mortar")]
 public class TurretJobAoeMortar : TurretJobAoe
 {
-    public override void CollidersLogic(Collider2D[] colliders, TurretExecutable exec)
+    public override void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec)
     {
         foreach (var collider in colliders)
         {

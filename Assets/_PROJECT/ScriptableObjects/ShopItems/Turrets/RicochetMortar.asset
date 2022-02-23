@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
+  m_Name: RicochetMortar
+  m_EditorClassIdentifier: 
+  Cost: 25
+  Icon: {fileID: 21300000, guid: 86ec531bec9bd104f8948cc4d566658e, type: 3}
+  LevelToUnlock: 3
+  ItemPrefab: {fileID: 2658719475313098691, guid: d5268f21f7dc1dc4eb298bc4490a0ec4, type: 3}

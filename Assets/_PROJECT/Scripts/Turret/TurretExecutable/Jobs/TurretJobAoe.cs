@@ -8,7 +8,7 @@ public abstract class TurretJobAoe : ExecuteJob
     public override void Job(Dictionary<string, object> args)
     {
 
-        //GameManager.Instance.StartChildCoroutine(MakeAoe(args));
+        CoroutineCaller.Instance.StartChildCoroutine(MakeAoe(args));
 
     }
 
@@ -22,7 +22,7 @@ public abstract class TurretJobAoe : ExecuteJob
 
         yield return new WaitForSeconds(1);
 
-        CollidersLogic(GetCollidersInArea(position, exec.Range.Value), exec);
+        CollidersLogic(position, GetCollidersInArea(position, exec.Range.Value), exec);
 
         GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
 
@@ -39,6 +39,6 @@ public abstract class TurretJobAoe : ExecuteJob
 
     }
 
-    public virtual void CollidersLogic(Collider2D[] colliders, TurretExecutable exec)  {   }
+    public virtual void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec)  {   }
 
 }
