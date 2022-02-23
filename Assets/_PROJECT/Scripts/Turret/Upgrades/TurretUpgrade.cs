@@ -14,9 +14,11 @@ public class TurretUpgrade
 
     [Header("Turret Executable")]
 
-    public bool ChangeTurretExecutable;
+    public ProjectileType[] ProjectileTypes;
 
-    public TurretExecutable TurretExecutableAddon;
+    public GameObject ExecutablePrefab;
+
+    public ExecuteJob Job;
 
     [Header("Value Addons")]
 
@@ -29,12 +31,13 @@ public class TurretUpgrade
     public void UseUpgrade(Turret turret)
     {
 
-        if (ChangeTurretExecutable)
-        {
-            turret.AddNewTurretExecutable(TurretExecutableAddon);
-        }
-
         TurretExecutable target = turret.GetTurretExecutable();
+
+        if (ExecutablePrefab != null) target.ExecutablePrefab = ExecutablePrefab;
+
+        if (ProjectileTypes.Length > 0) target.ProjectileTypes = ProjectileTypes;
+
+        if (Job != null) target.Job = Job;
 
         switch (Type)
         {

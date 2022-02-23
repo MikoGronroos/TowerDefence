@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05273f30a6ce91a46b13ed86f4a842d0, type: 3}
+  m_Name: ClusterMortarUpgrade
+  m_EditorClassIdentifier: 
+  Paths:
+  - Upgrades:
+    - Name: The First
+      Description: 
+      Price: 250
+      Icon: {fileID: 21300000, guid: bd293dc32f4aaf94e8274f2fac2cdf89, type: 3}
+      ProjectileTypes:
+      - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 11400000, guid: d5c7024b351b83449888ad957e02885f, type: 2}
+      Type: 0
+      DamageAddon: 1.1
+      RangeAddon: 1.25
+      AttackSpeedAddon: 1.25
+    - Name: The Second
+      Description: 
+      Price: 500
+      Icon: {fileID: 21300000, guid: 3f24a530cfdd903459ad6f30d6f8e57a, type: 3}
+      ProjectileTypes: []
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 0}
+      Type: 1
+      DamageAddon: 1
+      RangeAddon: 1
+      AttackSpeedAddon: 1
+    - Name: The Third
+      Description: 
+      Price: 0
+      Icon: {fileID: 21300000, guid: 3f24a530cfdd903459ad6f30d6f8e57a, type: 3}
+      ProjectileTypes: []
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 0}
+      Type: 1
+      DamageAddon: 1
+      RangeAddon: 1
+      AttackSpeedAddon: 1
+  - Upgrades:
+    - Name: 
+      Description: 
+      Price: 0
+      Icon: {fileID: 21300000, guid: 8b6118f111e1d2c4195228384dc3b396, type: 3}
+      ProjectileTypes: []
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 0}
+      Type: 0
+      DamageAddon: 0
+      RangeAddon: 0
+      AttackSpeedAddon: 0
+  - Upgrades:
+    - Name: 
+      Description: 
+      Price: 0
+      Icon: {fileID: 21300000, guid: f37512c252f974a48a16303d231641db, type: 3}
+      ProjectileTypes: []
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 0}
+      Type: 0
+      DamageAddon: 0
+      RangeAddon: 0
+      AttackSpeedAddon: 0
