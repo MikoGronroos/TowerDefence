@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 09eda219092895048b33377a7081f7d3
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -855770265680395590
+    second: SimpleMortarUpgradeSheet_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,11 +116,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SimpleMortarUpgradeSheet_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1580
+        width: 421
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab247c83a71bf14f0800000000000000
+      internalID: -855770265680395590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 02d7455432108f74197ba2584c345943
     internalID: 0
     vertices: []
     indices: 
