@@ -17,13 +17,14 @@ MonoBehaviour:
     - Name: The First
       Description: 
       Price: 250
-      Icon: {fileID: 21300000, guid: bd293dc32f4aaf94e8274f2fac2cdf89, type: 3}
+      Icon: {fileID: -855770265680395590, guid: 09eda219092895048b33377a7081f7d3, type: 3}
       ProjectileTypes:
       - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+      - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
       ExecutablePrefab: {fileID: 0}
       Job: {fileID: 11400000, guid: d5c7024b351b83449888ad957e02885f, type: 2}
       Type: 0
-      DamageAddon: 1.1
+      DamageAddon: 1
       RangeAddon: 1.25
       AttackSpeedAddon: 1.25
     - Name: The Second

@@ -22,11 +22,11 @@ public abstract class TurretJobAoe : ExecuteJob
 
         yield return new WaitForSeconds(1);
 
-        CollidersLogic(position, GetCollidersInArea(position, exec.Range.Value), exec);
+        CollidersLogic(position, GetCollidersInArea(position, 2), exec);
 
         GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
 
-        FindObjectOfType<RangeVisualisation>().DrawCircle(clone, exec.Range.Value, 0.1f);
+        FindObjectOfType<RangeVisualisation>().DrawCircle(clone, 2, 0.1f);
 
     }
 
