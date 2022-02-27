@@ -47,11 +47,14 @@ public class GameManager : MonoBehaviour
         {
             AccountManager.Instance.CurrentAccount.Winstreak++;
             playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency?.Invoke(new Dictionary<string, object> { { "Amount", reward.SoftCurrencyReward } });
+            AccountManager.Instance.CurrentAccount.AccountXp += reward.ExperienceReward;
         }
         else
         {
             AccountManager.Instance.CurrentAccount.Winstreak = 0;
         }
+
+        AccountManager.Instance.SaveData();
 
         sceneManagementEventChannel?.UnloadScenes(null, OnScenesUnloaded);
 

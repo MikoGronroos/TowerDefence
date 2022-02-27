@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Reward
   m_EditorClassIdentifier: 
   SoftCurrencyReward: 100
-  ExperienceReward: 0
+  ExperienceReward: 1000
