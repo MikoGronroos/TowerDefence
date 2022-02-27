@@ -1,6 +1,8 @@
+using Finark.Events;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyManager>
@@ -9,6 +11,8 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
     [SerializeField] private int hardCurrency;
     [SerializeField] private int softCurrency;
 
+    [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
+
     private PlayFabCurrencyUI _playFabCurrencyUI;
 
     private void Awake()
@@ -16,12 +20,59 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
         _playFabCurrencyUI = GetComponent<PlayFabCurrencyUI>();
     }
 
+    private void OnEnable()
+    {
+        playFabCurrencyEventChannel.ChangeAmountOfHardCurrency += HardCurrencyChanged;
+        playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency += SoftCurrencyChanged;
+    }
+
+    private void OnDisable()
+    {
+        playFabCurrencyEventChannel.ChangeAmountOfHardCurrency -= HardCurrencyChanged;
+        playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency -= SoftCurrencyChanged;
+    }
+
     private void Start()
     {
         RefreshCurrencies();
     }
 
-    public void RemoveHardCurrency(int value)
+    private void SoftCurrencyChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        int amount = (int)args["Amount"];
+
+        if (amount > 0)
+        {
+            AddSoftCurrency(amount);
+        }
+        else
+        {
+            //Multiply amount with -1 to make the amount positive number.
+            RemoveSoftCurrency(amount * -1);
+        }
+    }
+
+    private void HardCurrencyChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        int amount = (int)args["Amount"];
+
+        if (amount > 0)
+        {
+            AddHardCurrency(amount);
+        }
+        else
+        {
+            //Multiply amount with -1 to make the amount positive number.
+            RemoveHardCurrency(amount * -1);
+        }
+
+    }
+
+    #region Currency Modifying
+
+    private void RemoveHardCurrency(int value)
     {
         var request = new SubtractUserVirtualCurrencyRequest
         {
@@ -31,7 +82,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
         PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubstractHCSuccess, OnSubstractHCError);
     }
 
-    public void RemoveSoftCurrency(int value)
+    private void RemoveSoftCurrency(int value)
     {
         var request = new SubtractUserVirtualCurrencyRequest
         {
@@ -41,7 +92,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
         PlayFabClientAPI.SubtractUserVirtualCurrency(request, OnSubstractSCSuccess, OnSubstractSCError);
     }
 
-    public void AddHardCurrency(int value)
+    private void AddHardCurrency(int value)
     {
         var request = new AddUserVirtualCurrencyRequest
         {
@@ -51,7 +102,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
         PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddHCSuccess, OnAddHCError);
     }
 
-    public void AddSoftCurrency(int value)
+    private void AddSoftCurrency(int value)
     {
         var request = new AddUserVirtualCurrencyRequest
         {
@@ -60,6 +111,8 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
         };
         PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddSCSuccess, OnAddSCError);
     }
+
+    #endregion
 
     private void RefreshCurrencies()
     {
@@ -84,6 +137,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
 
     private void OnSubstractHCError(PlayFabError error)
     {
+        Debug.Log("Substract hard currency error");
     }
 
     private void OnSubstractHCSuccess(ModifyUserVirtualCurrencyResult result)
@@ -93,6 +147,8 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
 
     private void OnSubstractSCError(PlayFabError error)
     {
+        Debug.Log("Substract soft currency error");
+        Debug.Log(error.ErrorMessage);
     }
 
     private void OnSubstractSCSuccess(ModifyUserVirtualCurrencyResult result)

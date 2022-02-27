@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0729ac74b6e223543a9d15da7ff70df3, type: 3}
-  m_Name: AddSoftCurrency
+  m_Script: {fileID: 11500000, guid: 622794016df3fa14ca350e252f0ddbb0, type: 3}
+  m_Name: ChangeSCurrency
   m_EditorClassIdentifier: 
-  commandWord: AddSoftCurrency
-  commandDescription: Adds Amount Of Your Choosing To Soft Currency
+  commandWord: ChangeSoftCurrency
+  commandDescription: 
+  playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}

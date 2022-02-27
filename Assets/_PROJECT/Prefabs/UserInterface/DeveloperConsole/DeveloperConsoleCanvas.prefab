@@ -703,16 +703,14 @@ MonoBehaviour:
   developerConsole: {fileID: 6261381938361641870}
   developerConsoleToggleKey: 27
   consoleCommands:
-  - {fileID: 11400000, guid: 4deff3b5ae1165f46889a6d58129d7bd, type: 2}
-  - {fileID: 11400000, guid: cdbfbce8d700a0d4280f7c7c9f72b642, type: 2}
   - {fileID: 11400000, guid: 01119b244da6b70479fdacd51659b746, type: 2}
-  - {fileID: 11400000, guid: 1aa22339e2118ea4596d7297deeac388, type: 2}
-  - {fileID: 11400000, guid: e1eebbaacb8837e4f902338457083f2e, type: 2}
   - {fileID: 11400000, guid: ac96885adc1807849aa7a90881b6c902, type: 2}
   - {fileID: 11400000, guid: 7d2d53a81e90abc44a3ca24f167a6dd6, type: 2}
   - {fileID: 11400000, guid: db47d33c5c155824f9d1e20922174d48, type: 2}
   - {fileID: 11400000, guid: 87d99d7d7ddf98342ad8b12d7add5cb7, type: 2}
   - {fileID: 11400000, guid: 6599fc548d5095542b891508da7d8632, type: 2}
+  - {fileID: 11400000, guid: 4e2ec3a4c7d778e48bb1f0d72f644f4a, type: 2}
+  - {fileID: 11400000, guid: adbb020ec05021b489c221657cf31873, type: 2}
 --- !u!114 &4436995620330733150
 MonoBehaviour:
   m_ObjectHideFlags: 0

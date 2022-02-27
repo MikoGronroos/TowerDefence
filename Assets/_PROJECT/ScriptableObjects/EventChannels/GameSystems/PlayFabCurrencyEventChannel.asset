@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a3d031defb7bd449edc000022802a3, type: 3}
-  m_Name: AddHardCurrency
+  m_Script: {fileID: 11500000, guid: 0d527f95c7a29ed4e917ed552298b15f, type: 3}
+  m_Name: PlayFabCurrencyEventChannel
   m_EditorClassIdentifier: 
-  commandWord: AddHardCurrency
-  commandDescription: Adds Amount Of Your Choosing To Hard Currency

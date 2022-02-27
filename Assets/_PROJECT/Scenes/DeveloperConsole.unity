@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2120750425042654613, guid: afdca1de475cd6647804969dabece443, type: 3}
+      propertyPath: consoleCommands.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6599fc548d5095542b891508da7d8632, type: 2}
     - target: {fileID: 6261381937235145999, guid: afdca1de475cd6647804969dabece443, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1

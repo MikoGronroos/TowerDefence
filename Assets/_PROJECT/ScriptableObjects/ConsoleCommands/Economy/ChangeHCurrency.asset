@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342821de91b681e42890046d41d0013b, type: 3}
-  m_Name: RemoveHardCurrency
+  m_Script: {fileID: 11500000, guid: 81f51793e673aae4bbb99e88a2caaaf7, type: 3}
+  m_Name: ChangeHCurrency
   m_EditorClassIdentifier: 
-  commandWord: RemoveHardCurrency
+  commandWord: ChangeHardCurrency
   commandDescription: 
+  playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}

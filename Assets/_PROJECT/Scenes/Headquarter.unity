@@ -938,6 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hardCurrency: 0
   softCurrency: 0
+  playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}
 --- !u!4 &564083429
 Transform:
   m_ObjectHideFlags: 0

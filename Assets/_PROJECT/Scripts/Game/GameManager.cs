@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
     [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
+
+    [SerializeField] private GameEndReward reward;
 
     [SerializeField] private bool gameEnded = false;
 
@@ -37,8 +38,6 @@ public class GameManager : MonoBehaviour
 
         if (gameEnded) return;
 
-        Debug.Log("Game Ended");
-
         gameEnded = true;
 
         int loserID = (int)args["loserID"];
@@ -63,4 +62,10 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+}
+
+public class GameEndReward : ScriptableObject
+{
+    public int SoftCurrencyReward;
+    public int ExperienceReward;
 }
