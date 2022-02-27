@@ -7,5 +7,8 @@ namespace Finark.Events
 	{
 		public EventChannel ChangeAmountOfSoftCurrency;
 		public EventChannel ChangeAmountOfHardCurrency;
+
+		public EventChannel AmountOfSoftCurrencyChanged;
+		public EventChannel AmountOfHardCurrencyChanged;
 	}
 }

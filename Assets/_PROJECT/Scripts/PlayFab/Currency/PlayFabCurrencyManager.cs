@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyManager>
+public class PlayFabCurrencyManager : MonoBehaviour
 {
 
     [SerializeField] private int hardCurrency;
@@ -13,11 +13,9 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
 
     [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
 
-    private PlayFabCurrencyUI _playFabCurrencyUI;
-
     private void Awake()
     {
-        _playFabCurrencyUI = GetComponent<PlayFabCurrencyUI>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -129,8 +127,8 @@ public class PlayFabCurrencyManager : MonoBehaviourSingleton<PlayFabCurrencyMana
     {
         hardCurrency = result.VirtualCurrency["HC"];
         softCurrency = result.VirtualCurrency["SC"];
-        _playFabCurrencyUI.SetHardCurrencyText(hardCurrency.ToString());
-        _playFabCurrencyUI.SetSoftCurrencyText(softCurrency.ToString());
+        playFabCurrencyEventChannel.AmountOfHardCurrencyChanged?.Invoke(new Dictionary<string, object> { {"TotalAmount", result.VirtualCurrency["HC"] } });
+        playFabCurrencyEventChannel.AmountOfSoftCurrencyChanged?.Invoke(new Dictionary<string, object> { { "TotalAmount", result.VirtualCurrency["SC"] } });
     }
 
     #region Substract

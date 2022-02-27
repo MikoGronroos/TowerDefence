@@ -1,5 +1,8 @@
 using UnityEngine;
 using TMPro;
+using Finark.Events;
+using System.Collections.Generic;
+using System;
 
 public class PlayFabCurrencyUI : MonoBehaviour
 {
@@ -7,14 +10,33 @@ public class PlayFabCurrencyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hardCurrencyText;
     [SerializeField] private TextMeshProUGUI softCurrencyText;
 
-    public void SetSoftCurrencyText(string text)
+    [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
+
+    private void OnEnable()
     {
-        softCurrencyText.text = text;
+        playFabCurrencyEventChannel.AmountOfSoftCurrencyChanged += SetSoftCurrencyText;
+        playFabCurrencyEventChannel.AmountOfHardCurrencyChanged += SetHardCurrencyText;
     }
 
-    public void SetHardCurrencyText(string text)
+    private void OnDisable()
     {
-        hardCurrencyText.text = text;
+        playFabCurrencyEventChannel.AmountOfSoftCurrencyChanged -= SetSoftCurrencyText;
+        playFabCurrencyEventChannel.AmountOfHardCurrencyChanged -= SetHardCurrencyText;
+    }
+
+    private void SetSoftCurrencyText(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+
+        var amount = (int)args["TotalAmount"];
+
+        softCurrencyText.text = amount.ToString();
+    }
+
+    private void SetHardCurrencyText(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        var amount = (int)args["TotalAmount"];
+
+        hardCurrencyText.text = amount.ToString();
     }
 
 }

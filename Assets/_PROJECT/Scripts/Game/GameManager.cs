@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
     [SerializeField] private SceneManagementEventChannel sceneManagementEventChannel;
+    [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
 
-    [SerializeField] private GameEndReward reward;
+    [SerializeField] private GameRewards reward;
 
     [SerializeField] private bool gameEnded = false;
 
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
         if (loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
         {
             AccountManager.Instance.CurrentAccount.Winstreak++;
+            playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency?.Invoke(new Dictionary<string, object> { { "Amount", reward.SoftCurrencyReward } });
         }
         else
         {
@@ -62,10 +64,4 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-}
-
-public class GameEndReward : ScriptableObject
-{
-    public int SoftCurrencyReward;
-    public int ExperienceReward;
 }

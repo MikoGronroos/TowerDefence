@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class GameRewards : MonoBehaviour
+[CreateAssetMenu(menuName = "GameRewards", fileName = "Reward")]
+public class GameRewards : ScriptableObject
 {
 
-    
+    public int SoftCurrencyReward;
+    public int ExperienceReward;
 
 }
