@@ -24,6 +24,11 @@ public class PlayFabCurrencyUI : MonoBehaviour
         playFabCurrencyEventChannel.AmountOfHardCurrencyChanged -= SetHardCurrencyText;
     }
 
+    private void Start()
+    {
+        playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies?.Invoke();
+    }
+
     private void SetSoftCurrencyText(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 

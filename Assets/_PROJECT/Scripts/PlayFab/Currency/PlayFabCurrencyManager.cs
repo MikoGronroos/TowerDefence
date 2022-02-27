@@ -22,17 +22,14 @@ public class PlayFabCurrencyManager : MonoBehaviour
     {
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency += HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency += SoftCurrencyChanged;
+        playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies += RefreshCurrencies;
     }
 
     private void OnDisable()
     {
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency -= HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency -= SoftCurrencyChanged;
-    }
-
-    private void Start()
-    {
-        RefreshCurrencies();
+        playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies -= RefreshCurrencies;
     }
 
     private void SoftCurrencyChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
@@ -112,7 +109,7 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     #endregion
 
-    private void RefreshCurrencies()
+    private void RefreshCurrencies(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnRefreshSuccess, OnRefreshError);
     }
@@ -140,7 +137,7 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     private void OnSubstractHCSuccess(ModifyUserVirtualCurrencyResult result)
     {
-        RefreshCurrencies();
+        RefreshCurrencies(null, null);
     }
 
     private void OnSubstractSCError(PlayFabError error)
@@ -151,7 +148,7 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     private void OnSubstractSCSuccess(ModifyUserVirtualCurrencyResult result)
     {
-        RefreshCurrencies();
+        RefreshCurrencies(null,null);
     }
 
     #endregion
@@ -164,7 +161,7 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     private void OnAddSCSuccess(ModifyUserVirtualCurrencyResult obj)
     {
-        RefreshCurrencies();
+        RefreshCurrencies(null, null);
     }
 
     private void OnAddHCError(PlayFabError obj)
@@ -173,7 +170,7 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     private void OnAddHCSuccess(ModifyUserVirtualCurrencyResult obj)
     {
-        RefreshCurrencies();
+        RefreshCurrencies(null, null);
     }
 
     #endregion

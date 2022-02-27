@@ -10,5 +10,7 @@ namespace Finark.Events
 
 		public EventChannel AmountOfSoftCurrencyChanged;
 		public EventChannel AmountOfHardCurrencyChanged;
+
+		public EventChannel RefreshHardAndSoftCurrencies;
 	}
 }
