@@ -18,20 +18,17 @@ EditorBuildSettings:
     path: Assets/_PROJECT/Scenes/Levels/Map_City.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/_PROJECT/Scenes/Levels/Map_Farm.unity
+    guid: 17a72d7996936dc458a1eda756f43cd7
+  - enabled: 1
     path: Assets/_PROJECT/Scenes/Levels/Map_Harbour.unity
     guid: df5aaf4350cb3ae429b4f4989eda93d7
-  - enabled: 1
-    path: Assets/_PROJECT/Scenes/Levels/Map_Farm.unity
-    guid: 08fcb0ff394688744a86caa8aecd8faa
   - enabled: 1
     path: Assets/_PROJECT/Scenes/GameModules/GameSystems.unity
     guid: b172285f5b250d9409a3da5cb011334a
   - enabled: 1
     path: Assets/_PROJECT/Scenes/GameModules/UserInterface/UserInterface.unity
     guid: 30982cf59789fa143bf0f2ac697bea22
-  - enabled: 1
-    path: Assets/_PROJECT/Scenes/GameModules/UserInterface/GameSettingsUI.unity
-    guid: d82ab4e234874a04d8e1b27e0bfc01a5
   - enabled: 1
     path: Assets/_PROJECT/Scenes/GameModules/MainCamera.unity
     guid: 9ab1171f7f44ba14894a523666dc17ee

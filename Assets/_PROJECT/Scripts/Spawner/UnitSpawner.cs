@@ -19,7 +19,6 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
     [PunRPC]
     private void RPCSpawnUnit(string unitPrefabName, int id)
     {
-
         if (id != PlayerManager.Instance.GetLocalPlayer().GetPlayerID() || GameSettingsManager.Instance.GetGameSettings().Singleplayer)
         {
             SpawnUnit(unitPrefabName, id);
