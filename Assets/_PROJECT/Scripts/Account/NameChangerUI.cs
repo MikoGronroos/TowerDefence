@@ -20,6 +20,7 @@ public class NameChangerUI : MonoBehaviour
     private void ChangeName()
     {
         var newName = nameInputField.text;
+        nameInputField.text = "";
         accountEventChannel.OnNameChanged?.Invoke(new Dictionary<string, object> { { "Name", newName } });
     }
 

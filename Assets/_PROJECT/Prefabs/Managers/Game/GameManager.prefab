@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2867021074434060657}
   - component: {fileID: 2867021074434060666}
+  - component: {fileID: 1056194534034877551}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,5 +47,28 @@ MonoBehaviour:
   playerEventChannel: {fileID: 11400000, guid: 5f28a6c94d009ca469cbbab1e59933a9, type: 2}
   sceneManagementEventChannel: {fileID: 11400000, guid: 7c65dc6f0e4a1e44d8330f9968daaf8a, type: 2}
   playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}
+  roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
   reward: {fileID: 11400000, guid: f4c256eb14cb67247bfb2d5694f4db7e, type: 2}
   gameEnded: 0
+--- !u!114 &1056194534034877551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2867021074434060656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

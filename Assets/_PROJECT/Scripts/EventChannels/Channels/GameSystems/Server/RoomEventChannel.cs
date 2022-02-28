@@ -14,6 +14,8 @@ namespace Finark.Events
 
 		public EventChannel OnMapChanged;
 
+		public EventChannel OnPlayerInfoUpdate;
+
 		#region Settings
 
 		public EventChannel OnPlayModeChanged;
