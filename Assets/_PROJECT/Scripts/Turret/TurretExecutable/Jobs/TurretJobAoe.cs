@@ -22,9 +22,9 @@ public abstract class TurretJobAoe : ExecuteJob
 
         yield return new WaitForSeconds(1);
 
-        CollidersLogic(position, GetCollidersInArea(position, 2), exec);
-
         GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
+
+        CollidersLogic(position, GetCollidersInArea(position, 2), exec, clone.transform);
 
         FindObjectOfType<RangeVisualisation>().DrawCircle(clone, 2, 0.1f);
 
@@ -39,6 +39,6 @@ public abstract class TurretJobAoe : ExecuteJob
 
     }
 
-    public virtual void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec)  {   }
+    public virtual void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec, Transform parent)  {   }
 
 }

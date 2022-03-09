@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Execute Jobs/Mortar")]
 public class TurretJobAoeMortar : TurretJobAoe
 {
-    public override void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec)
+    public override void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec, Transform parent)
     {
         foreach (var collider in colliders)
         {

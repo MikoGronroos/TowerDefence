@@ -6,7 +6,7 @@ public class TurretJobAoeClusterMortar : TurretJobAoe
 
     [SerializeField] private float ricochetDistance;
 
-    public override void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec)
+    public override void CollidersLogic(Vector3 pos, Collider2D[] colliders, TurretExecutable exec, Transform parent)
     {
 
         Vector3[] ricochetPositions = { 
@@ -28,6 +28,8 @@ public class TurretJobAoeClusterMortar : TurretJobAoe
         {
             GameObject clone = new GameObject();
             clone.transform.position = position;
+
+            clone.transform.SetParent(parent);
 
             Collider2D[] clusterColliders = Physics2D.OverlapCircleAll(position, 1);
 
