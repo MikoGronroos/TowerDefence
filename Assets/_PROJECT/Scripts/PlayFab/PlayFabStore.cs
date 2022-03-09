@@ -40,6 +40,13 @@ public class PlayFabStore : MonoBehaviour
         foreach (CatalogItem item in Items)
         {
 
+            var bundle = item.Bundle;
+
+            if (bundle != null)
+            {
+
+            }
+
             StoreItem storeItem = new StoreItem();
 
             storeItem.DisplayName = item.DisplayName;
@@ -49,12 +56,12 @@ public class PlayFabStore : MonoBehaviour
             if (item.Tags.Contains("sc"))
             {
                 storeItem.Price = item.VirtualCurrencyPrices["SC"];
-                storeItem.hardCurrencyItem = false;
+                storeItem.currencyType = CurrencyType.SoftCurrency;
             }
             else if (item.Tags.Contains("hc"))
             {
                 storeItem.Price = item.VirtualCurrencyPrices["HC"];
-                storeItem.hardCurrencyItem = true;
+                storeItem.currencyType = CurrencyType.HardCurrency;
             }
 
             storeItem.Icon = Resources.Load<Sprite>(item.ItemImageUrl);
@@ -63,7 +70,7 @@ public class PlayFabStore : MonoBehaviour
 
             storeItems.Add(storeItem);
 
-            storeEventChannel.BoughtItem?.Invoke(new Dictionary<string, object> { {"Item", storeItem} }, BuyItem);
+            storeEventChannel.ItemFetched?.Invoke(new Dictionary<string, object> { {"Item", storeItem} }, BuyItem);
 
         }
 
@@ -82,7 +89,22 @@ public class PlayFabStore : MonoBehaviour
 
         request.CatalogVersion = catalogVersion;
 
-        request.VirtualCurrency = item.hardCurrencyItem ? "HC" : "SC";
+        string currencyType = "";
+
+        switch (item.currencyType)
+        {
+            case CurrencyType.HardCurrency:
+                currencyType = "HC";
+                break;
+            case CurrencyType.SoftCurrency:
+                currencyType = "SC";
+                break;
+            case CurrencyType.RealMoney:
+                break;
+        }
+
+        request.VirtualCurrency = currencyType;
+
 
         request.ItemId = item.ID;
         request.Price = (int)item.Price;
@@ -90,18 +112,17 @@ public class PlayFabStore : MonoBehaviour
         PlayFabClientAPI.PurchaseItem(request,
             result => 
             {
+
+                playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies?.Invoke();
+
             },
             error => 
             {
                 Debug.LogError(error.ErrorMessage);
             }
         );
-
     }
-
-
     #endregion
-
 }
 
 [System.Serializable]
@@ -118,6 +139,13 @@ public class StoreItem
 
     public string ID;
 
-    public bool hardCurrencyItem;
+    public CurrencyType currencyType;
 
+}
+
+public enum CurrencyType
+{
+    HardCurrency,
+    SoftCurrency,
+    RealMoney
 }

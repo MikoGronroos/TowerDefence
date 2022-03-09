@@ -8,26 +8,30 @@ public class StoreUI : MonoBehaviour
 
 	[SerializeField] private GameObject storeSlotPrefab;
 
+    [SerializeField] private Transform parent;
+
 	[SerializeField] private StoreEventChannel storeEventChannel;
 
     private void OnEnable()
     {
-        storeEventChannel.BoughtItem += ItemBought;
+        storeEventChannel.ItemFetched += ItemBought;
     }
 
     private void OnDisable()
     {
-        storeEventChannel.BoughtItem -= ItemBought;
+        storeEventChannel.ItemFetched -= ItemBought;
     }
 
     private void ItemBought(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        var slot = storeSlotPrefab.GetComponent<StoreSlot>();
+        GameObject slot = Instantiate(storeSlotPrefab, parent);
+
+        var storeSlot = slot.GetComponent<StoreSlot>();
 
         StoreItem item = (StoreItem)args["Item"];
 
-        slot.Initialize(item, callback);
+        storeSlot.Initialize(item, callback);
 
     }
 }

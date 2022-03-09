@@ -26,7 +26,7 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
 
         _currentItem = item;
 
-        currencyIcon.sprite = item.hardCurrencyItem ? hcIcon : scIcon;
+        //currencyIcon.sprite = item.currencyType ? hcIcon : scIcon;
 
         costText.text = item.Price.ToString();
 

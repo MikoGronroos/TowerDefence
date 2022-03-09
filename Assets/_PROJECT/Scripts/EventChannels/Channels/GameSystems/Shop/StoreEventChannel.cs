@@ -5,6 +5,6 @@ namespace Finark.Events
 	[CreateAssetMenu(menuName = "EventChannels/StoreEventChannel", fileName ="StoreEventChannel")]
 	public class StoreEventChannel : EventChannelBase
 	{
-		public EventChannel BoughtItem;
+		public EventChannel ItemFetched;
 	}
 }
