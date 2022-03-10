@@ -4,6 +4,7 @@ using System.Collections;
 using Photon.Pun;
 using System;
 using System.Collections.Generic;
+using Finark.Events;
 
 public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -19,6 +20,8 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField] private UpgradePaths turretUpgradePaths;
 
     [SerializeField] private int[] turretUpgradePathIndex = new int[3];
+
+    [SerializeField] private TurretEventChannel turretEventChannel;
 
     private bool _executing = false;
 
@@ -172,6 +175,9 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
         upgrade.UseUpgrade(this);
         turretUpgradePathIndex[turretPathIndex]++;
         RefreshValues();
+
+        turretEventChannel.OnTurretUpgraded?.Invoke(new Dictionary<string, object> { { "turret", this } });
+
     }
 
     public UpgradePaths GetUpgradePaths()

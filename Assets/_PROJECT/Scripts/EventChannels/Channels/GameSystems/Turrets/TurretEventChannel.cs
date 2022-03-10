@@ -7,6 +7,7 @@ namespace Finark.Events
 	{
 
 		public EventChannel OnTurretSelected;
+		public EventChannel OnTurretUpgraded;
 
 	}
 }

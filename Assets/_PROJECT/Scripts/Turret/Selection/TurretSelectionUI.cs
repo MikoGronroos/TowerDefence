@@ -50,11 +50,13 @@ public class TurretSelectionUI : MonoBehaviour
     private void OnEnable()
     {
         turretEventChannel.OnTurretSelected += ToggleTurretSelection;
+        turretEventChannel.OnTurretUpgraded += TurretUpgraded;
     }
 
     private void OnDisable()
     {
         turretEventChannel.OnTurretSelected -= ToggleTurretSelection;
+        turretEventChannel.OnTurretUpgraded -= TurretUpgraded;
     }
 
     private void ToggleTurretSelection(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
@@ -84,13 +86,34 @@ public class TurretSelectionUI : MonoBehaviour
 
         sellPriceText.text = $"{turret.GetTurretStats().SellPrice}$";
 
+        RefreshUpgradePaths(turret);
+
+        turretSelectionMenu.SetActive(true);
+    }
+
+    private void CloseSelectionUI()
+    {
+        turretSelectionMenu.SetActive(false);
+    }
+
+    private void EraseDrawnUpgradePaths()
+    {
+        for (int i = drawnUpgradePaths.Count - 1; i >= 0; i--)
+        {
+            Destroy(drawnUpgradePaths[i]);
+        }
+
+        drawnUpgradePaths.Clear();
+    }
+
+    private void RefreshUpgradePaths(Turret turret)
+    {
         EraseDrawnUpgradePaths();
 
         int index = 0;
 
         foreach (var path in turret.GetUpgradePaths().Paths)
         {
-
 
             GameObject pathGameObject = Instantiate(upgradePathPrefab, upgradePathParent);
             var holder = pathGameObject.GetComponent<TurretUpgradeHolder>();
@@ -112,22 +135,15 @@ public class TurretSelectionUI : MonoBehaviour
             index++;
 
         }
-        turretSelectionMenu.SetActive(true);
     }
 
-    private void CloseSelectionUI()
+    private void TurretUpgraded(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        turretSelectionMenu.SetActive(false);
-    }
 
-    private void EraseDrawnUpgradePaths()
-    {
-        for (int i = drawnUpgradePaths.Count - 1; i >= 0; i--)
-        {
-            Destroy(drawnUpgradePaths[i]);
-        }
+        Turret turret = (Turret)args["turret"];
 
-        drawnUpgradePaths.Clear();
+        RefreshUpgradePaths(turret);
+
     }
 
 }
