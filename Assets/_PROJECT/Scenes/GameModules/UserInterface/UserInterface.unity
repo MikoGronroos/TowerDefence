@@ -222,6 +222,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 463572498610197109, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463572498610197109, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463572498610197109, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 463572498930981220, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 463572499517882772, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -29.520996
