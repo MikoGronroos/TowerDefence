@@ -5511,5 +5511,6 @@ MonoBehaviour:
   sellTurretButton: {fileID: 463572498308160543}
   sellPriceText: {fileID: 463572498312418808}
   upgradePathPrefab: {fileID: 7810786407821893707, guid: bb76c8dfb4a41044c9f645a927a45e70, type: 3}
+  upgradePathFullyUpgradedIcon: {fileID: 21300000, guid: b1bb688b4103127499bad17601ce249d, type: 3}
   upgradePathParent: {fileID: 463572497906080658}
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}

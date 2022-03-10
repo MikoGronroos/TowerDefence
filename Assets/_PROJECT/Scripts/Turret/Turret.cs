@@ -158,6 +158,11 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     public void UpgaredTurret(int turretPathIndex)
     {
 
+        if (UpgradePathFullyUpgraded(turretPathIndex))
+        {
+            return;
+        }
+
         var upgrade = turretUpgradePaths.Paths[turretPathIndex].Upgrades[turretUpgradePathIndex[turretPathIndex]];
 
         if (!VirtualCurrencyManager.Instance.CheckIfPlayerHasEnoughCurrency(upgrade.Price)) return;
@@ -172,6 +177,11 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
     public UpgradePaths GetUpgradePaths()
     {
         return turretUpgradePaths;
+    }
+
+    public bool UpgradePathFullyUpgraded(int turretPathIndex)
+    {
+        return turretUpgradePathIndex[turretPathIndex] >= turretUpgradePaths.Paths[turretPathIndex].Upgrades.Length;
     }
 
     public int[] GetTurretPathIndex()

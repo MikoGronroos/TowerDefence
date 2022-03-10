@@ -27,28 +27,6 @@ MonoBehaviour:
       DamageAddon: 1
       RangeAddon: 1.25
       AttackSpeedAddon: 1.25
-    - Name: The Second
-      Description: 
-      Price: 500
-      Icon: {fileID: 21300000, guid: 3f24a530cfdd903459ad6f30d6f8e57a, type: 3}
-      ProjectileTypes: []
-      ExecutablePrefab: {fileID: 0}
-      Job: {fileID: 0}
-      Type: 1
-      DamageAddon: 1
-      RangeAddon: 1
-      AttackSpeedAddon: 1
-    - Name: The Third
-      Description: 
-      Price: 0
-      Icon: {fileID: 21300000, guid: 3f24a530cfdd903459ad6f30d6f8e57a, type: 3}
-      ProjectileTypes: []
-      ExecutablePrefab: {fileID: 0}
-      Job: {fileID: 0}
-      Type: 1
-      DamageAddon: 1
-      RangeAddon: 1
-      AttackSpeedAddon: 1
   - Upgrades:
     - Name: 
       Description: 

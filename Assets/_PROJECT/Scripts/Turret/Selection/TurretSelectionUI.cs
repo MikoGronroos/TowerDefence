@@ -25,6 +25,9 @@ public class TurretSelectionUI : MonoBehaviour
 
     [SerializeField] private GameObject upgradePathPrefab;
 
+    [Header("Sprites")]
+    [SerializeField] private Sprite upgradePathFullyUpgradedIcon;
+
     [Header("Parent Transforms")]
 
     [SerializeField] private Transform upgradePathParent;
@@ -92,17 +95,23 @@ public class TurretSelectionUI : MonoBehaviour
             GameObject pathGameObject = Instantiate(upgradePathPrefab, upgradePathParent);
             var holder = pathGameObject.GetComponent<TurretUpgradeHolder>();
 
-            holder.ChangeIconSprite(turret.GetUpgradePaths().Paths[index].Upgrades[turret.GetTurretPathIndex()[index]].Icon);
+            drawnUpgradePaths.Add(pathGameObject);
+
+            if (turret.UpgradePathFullyUpgraded(index))
+            {
+                holder.ChangeIconSprite(upgradePathFullyUpgradedIcon);
+            }
+            else
+            {
+                holder.ChangeIconSprite(turret.GetUpgradePaths().Paths[index].Upgrades[turret.GetTurretPathIndex()[index]].Icon);
+            }
 
             holder.UpgradePathIndex = index;
             holder.OwnerTurret = turret;
 
-            drawnUpgradePaths.Add(pathGameObject);
-
             index++;
 
         }
-
         turretSelectionMenu.SetActive(true);
     }
 
