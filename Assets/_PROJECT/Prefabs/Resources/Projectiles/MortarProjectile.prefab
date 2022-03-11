@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1674684417496924342}
   - component: {fileID: -8674258381360366387}
   - component: {fileID: 7536868347131264764}
-  - component: {fileID: -6274402020058400718}
   - component: {fileID: 3699764000956161977}
   - component: {fileID: -3931877254718015339}
+  - component: {fileID: 3936885091881950314}
   m_Layer: 0
   m_Name: MortarProjectile
   m_TagString: Untagged
@@ -134,19 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &-6274402020058400718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674684417496924349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172efaf0e5683024ca356db2cd98b356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeUntilDestroy: 1
 --- !u!114 &3699764000956161977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +152,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -3931877254718015339}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -202,3 +190,20 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &3936885091881950314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674684417496924349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff6aaafb19dfa440ab728f2be4f1577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnTriggerEnter: 0
+  destroyOnCollisionEnter: 0
+  neededTag: 
+  destroyAfterTime: 1
+  destroyTime: 1
