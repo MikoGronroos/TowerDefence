@@ -28,7 +28,7 @@ public class PvpMissionKill : PvpMission
 
     public override void Unload()
     {
-        unitEventChannel.OnUnitKilled += OnUnitKilled;
+        unitEventChannel.OnUnitKilled -= OnUnitKilled;
     }
 
     void OnUnitKilled(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

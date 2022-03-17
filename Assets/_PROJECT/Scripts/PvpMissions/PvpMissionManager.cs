@@ -21,7 +21,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
 
         for (int i = 0; i < amount; i++)
         {
-            var quest = missions[UnityEngine.Random.Range(0, missions.Count)];
+            var quest = missions[Random.Range(0, missions.Count)];
             quest.Load();
             currentMissions.Add(quest);
             missions.Remove(quest);
