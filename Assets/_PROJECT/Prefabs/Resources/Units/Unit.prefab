@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1750303906499475424}
   - component: {fileID: 5132655370911430701}
   - component: {fileID: 8415875672384567731}
+  - component: {fileID: -3124317762356930056}
   m_Layer: 6
   m_Name: Unit
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 13afd2293c776f94ca87d8967e3b0c90, type: 3}
-  m_Color: {r: 0.28613687, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -234,3 +235,16 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &-3124317762356930056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750303906499475433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicKey: SimpleUnit_FireBall
