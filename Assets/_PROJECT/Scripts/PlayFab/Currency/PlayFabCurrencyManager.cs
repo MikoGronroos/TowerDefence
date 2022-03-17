@@ -15,7 +15,7 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+       DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -23,6 +23,8 @@ public class PlayFabCurrencyManager : MonoBehaviour
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency += HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency += SoftCurrencyChanged;
         playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies += RefreshCurrencies;
+        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughHardCurrency += HasEnoughtHardCurrency;
+        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughSoftCurrency += HasEnoughtSoftCurrency;
     }
 
     private void OnDisable()
@@ -30,6 +32,8 @@ public class PlayFabCurrencyManager : MonoBehaviour
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency -= HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency -= SoftCurrencyChanged;
         playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies -= RefreshCurrencies;
+        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughHardCurrency -= HasEnoughtHardCurrency;
+        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughSoftCurrency -= HasEnoughtSoftCurrency;
     }
 
     private void SoftCurrencyChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
@@ -106,6 +110,28 @@ public class PlayFabCurrencyManager : MonoBehaviour
         };
         PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddSCSuccess, OnAddSCError);
     }
+
+    #endregion
+
+    #region Currency Checks
+
+    private void HasEnoughtSoftCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        int cost = (int)args["Cost"];
+
+        RefreshCurrencies(null, null);
+
+        callback?.Invoke(new Dictionary<string, object> { { "Value", softCurrency >= cost } });
+    }
+    private void HasEnoughtHardCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        int cost = (int)args["Cost"];
+
+        RefreshCurrencies(null, null);
+
+        callback?.Invoke(new Dictionary<string, object> { { "Value", hardCurrency >= cost } });
+    }
+
 
     #endregion
 

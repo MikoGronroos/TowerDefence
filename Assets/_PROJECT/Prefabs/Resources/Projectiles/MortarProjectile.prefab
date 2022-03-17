@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3699764000956161977}
   - component: {fileID: -3931877254718015339}
   - component: {fileID: 3936885091881950314}
+  - component: {fileID: 1138810336210053678}
   m_Layer: 0
   m_Name: MortarProjectile
   m_TagString: Untagged
@@ -207,3 +208,22 @@ MonoBehaviour:
   neededTag: 
   destroyAfterTime: 1
   destroyTime: 1
+--- !u!114 &1138810336210053678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674684417496924349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62309b57199a40478cad208a64e99a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 5628869344102855784, guid: 8a6aa0a94b559d74fb1f7b39a017070f, type: 3}
+  playOnStart: 1
+  playOnCollisionEnter: 0
+  playOnTriggerEnter: 0
+  neededTag: 
+  playDelay: 0
+  positionOffset: {x: 0, y: 0, z: 0}

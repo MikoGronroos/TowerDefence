@@ -11,6 +11,11 @@ public class StoreUI : MonoBehaviour
     [SerializeField] private Transform parent;
 
 	[SerializeField] private StoreEventChannel storeEventChannel;
+    [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
+
+    [Header("Slot Text")]
+    [SerializeField] private Color allowedToBuyColor;
+    [SerializeField] private Color notAllowedToBuyColor;
 
     private void OnEnable()
     {
@@ -31,7 +36,22 @@ public class StoreUI : MonoBehaviour
 
         StoreItem item = (StoreItem)args["Item"];
 
-        storeSlot.Initialize(item, callback);
+        Color textColor = notAllowedToBuyColor;
+        /*
+        switch (item.currencyType)
+        {
+            case CurrencyType.HardCurrency:
+                playFabCurrencyEventChannel.CheckIfPlayerHasEnoughHardCurrency?.Invoke(new Dictionary<string, object> { { "Cost", (int)item.Price } });
+                break;
+            case CurrencyType.SoftCurrency:
+                playFabCurrencyEventChannel.CheckIfPlayerHasEnoughSoftCurrency?.Invoke(new Dictionary<string, object> { { "Cost", (int)item.Price } });
+                break;
+            case CurrencyType.RealMoney:
+                textColor = allowedToBuyColor;
+                break;
+        }
+        */
+        storeSlot.Initialize(item, callback, textColor);
 
     }
 }

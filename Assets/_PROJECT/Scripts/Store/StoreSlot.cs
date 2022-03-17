@@ -21,7 +21,7 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
 
     private Action<Dictionary<string, object>> _onBuyAction;
 
-    public void Initialize(StoreItem item, Action<Dictionary<string, object>> callback)
+    public void Initialize(StoreItem item, Action<Dictionary<string, object>> callback, Color textColor)
     {
 
         _currentItem = item;
@@ -29,6 +29,8 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
         //currencyIcon.sprite = item.currencyType ? hcIcon : scIcon;
 
         costText.text = item.Price.ToString();
+
+        costText.color = textColor;
 
         icon.sprite = item.Icon;
 

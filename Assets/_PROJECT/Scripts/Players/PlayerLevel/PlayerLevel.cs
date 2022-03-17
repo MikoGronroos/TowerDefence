@@ -22,38 +22,36 @@ public class PlayerLevel : MonoBehaviourSingleton<PlayerLevel>
 
     public void AddXp(int value)
     {
-        var xp = currentXp += value;
-        SetXP(xp);
+        if (value == 0) return;
+
+        currentXp += value;
+
+        var levelXpReq = levelXpRequirementChart.XpRequirements[currentLevel];
+
+        if (currentXp >= levelXpReq)
+        {
+
+            currentXp = currentXp - levelXpReq;
+
+            SetLevel(currentLevel + 1);
+        }
+
+        playerEventChannel?.OnPlayerXPChanged(new Dictionary<string, object> {
+            { "CurrentXP", currentXp },
+            { "LevelXpReq", levelXpRequirementChart.XpRequirements[currentLevel] }
+        });
+
     }
 
     public void SetLevel(int value)
     {
 
+        if (currentLevel >= levelXpRequirementChart.XpRequirements.Length) return;
+
         currentLevel = value;
 
         playerEventChannel?.OnPlayerLevelUp(new Dictionary<string, object> { { "CurrentLevel", currentLevel } });
 
-        SetXP(currentXp > 0 ? currentXp - levelXpRequirementChart.XpRequirements[currentLevel] : 0);
-
-    }
-
-    public void SetXP(int value)
-    {
-
-        if (value == 0) return;
-
-        currentXp = value;
-        var levelXpReq = levelXpRequirementChart.XpRequirements[currentLevel];
-
-        playerEventChannel?.OnPlayerXPChanged(new Dictionary<string, object> { 
-            { "CurrentXP", currentXp }, 
-            { "LevelXpReq", levelXpRequirementChart.XpRequirements[currentLevel] } 
-        });
-
-        if (currentXp >= levelXpReq)
-        {
-            SetLevel(currentLevel + 1);
-        }
     }
 
 
