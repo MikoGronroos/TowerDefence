@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4408110700257277375}
   - component: {fileID: -8168407143639646131}
   - component: {fileID: 2510116597103109874}
-  - component: {fileID: -4143833046748884288}
+  - component: {fileID: 8621107009500604532}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -197,7 +197,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &-4143833046748884288
+--- !u!114 &8621107009500604532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,4 +209,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphicKey: SimpleTurretSkin_TowerOfMordor
+  mainKey: SimpleTurret
+  graphicKey: SimpleTurret_Default

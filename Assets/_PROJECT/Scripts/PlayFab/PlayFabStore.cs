@@ -64,7 +64,12 @@ public class PlayFabStore : MonoBehaviour
                 storeItem.currencyType = CurrencyType.HardCurrency;
             }
 
-            storeItem.Icon = Resources.Load<Sprite>(item.ItemImageUrl);
+            SkinCustomData data = JsonUtility.FromJson<SkinCustomData>(item.CustomData);
+
+            if (data != null)
+            {
+                storeItem.Icon = GraphicsManager.Instance.GetSprite(data.SkinName);
+            }
 
             storeItem.ID = item.ItemId;
 

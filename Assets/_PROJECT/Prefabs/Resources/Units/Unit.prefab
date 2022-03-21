@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1750303906499475424}
   - component: {fileID: 5132655370911430701}
   - component: {fileID: 8415875672384567731}
-  - component: {fileID: -3124317762356930056}
+  - component: {fileID: 6503357768503523879}
   m_Layer: 6
   m_Name: Unit
   m_TagString: Untagged
@@ -235,7 +235,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-3124317762356930056
+--- !u!114 &6503357768503523879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,4 +247,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphicKey: SimpleUnit_FireBall
+  mainKey: SimpleUnit
+  graphicKey: 

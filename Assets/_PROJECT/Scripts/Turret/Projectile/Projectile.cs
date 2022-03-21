@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private Vector3 _shootDir;
     private float _damage;
     private IEnumerable<ProjectileType> _types;
+    private bool _hitObject;
 
     public void Setup(Vector3 direction, TurretExecutable exec)
     {
@@ -26,10 +27,13 @@ public class Projectile : MonoBehaviour
     {
         if (collision.TryGetComponent(out Unit unit))
         {
+            if (_hitObject) return;
 
             unit.RemoveCurrentHealth(_damage, _types);
 
             PhotonNetwork.Destroy(gameObject.GetPhotonView());
+
+            _hitObject = true;
 
         }
     }

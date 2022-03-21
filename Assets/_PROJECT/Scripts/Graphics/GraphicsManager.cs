@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GraphicsManager : MonoBehaviourSingleton<GraphicsManager>
+public class GraphicsManager : MonoBehaviourSingletonDontDestroyOnLoad<GraphicsManager>
 {
 
     [SerializeField] private string graphicsPath;
 
-    [SerializeField]private List<GraphicsItem> _graphicsItems = new List<GraphicsItem>();
+    private Dictionary<string, Sprite> _graphics = new Dictionary<string, Sprite>();
 
     private void Start()
     {
@@ -15,37 +15,20 @@ public class GraphicsManager : MonoBehaviourSingleton<GraphicsManager>
 
         foreach (var sprite in sprites)
         {
-            GraphicsItem item = new GraphicsItem(sprite.name, sprite);
-            _graphicsItems.Add(item);
+            _graphics.Add(sprite.name, sprite);
         }
-
     }
 
     public Sprite GetSprite(string key)
     {
-
-        foreach (var graphic in _graphicsItems)
+        foreach (var graphic in _graphics)
         {
             if (graphic.Key == key)
             {
-                return graphic.Graphic;
+                return graphic.Value;
             }
         }
         return null;
     }
 
-}
-
-[System.Serializable]
-public class GraphicsItem
-{
-
-    public GraphicsItem(string Key, Sprite Graphic)
-    {
-        this.Key = Key;
-        this.Graphic = Graphic;
-    }
-
-    public string Key;
-    public Sprite Graphic;
 }
