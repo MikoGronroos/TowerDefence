@@ -17,16 +17,16 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
 	[SerializeField] private Sprite hcIcon;
 	[SerializeField] private Sprite scIcon;
 
-    private StoreItem _currentItem;
+    private Dictionary<string, object> _currentArgs;
 
     private Action<Dictionary<string, object>> _onBuyAction;
 
-    public void Initialize(StoreItem item, Action<Dictionary<string, object>> callback, Color textColor)
+    public void Initialize(Dictionary<string, object> args, Action<Dictionary<string, object>> callback, Color textColor)
     {
 
-        _currentItem = item;
+        _currentArgs = args;
 
-        //currencyIcon.sprite = item.currencyType ? hcIcon : scIcon;
+        StoreItem item = (StoreItem)args["Item"];
 
         costText.text = item.Price.ToString();
 
@@ -42,7 +42,7 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
     {
 
         //Buy item
-        _onBuyAction?.Invoke(new Dictionary<string, object> { { "Item", _currentItem } });
+        _onBuyAction?.Invoke(_currentArgs);
     }
 
 }

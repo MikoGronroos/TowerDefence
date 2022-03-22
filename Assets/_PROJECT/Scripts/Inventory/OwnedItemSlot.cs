@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class OwnedItemSlot : MonoBehaviour
+public class OwnedItemSlot : MonoBehaviour, IPointerClickHandler
 {
 
 	[SerializeField] private string mainKey;
@@ -17,4 +18,8 @@ public class OwnedItemSlot : MonoBehaviour
         SkinManager.Instance.SetGraphicKeyWithMainKey(mainKey, graphicKey);
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        OnItemClicked();
+    }
 }

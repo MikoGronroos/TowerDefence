@@ -34,7 +34,6 @@ public class Projectile : MonoBehaviour
             PhotonNetwork.Destroy(gameObject.GetPhotonView());
 
             _hitObject = true;
-
         }
     }
 

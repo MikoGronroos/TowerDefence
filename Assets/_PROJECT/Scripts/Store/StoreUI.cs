@@ -37,21 +37,8 @@ public class StoreUI : MonoBehaviour
         StoreItem item = (StoreItem)args["Item"];
 
         Color textColor = notAllowedToBuyColor;
-        /*
-        switch (item.currencyType)
-        {
-            case CurrencyType.HardCurrency:
-                playFabCurrencyEventChannel.CheckIfPlayerHasEnoughHardCurrency?.Invoke(new Dictionary<string, object> { { "Cost", (int)item.Price } });
-                break;
-            case CurrencyType.SoftCurrency:
-                playFabCurrencyEventChannel.CheckIfPlayerHasEnoughSoftCurrency?.Invoke(new Dictionary<string, object> { { "Cost", (int)item.Price } });
-                break;
-            case CurrencyType.RealMoney:
-                textColor = allowedToBuyColor;
-                break;
-        }
-        */
-        storeSlot.Initialize(item, callback, textColor);
+
+        storeSlot.Initialize(args, callback, textColor);
 
     }
 }

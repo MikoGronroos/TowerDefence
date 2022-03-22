@@ -3,6 +3,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using Finark.Events;
+using System.Linq;
 
 public class PlayFabStore : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class PlayFabStore : MonoBehaviour
 
     private void Result(GetCatalogItemsResult result)
     {
+
         List<CatalogItem> Items = result.Catalog;
 
         foreach (CatalogItem item in Items)
@@ -75,8 +77,10 @@ public class PlayFabStore : MonoBehaviour
 
             storeItems.Add(storeItem);
 
-            storeEventChannel.ItemFetched?.Invoke(new Dictionary<string, object> { {"Item", storeItem} }, BuyItem);
-
+            storeEventChannel.ItemFetched?.Invoke(new Dictionary<string, object> { {"Item", storeItem},
+                { "SkinId", data.SkinName }, 
+                { "MainKey", data.MainKey } }, 
+                BuyItem);
         }
 
     }
@@ -89,6 +93,8 @@ public class PlayFabStore : MonoBehaviour
     {
 
         StoreItem item = (StoreItem)args["Item"];
+        string skinId = (string)args["SkinId"];
+        string mainKey = (string)args["MainKey"];
 
         PurchaseItemRequest request = new PurchaseItemRequest();
 
@@ -117,6 +123,16 @@ public class PlayFabStore : MonoBehaviour
         PlayFabClientAPI.PurchaseItem(request,
             result => 
             {
+
+                Debug.Log("Bought Item");
+
+                PlayFabClientAPI.ExecuteCloudScript(new ExecuteCloudScriptRequest()
+                {
+                    FunctionName = "SetInstanceData",
+                    FunctionParameter = new { ItemId = result.Items.First().ItemInstanceId, SkinId = skinId, MainKey = mainKey }
+                }, 
+                result => { Debug.Log("Cloud script call succesful"); },
+                failure =>{ });
 
                 playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies?.Invoke();
 
