@@ -34,7 +34,9 @@ public class PlayFabInventory : MonoBehaviour
                 {
 
                     GameObject slot = Instantiate(itemUIPrefab, itemsParent);
-                    
+
+                    slot.GetComponent<Image>().sprite = GraphicsManager.Instance.GetSprite(item.CustomData["SkinId"]);
+
                     slot.GetComponent<OwnedItemSlot>()?.SetData(item.CustomData["MainKey"], item.CustomData["SkinId"]);
 
                     _items.Add(slot);
