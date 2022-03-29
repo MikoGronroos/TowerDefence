@@ -11,6 +11,8 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private Transform turretShopItemParent;
 
+    [SerializeField] private Transform buildingShopItemParent;
+
     [SerializeField] private GameObject shopItemPrefab;
 
     [SerializeField] private GameObject shopPanel;
