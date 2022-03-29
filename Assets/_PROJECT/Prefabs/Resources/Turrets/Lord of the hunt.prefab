@@ -107,6 +107,7 @@ MonoBehaviour:
     NeedsTarget: 1
     FollowsTarget: 1
     ProjectileTypes: []
+    ProjectileSpeed: 15
     Damage:
       BaseValue: 0
       Value: 0

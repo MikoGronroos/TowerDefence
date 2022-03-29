@@ -26,7 +26,9 @@ public class LoadAccountData
         }
         else
         {
-            Debug.Log($"Data Not Complete");
+            Debug.Log($"Creating Account Data For The First Time.");
+            data = new Account(1);
+            AccountManager.Instance.CurrentAccount = data;
         }
 
     }

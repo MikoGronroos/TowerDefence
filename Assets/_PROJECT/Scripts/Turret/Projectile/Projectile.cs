@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 
     private Vector3 _shootDir;
     private float _damage;
+    private float _speed;
     private IEnumerable<ProjectileType> _types;
     private bool _hitObject;
 
@@ -15,12 +16,12 @@ public class Projectile : MonoBehaviour
         _shootDir = direction;
         _damage = exec.Damage.Value;
         _types = exec.ProjectileTypes;
+        _speed = exec.ProjectileSpeed;
     }
 
     public void Update()
     {
-        float moveSpeed = 15.0f;
-        transform.position += moveSpeed * _shootDir * Time.deltaTime;
+        transform.position += _speed * _shootDir * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
