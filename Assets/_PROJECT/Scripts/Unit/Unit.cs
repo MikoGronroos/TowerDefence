@@ -17,6 +17,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     private PhotonView _photonView;
 
+    public int UnitInstanceId { get; private set; }
+
     public int UnitOwnerID;
 
     private void Awake()
@@ -29,6 +31,7 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     {
         currentHealth = unitStats.StartHealth;
         _followPath.SetSpeed(unitStats.Speed);
+        UnitInstanceId = Random.Range(0,99999999);
     }
 
     public void RemoveCurrentHealth(float amount, IEnumerable<ProjectileType> types)
@@ -68,7 +71,10 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
         PlayerLevel.Instance.AddXp(unitStats.XpAddonOnDestroyed);
 
-        unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> { { "UnitID", unitStats.UnitID } });
+        unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> { 
+            { "UnitID", unitStats.UnitID },
+            { "InstanceID", UnitInstanceId } 
+        });
 
         PhotonNetwork.Destroy(_photonView);
 

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 272816492518114786, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.205611
+      objectReference: {fileID: 0}
     - target: {fileID: 463572498402146019, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -43.909912
@@ -242,10 +246,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -29.520996
       objectReference: {fileID: 0}
+    - target: {fileID: 3172970777854871887, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172970777854871887, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172970777854871887, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5543426168717563705, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: openShopButton
       value: 
       objectReference: {fileID: 1030965052}
+    - target: {fileID: 7673745233185274353, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673745233185274353, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673745233185274353, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5216192908291960234, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
     - {fileID: 4200186837473791873, guid: de680fc303d1f604abda1b90d25094b7, type: 3}

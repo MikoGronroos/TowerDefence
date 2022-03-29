@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 426021039518508847}
   - component: {fileID: 426021039518508844}
+  - component: {fileID: 2814284110123495766}
+  - component: {fileID: 5442448632312392176}
   m_Layer: 0
   m_Name: SacrificialAltar
   m_TagString: Untagged
@@ -82,3 +84,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2814284110123495766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426021039518508845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7514cbded36b64ebeb187c5c47adb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAmountOfGold: 0
+  neededAmountOfGold: 500
+  unitEventChannel: {fileID: 11400000, guid: 9cb7e6870d3751a4296a155f06a74c3f, type: 2}
+--- !u!58 &5442448632312392176
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426021039518508845}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.17, y: 0.32}
+  serializedVersion: 2
+  m_Radius: 4.5082545
