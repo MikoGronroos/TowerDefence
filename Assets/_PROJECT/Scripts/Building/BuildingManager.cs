@@ -53,7 +53,6 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
             }
         }
-
     }
 
     private bool CheckIfBuildingIsBlocked(Vector3 checkPos)

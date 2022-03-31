@@ -46,7 +46,8 @@ public class PlayFabStore : MonoBehaviour
 
             if (bundle != null)
             {
-
+                storeEventChannel.BundleFetched?.Invoke(new Dictionary<string, object> { { "Bundle", item } });
+                continue;
             }
 
             StoreItem storeItem = new StoreItem();

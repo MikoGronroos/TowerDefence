@@ -6,5 +6,6 @@ namespace Finark.Events
 	public class StoreEventChannel : EventChannelBase
 	{
 		public EventChannel ItemFetched;
+		public EventChannel BundleFetched;
 	}
 }
