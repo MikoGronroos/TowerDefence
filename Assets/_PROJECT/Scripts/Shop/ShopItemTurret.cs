@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [CreateAssetMenu(menuName = "Shop Item/Turret")]
-public class ShopItemTurret : ShopItem
+public class ShopItemTurret : ShopItemBuilding
 {
 
     public override void Buy() 
@@ -12,6 +11,6 @@ public class ShopItemTurret : ShopItem
 
     public override void BuyAction()
     {
-        BuildingManager.Instance.SetBuilding(ItemPrefab, Cost);
+        BuildingManager.Instance.SetBuilding(this);
     }
 }

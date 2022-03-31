@@ -56,9 +56,13 @@ public class ShopUI : MonoBehaviour
         {
             parent = unitShopItemParent;
         }
-        else
+        else if(item is ShopItemTurret)
         {
             parent = turretShopItemParent;
+        }
+        else if (item is ShopItemBuilding)
+        {
+            parent = buildingShopItemParent;
         }
 
         GameObject shopItem = Instantiate(shopItemPrefab, parent);
@@ -86,6 +90,7 @@ public class ShopUI : MonoBehaviour
 
         var units = (ShopInventory)args["Units"];
         var turrets = (ShopInventory)args["Turrets"];
+        var buildings = (ShopInventory)args["Buildings"];
 
         EraseDrawnShopItems();
 
@@ -104,6 +109,15 @@ public class ShopUI : MonoBehaviour
                 DrawShopItem(item);
             }
         }
+
+        foreach (var item in buildings.Inventory)
+        {
+            if (PlayerLevel.Instance.GetCurrentLevel() >= item.LevelToUnlock)
+            {
+                DrawShopItem(item);
+            }
+        }
+
     }
 
 }

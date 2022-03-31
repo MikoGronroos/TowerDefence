@@ -10,6 +10,8 @@ public class Shop : MonoBehaviourSingleton<Shop>
 
     [SerializeField] private ShopInventory turretShopInventory;
 
+    [SerializeField] private ShopInventory buildingShopInventory;
+
     [SerializeField] private ShopEventChannel shopEventChannel;
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
@@ -36,7 +38,7 @@ public class Shop : MonoBehaviourSingleton<Shop>
     private void RefreshShop(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        shopEventChannel?.RefreshShop(new Dictionary<string, object> { {"Units", unitShopInventory }, { "Turrets", turretShopInventory } });
+        shopEventChannel?.RefreshShop(new Dictionary<string, object> { {"Units", unitShopInventory }, { "Turrets", turretShopInventory }, { "Buildings", buildingShopInventory } });
 
     }
 

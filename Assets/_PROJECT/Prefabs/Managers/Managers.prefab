@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: refreshShopChannel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1816853942750674793, guid: 559b66f88a8816a47831935bb96b28e7, type: 3}
+      propertyPath: buildingShopInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 5118bba226080bc4cb836c43858d0b5b, type: 2}
     - target: {fileID: 1816853942750674794, guid: 559b66f88a8816a47831935bb96b28e7, type: 3}
       propertyPath: openShopButton
       value: 

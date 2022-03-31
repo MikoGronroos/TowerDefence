@@ -6,12 +6,12 @@ using System.Linq;
 public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 {
 
-    [SerializeField] private GameObject buildingPrefab;
-
     [Header("Placement Options")]
     [SerializeField] private float buildingBlockedCheckRadious;
 
     private RaycastHit2D _hit;
+
+    private ShopItemBuilding _currentlyBuilding;
 
     private int _price;
 
@@ -20,7 +20,7 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
     private void Update()
     {
 
-        if (buildingPrefab == null) return;
+        if (_currentlyBuilding == null) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -33,14 +33,24 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
             if (_hit.transform.TryGetComponent(out Board board))
             {
-                if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
+
+                if (_currentlyBuilding.PlaceOnLocalBoard)
                 {
-                    var turret = TurretSpawner.Instance.SpawnTurret(buildingPrefab.name, _hit.point);
-                    turret.GetTurretStats().SellPrice = _price / 2;
-                    VirtualCurrencyManager.Instance.RemoveCurrency(_price);
-                    buildingPrefab = null;
-                    _price = 0;
+                    if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
+                    {
+                        var building = BuildingSpawner.Instance.SpawnBuilding(_currentlyBuilding.ItemPrefab.name, _hit.point);
+                    }
                 }
+                else
+                {
+                    var building = BuildingSpawner.Instance.SpawnBuilding(_currentlyBuilding.ItemPrefab.name, _hit.point);
+                }
+
+                VirtualCurrencyManager.Instance.RemoveCurrency(_price);
+                _currentlyBuilding = null;
+                _price = 0;
+                _isBuilding = false;
+
             }
         }
 
@@ -55,10 +65,11 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     }
 
-    public void SetBuilding(GameObject building, int price)
+    public void SetBuilding(ShopItemBuilding building)
     {
-        buildingPrefab = building;
-        _price = price;
+        _currentlyBuilding = building;
+        _price = building.Cost;
+        _isBuilding = true;
     }
 
     public bool IsBuilding()

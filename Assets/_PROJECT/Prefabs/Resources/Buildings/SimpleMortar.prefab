@@ -108,6 +108,7 @@ MonoBehaviour:
     FollowsTarget: 0
     ProjectileTypes:
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
+    ProjectileSpeed: 0
     Damage:
       BaseValue: 175
       Value: 0

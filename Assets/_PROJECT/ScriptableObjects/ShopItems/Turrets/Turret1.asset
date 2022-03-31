@@ -16,3 +16,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: d4a88abd21ca87b4f94278472deabe58, type: 3}
   LevelToUnlock: 1
   ItemPrefab: {fileID: 5728865167009762987, guid: 89e754eefcef36546b03017703920591, type: 3}
+  PlaceOnLocalBoard: 1
