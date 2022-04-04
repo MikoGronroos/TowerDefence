@@ -5,13 +5,12 @@ using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using Finark.Events;
+using Finark.AI;
 
-public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
+public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 {
 
     [SerializeField] private TurretStats turretStats;
-
-    [SerializeField] private TurretState currentState = TurretState.Idle;
 
     [SerializeField] private TurretExecutable turretExecutable;
 
@@ -23,8 +22,6 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private TurretEventChannel turretEventChannel;
 
-    private bool _executing = false;
-
     private PhotonView _photonView;
 
     public int TurretOwnerID;
@@ -34,127 +31,36 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
         _photonView = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    public override void Start()
     {
+
+        TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
+        TurretAim turretAim = new TurretAim(transform, this);
+        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, target, this);
+
+        AddTransition(turretSearching, turretAim, HasTarget);
+        AddTransition(turretAim, turretSearching, TargetOutOfReach);
+        AddTransition(turretShoot, turretSearching, TargetOutOfReach);
+        AddTransition(turretSearching, turretShoot, false);
+        AddAnyTransition(turretSearching, NoTarget);
+
+        SwitchState(turretSearching);
+
         RefreshValues();
     }
 
-    private void Update()
+    public override void Update()
     {
         if (_photonView.IsMine)
         {
-            StateMachine();
+            base.Update();
         }
     }
 
-    #region Target Methods
-
-    private void GetValidTarget()
+    public void SetTarget(Transform nearestTarget)
     {
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, turretExecutable.Range.Value);
-
-        float shortestDistance = Mathf.Infinity;
-        Transform nearestTarget = null;
-
-
-        foreach (var collider in colliders)
-        {
-            if (collider.TryGetComponent(out IDamageable target))
-            {
-                if (TurretOwnerID != target.OwnerID())
-                {
-                    float distance = Vector3.Distance(transform.position, target.Position());
-                    if (distance < shortestDistance)
-                    {
-                        shortestDistance = distance;
-                        nearestTarget = collider.transform;
-                    }
-                }
-            }
-        }
-
-        if (nearestTarget != null)
-        {
-            target = nearestTarget;
-        }
-
+        target = nearestTarget;
     }
-
-    private void FollowClosestTarget()
-    {
-
-        if (NoTarget()) return;
-
-        var direction = MyUtils.GetDirectionVector2(transform.position, target.position);
-
-        float rot_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-
-    }
-
-    #endregion
-
-    #region Execute Methods
-
-    private IEnumerator Execute()
-    {
-
-        if (NoTarget() && turretExecutable.NeedsTarget)
-        {
-            currentState = TurretState.Idle;
-            yield break;
-        }
-
-        _executing = true;
-
-        turretExecutable.Execute(new Dictionary<string, object>(){
-                                {"Position", transform.position},
-                                {"TargetPosition", target.position},
-                                {"Rotation", MyUtils.GetDirectionVector2(transform.position, target.position)},
-                                {"TurretExecutable", turretExecutable} }
-        );
-
-        target = null;
-
-        yield return new WaitForSeconds(turretExecutable.AttackSpeed.Value);
-
-        _executing = false;
-
-    }
-
-    #endregion
-
-    #region State Machine
-
-    private void StateMachine()
-    {
-        switch (currentState)
-        {
-            case TurretState.Idle:
-                InvokeRepeating("GetValidTarget", 0f, 0.5f);
-                currentState = TurretState.Searching;
-                break;
-            case TurretState.Searching:
-
-                if (!NoTarget()) currentState = TurretState.Agro;
-
-                break;
-            case TurretState.Agro:
-
-                if (NoTarget()) currentState = TurretState.Idle;
-
-                CancelInvoke();
-
-                if(turretExecutable.FollowsTarget) FollowClosestTarget();
-
-                if (!_executing) StartCoroutine(Execute());
-
-                break;
-        }
-    }
-
-    #endregion
 
     #region Turret Upgrade Paths
 
@@ -218,9 +124,33 @@ public class Turret : MonoBehaviour, IPunInstantiateMagicCallback
         turretExecutable.AttackSpeed.Value = turretExecutable.AttackSpeed.BaseValue;
     }
 
+    #region State Machine Conditions
+
+    private bool HasTarget()
+    {
+        return target != null;
+    }
+
+    private bool TargetOutOfReach()
+    {
+        return Vector3.Distance(transform.position, target.position) > (turretExecutable.Range.Value / 2);
+    }
+
+    private bool Shoot()
+    {
+        return true;
+    }
+
     private bool NoTarget()
     {
         return target == null;
+    }
+
+    #endregion
+
+    public Transform GetTarget()
+    {
+        return target;
     }
 
     public TurretStats GetTurretStats()

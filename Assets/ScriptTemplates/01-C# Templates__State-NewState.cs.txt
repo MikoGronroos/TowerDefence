@@ -1,0 +1,16 @@
+using UnityEngine;
+using Finark.AI;
+
+public class #SCRIPTNAME# : State
+{
+
+    public #SCRIPTNAME#() {  }
+
+    public override void EnterState(StateMachine machine) {  }
+
+    public override void ExitState(StateMachine machine) {   }
+
+    public override void PhysicsRunState(StateMachine machine) { }
+
+    public override void RunState(StateMachine machine) {   }
+}

@@ -102,7 +102,6 @@ MonoBehaviour:
   turretStats:
     Name: Simple Turret
     SellPrice: 100
-  currentState: 0
   turretExecutable:
     IsPrimaryExecutable: 1
     NeedsTarget: 1
