@@ -17,7 +17,10 @@ public class TurretSearching : State
         _turret = turret;
     }
 
-    public override void EnterState(StateMachine machine) { }
+    public override void EnterState(StateMachine machine)
+    {
+        _turret.SetTarget(null);
+    }
 
     public override void ExitState(StateMachine machine) { }
 
@@ -30,8 +33,6 @@ public class TurretSearching : State
 
     private void GetValidTarget()
     {
-
-        _turret.SetTarget(null);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_transform.position, _turretExecutable.Range.Value);
 

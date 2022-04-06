@@ -24,6 +24,9 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     private PhotonView _photonView;
 
+    [SerializeField] private float _currentTime = 0.0f;
+    [SerializeField] private bool _canShoot = false;
+
     public int TurretOwnerID;
 
     private void Awake()
@@ -36,12 +39,13 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
         TurretAim turretAim = new TurretAim(transform, this);
-        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, target, this);
+        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this);
 
         AddTransition(turretSearching, turretAim, HasTarget);
         AddTransition(turretAim, turretSearching, TargetOutOfReach);
         AddTransition(turretShoot, turretSearching, TargetOutOfReach);
-        AddTransition(turretSearching, turretShoot, false);
+        AddTransition(turretAim, turretShoot, CanShoot);
+        AddTransition(turretShoot, turretAim, CantShoot);
         AddAnyTransition(turretSearching, NoTarget);
 
         SwitchState(turretSearching);
@@ -53,14 +57,34 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     {
         if (_photonView.IsMine)
         {
+            Timer();
             base.Update();
         }
+    }
+
+    private void Timer()
+    {
+
+        _currentTime = Mathf.Clamp(_currentTime += Time.deltaTime, 0, turretExecutable.AttackSpeed.Value);
+
+        if (_currentTime >= turretExecutable.AttackSpeed.Value)
+        {
+            _canShoot = true;
+        }
+
     }
 
     public void SetTarget(Transform nearestTarget)
     {
         target = nearestTarget;
     }
+
+    public void ResetShot()
+    {
+        _currentTime = 0.0f;
+        _canShoot = false;
+    }
+
 
     #region Turret Upgrade Paths
 
@@ -136,9 +160,14 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         return Vector3.Distance(transform.position, target.position) > (turretExecutable.Range.Value / 2);
     }
 
-    private bool Shoot()
+    private bool CanShoot()
     {
-        return true;
+        return _canShoot;
+    }
+
+    private bool CantShoot()
+    {
+        return !_canShoot;
     }
 
     private bool NoTarget()
