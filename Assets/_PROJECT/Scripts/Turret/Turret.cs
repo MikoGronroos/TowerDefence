@@ -37,6 +37,8 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     public override void Start()
     {
 
+        _currentTime = turretExecutable.AttackSpeed.Value;
+
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
         TurretAim turretAim = new TurretAim(transform, this);
         TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this);
