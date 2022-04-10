@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2510116597103109874}
   - component: {fileID: 8621107009500604532}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: AntiTankGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
     AttackSpeed:
       BaseValue: 2
       Value: 0
-    ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
+    ExecutablePrefab: {fileID: 1674684417496924349, guid: a659632f36c43884ab466ebaa63ce3d9, type: 3}
     Job: {fileID: 11400000, guid: d4d2c926e3a030445aeecc59f726b6e0, type: 2}
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
@@ -209,5 +209,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKey: SimpleTurret
-  graphicKey: SimpleTurret_Default
+  mainKey: AntiTankGun
+  graphicKey: 

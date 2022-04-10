@@ -24,8 +24,8 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     private PhotonView _photonView;
 
-    [SerializeField] private float _currentTime = 0.0f;
-    [SerializeField] private bool _canShoot = false;
+    private float _currentTime = 0.0f;
+    private bool _canShoot = false;
 
     public int TurretOwnerID;
 

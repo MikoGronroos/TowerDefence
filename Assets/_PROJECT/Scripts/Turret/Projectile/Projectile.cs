@@ -5,6 +5,8 @@ using Photon.Pun;
 public class Projectile : MonoBehaviour
 {
 
+    [SerializeField] private int projectilePenetration;
+
     private Vector3 _shootDir;
     private float _damage;
     private float _speed;
@@ -32,9 +34,17 @@ public class Projectile : MonoBehaviour
 
             unit.RemoveCurrentHealth(_damage, _types);
 
-            PhotonNetwork.Destroy(gameObject.GetPhotonView());
+            if (!unit.CheckIfProjectilePenetrates(projectilePenetration))
+            {
 
-            _hitObject = true;
+                PhotonNetwork.Destroy(gameObject.GetPhotonView());
+                _hitObject = true;
+            }
+
+            projectilePenetration -= unit.GetHardness();
+            unit.RemoveHardness(projectilePenetration);
+            
+
         }
     }
 

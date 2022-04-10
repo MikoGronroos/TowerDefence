@@ -48,3 +48,5 @@ MonoBehaviour:
     GraphicKey: SimpleUnit_FireBall
   - MainKey: SimpleTurret
     GraphicKey: 
+  - MainKey: AntiTankGun
+    GraphicKey: 

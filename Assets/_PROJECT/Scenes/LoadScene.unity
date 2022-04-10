@@ -348,6 +348,7 @@ MonoBehaviour:
     AccountLevel: 0
     AccountXp: 0
     Winstreak: 0
+    GamesPlayed: 0
 --- !u!1 &981484862
 GameObject:
   m_ObjectHideFlags: 0

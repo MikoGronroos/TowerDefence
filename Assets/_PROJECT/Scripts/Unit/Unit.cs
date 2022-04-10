@@ -15,6 +15,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     private FollowPath _followPath;
 
+    private int _currentUnitHardness;
+
     private PhotonView _photonView;
 
     public int UnitInstanceId { get; private set; }
@@ -30,6 +32,7 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     private void Start()
     {
         currentHealth = unitStats.StartHealth;
+        _currentUnitHardness = unitStats.MaxUnitHardness;
         _followPath.SetSpeed(unitStats.Speed);
         UnitInstanceId = Random.Range(0,99999999);
     }
@@ -41,6 +44,21 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
             currentHealth -= amount;
         }
         CheckHealth(currentHealth);
+    }
+
+    public bool CheckIfProjectilePenetrates(int penetration)
+    {
+        return _currentUnitHardness < penetration;
+    }
+
+    public void RemoveHardness(int penetration)
+    {
+        _currentUnitHardness -= penetration;
+    }
+
+    public int GetHardness()
+    {
+        return _currentUnitHardness;
     }
 
     private void CheckHealth(float health)

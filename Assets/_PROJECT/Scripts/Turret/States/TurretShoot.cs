@@ -46,7 +46,7 @@ public class TurretShoot : State
                                 {"Position", _transform.position},
                                 {"TargetPosition", _turret.GetTarget().position},
                                 {"Rotation", MyUtils.GetDirectionVector2(_transform.position, _turret.GetTarget().position)},
-                                {"TurretExecutable", _turretExecutable} 
+                                {"TurretExecutable", _turretExecutable}
         });
 
         _turret.SetTarget(null);
