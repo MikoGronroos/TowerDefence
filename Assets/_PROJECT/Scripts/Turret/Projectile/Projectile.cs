@@ -5,11 +5,10 @@ using Photon.Pun;
 public class Projectile : MonoBehaviour
 {
 
-    [SerializeField] private int projectilePenetration;
-
     private Vector3 _shootDir;
     private float _damage;
     private float _speed;
+    private int _currentProjectilePenetration;
     private IEnumerable<ProjectileType> _types;
     private bool _hitObject;
 
@@ -19,6 +18,7 @@ public class Projectile : MonoBehaviour
         _damage = exec.Damage.Value;
         _types = exec.ProjectileTypes;
         _speed = exec.ProjectileSpeed;
+        _currentProjectilePenetration = exec.ProjectilePenetration;
     }
 
     public void Update()
@@ -34,15 +34,15 @@ public class Projectile : MonoBehaviour
 
             unit.RemoveCurrentHealth(_damage, _types);
 
-            if (!unit.CheckIfProjectilePenetrates(projectilePenetration))
+            if (!unit.CheckIfProjectilePenetrates(_currentProjectilePenetration))
             {
 
                 PhotonNetwork.Destroy(gameObject.GetPhotonView());
                 _hitObject = true;
             }
 
-            projectilePenetration -= unit.GetHardness();
-            unit.RemoveHardness(projectilePenetration);
+            _currentProjectilePenetration -= unit.GetHardness();
+            unit.RemoveHardness(_currentProjectilePenetration);
             
 
         }

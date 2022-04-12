@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23095d82b818a9f4084211bd21a8d230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePenetration: 50
+  projectilePenetration: 20
 --- !u!114 &-7017749293256200469
 MonoBehaviour:
   m_ObjectHideFlags: 0

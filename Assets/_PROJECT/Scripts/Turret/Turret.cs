@@ -1,6 +1,4 @@
 using UnityEngine;
-using Finark.Utils;
-using System.Collections;
 using Photon.Pun;
 using System;
 using System.Collections.Generic;

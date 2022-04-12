@@ -27,6 +27,7 @@ public class TurretUpgrade
     public float DamageAddon;
     public float RangeAddon;
     public float AttackSpeedAddon;
+    public int ProjectilePenetration;
 
     public void UseUpgrade(Turret turret)
     {
@@ -45,11 +46,13 @@ public class TurretUpgrade
                 target.Damage.BaseValue *= DamageAddon;
                 target.Range.BaseValue *= RangeAddon;
                 target.AttackSpeed.BaseValue *= AttackSpeedAddon;
+                target.ProjectilePenetration *= ProjectilePenetration;
                 break;
             case UpgradeType.Whole:
                 target.Damage.BaseValue += DamageAddon;
                 target.Range.BaseValue += RangeAddon;
                 target.AttackSpeed.BaseValue += AttackSpeedAddon;
+                target.ProjectilePenetration += ProjectilePenetration;
                 break;
         }
     }

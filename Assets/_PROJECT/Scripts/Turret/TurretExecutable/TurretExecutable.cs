@@ -17,6 +17,8 @@ public class TurretExecutable
 
     public ProjectileType[] ProjectileTypes;
 
+    public int ProjectilePenetration;
+
     public float ProjectileSpeed;
 
     [Header("Turret")]
