@@ -4,7 +4,7 @@ public abstract class ShopItem : ScriptableObject
 {
 
     public int Cost;
-    public Sprite Icon;
+    public string IconMainKey;
 
     public int LevelToUnlock;
 

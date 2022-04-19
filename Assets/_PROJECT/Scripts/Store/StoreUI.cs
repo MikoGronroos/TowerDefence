@@ -9,10 +9,12 @@ public class StoreUI : MonoBehaviour
 {
 
 	[SerializeField] private GameObject storeSlotPrefab;
+    [SerializeField] private GameObject bundleSlotPrefab;
 
-    [SerializeField] private Transform parent;
+    [SerializeField] private Transform storeSlotParent;
+    [SerializeField] private Transform bundleSlotParent;
 
-	[SerializeField] private StoreEventChannel storeEventChannel;
+    [SerializeField] private StoreEventChannel storeEventChannel;
     [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
 
     [Header("Bundle UI")]
@@ -38,7 +40,7 @@ public class StoreUI : MonoBehaviour
     private void ItemFetched(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        GameObject slot = Instantiate(storeSlotPrefab, parent);
+        GameObject slot = Instantiate(storeSlotPrefab, storeSlotParent);
 
         var storeSlot = slot.GetComponent<StoreSlot>();
 
@@ -53,9 +55,10 @@ public class StoreUI : MonoBehaviour
     private void BundleFetched(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        CatalogItem bundle = (CatalogItem)args["Bundle"];
+        CatalogItem catalogItem = (CatalogItem)args["Bundle"];
+        var bundle = catalogItem.Bundle;
 
-        bundleNameText.text = bundle.DisplayName;
+        bundleNameText.text = catalogItem.DisplayName;
 
     }
 

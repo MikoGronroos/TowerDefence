@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6217340855265789143}
   - component: {fileID: 7333922025029923109}
   - component: {fileID: 5310050159456835482}
+  - component: {fileID: -6358474744280600798}
   m_Layer: 0
   m_Name: SimpleMortar
   m_TagString: Untagged
@@ -107,6 +108,7 @@ MonoBehaviour:
     FollowsTarget: 0
     ProjectileTypes:
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
+    ProjectilePenetration: 0
     ProjectileSpeed: 0
     Damage:
       BaseValue: 175
@@ -123,8 +125,6 @@ MonoBehaviour:
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
-  _currentTime: 0
-  _canShoot: 0
   TurretOwnerID: 0
 --- !u!114 &6217340855265789143
 MonoBehaviour:
@@ -198,3 +198,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &-6358474744280600798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658719475313098691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainKey: SimpleMortar
+  graphicKey: 

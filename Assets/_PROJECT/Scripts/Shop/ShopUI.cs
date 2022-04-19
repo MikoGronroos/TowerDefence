@@ -71,7 +71,7 @@ public class ShopUI : MonoBehaviour
         var itemScript = shopItem.GetComponent<ShopObject>();
 
         itemScript.SetCostText(item.Cost.ToString() + " " + suffix);
-        itemScript.SetItemIcon(item.Icon);
+        itemScript.SetItemIcon(GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(item.IconMainKey)));
         itemScript.SetThisItem(item);
 
     }
@@ -117,7 +117,5 @@ public class ShopUI : MonoBehaviour
                 DrawShopItem(item);
             }
         }
-
     }
-
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SImpleMortar
   m_EditorClassIdentifier: 
   Cost: 15
-  Icon: {fileID: 21300000, guid: 86ec531bec9bd104f8948cc4d566658e, type: 3}
+  IconMainKey: SimpleMortar
   LevelToUnlock: 0
   ItemPrefab: {fileID: 2658719475313098691, guid: d170bb714a3929a4d968d85a6cd832cb, type: 3}
   PlaceOnLocalBoard: 1

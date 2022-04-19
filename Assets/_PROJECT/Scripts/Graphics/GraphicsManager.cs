@@ -21,6 +21,7 @@ public class GraphicsManager : MonoBehaviourSingletonDontDestroyOnLoad<GraphicsM
 
     public Sprite GetSprite(string key)
     {
+
         foreach (var graphic in _graphics)
         {
             if (graphic.Key.Contains(key))

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AntiTankGun
   m_EditorClassIdentifier: 
   Cost: 25
-  Icon: {fileID: 21300000, guid: d4a88abd21ca87b4f94278472deabe58, type: 3}
+  IconMainKey: AntiTankGun
   LevelToUnlock: 1
   ItemPrefab: {fileID: 5728865167009762987, guid: 3da695e0ff64fb44fb37e89543e3a337, type: 3}
   PlaceOnLocalBoard: 1

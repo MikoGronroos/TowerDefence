@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lord of the hunt
   m_EditorClassIdentifier: 
   Cost: 75
-  Icon: {fileID: 21300000, guid: bdf9e8ddc3c9c4e439e4d37fe928a146, type: 3}
+  IconMainKey: LordOfTheHunt
   LevelToUnlock: 3
   ItemPrefab: {fileID: 5728865167009762987, guid: 84695cb7e1d731f4d852d88fe8c20003, type: 3}
   PlaceOnLocalBoard: 1
