@@ -11,7 +11,6 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     [SerializeField] private Image itemIcon;
 
-    [SerializeField] private GameObject dragObject;
 
     private ShopItem _thisItem;
 
@@ -23,19 +22,12 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GameObject go = Instantiate(dragObject);
-        go.transform.position = MyUtils.GetMouseWorldPosition();
-        go.transform.rotation = Quaternion.identity;
-
-        if (go.TryGetComponent(out ShopDragObject drag))
-        {
-            drag.Setup(GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(_thisItem.IconMainKey)), _thisItem);
-        }
-
+        _thisItem.Buy();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+
     }
 
     public void SetCostText(string content)

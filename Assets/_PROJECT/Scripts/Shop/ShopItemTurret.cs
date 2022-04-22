@@ -11,5 +11,6 @@ public class ShopItemTurret : ShopItemBuilding
 
     public override void BuyAction()
     {
+        base.BuyAction();
     }
 }
