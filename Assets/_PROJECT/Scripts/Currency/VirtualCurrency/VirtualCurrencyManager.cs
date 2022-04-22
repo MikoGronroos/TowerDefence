@@ -54,7 +54,7 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
     public void RemoveCurrency(int value)
     {
 
-        currencyEventChannel.OnMoneyUsed?.Invoke(new Dictionary<string, object> { { "money", value } });
+        currencyEventChannel.OnMoneyChanged?.Invoke(new Dictionary<string, object> { { "money", value } });
 
         var currency = Mathf.Clamp(currentCurrency - value, 0, maxCurrency);
         SetCurrency(currency);

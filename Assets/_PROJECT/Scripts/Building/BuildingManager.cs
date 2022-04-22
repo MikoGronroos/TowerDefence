@@ -20,13 +20,15 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     }
 
-    public void Build(Vector3 buildSpot, ShopItemBuilding build)
+    public bool Build(Vector3 buildSpot, ShopItemBuilding build)
     {
-        if (MyUtils.IsPointerOverUI()) return;
+        if (MyUtils.IsPointerOverUI()) return false;
 
         _hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero);
 
-        if (CheckIfBuildingIsBlocked(buildSpot)) return;
+        if (CheckIfBuildingIsBlocked(buildSpot)) return false;
+
+        if (_hit.transform == null) return false;
 
         if (_hit.transform.TryGetComponent(out Board board))
         {
@@ -36,14 +38,15 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
                 if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
                 {
                     var building = BuildingSpawner.Instance.SpawnBuilding(build.ItemPrefab.name, buildSpot);
+                    return true;
                 }
             }
             else
             {
                 var building = BuildingSpawner.Instance.SpawnBuilding(build.ItemPrefab.name, buildSpot);
+                return true;
             }
-
-            VirtualCurrencyManager.Instance.RemoveCurrency(build.Cost);
         }
+        return false;
     }
 }

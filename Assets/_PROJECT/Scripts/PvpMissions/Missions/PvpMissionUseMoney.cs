@@ -22,12 +22,12 @@ public class PvpMissionUseMoney : PvpMission
 
     public override void Load()
     {
-        currencyEventChannel.OnMoneyUsed += OnMoneyUsed;
+        currencyEventChannel.OnMoneyChanged += OnMoneyUsed;
     }
 
     public override void Unload()
     {
-        currencyEventChannel.OnMoneyUsed -= OnMoneyUsed;
+        currencyEventChannel.OnMoneyChanged -= OnMoneyUsed;
     }
 
     private void OnMoneyUsed(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

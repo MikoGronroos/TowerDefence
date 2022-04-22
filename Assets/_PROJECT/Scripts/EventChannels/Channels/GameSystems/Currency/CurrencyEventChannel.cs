@@ -10,7 +10,7 @@ namespace Finark.Events
 		public EventChannel OnCurrencyIncomeChanged;
 		public EventChannel OnCurrencyIntervalUpdate;
 
-		public EventChannel OnMoneyUsed;
+		public EventChannel OnMoneyChanged;
 
 	}
 }

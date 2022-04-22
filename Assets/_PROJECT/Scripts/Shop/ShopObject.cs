@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Finark.Utils;
 
 public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
