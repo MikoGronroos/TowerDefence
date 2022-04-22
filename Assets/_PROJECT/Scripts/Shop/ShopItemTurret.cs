@@ -11,6 +11,5 @@ public class ShopItemTurret : ShopItemBuilding
 
     public override void BuyAction()
     {
-        BuildingManager.Instance.SetBuilding(this);
     }
 }

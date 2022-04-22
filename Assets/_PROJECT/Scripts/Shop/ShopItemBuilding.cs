@@ -13,7 +13,6 @@ public class ShopItemBuilding : ShopItem
 
     public override void BuyAction()
     {
-        BuildingManager.Instance.SetBuilding(this);
     }
 
 

@@ -11,50 +11,6 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     private RaycastHit2D _hit;
 
-    private ShopItemBuilding _currentlyBuilding;
-
-    private int _price;
-
-    private bool _isBuilding;
-
-    private void Update()
-    {
-
-        if (_currentlyBuilding == null) return;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-            if (MyUtils.IsPointerOverUI()) return;
-
-            _hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero);
-
-            if (CheckIfBuildingIsBlocked(_hit.point)) return;
-
-            if (_hit.transform.TryGetComponent(out Board board))
-            {
-
-                if (_currentlyBuilding.PlaceOnLocalBoard)
-                {
-                    if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
-                    {
-                        var building = BuildingSpawner.Instance.SpawnBuilding(_currentlyBuilding.ItemPrefab.name, _hit.point);
-                    }
-                }
-                else
-                {
-                    var building = BuildingSpawner.Instance.SpawnBuilding(_currentlyBuilding.ItemPrefab.name, _hit.point);
-                }
-
-                VirtualCurrencyManager.Instance.RemoveCurrency(_price);
-                _currentlyBuilding = null;
-                _price = 0;
-                _isBuilding = false;
-
-            }
-        }
-    }
-
     private bool CheckIfBuildingIsBlocked(Vector3 checkPos)
     {
 
@@ -64,16 +20,30 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     }
 
-    public void SetBuilding(ShopItemBuilding building)
+    public void Build(Vector3 buildSpot, ShopItemBuilding build)
     {
-        _currentlyBuilding = building;
-        _price = building.Cost;
-        _isBuilding = true;
-    }
+        if (MyUtils.IsPointerOverUI()) return;
 
-    public bool IsBuilding()
-    {
-        return _isBuilding;
-    }
+        _hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)), Vector2.zero);
 
+        if (CheckIfBuildingIsBlocked(buildSpot)) return;
+
+        if (_hit.transform.TryGetComponent(out Board board))
+        {
+
+            if (build.PlaceOnLocalBoard)
+            {
+                if (board.GetID() == PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
+                {
+                    var building = BuildingSpawner.Instance.SpawnBuilding(build.ItemPrefab.name, buildSpot);
+                }
+            }
+            else
+            {
+                var building = BuildingSpawner.Instance.SpawnBuilding(build.ItemPrefab.name, buildSpot);
+            }
+
+            VirtualCurrencyManager.Instance.RemoveCurrency(build.Cost);
+        }
+    }
 }

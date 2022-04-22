@@ -46,3 +46,6 @@ TagManager:
   - name: UI
     uniqueID: 160846817
     locked: 0
+  - name: DragLayer
+    uniqueID: 2981670465
+    locked: 0

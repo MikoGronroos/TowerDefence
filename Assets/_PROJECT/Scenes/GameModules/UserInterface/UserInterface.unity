@@ -218,6 +218,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3172970777854871887, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172970777854871887, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172970777854871887, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5543426168717563705, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: openShopButton
       value: 

@@ -347,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   costText: {fileID: 432107693276825860}
   itemIcon: {fileID: 7498172010748387433}
+  dragObject: {fileID: 4920310794792374998, guid: 615c8a9a1c98c8346b291187c5b64b49, type: 3}
 --- !u!114 &8291492878275696566
 MonoBehaviour:
   m_ObjectHideFlags: 0
