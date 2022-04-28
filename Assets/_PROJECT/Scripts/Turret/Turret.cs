@@ -36,6 +36,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     {
 
         _currentTime = turretExecutable.AttackSpeed.Value;
+        _canShoot = true;
 
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
         TurretAim turretAim = new TurretAim(transform, this);
@@ -64,6 +65,8 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     private void Timer()
     {
+
+        if (_canShoot) return;
 
         _currentTime = Mathf.Clamp(_currentTime += Time.deltaTime, 0, turretExecutable.AttackSpeed.Value);
 
