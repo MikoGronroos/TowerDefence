@@ -22,8 +22,8 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     private PhotonView _photonView;
 
-    private float _currentTime = 0.0f;
-    private bool _canShoot = false;
+    [SerializeField] private float _currentTime = 0.0f;
+    [SerializeField] private bool _canShoot = false;
 
     public int TurretOwnerID;
 
@@ -34,9 +34,6 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     public override void Start()
     {
-
-        _currentTime = turretExecutable.AttackSpeed.Value;
-        _canShoot = true;
 
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
         TurretAim turretAim = new TurretAim(transform, this);
@@ -52,6 +49,10 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         SwitchState(turretSearching);
 
         RefreshValues();
+
+        _currentTime = turretExecutable.AttackSpeed.Value;
+        _canShoot = true;
+
     }
 
     public override void Update()

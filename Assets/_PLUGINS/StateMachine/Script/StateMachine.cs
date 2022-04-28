@@ -96,7 +96,7 @@ namespace Finark.AI
                 Condition = condition;
             }
         }
-
+        //List<Func<bool>>
         private Transition GetTransition()
         {
 
