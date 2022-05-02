@@ -69,12 +69,12 @@ namespace Finark.AI
 
         }
 
-        public void AddAnyTransition(State state, Func<bool> predicate)
+        public void AddAnyTransition(State state, List<Func<bool>> predicates)
         {
-            _anyTransitions.Add(new Transition(state, predicate));
+            _anyTransitions.Add(new Transition(state, predicates));
         }
 
-        public void AddTransition(State from, State to, Func<bool> predicate)
+        public void AddTransition(State from, State to, List<Func<bool>> predicates)
         {
             if (_transitions.TryGetValue(from.GetType(), out var transitions) == false)
             {
@@ -82,31 +82,65 @@ namespace Finark.AI
                 _transitions[from.GetType()] = transitions;
             }
 
-            transitions.Add(new Transition(to, predicate));
+            transitions.Add(new Transition(to, predicates));
         }
 
         protected class Transition
         {
-            public Func<bool> Condition { get; }
+            public List<Func<bool>> Conditions { get; }
             public State To { get; }
 
-            public Transition(State to, Func<bool> condition)
+            public Transition(State to, List<Func<bool>> conditions)
             {
                 To = to;
-                Condition = condition;
+                Conditions = conditions;
             }
         }
-        //List<Func<bool>>
+
         private Transition GetTransition()
         {
 
             foreach (var transition in _anyTransitions)
-                if (transition.Condition())
-                    return transition;
+            {
+                int index = 0;
+                foreach (var condition in transition.Conditions)
+                {
+                    if (!condition())
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        index++;
+                        if (index >= transition.Conditions.Count)
+                        {
+                            return transition;
+                        }
+                        continue;
+                    }
+                }
+            }
 
             foreach (var transition in _currentTransitions)
-                if (transition.Condition())
-                    return transition;
+            {
+                int index = 0;
+                foreach (var condition in transition.Conditions)
+                {
+                    if (!condition())
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        index++;
+                        if (index >= transition.Conditions.Count)
+                        {
+                            return transition;
+                        }
+                        continue;
+                    }
+                }
+            }
 
             return null;
         }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Finark.Events;
 using Finark.AI;
+using Finark.Utils;
 
 public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 {
@@ -36,15 +37,9 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     {
 
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
-        TurretAim turretAim = new TurretAim(transform, this);
         TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this);
 
-        AddTransition(turretSearching, turretAim, HasTarget);
-        AddTransition(turretAim, turretSearching, TargetOutOfReach);
-        AddTransition(turretShoot, turretSearching, TargetOutOfReach);
-        AddTransition(turretAim, turretShoot, CanShoot);
-        AddTransition(turretShoot, turretAim, CantShoot);
-        AddAnyTransition(turretSearching, NoTarget);
+        AddAnyTransition(turretShoot, new List<Func<bool>> { CanShoot, HasTarget });
 
         SwitchState(turretSearching);
 
@@ -60,6 +55,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         if (_photonView.IsMine)
         {
             Timer();
+            FollowClosestTarget();
             base.Update();
         }
     }
@@ -80,6 +76,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     public void SetTarget(Transform nearestTarget)
     {
+        if (target == nearestTarget) return;
         target = nearestTarget;
     }
 
@@ -152,10 +149,25 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         turretExecutable.AttackSpeed.Value = turretExecutable.AttackSpeed.BaseValue;
     }
 
+    private void FollowClosestTarget()
+    {
+
+        if (target == null) return;
+
+        if (!turretExecutable.FollowsTarget) return;
+
+        var direction = MyUtils.GetDirectionVector2(transform.position, target.position);
+
+        float rot_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+
+    }
+
     #region State Machine Conditions
 
     private bool HasTarget()
     {
+        Debug.Log(target != null);
         return target != null;
     }
 
