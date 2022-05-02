@@ -39,6 +39,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
         TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this);
 
+        AddAnyTransition(turretSearching, new List<Func<bool>> { CantShoot, NoTarget });
         AddAnyTransition(turretShoot, new List<Func<bool>> { CanShoot, HasTarget });
 
         SwitchState(turretSearching);
@@ -167,7 +168,6 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     private bool HasTarget()
     {
-        Debug.Log(target != null);
         return target != null;
     }
 

@@ -20,7 +20,6 @@ public class TurretSearching : State
     public override void EnterState(StateMachine machine)
     {
         _turret.SetTarget(null);
-        Debug.Log("Entered Turret Searching");
     }
 
     public override void ExitState(StateMachine machine) { }
@@ -29,7 +28,6 @@ public class TurretSearching : State
 
     public override void RunState(StateMachine machine)
     {
-        Debug.Log("Running Turret Searching");
         GetValidTarget();
     }
 
