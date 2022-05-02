@@ -171,11 +171,6 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         return target != null;
     }
 
-    private bool TargetOutOfReach()
-    {
-        return Vector3.Distance(transform.position, target.position) > (turretExecutable.Range.Value / 2);
-    }
-
     private bool CanShoot()
     {
         return _canShoot;

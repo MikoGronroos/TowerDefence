@@ -4532,7 +4532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeSlotPrefab: {fileID: 7528416971715923519, guid: 60bef3f6a920f3940bd4eeadac553560, type: 3}
-  parent: {fileID: 1872354533}
+  bundleSlotPrefab: {fileID: 0}
+  storeSlotParent: {fileID: 1872354533}
+  bundleSlotParent: {fileID: 0}
   storeEventChannel: {fileID: 11400000, guid: 41f838ec7dbb42742a66dad4d12c7a12, type: 2}
   playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}
   bundlePopup: {fileID: 1752175528}
