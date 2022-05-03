@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangeVisualisation : MonoBehaviour
+public class RangeVisualisation : MonoBehaviourSingleton<RangeVisualisation>
 {
 
     [SerializeField] private Material turretRangeMaterial;

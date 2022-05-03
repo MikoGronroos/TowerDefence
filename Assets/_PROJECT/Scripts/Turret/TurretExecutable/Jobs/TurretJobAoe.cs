@@ -26,7 +26,7 @@ public abstract class TurretJobAoe : ExecuteJob
 
         CollidersLogic(position, GetCollidersInArea(position, 2), exec, clone.transform);
 
-        FindObjectOfType<RangeVisualisation>().DrawCircle(clone, 2, 0.1f);
+        RangeVisualisation.Instance.DrawCircle(clone, 2, 0.1f);
 
     }
 

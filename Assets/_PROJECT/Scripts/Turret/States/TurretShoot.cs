@@ -22,7 +22,6 @@ public class TurretShoot : State
 
     public override void EnterState(StateMachine machine)
     {
-        Debug.Log("Entered Turret Shoot");
         if (!_executing) CoroutineCaller.Instance.StartCoroutine(Execute());
     }
 
@@ -36,7 +35,6 @@ public class TurretShoot : State
 
     public override void RunState(StateMachine machine)
     {
-        Debug.Log("Running Turret Shoot");
     }
 
     private IEnumerator Execute()

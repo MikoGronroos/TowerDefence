@@ -43,7 +43,7 @@ public class TurretJobAoeClusterMortar : TurretJobAoe
             }
 
             //Debug visuals change for the demo
-            FindObjectOfType<RangeVisualisation>().DrawCircle(clone, 1, 0.1f);
+            RangeVisualisation.Instance.DrawCircle(clone, 1, 0.1f);
         }
 
     }

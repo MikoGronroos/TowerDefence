@@ -11,13 +11,6 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
     [SerializeField] private TurretEventChannel turretEventChannel;
 
-    private RangeVisualisation _rangeVisualisation;
-
-    private void Awake()
-    {
-        _rangeVisualisation = GetComponent<RangeVisualisation>();
-    }
-
     private void Update()
     {
 #if UNITY_ANDROID
@@ -73,14 +66,14 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
                 if (selectedTurret != null)
                 {
-                    _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
+                    RangeVisualisation.Instance.EraseCircle(selectedTurret.gameObject);
                 }
 
                 selectedTurret = turret;
 
                 turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", true },{ "turret", selectedTurret }});
 
-                _rangeVisualisation.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, .3f);
+                RangeVisualisation.Instance.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, 0.25f);
             }
         }
         else
@@ -89,7 +82,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
             if (selectedTurret == null) return;
 
-            _rangeVisualisation.EraseCircle(selectedTurret.gameObject);
+            RangeVisualisation.Instance.EraseCircle(selectedTurret.gameObject);
             selectedTurret = null;
 
             turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", false },{ "turret", null }});

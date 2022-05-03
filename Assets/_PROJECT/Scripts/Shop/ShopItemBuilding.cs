@@ -15,6 +15,10 @@ public class ShopItemBuilding : ShopItem
     public override void BuyAction()
     {
         GameObject go = Instantiate(DragManager.Instance.GetDragObject());
+        if (ItemPrefab.TryGetComponent(out Turret turret))
+        {
+            RangeVisualisation.Instance.DrawCircle(go, turret.GetTurretExecutable().Range.BaseValue, 0.25f);
+        }
         go.transform.position = MyUtils.GetMouseWorldPosition();
         go.transform.rotation = Quaternion.identity;
 
