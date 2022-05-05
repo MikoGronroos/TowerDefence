@@ -25,7 +25,7 @@ public abstract class TurretJobAoe : ExecuteJob
 
         GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
 
-        SoundEffectManager.Instance.PlaySoundInstantlyWithID(shootSoundID);
+        SoundEffectManager.Instance.PlaySoundInstantlyWithID(shootSoundID, true);
 
         CollidersLogic(position, GetCollidersInArea(position, 2), exec, clone.transform);
 

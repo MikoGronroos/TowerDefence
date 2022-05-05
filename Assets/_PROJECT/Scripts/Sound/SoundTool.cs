@@ -7,7 +7,7 @@ public class SoundTool : MonoBehaviour
 
 	public void PlaySound()
     {
-        SoundEffectManager.Instance.PlaySoundInstantlyWithID(soundID);
+        SoundEffectManager.Instance.PlaySoundInstantlyWithID(soundID, true);
     }
 
 }
