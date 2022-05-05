@@ -151,3 +151,5 @@ MonoBehaviour:
     EffectClip: {fileID: 8300000, guid: be713c3d2080994469cf19ce8bbf12d2, type: 3}
   - EffectID: QuestCompleted
     EffectClip: {fileID: 8300000, guid: 38d2cfa1793c56b4580cfd459bfcaf1c, type: 3}
+  - EffectID: LordOfTheHuntShoot
+    EffectClip: {fileID: 8300000, guid: bce5a93a79b09e94f9a0fb9c691b9089, type: 3}

@@ -106,24 +106,26 @@ MonoBehaviour:
     IsPrimaryExecutable: 1
     NeedsTarget: 1
     FollowsTarget: 1
-    ProjectileTypes: []
+    ProjectileTypes:
+    - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
     ProjectilePenetration: 0
     ProjectileSpeed: 15
     Damage:
-      BaseValue: 0
+      BaseValue: 15
       Value: 0
     Range:
-      BaseValue: 0
+      BaseValue: 10
       Value: 0
     AttackSpeed:
-      BaseValue: 0
+      BaseValue: 0.5
       Value: 0
     ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
-    Job: {fileID: 11400000, guid: 40116ce893ea6f047b070291d832e0d1, type: 2}
+    Job: {fileID: 11400000, guid: d4d2c926e3a030445aeecc59f726b6e0, type: 2}
   target: {fileID: 0}
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
+  shootSoundID: LordOfTheHuntShoot
   TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:
