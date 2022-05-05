@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3931877254718015339}
   - component: {fileID: 3936885091881950314}
   - component: {fileID: 1138810336210053678}
+  - component: {fileID: -1406371223951294822}
   m_Layer: 0
   m_Name: MortarProjectile
   m_TagString: Untagged
@@ -227,3 +228,16 @@ MonoBehaviour:
   neededTag: 
   playDelay: 0
   positionOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &-1406371223951294822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674684417496924349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0691481a7b46c494eac721d80253ef19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundID: MortarExplosion

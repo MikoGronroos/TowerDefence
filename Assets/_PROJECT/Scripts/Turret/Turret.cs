@@ -21,10 +21,14 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     [SerializeField] private TurretEventChannel turretEventChannel;
 
+    [Header("Sounds")]
+
+    [SerializeField] private string shootSoundID;
+
     private PhotonView _photonView;
 
-    [SerializeField] private float _currentTime = 0.0f;
-    [SerializeField] private bool _canShoot = false;
+    private float _currentTime = 0.0f;
+    private bool _canShoot = false;
 
     public int TurretOwnerID;
 
@@ -37,7 +41,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     {
 
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
-        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this);
+        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this, shootSoundID);
 
         AddAnyTransition(turretSearching, new List<Func<bool>> { CantShoot, NoTarget });
         AddAnyTransition(turretShoot, new List<Func<bool>> { CanShoot, HasTarget });

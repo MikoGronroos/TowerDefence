@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Execute Jobs/Mortar")]
 public class TurretJobAoeMortar : TurretJobAoe
