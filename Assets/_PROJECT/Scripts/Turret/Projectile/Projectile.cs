@@ -12,6 +12,13 @@ public class Projectile : MonoBehaviour
     private IEnumerable<ProjectileType> _types;
     private bool _hitObject;
 
+    private PhotonView _photonView;
+
+    private void Awake()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
+
     public void Setup(Vector3 direction, TurretExecutable exec)
     {
         _shootDir = direction;
@@ -28,6 +35,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (!_photonView.IsMine) return;
+
         if (collision.TryGetComponent(out Unit unit))
         {
             if (_hitObject) return;

@@ -71,6 +71,9 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     private bool AllowedToMakeDamage(IEnumerable<ProjectileType> types)
     {
+
+        if (types == null) return false;
+
         foreach (var projectileType in unitStats.ProjectileTypesAllowed)
         {
             foreach (var type in types)
@@ -93,8 +96,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
             { "UnitID", unitStats.UnitID },
             { "InstanceID", UnitInstanceId } 
         });
-
-        PhotonNetwork.Destroy(_photonView);
+        
+        if(_photonView.IsMine) PhotonNetwork.Destroy(_photonView);
 
     }
 

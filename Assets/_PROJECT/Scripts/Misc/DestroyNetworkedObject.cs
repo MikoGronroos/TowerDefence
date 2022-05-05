@@ -13,6 +13,13 @@ public class DestroyNetworkedObject : MonoBehaviour
     [SerializeField] private bool destroyAfterTime;
     [SerializeField] private float destroyTime;
 
+    private PhotonView _photonView;
+
+    private void Awake()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
+
     private void Start()
     {
         if (destroyAfterTime) Invoke("Destroy", destroyTime);
@@ -38,6 +45,9 @@ public class DestroyNetworkedObject : MonoBehaviour
 
     private void Destroy()
     {
-        PhotonNetwork.Destroy(gameObject.GetPhotonView());
+        if (_photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(_photonView);
+        }
     }
 }
