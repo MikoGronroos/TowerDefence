@@ -19,10 +19,13 @@ public abstract class TurretJobAoe : ExecuteJob
         var position = (Vector3)args["TargetPosition"];
 
         var exec = (TurretExecutable)args["TurretExecutable"];
+        var shootSoundID = (string)args["ShootSoundID"];
 
         yield return new WaitForSeconds(1);
 
         GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
+
+        SoundEffectManager.Instance.PlaySoundInstantlyWithID(shootSoundID);
 
         CollidersLogic(position, GetCollidersInArea(position, 2), exec, clone.transform);
 

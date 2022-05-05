@@ -35,6 +35,7 @@ public class PvpMissionManager : MonoBehaviourSingleton<PvpMissionManager>
         completedMissions.Add(mission);
         mission.Unload();
         GiveMissionRewards(mission.MissionRewards);
+        SoundEffectManager.Instance.PlaySoundInstantlyWithID("QuestCompleted");
         playerEventChannel?.OnMissionCompleted(new Dictionary<string, object> { { "Mission", mission } });
         playerEventChannel?.RefreshMissionLog(new Dictionary<string, object> { { "Missions", currentMissions } });
     }

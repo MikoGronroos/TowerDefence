@@ -147,3 +147,7 @@ MonoBehaviour:
     EffectClip: {fileID: 8300000, guid: f1b862a276d0f734ba8c0fcf1845703a, type: 3}
   - EffectID: MortarExplosion
     EffectClip: {fileID: 8300000, guid: 568d365d93c47574a82ae1ec992abb23, type: 3}
+  - EffectID: AntiTankGunShoot
+    EffectClip: {fileID: 8300000, guid: be713c3d2080994469cf19ce8bbf12d2, type: 3}
+  - EffectID: QuestCompleted
+    EffectClip: {fileID: 8300000, guid: 38d2cfa1793c56b4580cfd459bfcaf1c, type: 3}

@@ -30,7 +30,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     private float _currentTime = 0.0f;
     private bool _canShoot = false;
 
-    public int TurretOwnerID;
+    [HideInInspector] public int TurretOwnerID;
 
     private void Awake()
     {
