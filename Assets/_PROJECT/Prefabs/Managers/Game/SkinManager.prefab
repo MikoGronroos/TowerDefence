@@ -50,3 +50,9 @@ MonoBehaviour:
     GraphicKey: 
   - MainKey: AntiTankGun
     GraphicKey: 
+  - MainKey: LordOfTheHuntProjectile
+    GraphicKey: 
+  - MainKey: AntiTankGunProjectile
+    GraphicKey: 
+  - MainKey: SimpleTurretProjectile
+    GraphicKey: 

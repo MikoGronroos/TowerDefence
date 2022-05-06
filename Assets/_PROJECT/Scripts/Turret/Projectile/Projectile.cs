@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
         _speed = exec.ProjectileSpeed;
         _currentProjectilePenetration = exec.ProjectilePenetration;
 
-        _spriteRenderer.sprite = GraphicsManager.Instance.GetSprite(mainKey);
+        _spriteRenderer.sprite = GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(mainKey));
 
     }
 
