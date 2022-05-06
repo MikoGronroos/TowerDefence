@@ -56,3 +56,7 @@ MonoBehaviour:
     GraphicKey: 
   - MainKey: SimpleTurretProjectile
     GraphicKey: 
+  - MainKey: LightMachineGun
+    GraphicKey: 
+  - MainKey: LightMachineGunProjectile
+    GraphicKey: 

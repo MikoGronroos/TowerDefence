@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2510116597103109874}
   - component: {fileID: -539654115071753413}
   m_Layer: 0
-  m_Name: AdvancedTurret
+  m_Name: LightMachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
   shootSoundID: AdvancedTurretShoot
-  projectileMainKey: AntiTankShell
+  projectileMainKey: LightMachineGunProjectile
   TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:
@@ -213,5 +213,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKey: AdvancedTurret
+  mainKey: LightMachineGun
   graphicKey: 
