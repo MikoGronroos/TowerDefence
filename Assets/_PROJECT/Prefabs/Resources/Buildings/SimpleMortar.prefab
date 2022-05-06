@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 86ec531bec9bd104f8948cc4d566658e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f24a530cfdd903459ad6f30d6f8e57a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
   shootSoundID: MortarExplosion
+  projectileMainKey: 
   TurretOwnerID: 0
 --- !u!114 &6217340855265789143
 MonoBehaviour:
