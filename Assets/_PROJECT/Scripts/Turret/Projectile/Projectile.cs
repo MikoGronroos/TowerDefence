@@ -13,19 +13,24 @@ public class Projectile : MonoBehaviour
     private bool _hitObject;
 
     private PhotonView _photonView;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _photonView = GetComponent<PhotonView>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Setup(Vector3 direction, TurretExecutable exec)
+    public void Setup(Vector3 direction, TurretExecutable exec, string mainKey)
     {
         _shootDir = direction;
         _damage = exec.Damage.Value;
         _types = exec.ProjectileTypes;
         _speed = exec.ProjectileSpeed;
         _currentProjectilePenetration = exec.ProjectilePenetration;
+
+        _spriteRenderer.sprite = GraphicsManager.Instance.GetSprite(mainKey);
+
     }
 
     public void Update()
@@ -53,8 +58,6 @@ public class Projectile : MonoBehaviour
 
             _currentProjectilePenetration -= unit.GetHardness();
             unit.RemoveHardness(_currentProjectilePenetration);
-            
-
         }
     }
 

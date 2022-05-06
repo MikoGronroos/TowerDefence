@@ -126,6 +126,7 @@ MonoBehaviour:
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
   shootSoundID: AntiTankGunShoot
+  projectileMainKey: AntiTankShell
   TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:

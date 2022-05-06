@@ -21,13 +21,14 @@ public class TurretJobBasicShoot : ExecuteJob
         var exec = (TurretExecutable)args["TurretExecutable"];
 
         var shootSoundID = (string)args["ShootSoundID"];
+        var graphicMainKey = (string)args["MainKey"];
 
 
-        CoroutineCaller.Instance.StartChildCoroutine(Shoot(amountOfShots, shotInterval, prefab, position, rotation, exec, shootSoundID));
+        CoroutineCaller.Instance.StartChildCoroutine(Shoot(amountOfShots, shotInterval, prefab, position, rotation, exec, shootSoundID, graphicMainKey));
 
     }
 
-    private IEnumerator Shoot(int amountOfShots, float time, GameObject prefab, Vector3 position, Vector2 rotation, TurretExecutable exec, string shootSoundID)
+    private IEnumerator Shoot(int amountOfShots, float time, GameObject prefab, Vector3 position, Vector2 rotation, TurretExecutable exec, string shootSoundID, string mainKey)
     {
 
         for (int i = 0; i < amountOfShots; i++)
@@ -35,7 +36,7 @@ public class TurretJobBasicShoot : ExecuteJob
             SoundEffectManager.Instance.PlaySoundInstantlyWithID(shootSoundID, true);
             GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{prefab.name}", position, Quaternion.identity);
             var projectile = clone.GetComponent<Projectile>();
-            projectile.Setup(rotation, exec);
+            projectile.Setup(rotation, exec, mainKey);
 
             yield return new WaitForSeconds(time);
         }

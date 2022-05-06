@@ -13,14 +13,17 @@ public class TurretShoot : State
 
     private string _shootSoundID;
 
+    private string _graphicMainKey;
+
     private bool _executing;
 
-    public TurretShoot(TurretExecutable turretExecutable, Transform transform, Turret turret, string shootSoundID)
+    public TurretShoot(TurretExecutable turretExecutable, Transform transform, Turret turret, string shootSoundID, string graphicMainKey)
     {
         _turretExecutable = turretExecutable;
         _transform = transform;
         _turret = turret;
         _shootSoundID = shootSoundID;
+        _graphicMainKey = graphicMainKey;
     }
 
     public override void EnterState(StateMachine machine)
@@ -50,7 +53,8 @@ public class TurretShoot : State
                                 {"TargetPosition", _turret.GetTarget().position},
                                 {"Rotation", MyUtils.GetDirectionVector2(_transform.position, _turret.GetTarget().position)},
                                 {"TurretExecutable", _turretExecutable},
-                                {"ShootSoundID", _shootSoundID}
+                                {"ShootSoundID", _shootSoundID},
+                                {"MainKey", _graphicMainKey}
         });
 
         _turret.SetTarget(null);

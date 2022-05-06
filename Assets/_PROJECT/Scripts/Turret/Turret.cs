@@ -25,6 +25,10 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
 
     [SerializeField] private string shootSoundID;
 
+    [Header("Graphics")]
+
+    [SerializeField] private string projectileMainKey;
+
     private PhotonView _photonView;
 
     private float _currentTime = 0.0f;
@@ -41,7 +45,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     {
 
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
-        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this, shootSoundID);
+        TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this, shootSoundID, projectileMainKey);
 
         AddAnyTransition(turretSearching, new List<Func<bool>> { CantShoot, NoTarget });
         AddAnyTransition(turretShoot, new List<Func<bool>> { CanShoot, HasTarget });
@@ -49,7 +53,7 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         SwitchState(turretSearching);
 
         RefreshValues();
-
+         
         _currentTime = turretExecutable.AttackSpeed.Value;
         _canShoot = true;
 

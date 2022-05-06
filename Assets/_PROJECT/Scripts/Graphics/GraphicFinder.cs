@@ -21,4 +21,5 @@ public class GraphicFinder : MonoBehaviour
         if(graphicKey != "") _renderer.sprite = GraphicsManager.Instance.GetSprite(graphicKey);
 
     }
+
 }
