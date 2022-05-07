@@ -29,8 +29,14 @@ public class Projectile : MonoBehaviour
         _speed = exec.ProjectileSpeed;
         _currentProjectilePenetration = exec.ProjectilePenetration;
 
-        _spriteRenderer.sprite = GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(mainKey));
+        _photonView.RPC("RPCSetup", RpcTarget.All, mainKey);
 
+    }
+
+    [PunRPC]
+    private void RPCSetup(string mainKey)
+    {
+        _spriteRenderer.sprite = GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(mainKey));
     }
 
     public void Update()
