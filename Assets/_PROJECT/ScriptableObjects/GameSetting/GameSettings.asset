@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  StartingCurrency: 75
-  StartingIncome: 15
-  IncomeInterval: 10
-  StartingHealth: 150
+  StartingCurrency: 40
+  StartingIncome: 7
+  IncomeInterval: 17
+  StartingHealth: 75
   StartingLevel: 1
   Singleplayer: 0
   CurrentMapIndex: 0
