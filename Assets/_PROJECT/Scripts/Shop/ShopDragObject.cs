@@ -23,9 +23,12 @@ public class ShopDragObject : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (BuildingManager.Instance.Build(MyUtils.GetMouseWorldPosition(), _shopItem))
+        if (VirtualCurrencyManager.Instance.CheckIfPlayerHasEnoughCurrency(_shopItem.Cost))
         {
-            VirtualCurrencyManager.Instance.RemoveCurrency(_shopItem.Cost);
+            if (BuildingManager.Instance.Build(MyUtils.GetMouseWorldPosition(), _shopItem))
+            {
+                VirtualCurrencyManager.Instance.RemoveCurrency(_shopItem.Cost);
+            }
         }
         Destroy(gameObject);
     }
