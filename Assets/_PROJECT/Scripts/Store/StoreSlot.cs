@@ -34,6 +34,16 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
 
         icon.sprite = item.Icon;
 
+        switch (item.currencyType)
+        {
+            case CurrencyType.HardCurrency:
+                currencyIcon.sprite = hcIcon;
+                break;
+            case CurrencyType.SoftCurrency:
+                currencyIcon.sprite = scIcon;
+                break;
+        }
+
         _onBuyAction += callback;
 
     }

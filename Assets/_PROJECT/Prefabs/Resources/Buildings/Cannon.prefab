@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2510116597103109874}
   - component: {fileID: 8621107009500604532}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,17 +101,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats:
     Name: Simple Turret
-    SellPrice: 100
+    SellPrice: 0
   turretExecutable:
     IsPrimaryExecutable: 1
     NeedsTarget: 1
     FollowsTarget: 1
     ProjectileTypes:
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
-    ProjectilePenetration: 0
+    ProjectilePenetration: 20
     ProjectileSpeed: 15
     Damage:
-      BaseValue: 100
+      BaseValue: 11
       Value: 0
     Range:
       BaseValue: 5

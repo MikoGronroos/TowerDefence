@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretStats:
     Name: Lord of the hunt
-    SellPrice: 100
+    SellPrice: 0
   turretExecutable:
     IsPrimaryExecutable: 1
     NeedsTarget: 1

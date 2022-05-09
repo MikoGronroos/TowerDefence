@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: AdvancedUnit
   m_EditorClassIdentifier: 
   UnitID: 0
-  StartHealth: 250
+  StartHealth: 40
   Speed: 2
-  Damage: 11
+  Damage: 2
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
-  XpAddonOnDestroyed: 0
+  MaxUnitHardness: 30
+  XpAddonOnDestroyed: 3

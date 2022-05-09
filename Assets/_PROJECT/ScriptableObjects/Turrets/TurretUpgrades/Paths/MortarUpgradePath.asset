@@ -23,10 +23,12 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
       ExecutablePrefab: {fileID: 0}
       Job: {fileID: 11400000, guid: d5c7024b351b83449888ad957e02885f, type: 2}
+      DoValueAddons: 1
       Type: 0
       DamageAddon: 1
       RangeAddon: 1.25
       AttackSpeedAddon: 1.25
+      ProjectilePenetration: 1
   - Upgrades:
     - Name: 
       Description: 
@@ -35,10 +37,12 @@ MonoBehaviour:
       ProjectileTypes: []
       ExecutablePrefab: {fileID: 0}
       Job: {fileID: 0}
+      DoValueAddons: 0
       Type: 0
       DamageAddon: 0
       RangeAddon: 0
       AttackSpeedAddon: 0
+      ProjectilePenetration: 1
   - Upgrades:
     - Name: 
       Description: 
@@ -47,7 +51,9 @@ MonoBehaviour:
       ProjectileTypes: []
       ExecutablePrefab: {fileID: 0}
       Job: {fileID: 0}
+      DoValueAddons: 0
       Type: 0
       DamageAddon: 0
       RangeAddon: 0
       AttackSpeedAddon: 0
+      ProjectilePenetration: 1

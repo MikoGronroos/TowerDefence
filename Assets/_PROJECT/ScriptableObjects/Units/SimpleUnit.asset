@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SimpleUnit
   m_EditorClassIdentifier: 
   UnitID: 0
-  StartHealth: 35
+  StartHealth: 25
   Speed: 2.5
   Damage: 1
   ProjectileTypesAllowed:
