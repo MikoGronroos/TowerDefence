@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05273f30a6ce91a46b13ed86f4a842d0, type: 3}
+  m_Name: LMGUpgradePath
+  m_EditorClassIdentifier: 
+  Paths:
+  - Upgrades:
+    - Name: High caliber
+      Description: Adds more damage and range.
+      Price: 50
+      Icon: {fileID: -6535378651979640892, guid: b7a8914c30c4b3342aab814d37fe62fa, type: 3}
+      ProjectileTypes: []
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 0}
+      DoValueAddons: 1
+      Type: 0
+      DamageAddon: 1.03
+      RangeAddon: 1.045
+      AttackSpeedAddon: 1
+      ProjectilePenetration: 1
+    - Name: Faster Faster More...
+      Description: Shoot faster and more.
+      Price: 115
+      Icon: {fileID: -3675699285358318716, guid: b7a8914c30c4b3342aab814d37fe62fa, type: 3}
+      ProjectileTypes: []
+      ExecutablePrefab: {fileID: 0}
+      Job: {fileID: 11400000, guid: 3bffcd733d9e75d40956db8fd618a464, type: 2}
+      DoValueAddons: 0
+      Type: 0
+      DamageAddon: 0
+      RangeAddon: 0
+      AttackSpeedAddon: 0
+      ProjectilePenetration: 0
+  - Upgrades: []
+  - Upgrades: []

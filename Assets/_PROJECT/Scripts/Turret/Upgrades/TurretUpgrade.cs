@@ -22,12 +22,14 @@ public class TurretUpgrade
 
     [Header("Value Addons")]
 
+    public bool DoValueAddons;
+
     public UpgradeType Type;
 
-    public float DamageAddon;
-    public float RangeAddon;
-    public float AttackSpeedAddon;
-    public int ProjectilePenetration;
+    public float DamageAddon = 1;
+    public float RangeAddon = 1;
+    public float AttackSpeedAddon = 1;
+    public int ProjectilePenetration = 1;
 
     public void UseUpgrade(Turret turret)
     {
@@ -40,20 +42,23 @@ public class TurretUpgrade
 
         if (Job != null) target.Job = Job;
 
-        switch (Type)
+        if (DoValueAddons)
         {
-            case UpgradeType.Percentage:
-                target.Damage.BaseValue *= DamageAddon;
-                target.Range.BaseValue *= RangeAddon;
-                target.AttackSpeed.BaseValue *= AttackSpeedAddon;
-                target.ProjectilePenetration *= ProjectilePenetration;
-                break;
-            case UpgradeType.Whole:
-                target.Damage.BaseValue += DamageAddon;
-                target.Range.BaseValue += RangeAddon;
-                target.AttackSpeed.BaseValue += AttackSpeedAddon;
-                target.ProjectilePenetration += ProjectilePenetration;
-                break;
+            switch (Type)
+            {
+                case UpgradeType.Percentage:
+                    target.Damage.BaseValue *= DamageAddon;
+                    target.Range.BaseValue *= RangeAddon;
+                    target.AttackSpeed.BaseValue *= AttackSpeedAddon;
+                    target.ProjectilePenetration *= ProjectilePenetration;
+                    break;
+                case UpgradeType.Whole:
+                    target.Damage.BaseValue += DamageAddon;
+                    target.Range.BaseValue += RangeAddon;
+                    target.AttackSpeed.BaseValue += AttackSpeedAddon;
+                    target.ProjectilePenetration += ProjectilePenetration;
+                    break;
+            }
         }
     }
 }

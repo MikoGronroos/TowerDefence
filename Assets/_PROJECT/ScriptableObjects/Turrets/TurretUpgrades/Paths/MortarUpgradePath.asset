@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05273f30a6ce91a46b13ed86f4a842d0, type: 3}
-  m_Name: ClusterMortarUpgrade
+  m_Name: MortarUpgradePath
   m_EditorClassIdentifier: 
   Paths:
   - Upgrades:

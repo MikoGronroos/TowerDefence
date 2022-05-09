@@ -112,7 +112,7 @@ MonoBehaviour:
     ProjectilePenetration: 0
     ProjectileSpeed: 15
     Damage:
-      BaseValue: 125
+      BaseValue: 6
       Value: 0
     Range:
       BaseValue: 7
@@ -123,7 +123,7 @@ MonoBehaviour:
     ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
     Job: {fileID: 11400000, guid: 40116ce893ea6f047b070291d832e0d1, type: 2}
   target: {fileID: 0}
-  turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
+  turretUpgradePaths: {fileID: 11400000, guid: 6d52191915cfa194f9e455b706cd7852, type: 2}
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
   shootSoundID: AdvancedTurretShoot
