@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretStats:
-    Name: Simple Turret
+    Name: Anti Tank Gun
     SellPrice: 0
   turretExecutable:
     IsPrimaryExecutable: 1

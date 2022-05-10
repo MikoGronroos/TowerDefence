@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2392965b00a11d429f11b3b171d55bc, type: 3}
-  m_Name: Unit2
+  m_Name: HardUnit
   m_EditorClassIdentifier: 
-  Cost: 12
+  Cost: 17
   IconMainKey: 
-  LevelToUnlock: 4
-  ItemPrefab: {fileID: 1750303906499475433, guid: a1e94977aeee8f8478af58f7e258ce93, type: 3}
-  IncomeAddonFromSpawning: 2
-  XpAddonWhenBought: 5
+  LevelToUnlock: 7
+  ItemPrefab: {fileID: 1750303906499475433, guid: edb6e85d038f9f74c92c51583147ca64, type: 3}
+  IncomeAddonFromSpawning: 3
+  XpAddonWhenBought: 7

@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
-  m_Name: SimpleTurret
+  m_Script: {fileID: 11500000, guid: 119c9667f985ee3468276d0ffcdcbc94, type: 3}
+  m_Name: HardUnit
   m_EditorClassIdentifier: 
-  Cost: 10
-  IconMainKey: SimpleTurret
-  LevelToUnlock: 1
-  ItemPrefab: {fileID: 5728865167009762987, guid: 89e754eefcef36546b03017703920591, type: 3}
-  PlaceOnLocalBoard: 1
+  UnitID: 0
+  StartHealth: 65
+  Speed: 3
+  Damage: 4
+  ProjectileTypesAllowed:
+  - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+  MaxUnitHardness: 50
+  XpAddonOnDestroyed: 6

@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingCurrency: 40
   StartingIncome: 7
-  IncomeInterval: 16
+  IncomeInterval: 17
   StartingHealth: 75
   StartingLevel: 1
-  Singleplayer: 0
   CurrentMapIndex: 0
   StartingAmountOfMissions: 3

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
   m_Name: Lord of the hunt
   m_EditorClassIdentifier: 
-  Cost: 75
+  Cost: 15
   IconMainKey: LordOfTheHunt
-  LevelToUnlock: 3
+  LevelToUnlock: 0
   ItemPrefab: {fileID: 5728865167009762987, guid: 84695cb7e1d731f4d852d88fe8c20003, type: 3}
   PlaceOnLocalBoard: 1

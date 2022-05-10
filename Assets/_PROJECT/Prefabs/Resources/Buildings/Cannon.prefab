@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretStats:
-    Name: Simple Turret
+    Name: Cannon
     SellPrice: 0
   turretExecutable:
     IsPrimaryExecutable: 1
@@ -111,13 +111,13 @@ MonoBehaviour:
     ProjectilePenetration: 20
     ProjectileSpeed: 15
     Damage:
-      BaseValue: 11
+      BaseValue: 14
       Value: 0
     Range:
-      BaseValue: 5
+      BaseValue: 6.5
       Value: 0
     AttackSpeed:
-      BaseValue: 2
+      BaseValue: 1.7
       Value: 0
     ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
     Job: {fileID: 11400000, guid: d4d2c926e3a030445aeecc59f726b6e0, type: 2}
@@ -125,8 +125,8 @@ MonoBehaviour:
   turretUpgradePaths: {fileID: 11400000, guid: df5789979373d2241bee5fc142a90112, type: 2}
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
-  shootSoundID: SimpleTurretShoot
-  projectileMainKey: SimpleTurretProjectile
+  shootSoundID: CannonShoot
+  projectileMainKey: CannonProjectile
   TurretOwnerID: 0
 --- !u!114 &4408110700257277375
 MonoBehaviour:
@@ -212,5 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKey: SimpleTurret
+  mainKey: Cannon
   graphicKey: 

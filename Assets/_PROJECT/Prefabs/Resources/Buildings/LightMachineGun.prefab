@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretStats:
-    Name: Advanced Turret
+    Name: Light Machine Gun
     SellPrice: 0
   turretExecutable:
     IsPrimaryExecutable: 1

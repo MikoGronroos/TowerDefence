@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2392965b00a11d429f11b3b171d55bc, type: 3}
-  m_Name: Unit2
+  m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
+  m_Name: Cannon
   m_EditorClassIdentifier: 
-  Cost: 12
-  IconMainKey: 
-  LevelToUnlock: 4
-  ItemPrefab: {fileID: 1750303906499475433, guid: a1e94977aeee8f8478af58f7e258ce93, type: 3}
-  IncomeAddonFromSpawning: 2
-  XpAddonWhenBought: 5
+  Cost: 20
+  IconMainKey: Cannon
+  LevelToUnlock: 1
+  ItemPrefab: {fileID: 5728865167009762987, guid: 89e754eefcef36546b03017703920591, type: 3}
+  PlaceOnLocalBoard: 1

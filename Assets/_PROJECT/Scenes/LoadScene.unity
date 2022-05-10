@@ -796,6 +796,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 89
       objectReference: {fileID: 0}
+    - target: {fileID: 2644921356024857927, guid: 6a263cc127493174e89fe1a69504a5c2, type: 3}
+      propertyPath: SoundEffects.Array.data[6].EffectID
+      value: LordOfTheHuntShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644921356024857927, guid: 6a263cc127493174e89fe1a69504a5c2, type: 3}
+      propertyPath: SoundEffects.Array.data[6].EffectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bce5a93a79b09e94f9a0fb9c691b9089, type: 3}
     - target: {fileID: 2644921356024857928, guid: 6a263cc127493174e89fe1a69504a5c2, type: 3}
       propertyPath: m_Name
       value: AudioManager

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretStats:
-    Name: Simple Turret
+    Name: Simple Mortar
     SellPrice: 0
   turretExecutable:
     IsPrimaryExecutable: 1
@@ -112,13 +112,13 @@ MonoBehaviour:
     ProjectilePenetration: 0
     ProjectileSpeed: 0
     Damage:
-      BaseValue: 70
+      BaseValue: 55
       Value: 0
     Range:
-      BaseValue: 20
+      BaseValue: 14.7
       Value: 0
     AttackSpeed:
-      BaseValue: 8.3
+      BaseValue: 8.9
       Value: 0
     ExecutablePrefab: {fileID: 1674684417496924349, guid: c0e185b1e5a8f9244a429e8d718822c7, type: 3}
     Job: {fileID: 11400000, guid: a4923d159ea522e449f5a46024dea0be, type: 2}
