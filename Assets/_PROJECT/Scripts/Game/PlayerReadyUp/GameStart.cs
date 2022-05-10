@@ -124,10 +124,15 @@ public class GameStart : MonoBehaviour
 
     private void StartGame()
     {
-        if ((currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1) || GameSettingsManager.Instance.GetGameSettings().Singleplayer)
+        if (currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1)
         {
             _photonView.RPC("RPCStartGame", RpcTarget.All);
         }
+
+#if UNITY_EDITOR
+        _photonView.RPC("RPCStartGame", RpcTarget.All);
+#endif
+
     }
 
     #region RPC Methods

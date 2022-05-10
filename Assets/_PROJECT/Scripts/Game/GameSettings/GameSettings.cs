@@ -15,7 +15,6 @@ public class GameSettings : ScriptableObject
     public int StartingLevel;
 
     [Header("General Game Settings")]
-    public bool Singleplayer;
 
     public int CurrentMapIndex;
 

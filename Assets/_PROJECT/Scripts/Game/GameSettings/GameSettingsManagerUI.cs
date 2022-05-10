@@ -8,8 +8,6 @@ using System;
 public class GameSettingsManagerUI : MonoBehaviour
 {
 
-    [SerializeField] private Toggle singleplayerToggle;
-
     [Header("Map Settings")]
     [SerializeField] private Button decrementMapIndexButton;
     [SerializeField] private Button incrementMapIndexButton;
@@ -21,10 +19,6 @@ public class GameSettingsManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        singleplayerToggle.onValueChanged.AddListener(delegate {
-            GameSettingsManager.Instance.GetGameSettings().Singleplayer = singleplayerToggle.isOn;
-        });
-
         decrementMapIndexButton.onClick.AddListener(() => {
             MapManager.Instance.ChangeMapIndex(-1);
         });
