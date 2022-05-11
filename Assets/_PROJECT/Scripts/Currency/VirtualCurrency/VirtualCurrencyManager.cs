@@ -5,10 +5,10 @@ using UnityEngine;
 public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyManager>
 {
 
-    [SerializeField] private int currentCurrency;
+    [SerializeField] private float currentCurrency;
     [SerializeField] private int maxCurrency;
 
-    [SerializeField] private CustomFloat currentIncome;
+    [SerializeField] private float currentIncome;
     [SerializeField] private float incomeInterval;
 
     [SerializeField] private CurrencyEventChannel currencyEventChannel;
@@ -61,19 +61,19 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     }
 
-    public void AddCurrency(int value)
+    public void AddCurrency(float value)
     {
         var currency = Mathf.Clamp(currentCurrency + value, 0, maxCurrency);
         SetCurrency(currency);
     }
 
-    public void SetCurrency(int value)
+    public void SetCurrency(float value)
     {
         currentCurrency = value;
         currencyEventChannel?.OnCurrencyChanged(new Dictionary<string, object> { { "Currency", currentCurrency } });
     }
 
-    public bool CheckIfPlayerHasEnoughCurrency(int value)
+    public bool CheckIfPlayerHasEnoughCurrency(float value)
     {
         if (currentCurrency >= value)
         {
@@ -88,31 +88,30 @@ public class VirtualCurrencyManager : MonoBehaviourSingleton<VirtualCurrencyMana
 
     public void RemoveIncome(int value)
     {
-        var income = currentIncome.BaseValue - value;
-        SetIncome((int)income);
+        var income = currentIncome - value;
+        SetIncome(income);
     }
 
-    public void AddIncome(int value)
+    public void AddIncome(float value)
     {
-        var income = currentIncome.BaseValue + value;
-        SetIncome((int)income);
+        var income = currentIncome + value;
+        SetIncome(income);
     }
 
-    public void SetIncome(int value)
+    public void SetIncome(float value)
     {
-        currentIncome.BaseValue = value;
+        currentIncome = value;
         UpdateIncome();
     }
 
     public void GiveIncome()
     {
-        AddCurrency((int)currentIncome.Value);
+        AddCurrency(currentIncome);
     }
 
     private void UpdateIncome()
     {
-        currentIncome.Value = currentIncome.BaseValue;
-        currencyEventChannel?.OnCurrencyIncomeChanged(new Dictionary<string, object> { { "Income", (int)currentIncome.Value } });
+        currencyEventChannel?.OnCurrencyIncomeChanged(new Dictionary<string, object> { { "Income", currentIncome } });
     }
 
     #endregion

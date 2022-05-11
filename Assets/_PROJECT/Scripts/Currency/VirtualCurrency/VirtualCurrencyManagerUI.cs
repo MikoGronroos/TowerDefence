@@ -35,7 +35,7 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
     private void UpdatePlayerCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        int value = (int)args["Currency"];
+        var value = (float)args["Currency"];
 
         currencyText.text = $"{value}{suffix}";
 
@@ -44,7 +44,7 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
     private void UpdatePlayerIncome(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        int value = (int)args["Income"];
+        var value = (float)args["Income"];
 
         incomeText.text = $"{value}{suffix}";
     }

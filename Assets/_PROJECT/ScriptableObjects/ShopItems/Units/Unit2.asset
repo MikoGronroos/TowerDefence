@@ -16,5 +16,5 @@ MonoBehaviour:
   IconMainKey: 
   LevelToUnlock: 4
   ItemPrefab: {fileID: 1750303906499475433, guid: a1e94977aeee8f8478af58f7e258ce93, type: 3}
-  IncomeAddonFromSpawning: 2
+  IncomeAddonFromSpawning: 12
   XpAddonWhenBought: 5

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopItemUnit : ShopItem
 {
 
-    public int IncomeAddonFromSpawning;
+    public float IncomeAddonFromSpawning;
 
     public int XpAddonWhenBought;
 
