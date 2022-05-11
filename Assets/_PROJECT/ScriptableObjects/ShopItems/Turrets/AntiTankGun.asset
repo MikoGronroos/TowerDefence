@@ -16,4 +16,5 @@ MonoBehaviour:
   IconMainKey: AntiTankGun
   LevelToUnlock: 4
   ItemPrefab: {fileID: 5728865167009762987, guid: 3da695e0ff64fb44fb37e89543e3a337, type: 3}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1

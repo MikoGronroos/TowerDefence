@@ -1,4 +1,5 @@
-﻿using Finark.Utils;
+﻿using Finark.Events;
+using Finark.Utils;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class ShopDragObject : MonoBehaviour
 {
 
     [SerializeField] private SpriteRenderer iconImage;
+
+    [SerializeField] private ShopEventChannel shopEventChannel;
 
     private ShopItemBuilding _shopItem;
 
@@ -30,6 +33,7 @@ public class ShopDragObject : MonoBehaviour
                 VirtualCurrencyManager.Instance.RemoveCurrency(_shopItem.Cost);
             }
         }
+        shopEventChannel?.OnExitedDragging();
         Destroy(gameObject);
     }
 

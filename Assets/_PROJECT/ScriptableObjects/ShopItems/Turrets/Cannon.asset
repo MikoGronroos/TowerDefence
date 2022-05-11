@@ -16,4 +16,5 @@ MonoBehaviour:
   IconMainKey: Cannon
   LevelToUnlock: 1
   ItemPrefab: {fileID: 5728865167009762987, guid: 89e754eefcef36546b03017703920591, type: 3}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1

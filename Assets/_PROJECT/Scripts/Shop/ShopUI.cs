@@ -40,11 +40,15 @@ public class ShopUI : MonoBehaviour
     private void OnEnable()
     {
         shopEventChannel.RefreshShop += RefreshShopUI;
+        shopEventChannel.OnEnteredDragging += DraggingEntered;
+        shopEventChannel.OnExitedDragging += DraggingExited;
     }
 
     private void OnDisable()
     {
         shopEventChannel.RefreshShop -= RefreshShopUI;
+        shopEventChannel.OnEnteredDragging -= DraggingEntered;
+        shopEventChannel.OnExitedDragging -= DraggingExited;
     }
 
     private void DrawShopItem(ShopItem item)
@@ -118,4 +122,15 @@ public class ShopUI : MonoBehaviour
             }
         }
     }
+
+    private void DraggingExited(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        shopPanel.SetActive(true);
+    }
+
+    private void DraggingEntered(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        shopPanel.SetActive(false);
+    }
+
 }

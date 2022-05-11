@@ -7,6 +7,8 @@ namespace Finark.Events
 	{
 
 		public EventChannel RefreshShop;
+		public EventChannel OnEnteredDragging;
+		public EventChannel OnExitedDragging;
 
 	}
 }

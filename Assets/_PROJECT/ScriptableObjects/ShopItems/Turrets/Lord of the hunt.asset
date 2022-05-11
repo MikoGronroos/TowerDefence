@@ -16,4 +16,5 @@ MonoBehaviour:
   IconMainKey: LordOfTheHunt
   LevelToUnlock: 0
   ItemPrefab: {fileID: 5728865167009762987, guid: 84695cb7e1d731f4d852d88fe8c20003, type: 3}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1

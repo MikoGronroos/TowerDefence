@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8099bce53170d294fab954e668822cca, type: 3}
-  m_Name: SImpleMortar
+  m_Name: SimpleMortar
   m_EditorClassIdentifier: 
   Cost: 65
   IconMainKey: SimpleMortar
   LevelToUnlock: 6
   ItemPrefab: {fileID: 2658719475313098691, guid: d170bb714a3929a4d968d85a6cd832cb, type: 3}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1

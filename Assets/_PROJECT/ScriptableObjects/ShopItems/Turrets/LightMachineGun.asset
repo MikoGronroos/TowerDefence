@@ -16,4 +16,5 @@ MonoBehaviour:
   IconMainKey: LightMachineGun
   LevelToUnlock: 2
   ItemPrefab: {fileID: 5728865167009762987, guid: fa14ef4e8d7f2e942a3120b04049adeb, type: 3}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1

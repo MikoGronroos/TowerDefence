@@ -1,9 +1,12 @@
-﻿using Finark.Utils;
+﻿using Finark.Events;
+using Finark.Utils;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Shop Item/Building")]
 public class ShopItemBuilding : ShopItem
 {
+
+    [SerializeField] private ShopEventChannel shopEventChannel;
 
     public bool PlaceOnLocalBoard;
     
@@ -24,6 +27,7 @@ public class ShopItemBuilding : ShopItem
 
         if (go.TryGetComponent(out ShopDragObject drag))
         {
+            shopEventChannel?.OnEnteredDragging();
             drag.Setup(GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(IconMainKey)), this);
         }
 

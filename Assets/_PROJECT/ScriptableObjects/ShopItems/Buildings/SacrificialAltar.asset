@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SacrificialAltar
   m_EditorClassIdentifier: 
   Cost: 75
-  Icon: {fileID: 21300000, guid: b5b4455d62254b54a97a95d37c337b47, type: 3}
+  IconMainKey: 
   LevelToUnlock: 1
   ItemPrefab: {fileID: 426021039518508845, guid: e48750c5788c4dc498ad46a95e4e2e83, type: 3}
+  shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1
