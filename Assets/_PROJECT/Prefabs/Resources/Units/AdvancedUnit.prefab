@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b300fa54bdf04f8d604966860ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats: {fileID: 11400000, guid: 85467655df787b24f8525eb5c051825c, type: 2}
+  unitStats: {fileID: 11400000, guid: 9a3c320327069774bb04adf162e9be70, type: 2}
   currentHealth: 10
   unitEventChannel: {fileID: 11400000, guid: 9cb7e6870d3751a4296a155f06a74c3f, type: 2}
   UnitOwnerID: 0

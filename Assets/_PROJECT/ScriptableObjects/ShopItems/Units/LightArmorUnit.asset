@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2392965b00a11d429f11b3b171d55bc, type: 3}
+  m_Name: LightArmorUnit
+  m_EditorClassIdentifier: 
+  Cost: 17
+  IconMainKey: LightArmorUnit
+  LevelToUnlock: 7
+  ItemPrefab: {fileID: 1750303906499475433, guid: edb6e85d038f9f74c92c51583147ca64, type: 3}
+  IncomeAddonFromSpawning: 3
+  XpAddonWhenBought: 7

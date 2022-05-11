@@ -60,3 +60,5 @@ MonoBehaviour:
     GraphicKey: 
   - MainKey: LightMachineGunProjectile
     GraphicKey: 
+  - MainKey: LightArmorUnit
+    GraphicKey: 
