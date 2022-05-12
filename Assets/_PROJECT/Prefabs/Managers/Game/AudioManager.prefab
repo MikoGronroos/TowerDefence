@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundEffects:
-  - EffectID: AdvancedTurretShoot
+  - EffectID: LightMachineGunShoot
     EffectClip: {fileID: 8300000, guid: 50c99ebfb6455b840943e77bfdef3db4, type: 3}
   - EffectID: CannonShoot
     EffectClip: {fileID: 8300000, guid: f1b862a276d0f734ba8c0fcf1845703a, type: 3}
