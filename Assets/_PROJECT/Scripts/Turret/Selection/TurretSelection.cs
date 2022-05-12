@@ -9,6 +9,8 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
     [SerializeField] private Turret selectedTurret;
 
+    [SerializeField] private LayerMask turretLayerMask;
+
     [SerializeField] private TurretEventChannel turretEventChannel;
 
     private void Update()
@@ -18,7 +20,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
         {
             Vector2 touchRay = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
 
-            RaycastHit2D hit = Physics2D.Raycast(touchRay, (Input.GetTouch(0).position));
+            RaycastHit2D hit = Physics2D.Raycast(touchRay, Input.GetTouch(0).position, Mathf.Infinity, turretLayerMask);
 
             ProcessHit(hit.transform);
 
@@ -29,7 +31,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
         if (Input.GetMouseButtonDown(0))
         {
 
-            RaycastHit2D hit = Physics2D.Raycast(MyUtils.GetMouseWorldPosition(), Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(MyUtils.GetMouseWorldPosition(), Vector2.zero, Mathf.Infinity, turretLayerMask);
 
             ProcessHit(hit.transform);
 
@@ -54,7 +56,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
     private void ProcessHit(Transform hit)
     {
 
-        if (hit == null)  return;
+        if (hit == null) return;
 
         if (hit.transform.TryGetComponent(out Turret turret))
         {

@@ -134,18 +134,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 632262794819119517, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: observableSearch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2425136198786527040, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: paths.Array.data[0].PlayedId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2425136198786527040, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: paths.Array.data[0].PathOwner
-      value: Player 2 Path
-      objectReference: {fileID: 0}
     - target: {fileID: 2425136198879211748, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -198,38 +186,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5347304179463393613, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5978276478219953479, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5978276478219953479, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5978276478219953479, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5978276478219953479, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5978276478219953479, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5978276478219953479, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223960534199509767, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6865239625804703385, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba5acc2876a3b1d4d9f0ec78deb3a7a3, type: 3}

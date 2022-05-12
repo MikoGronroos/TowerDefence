@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedTurret: {fileID: 0}
+  turretLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
 --- !u!114 &347891149674648680
 MonoBehaviour:
