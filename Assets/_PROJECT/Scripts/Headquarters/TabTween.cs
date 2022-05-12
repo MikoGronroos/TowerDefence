@@ -6,7 +6,6 @@ public class TabTween : MonoBehaviour
 {
 
     [SerializeField] private float panelEnterDuration;
-    [SerializeField] private float panelLeaveDuration;
     [SerializeField] private Vector2 endLocation;
 
     private RectTransform _rectTransform;
@@ -23,7 +22,11 @@ public class TabTween : MonoBehaviour
 
     public void ResetTween()
     {
-        _rectTransform.DOAnchorPos(endLocation, panelLeaveDuration);
+        _rectTransform.DOAnchorPos(endLocation, 0).OnComplete(()=> {
+
+            _rectTransform.DOKill();
+        
+        });
     }
 
 }
