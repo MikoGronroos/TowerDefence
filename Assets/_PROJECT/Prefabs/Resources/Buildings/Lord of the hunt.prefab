@@ -122,7 +122,7 @@ MonoBehaviour:
     ExecutablePrefab: {fileID: 1674684417496924349, guid: e4f00f2eef2dcfd4280776b75e72065a, type: 3}
     Job: {fileID: 11400000, guid: d4d2c926e3a030445aeecc59f726b6e0, type: 2}
   target: {fileID: 0}
-  turretUpgradePaths: {fileID: 11400000, guid: 6d52191915cfa194f9e455b706cd7852, type: 2}
+  turretUpgradePaths: {fileID: 11400000, guid: 67c10e66d512c0f4bbbca6db47ac5658, type: 2}
   turretUpgradePathIndex: 000000000000000000000000
   turretEventChannel: {fileID: 11400000, guid: 0b3546108a9b2504d980c6153be01306, type: 2}
   shootSoundID: LordOfTheHuntShoot
