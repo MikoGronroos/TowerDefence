@@ -1,5 +1,5 @@
 using Photon.Pun;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
@@ -16,7 +16,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        SceneManager.LoadScene("Headquarter");
     }
 
 

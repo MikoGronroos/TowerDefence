@@ -2,6 +2,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayFabLogin : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayFabLogin : MonoBehaviour
     private void OnSuccess(LoginResult result)
     {
         Debug.Log($"{result.PlayFabId}: has logged in!");
+        SceneManager.LoadScene("Headquarter");
         onLoginEvent?.Invoke();
     }
 }
