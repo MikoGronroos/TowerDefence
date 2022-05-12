@@ -16,5 +16,5 @@ MonoBehaviour:
   IconMainKey: LightArmorUnit
   LevelToUnlock: 7
   ItemPrefab: {fileID: 1750303906499475433, guid: edb6e85d038f9f74c92c51583147ca64, type: 3}
-  IncomeAddonFromSpawning: 3
+  IncomeAddonFromSpawning: 1.3
   XpAddonWhenBought: 7

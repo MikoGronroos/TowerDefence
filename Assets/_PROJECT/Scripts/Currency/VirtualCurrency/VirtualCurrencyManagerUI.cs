@@ -37,7 +37,7 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
 
         var value = (float)args["Currency"];
 
-        currencyText.text = $"{value}{suffix}";
+        currencyText.text = $"{(int)value}{suffix}";
 
     }
 
@@ -46,7 +46,8 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
 
         var value = (float)args["Income"];
 
-        incomeText.text = $"{value}{suffix}";
+        incomeText.text = $"{(int)value}{suffix}";
+
     }
 
     private void UpdatePlayerIncomeProgressBar(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
