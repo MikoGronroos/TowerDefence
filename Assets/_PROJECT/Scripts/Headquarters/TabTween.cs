@@ -6,6 +6,7 @@ public class TabTween : MonoBehaviour
 {
 
     [SerializeField] private float panelEnterDuration;
+    [SerializeField] private float panelExitDuration;
     [SerializeField] private Vector2 endLocation;
 
     private RectTransform _rectTransform;
@@ -17,16 +18,12 @@ public class TabTween : MonoBehaviour
 
     public void Tween(Action callback)
     {
-        _rectTransform.DOAnchorPos(Vector2.zero, panelEnterDuration).OnComplete(()=> { callback?.Invoke(); });
+        _rectTransform.DOAnchorPos(Vector2.zero, panelEnterDuration, false).OnComplete(()=> { callback?.Invoke(); });
     }
 
     public void ResetTween()
     {
-        _rectTransform.DOAnchorPos(endLocation, 0).OnComplete(()=> {
-
-            _rectTransform.DOKill();
-        
-        });
+        _rectTransform.DOAnchorPos(endLocation, panelExitDuration).OnComplete(()=> {    });
     }
 
 }
