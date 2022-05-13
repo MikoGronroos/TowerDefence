@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Finark.Utils;
 
 public class OwnedItemSlot : MonoBehaviour, IPointerClickHandler
 {
@@ -13,13 +14,19 @@ public class OwnedItemSlot : MonoBehaviour, IPointerClickHandler
         graphicKey = graphic;
     }
 
-    public void OnItemClicked()
+    public void OnItemEquipped()
     {
         SkinManager.Instance.SetGraphicKeyWithMainKey(mainKey, graphicKey);
     }
 
+    public void OnItemDequipped()
+    {
+        SkinManager.Instance.SetGraphicKeyWithMainKey(mainKey, "");
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnItemClicked();
+        InventoryTooltip.Instance.EnableTooltip(MyUtils.GetMouseWorldPosition(), OnItemEquipped, OnItemDequipped);
+
     }
 }

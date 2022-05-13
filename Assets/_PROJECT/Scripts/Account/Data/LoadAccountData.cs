@@ -17,6 +17,7 @@ public class LoadAccountData
     private static void OnDataReceived(GetUserDataResult result)
     {
 
+        PlayerSkins graphicsData = null;
         Account data = null;
 
         if (result.Data != null && result.Data.ContainsKey("AccountData"))
@@ -29,6 +30,16 @@ public class LoadAccountData
             Debug.Log($"Creating Account Data For The First Time.");
             data = new Account(1);
             AccountManager.Instance.CurrentAccount = data;
+        }
+
+        if (result.Data != null && result.Data.ContainsKey("SkinManagerData"))
+        {
+            graphicsData = JsonUtility.FromJson<PlayerSkins>(result.Data["SkinManagerData"].Value);
+            SkinManager.Instance.ReplaceGraphicsDataSet(graphicsData);
+        }
+        else
+        {
+            SaveAccountData.SaveTheSkinManagerData(SkinManager.Instance.GetGraphicsData());
         }
 
     }

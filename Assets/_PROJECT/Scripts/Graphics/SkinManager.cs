@@ -3,11 +3,11 @@
 public class SkinManager : MonoBehaviourSingletonDontDestroyOnLoad<SkinManager>
 {
 
-    [SerializeField] private Graphic[] graphics;
+    [SerializeField] private PlayerSkins skins;
 
     public string GetGraphicKeyWithMainKey(string mainKey)
     {
-        foreach (var graphic in graphics)
+        foreach (var graphic in skins.graphics)
         {
             if (graphic.MainKey == mainKey)
             {
@@ -19,13 +19,26 @@ public class SkinManager : MonoBehaviourSingletonDontDestroyOnLoad<SkinManager>
 
     public void SetGraphicKeyWithMainKey(string mainKey, string graphicKey)
     {
-        foreach (var graphic in graphics)
+        foreach (var graphic in skins.graphics)
         {
             if (graphic.MainKey == mainKey)
             {
                 graphic.GraphicKey = graphicKey;
             }
         }
+
+        SaveAccountData.SaveTheSkinManagerData(skins);
+
+    }
+
+    public void ReplaceGraphicsDataSet(PlayerSkins data)
+    {
+        skins = data;
+    }
+
+    public PlayerSkins GetGraphicsData()
+    {
+        return skins;
     }
 
 }
@@ -36,4 +49,10 @@ public class Graphic
 {
     public string MainKey;
     public string GraphicKey;
+}
+
+[System.Serializable]
+public class PlayerSkins
+{
+    public Graphic[] graphics;
 }

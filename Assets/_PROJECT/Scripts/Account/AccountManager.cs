@@ -24,7 +24,7 @@ public class AccountManager : MonoBehaviourSingletonDontDestroyOnLoad<AccountMan
 
     public void SaveData()
     {
-        SaveAccountData.SaveData(currentAccount);
+        SaveAccountData.SaveTheAccountData(currentAccount);
     }
 
 }
