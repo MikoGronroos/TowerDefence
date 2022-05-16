@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingCurrency: 40
   StartingIncome: 10
-  IncomeInterval: 10
+  IncomeInterval: 9
   StartingHealth: 75
   StartingLevel: 1
   CurrentMapIndex: 0
