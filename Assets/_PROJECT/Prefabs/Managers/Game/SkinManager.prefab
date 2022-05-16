@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skins:
     graphics:
-    - MainKey: SimpleUnit
+    - MainKey: SoldierUnit
       GraphicKey: 
     - MainKey: Cannon
       GraphicKey: 

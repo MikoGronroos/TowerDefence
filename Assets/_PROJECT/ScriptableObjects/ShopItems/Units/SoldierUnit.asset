@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2392965b00a11d429f11b3b171d55bc, type: 3}
-  m_Name: Unit1
+  m_Name: SoldierUnit
   m_EditorClassIdentifier: 
   Cost: 5
-  IconMainKey: SimpleUnit
+  IconMainKey: SoldierUnit
   LevelToUnlock: 1
   ItemPrefab: {fileID: 1750303906499475433, guid: 71b9b2fb138061b4db54740d3b445f90, type: 3}
   IncomeAddonFromSpawning: 1

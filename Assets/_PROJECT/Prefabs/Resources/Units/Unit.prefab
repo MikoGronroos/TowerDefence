@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKey: SimpleUnit
+  mainKey: SoldierUnit
   graphicKey: 
 --- !u!114 &1650463612382922608
 MonoBehaviour:
