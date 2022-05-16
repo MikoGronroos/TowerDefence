@@ -25,7 +25,6 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
             ProcessHit(hit.transform);
 
         }
-
 #endif
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
@@ -36,7 +35,6 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
             ProcessHit(hit.transform);
 
         }
-
 #endif
 
     }

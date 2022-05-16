@@ -5120,6 +5120,8 @@ MonoBehaviour:
   closeShopButton: {fileID: 7748768603172462243}
   openShopButton: {fileID: 0}
   shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
+  positiveIncomeColor: {r: 0.09040952, g: 1, b: 0, a: 1}
+  negativeIncomeColor: {r: 1, g: 0.07075471, b: 0.07075471, a: 1}
 --- !u!1 &3825025649252420778
 GameObject:
   m_ObjectHideFlags: 0

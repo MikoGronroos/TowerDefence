@@ -25,6 +25,10 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private ShopEventChannel shopEventChannel;
 
+    [Header("Colours")]
+    [SerializeField] private Color positiveIncomeColor;
+    [SerializeField] private Color negativeIncomeColor;
+
     private List<GameObject> _drawnShopItems = new List<GameObject>();
 
     private void Awake()
@@ -56,11 +60,12 @@ public class ShopUI : MonoBehaviour
 
         Transform parent = null;
 
+
         if (item is ShopItemUnit)
         {
             parent = unitShopItemParent;
         }
-        else if(item is ShopItemTurret)
+        else if (item is ShopItemTurret)
         {
             parent = turretShopItemParent;
         }
@@ -75,6 +80,22 @@ public class ShopUI : MonoBehaviour
         var itemScript = shopItem.GetComponent<ShopObject>();
 
         itemScript.SetCostText(item.Cost.ToString() + " " + suffix);
+
+        if (item is ShopItemUnit)
+        {
+            var newItem = (ShopItemUnit)item;
+
+            if (newItem.IncomeAddonFromSpawning > 0)
+            {
+                itemScript.SetIncomeAddonText("+ " + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, positiveIncomeColor);
+            }
+            else
+            {
+                itemScript.SetIncomeAddonText("- " + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, negativeIncomeColor);
+            }
+
+        }
+
         itemScript.SetItemIcon(GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(item.IconMainKey)));
         itemScript.SetThisItem(item);
 
