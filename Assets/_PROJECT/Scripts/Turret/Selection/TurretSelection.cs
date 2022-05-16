@@ -54,7 +54,11 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
     private void ProcessHit(Transform hit)
     {
 
-        if (hit == null) return;
+        if (hit == null)
+        {
+            DeselectTurret();
+            return;
+        }
 
         if (hit.transform.TryGetComponent(out Turret turret))
         {
@@ -78,17 +82,21 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
         }
         else
         {
-            if (MyUtils.IsPointerOverUI()) return;
-
-            if (selectedTurret == null) return;
-
-            RangeVisualisation.Instance.EraseCircle(selectedTurret.gameObject);
-            selectedTurret = null;
-
-            turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", false },{ "turret", null }});
-
+            DeselectTurret();
         }
 
+    }
+
+    private void DeselectTurret()
+    {
+        if (MyUtils.IsPointerOverUI()) return;
+
+        if (selectedTurret == null) return;
+
+        RangeVisualisation.Instance.EraseCircle(selectedTurret.gameObject);
+        selectedTurret = null;
+
+        turretEventChannel?.OnTurretSelected(new Dictionary<string, object> { { "toggleValue", false }, { "turret", null } });
     }
 
 }
