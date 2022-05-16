@@ -63,3 +63,5 @@ MonoBehaviour:
       GraphicKey: 
     - MainKey: LightArmorUnit
       GraphicKey: 
+    - MainKey: TruckUnit
+      GraphicKey: 
