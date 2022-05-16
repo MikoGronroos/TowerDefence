@@ -91,11 +91,11 @@ public class ShopUI : MonoBehaviour
 
             if (newItem.IncomeAddonFromSpawning > 0)
             {
-                itemScript.SetIncomeAddonText(newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, positiveIncomeColor, positiveIncomeImage);
+                itemScript.SetIncomeAddonText("<sprite index=0>" + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, positiveIncomeColor);
             }
             else
             {
-                itemScript.SetIncomeAddonText(newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, negativeIncomeColor, negativeIncomeImage);
+                itemScript.SetIncomeAddonText("<sprite index=1>" + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, negativeIncomeColor);
             }
 
         }
