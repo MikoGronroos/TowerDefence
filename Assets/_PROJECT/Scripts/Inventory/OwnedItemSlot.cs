@@ -27,6 +27,5 @@ public class OwnedItemSlot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         InventoryTooltip.Instance.EnableTooltip(MyUtils.GetMouseWorldPosition(), OnItemEquipped, OnItemDequipped);
-
     }
 }

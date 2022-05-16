@@ -19,6 +19,7 @@ public class SkinManager : MonoBehaviourSingletonDontDestroyOnLoad<SkinManager>
 
     public void SetGraphicKeyWithMainKey(string mainKey, string graphicKey)
     {
+
         foreach (var graphic in skins.graphics)
         {
             if (graphic.MainKey == mainKey)

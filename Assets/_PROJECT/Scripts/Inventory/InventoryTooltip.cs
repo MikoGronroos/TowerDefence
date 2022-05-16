@@ -17,15 +17,16 @@ public class InventoryTooltip : MonoBehaviourSingleton<InventoryTooltip>
 
     public void EnableTooltip(Vector3 position, UnityAction equipCallback, UnityAction dequipCallback)
     {
+
+        RemoveListenersFromButtons();
+
         equipSkinButton.onClick.AddListener(()=> {
             equipCallback();
-            equipSkinButton.onClick.RemoveListener(equipCallback);
             DisableTooltip();
         });
 
         dequipSkinButton.onClick.AddListener(() => {
             dequipCallback();
-            dequipSkinButton.onClick.RemoveListener(dequipCallback);
             DisableTooltip();
         });
 
@@ -35,7 +36,14 @@ public class InventoryTooltip : MonoBehaviourSingleton<InventoryTooltip>
 
     public void DisableTooltip()
     {
+        RemoveListenersFromButtons();
         tooltipObject.SetActive(false);
+    }
+
+    private void RemoveListenersFromButtons()
+    {
+        dequipSkinButton.onClick.RemoveAllListeners();
+        equipSkinButton.onClick.RemoveAllListeners();
     }
 
 }
