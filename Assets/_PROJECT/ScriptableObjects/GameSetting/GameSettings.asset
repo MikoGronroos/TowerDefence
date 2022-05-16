@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   StartingCurrency: 40
-  StartingIncome: 7
-  IncomeInterval: 17
+  StartingIncome: 10
+  IncomeInterval: 10
   StartingHealth: 75
   StartingLevel: 1
   CurrentMapIndex: 0

@@ -25,6 +25,10 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private ShopEventChannel shopEventChannel;
 
+    [Header("Income Type Images")]
+    [SerializeField] private Sprite positiveIncomeImage;
+    [SerializeField] private Sprite negativeIncomeImage;
+
     [Header("Colours")]
     [SerializeField] private Color positiveIncomeColor;
     [SerializeField] private Color negativeIncomeColor;
@@ -87,11 +91,11 @@ public class ShopUI : MonoBehaviour
 
             if (newItem.IncomeAddonFromSpawning > 0)
             {
-                itemScript.SetIncomeAddonText("+ " + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, positiveIncomeColor);
+                itemScript.SetIncomeAddonText(newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, positiveIncomeColor, positiveIncomeImage);
             }
             else
             {
-                itemScript.SetIncomeAddonText("- " + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, negativeIncomeColor);
+                itemScript.SetIncomeAddonText(newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, negativeIncomeColor, negativeIncomeImage);
             }
 
         }

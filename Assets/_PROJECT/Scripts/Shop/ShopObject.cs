@@ -10,6 +10,7 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
     [SerializeField] private TextMeshProUGUI incomeAddonText;
 
     [SerializeField] private Image itemIcon;
+    [SerializeField] private Image incomeTypeImage;
 
 
     private ShopItem _thisItem;
@@ -35,10 +36,13 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
         costText.text = content;
     }
 
-    public void SetIncomeAddonText(string content, Color color)
+    public void SetIncomeAddonText(string content, Color color, Sprite image)
     {
+        incomeTypeImage.enabled = true;
         incomeAddonText.color = color;
         incomeAddonText.text = content;
+        incomeTypeImage.sprite = image;
+        incomeTypeImage.color = color;
     }
 
     public void SetItemIcon(Sprite icon)
