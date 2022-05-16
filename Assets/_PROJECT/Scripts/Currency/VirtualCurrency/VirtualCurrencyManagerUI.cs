@@ -46,7 +46,9 @@ public class VirtualCurrencyManagerUI : MonoBehaviour
 
         var value = (float)args["Income"];
 
-        incomeText.text = $"{(int)value}{suffix}";
+        var prefix = value > 0 ? "<sprite index=0>" : "<sprite index=1>";
+
+        incomeText.text = $"{prefix}{(int)value}{suffix}";
 
     }
 

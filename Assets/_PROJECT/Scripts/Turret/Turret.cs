@@ -63,6 +63,15 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
     {
         if (_photonView.IsMine)
         {
+
+            if (HasTarget())
+            {
+                if (Vector2.Distance(target.position, transform.position) > turretExecutable.Range.Value)
+                {
+                    target = null;
+                }
+            }
+
             Timer();
             FollowClosestTarget();
             base.Update();

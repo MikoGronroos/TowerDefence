@@ -25,10 +25,6 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private ShopEventChannel shopEventChannel;
 
-    [Header("Income Type Images")]
-    [SerializeField] private Sprite positiveIncomeImage;
-    [SerializeField] private Sprite negativeIncomeImage;
-
     [Header("Colours")]
     [SerializeField] private Color positiveIncomeColor;
     [SerializeField] private Color negativeIncomeColor;
