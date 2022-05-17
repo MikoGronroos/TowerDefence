@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6503357768503523879}
   - component: {fileID: 1650463612382922608}
   m_Layer: 6
-  m_Name: Unit
+  m_Name: SoldierUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     ExtrapolateIncludingRoundTripTime: 1
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
-    SynchronizeEnabled: 0
+    SynchronizeEnabled: 1
     InterpolateOption: 1
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
