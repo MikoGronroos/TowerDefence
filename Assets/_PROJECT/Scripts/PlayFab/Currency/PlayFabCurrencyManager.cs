@@ -129,21 +129,21 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
 
     private void RefreshCurrencies(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnRefreshSuccess, OnRefreshError);
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), (GetUserInventoryResult result) => 
+        {
+            hardCurrency = result.VirtualCurrency["HC"];
+            softCurrency = result.VirtualCurrency["SC"];
+            playFabCurrencyEventChannel.AmountOfHardCurrencyChanged?.Invoke(new Dictionary<string, object> { { "TotalAmount", result.VirtualCurrency["HC"] } });
+            playFabCurrencyEventChannel.AmountOfSoftCurrencyChanged?.Invoke(new Dictionary<string, object> { { "TotalAmount", result.VirtualCurrency["SC"] } });
+            callback?.Invoke(null);
+        }, 
+        OnRefreshError);
     }
 
     #region PlayFab Callbacks
 
     private void OnRefreshError(PlayFabError error)
     {
-    }
-
-    private void OnRefreshSuccess(GetUserInventoryResult result)
-    {
-        hardCurrency = result.VirtualCurrency["HC"];
-        softCurrency = result.VirtualCurrency["SC"];
-        playFabCurrencyEventChannel.AmountOfHardCurrencyChanged?.Invoke(new Dictionary<string, object> { {"TotalAmount", result.VirtualCurrency["HC"] } });
-        playFabCurrencyEventChannel.AmountOfSoftCurrencyChanged?.Invoke(new Dictionary<string, object> { { "TotalAmount", result.VirtualCurrency["SC"] } });
     }
 
     #region Substract

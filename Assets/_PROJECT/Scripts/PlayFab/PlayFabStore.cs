@@ -143,7 +143,10 @@ public class PlayFabStore : MonoBehaviour
                 result => { Debug.Log("Cloud script call succesful"); },
                 failure =>{ });
 
-                playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies?.Invoke();
+                playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies?.Invoke(null, (Dictionary<string, object> args) => 
+                {
+                    GetItems(null, null); 
+                });
 
             },
             error => 
