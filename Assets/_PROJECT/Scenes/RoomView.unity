@@ -2127,6 +2127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675400263}
   - component: {fileID: 1675400264}
+  - component: {fileID: 1675400265}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -2165,6 +2166,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b67ddf50a61b99a44b49aaac569ab309, type: 2}
   - {fileID: 11400000, guid: 3dff02369668d884987aa07b33cdc7ea, type: 2}
   roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
+--- !u!114 &1675400265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675400262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1939648826
 GameObject:
   m_ObjectHideFlags: 0

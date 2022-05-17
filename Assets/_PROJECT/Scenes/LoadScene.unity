@@ -585,6 +585,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}
 --- !u!1001 &1352857150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,6 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa66e7f8c8a55c04e91af5c8047836c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}
 --- !u!1001 &2019315572
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,8 +1,11 @@
+using Finark.Events;
 using Photon.Pun;
 using UnityEngine;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
+
+    [SerializeField] private ServerEventChannel serverEventChannel;
 
     private void Start()
     {
@@ -16,6 +19,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        serverEventChannel.OnLobbyJoined?.Invoke();
     }
 
 

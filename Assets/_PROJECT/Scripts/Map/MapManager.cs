@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Photon.Pun;
 using Finark.Events;
 
 public class MapManager : MonoBehaviourSingleton<MapManager>
@@ -11,7 +12,14 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
 
     private int _currentMapIndex = 0;
 
+    private PhotonView _photonView;
+
     private const int _defaultMapIndex = 0;
+
+    private void Awake()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
 
     private void Start()
     {
@@ -19,6 +27,12 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
     }
 
     public void ChangeMapIndex(int amount)
+    {
+        _photonView.RPC("RPCChangeMapIndex", RpcTarget.AllBuffered, amount);
+    }
+
+    [PunRPC]
+    private void RPCChangeMapIndex(int amount)
     {
 
         _currentMapIndex += amount;
