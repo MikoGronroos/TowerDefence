@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8415875672384567731}
   - component: {fileID: 6503357768503523879}
   m_Layer: 6
-  m_Name: SoldierUnit
+  m_Name: SupportCarUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b300fa54bdf04f8d604966860ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats: {fileID: 11400000, guid: bad1871f181dffd47973f954c01bfe18, type: 2}
+  unitStats: {fileID: 11400000, guid: 3eb01947fae4ef4418b56a3192214211, type: 2}
   currentHealth: 10
   unitEventChannel: {fileID: 11400000, guid: 9cb7e6870d3751a4296a155f06a74c3f, type: 2}
   UnitOwnerID: 0
@@ -247,5 +247,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKey: SoldierUnit
+  mainKey: SupportCarUnit
   graphicKey: 

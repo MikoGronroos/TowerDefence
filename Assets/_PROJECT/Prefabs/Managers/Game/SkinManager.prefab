@@ -65,3 +65,5 @@ MonoBehaviour:
       GraphicKey: 
     - MainKey: TruckUnit
       GraphicKey: 
+    - MainKey: SupportCarUnit
+      GraphicKey: 

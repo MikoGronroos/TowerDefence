@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 119c9667f985ee3468276d0ffcdcbc94, type: 3}
-  m_Name: SoldierUnit
+  m_Name: SupportCarUnit
   m_EditorClassIdentifier: 
   UnitID: 0
   StartHealth: 25
-  Speed: 1
+  Speed: 1.7
   Damage: 1
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}

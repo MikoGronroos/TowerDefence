@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2392965b00a11d429f11b3b171d55bc, type: 3}
-  m_Name: SoldierUnit
+  m_Name: SupportCarUnit
   m_EditorClassIdentifier: 
-  Cost: 5
-  IconMainKey: SoldierUnit
+  Cost: 3
+  IconMainKey: SupportCarUnit
   LevelToUnlock: 1
-  ItemPrefab: {fileID: 1750303906499475433, guid: 71b9b2fb138061b4db54740d3b445f90, type: 3}
-  IncomeAddonFromSpawning: 1.1
-  XpAddonWhenBought: 2
+  ItemPrefab: {fileID: 1750303906499475433, guid: 2d7bba3e8f029d5498d73f8b15f1056a, type: 3}
+  IncomeAddonFromSpawning: 1
+  XpAddonWhenBought: 1
