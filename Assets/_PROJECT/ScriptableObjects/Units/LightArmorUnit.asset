@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitID: 0
   StartHealth: 65
-  Speed: 2.7
+  Speed: 2.4
   Damage: 5
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}

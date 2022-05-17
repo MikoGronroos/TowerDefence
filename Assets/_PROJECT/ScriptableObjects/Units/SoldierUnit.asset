@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoldierUnit
   m_EditorClassIdentifier: 
   UnitID: 0
-  StartHealth: 25
+  StartHealth: 14
   Speed: 1.6
   Damage: 1
   ProjectileTypesAllowed:
