@@ -10,7 +10,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_InputField createRoomInput;
     [SerializeField] private TMP_InputField joinRoomInput;
 
-    private bool _isCreatingOrJoiningARoom = false;
+    [SerializeField] private bool _isCreatingOrJoiningARoom = false;
 
     public void CreateRoom()
     {
@@ -40,6 +40,18 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         _isCreatingOrJoiningARoom = false;
         PhotonNetwork.LoadLevel(sceneToLoad);
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        _isCreatingOrJoiningARoom = false;
+        base.OnCreateRoomFailed(returnCode, message);
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        _isCreatingOrJoiningARoom = false;
+        base.OnJoinRoomFailed(returnCode, message);
     }
 
 } 
