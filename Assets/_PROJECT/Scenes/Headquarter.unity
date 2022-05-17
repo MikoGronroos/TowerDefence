@@ -6421,12 +6421,11 @@ MonoBehaviour:
   bundleSlotPrefab: {fileID: 0}
   storeSlotParent: {fileID: 1872354533}
   bundleSlotParent: {fileID: 0}
+  storeButton: {fileID: 1002713369}
   storeEventChannel: {fileID: 11400000, guid: 41f838ec7dbb42742a66dad4d12c7a12, type: 2}
   playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}
   bundlePopup: {fileID: 1752175528}
   bundleNameText: {fileID: 684805502}
-  allowedToBuyColor: {r: 0.18798423, g: 1, b: 0, a: 1}
-  notAllowedToBuyColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!222 &1905158112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6995,6 +6994,7 @@ MonoBehaviour:
   sceneToLoad: RoomView
   createRoomInput: {fileID: 1483579964}
   joinRoomInput: {fileID: 646611961}
+  _isCreatingOrJoiningARoom: 0
 --- !u!4 &2014006971
 Transform:
   m_ObjectHideFlags: 0

@@ -229,6 +229,8 @@ MonoBehaviour:
   currencyIcon: {fileID: 5280467151645550932}
   hcIcon: {fileID: 21300000, guid: f9b075d77ffc6c6469314600e4595a1f, type: 3}
   scIcon: {fileID: 21300000, guid: d0992333e3645514ebb254e65e030128, type: 3}
+  allowedToBuyColor: {r: 0.10893285, g: 1, b: 0, a: 1}
+  notAllowedToBuyColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8130100305519337906
 GameObject:
   m_ObjectHideFlags: 0

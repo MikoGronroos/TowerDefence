@@ -10,8 +10,6 @@ using System;
 public class PlayFabLogin : MonoBehaviour
 {
 
-    [SerializeField] private UnityEvent onLoginEvent;
-
     [SerializeField] private ServerEventChannel serverEventChannel;
 
     private void OnEnable()
@@ -49,6 +47,6 @@ public class PlayFabLogin : MonoBehaviour
     {
         Debug.Log($"{result.PlayFabId}: has logged in!");
         SceneManager.LoadScene("Headquarter");
-        onLoginEvent?.Invoke();
+        serverEventChannel.OnLogin?.Invoke();
     }
 }

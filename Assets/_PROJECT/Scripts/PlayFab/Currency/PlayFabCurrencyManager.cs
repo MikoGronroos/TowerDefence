@@ -5,35 +5,30 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayFabCurrencyManager : MonoBehaviour
+public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<PlayFabCurrencyManager>
 {
 
     [SerializeField] private int hardCurrency;
     [SerializeField] private int softCurrency;
 
     [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
+    [SerializeField] private ServerEventChannel serverEventChannel;
 
-    private void Awake()
+    public override void OnEnable()
     {
-       DontDestroyOnLoad(gameObject);
-    }
-
-    private void OnEnable()
-    {
+        base.OnEnable();
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency += HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency += SoftCurrencyChanged;
         playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies += RefreshCurrencies;
-        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughHardCurrency += HasEnoughtHardCurrency;
-        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughSoftCurrency += HasEnoughtSoftCurrency;
+        serverEventChannel.OnLogin += OnLoginListener;
     }
 
     private void OnDisable()
     {
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency -= HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency -= SoftCurrencyChanged;
-        playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies -= RefreshCurrencies;
-        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughHardCurrency -= HasEnoughtHardCurrency;
-        playFabCurrencyEventChannel.CheckIfPlayerHasEnoughSoftCurrency -= HasEnoughtSoftCurrency;
+        playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies -= RefreshCurrencies; 
+        serverEventChannel.OnLogin -= OnLoginListener;
     }
 
     private void SoftCurrencyChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
@@ -115,21 +110,18 @@ public class PlayFabCurrencyManager : MonoBehaviour
 
     #region Currency Checks
 
-    private void HasEnoughtSoftCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    public bool HasEnoughtSoftCurrency(int cost)
     {
-        int cost = (int)args["Cost"];
 
         RefreshCurrencies(null, null);
 
-        callback?.Invoke(new Dictionary<string, object> { { "Value", softCurrency >= cost } });
+        return softCurrency >= cost;
     }
-    private void HasEnoughtHardCurrency(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    public bool HasEnoughtHardCurrency(int cost)
     {
-        int cost = (int)args["Cost"];
-
         RefreshCurrencies(null, null);
 
-        callback?.Invoke(new Dictionary<string, object> { { "Value", hardCurrency >= cost } });
+        return hardCurrency >= cost;
     }
 
 
@@ -202,5 +194,11 @@ public class PlayFabCurrencyManager : MonoBehaviour
     #endregion
 
     #endregion
+
+    private void OnLoginListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    {
+        RefreshCurrencies(null,null);
+    }
+
 
 }

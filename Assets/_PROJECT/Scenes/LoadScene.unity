@@ -349,6 +349,7 @@ MonoBehaviour:
     AccountXp: 0
     Winstreak: 0
     GamesPlayed: 0
+  serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}
 --- !u!1 &981484862
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,33 +559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5c738fba2f01f46ae012539d8cf905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onLoginEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 959571758}
-        m_TargetAssemblyTypeName: AccountManager, Assembly-CSharp
-        m_MethodName: LoadData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1659161425}
-        m_TargetAssemblyTypeName: DeveloperHandler, Assembly-CSharp
-        m_MethodName: CheckIfDeveloper
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}
 --- !u!1001 &1352857150
 PrefabInstance:
@@ -686,6 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a03bcb028d58754d9503a962ada8925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}
 --- !u!1 &1754255881
 GameObject:
   m_ObjectHideFlags: 0

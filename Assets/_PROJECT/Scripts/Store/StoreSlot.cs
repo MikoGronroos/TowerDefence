@@ -17,30 +17,32 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
 	[SerializeField] private Sprite hcIcon;
 	[SerializeField] private Sprite scIcon;
 
-    private Dictionary<string, object> _currentArgs;
+    [Header("Slot Text")]
+    [SerializeField] private Color allowedToBuyColor;
+    [SerializeField] private Color notAllowedToBuyColor;
+
+    private StoreItem _currentStoreItem;
 
     private Action<Dictionary<string, object>> _onBuyAction;
 
-    public void Initialize(Dictionary<string, object> args, Action<Dictionary<string, object>> callback, Color textColor)
+    public void Initialize(StoreItem storeItem, Action<Dictionary<string, object>> callback)
     {
 
-        _currentArgs = args;
+        _currentStoreItem = storeItem;
 
-        StoreItem item = (StoreItem)args["Item"];
+        costText.text = _currentStoreItem.Price.ToString();
 
-        costText.text = item.Price.ToString();
+        icon.sprite = _currentStoreItem.Icon;
 
-        costText.color = textColor;
-
-        icon.sprite = item.Icon;
-
-        switch (item.currencyType)
+        switch (_currentStoreItem.currencyType)
         {
             case CurrencyType.HardCurrency:
                 currencyIcon.sprite = hcIcon;
+                costText.color = PlayFabCurrencyManager.Instance.HasEnoughtHardCurrency((int)_currentStoreItem.Price) ? allowedToBuyColor : notAllowedToBuyColor;
                 break;
             case CurrencyType.SoftCurrency:
                 currencyIcon.sprite = scIcon;
+                costText.color = PlayFabCurrencyManager.Instance.HasEnoughtSoftCurrency((int)_currentStoreItem.Price) ? allowedToBuyColor : notAllowedToBuyColor;
                 break;
         }
 
@@ -50,9 +52,8 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
         //Buy item
-        _onBuyAction?.Invoke(_currentArgs);
+        _onBuyAction?.Invoke(new Dictionary<string, object> { { "Item", _currentStoreItem } });
     }
 
 }

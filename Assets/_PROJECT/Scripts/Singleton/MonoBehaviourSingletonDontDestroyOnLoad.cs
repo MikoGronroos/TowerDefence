@@ -16,7 +16,7 @@ public abstract class MonoBehaviourSingletonDontDestroyOnLoad<T> : MonoBehaviour
         }
     }
 
-    void OnEnable()
+    public virtual void OnEnable()
     {
         if (_singletons.ContainsKey(GetType()))
         {

@@ -46,3 +46,4 @@ MonoBehaviour:
   hardCurrency: 0
   softCurrency: 0
   playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}
+  serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}

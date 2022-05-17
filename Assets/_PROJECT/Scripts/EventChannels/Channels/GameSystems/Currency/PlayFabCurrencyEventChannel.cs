@@ -11,9 +11,6 @@ namespace Finark.Events
 		public EventChannel AmountOfSoftCurrencyChanged;
 		public EventChannel AmountOfHardCurrencyChanged;
 
-		public EventChannel CheckIfPlayerHasEnoughHardCurrency;
-		public EventChannel CheckIfPlayerHasEnoughSoftCurrency;
-
 		public EventChannel RefreshHardAndSoftCurrencies;
 	}
 }

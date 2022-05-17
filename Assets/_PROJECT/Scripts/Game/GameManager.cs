@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
             AccountManager.Instance.CurrentAccount.Winstreak = 0;
         }
 
+        AccountManager.Instance.CurrentAccount.GamesPlayed++;
         AccountManager.Instance.SaveData();
 
         sceneManagementEventChannel?.UnloadScenes(null, OnScenesUnloaded);

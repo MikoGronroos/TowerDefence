@@ -2,6 +2,7 @@ using Finark.Events;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using PlayFab.ClientModels;
 
@@ -14,6 +15,8 @@ public class StoreUI : MonoBehaviour
     [SerializeField] private Transform storeSlotParent;
     [SerializeField] private Transform bundleSlotParent;
 
+    [SerializeField] private Button storeButton;
+
     [SerializeField] private StoreEventChannel storeEventChannel;
     [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
 
@@ -21,34 +24,34 @@ public class StoreUI : MonoBehaviour
     [SerializeField] private GameObject bundlePopup;
     [SerializeField] private TextMeshProUGUI bundleNameText;
 
-    [Header("Slot Text")]
-    [SerializeField] private Color allowedToBuyColor;
-    [SerializeField] private Color notAllowedToBuyColor;
+    private List<GameObject> _storeSlots = new List<GameObject>();
+
+    private void Awake()
+    {
+        storeButton.onClick.AddListener(()=> {
+            storeEventChannel.OnStoreOpened?.Invoke();
+        });
+    }
 
     private void OnEnable()
     {
-        storeEventChannel.ItemFetched += ItemFetched;
+        storeEventChannel.StoreItemsFetched += StoreItemsFetched;
         storeEventChannel.BundleFetched += BundleFetched;
     }
 
     private void OnDisable()
     {
-        storeEventChannel.ItemFetched -= ItemFetched;
+        storeEventChannel.StoreItemsFetched -= StoreItemsFetched;
         storeEventChannel.BundleFetched -= BundleFetched;
     }
 
-    private void ItemFetched(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    private void StoreItemsFetched(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
+        List<StoreItem> items = (List<StoreItem>)args["StoreItems"];
 
-        GameObject slot = Instantiate(storeSlotPrefab, storeSlotParent);
+        ClearUI();
 
-        var storeSlot = slot.GetComponent<StoreSlot>();
-
-        StoreItem item = (StoreItem)args["Item"];
-
-        Color textColor = notAllowedToBuyColor;
-
-        storeSlot.Initialize(args, callback, textColor);
+        DrawUI(items, callback);
 
     }
 
@@ -60,6 +63,31 @@ public class StoreUI : MonoBehaviour
 
         bundleNameText.text = catalogItem.DisplayName;
 
+    }
+
+    private void ClearUI()
+    {
+        foreach (var item in _storeSlots)
+        {
+            Destroy(item);
+        }
+
+        _storeSlots.Clear();
+    }
+
+    private void DrawUI(List<StoreItem> items, Action<Dictionary<string, object>> callback)
+    {
+        foreach (var item in items)
+        {
+            GameObject slot = Instantiate(storeSlotPrefab, storeSlotParent);
+
+            _storeSlots.Add(slot);
+
+            var storeSlot = slot.GetComponent<StoreSlot>();
+
+            storeSlot.Initialize(item, callback);
+
+        }
     }
 
 }

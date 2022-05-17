@@ -4,6 +4,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using Finark.Events;
 using System.Linq;
+using System;
 
 public class PlayFabStore : MonoBehaviour
 {
@@ -15,14 +16,19 @@ public class PlayFabStore : MonoBehaviour
     [SerializeField] private StoreEventChannel storeEventChannel;
     [SerializeField] private PlayFabCurrencyEventChannel playFabCurrencyEventChannel;
 
-    private void Start()
+    private void OnEnable()
     {
-        GetItems();
+        storeEventChannel.OnStoreOpened += GetItems;
+    }
+
+    private void OnDisable()
+    {
+        storeEventChannel.OnStoreOpened -= GetItems;
     }
 
     #region GetItems
 
-    public void GetItems()
+    public void GetItems(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
         GetCatalogItemsRequest request = new GetCatalogItemsRequest();
 
@@ -36,6 +42,8 @@ public class PlayFabStore : MonoBehaviour
 
     private void Result(GetCatalogItemsResult result)
     {
+
+        storeItems.Clear();
 
         List<CatalogItem> Items = result.Catalog;
 
@@ -74,15 +82,17 @@ public class PlayFabStore : MonoBehaviour
                 storeItem.Icon = GraphicsManager.Instance.GetSprite(data.SkinName);
             }
 
+            storeItem.SkinID = data.SkinName;
+
+            storeItem.MainKey = data.MainKey;
+
             storeItem.ID = item.ItemId;
 
             storeItems.Add(storeItem);
 
-            storeEventChannel.ItemFetched?.Invoke(new Dictionary<string, object> { {"Item", storeItem},
-                { "SkinId", data.SkinName }, 
-                { "MainKey", data.MainKey } }, 
-                BuyItem);
         }
+
+        storeEventChannel.StoreItemsFetched?.Invoke(new Dictionary<string, object> { {"StoreItems", storeItems} }, BuyItem);
 
     }
 
@@ -94,8 +104,6 @@ public class PlayFabStore : MonoBehaviour
     {
 
         StoreItem item = (StoreItem)args["Item"];
-        string skinId = (string)args["SkinId"];
-        string mainKey = (string)args["MainKey"];
 
         PurchaseItemRequest request = new PurchaseItemRequest();
 
@@ -130,7 +138,7 @@ public class PlayFabStore : MonoBehaviour
                 PlayFabClientAPI.ExecuteCloudScript(new ExecuteCloudScriptRequest()
                 {
                     FunctionName = "SetInstanceData",
-                    FunctionParameter = new { ItemId = result.Items.First().ItemInstanceId, SkinId = skinId, MainKey = mainKey }
+                    FunctionParameter = new { ItemId = result.Items.First().ItemInstanceId, SkinId = item.SkinID, MainKey = item.MainKey }
                 }, 
                 result => { Debug.Log("Cloud script call succesful"); },
                 failure =>{ });
@@ -162,6 +170,10 @@ public class StoreItem
     public string ID;
 
     public CurrencyType currencyType;
+
+    public string SkinID;
+
+    public string MainKey;
 
 }
 
