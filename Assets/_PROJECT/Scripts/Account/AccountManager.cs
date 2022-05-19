@@ -35,7 +35,7 @@ public class AccountManager : MonoBehaviourSingletonDontDestroyOnLoad<AccountMan
 
     private void OnLoginListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        SaveData();
+        LoadData();
     }
 
     public void LoadData()

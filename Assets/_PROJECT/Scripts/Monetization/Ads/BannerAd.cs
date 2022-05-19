@@ -20,8 +20,16 @@ public class BannerAd : MonoBehaviour
 
         Advertisement.Banner.SetPosition(_bannerPosition);
 
-        ShowBannerAd();
+        if (!AccountManager.Instance.CurrentAccount.AdsRemoved)
+        {
+            ShowBannerAd();
+        }
 
+    }
+
+    private void OnDisable()
+    {
+        HideBannerAd();
     }
 
     private void LoadBanner(Action callback)
@@ -61,7 +69,6 @@ public class BannerAd : MonoBehaviour
         });
     }
 
-    // Implement a method to call when the Hide Banner button is clicked:
     private void HideBannerAd()
     {
         Advertisement.Banner.Hide();

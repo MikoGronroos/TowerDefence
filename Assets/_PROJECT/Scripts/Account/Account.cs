@@ -15,4 +15,6 @@ public class Account
     public int Winstreak;
     public int GamesPlayed;
 
+    public bool AdsRemoved;
+
 }

@@ -1307,6 +1307,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &418643701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3803694547246878470, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_Name
+      value: AdsBanner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803694547246878471, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 791e06192a0631a4db7572bf5b054c1f, type: 3}
 --- !u!1 &454209269
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,7 +3788,6 @@ GameObject:
   - component: {fileID: 1215311186}
   - component: {fileID: 1215311188}
   - component: {fileID: 1215311187}
-  - component: {fileID: 1215311189}
   m_Layer: 0
   m_Name: Advertisement
   m_TagString: Untagged
@@ -3781,21 +3837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidAdUnitId: Interstitial_Android
   _iOSAdUnitId: Interstitial_iOS
---- !u!114 &1215311189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215311185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9f7f52a2794cb47adc3c25b3da3460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bannerPosition: 4
-  _androidAdUnitId: Banner_Android
-  _iOSAdUnitId: Banner_iOS
 --- !u!1 &1217279078
 GameObject:
   m_ObjectHideFlags: 0
