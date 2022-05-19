@@ -6,7 +6,7 @@ using Finark.Events;
 using Finark.AI;
 using Finark.Utils;
 
-public partial class Turret : StateMachine, IPunInstantiateMagicCallback
+public partial class Turret : Building, IPunInstantiateMagicCallback
 {
 
     [SerializeField] private TurretStats turretStats;
@@ -64,6 +64,9 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
         if (_photonView.IsMine)
         {
 
+            FollowClosestTarget();
+            Timer();
+
             if (HasTarget())
             {
                 if (Vector2.Distance(target.position, transform.position) > turretExecutable.Range.Value)
@@ -72,8 +75,6 @@ public partial class Turret : StateMachine, IPunInstantiateMagicCallback
                 }
             }
 
-            Timer();
-            FollowClosestTarget();
             base.Update();
         }
     }

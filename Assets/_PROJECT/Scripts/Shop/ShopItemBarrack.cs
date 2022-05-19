@@ -2,8 +2,8 @@
 using Finark.Utils;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Shop Item/Building")]
-public class ShopItemBuilding : ShopItem
+[CreateAssetMenu(menuName = "Shop Item/Barrack")]
+public class ShopItemBarrack : ShopItem
 {
 
     [SerializeField] private ShopEventChannel shopEventChannel;

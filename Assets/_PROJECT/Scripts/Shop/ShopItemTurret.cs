@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Shop Item/Turret")]
-public class ShopItemTurret : ShopItemBuilding
+public class ShopItemTurret : ShopItemBarrack
 {
 
     public override void Buy() 

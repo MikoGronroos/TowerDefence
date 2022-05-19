@@ -10,12 +10,12 @@ public class ShopDragObject : MonoBehaviour
 
     [SerializeField] private ShopEventChannel shopEventChannel;
 
-    private ShopItemBuilding _shopItem;
+    private ShopItemBarrack _shopItem;
 
     public void Setup(Sprite icon, ShopItem item)
     {
         iconImage.sprite = icon;
-        _shopItem = item as ShopItemBuilding;
+        _shopItem = item as ShopItemBarrack;
         StartCoroutine(SyntheticDrag());
     }
 

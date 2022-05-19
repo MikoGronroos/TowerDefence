@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9052368ea8448923fa7d47e1e6d2, type: 3}
-  m_Name: DebugSettings
+  m_Script: {fileID: 11500000, guid: 417473b6d819c4441ba7fa48e15f9283, type: 3}
+  m_Name: SoldierBarrack
   m_EditorClassIdentifier: 
-  StartingCurrency: 500
-  StartingIncome: 100
-  IncomeInterval: 5
-  StartingHealth: 10000000
-  StartingLevel: 10
-  CurrentMapIndex: 0
-  StartingAmountOfMissions: 3
+  UnitPrefab: {fileID: 1750303906499475433, guid: 71b9b2fb138061b4db54740d3b445f90, type: 3}
+  SpawnInterval: 10
+  SpawnAmount: 2

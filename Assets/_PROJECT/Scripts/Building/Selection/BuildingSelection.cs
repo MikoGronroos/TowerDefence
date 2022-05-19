@@ -7,7 +7,7 @@ using Finark.Events;
 public class BuildingSelection : MonoBehaviourSingleton<BuildingSelection>
 {
 
-    [SerializeField] private Turret selectedTurret;
+    [SerializeField] private Building selectedBuilding;
 
     [SerializeField] private LayerMask turretLayerMask;
 
@@ -41,11 +41,9 @@ public class BuildingSelection : MonoBehaviourSingleton<BuildingSelection>
 
     public void SellSelectedBuilding()
     {
-        PhotonNetwork.Destroy(selectedTurret.gameObject.GetPhotonView());
+        PhotonNetwork.Destroy(selectedBuilding.gameObject.GetPhotonView());
 
-        VirtualCurrencyManager.Instance.AddCurrency(selectedTurret.GetTurretStats().SellPrice);
-
-        selectedTurret = null;
+        selectedBuilding = null;
 
         turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", false },{ "turret", null }});
 
@@ -60,25 +58,19 @@ public class BuildingSelection : MonoBehaviourSingleton<BuildingSelection>
             return;
         }
 
-        if (hit.transform.TryGetComponent(out Turret turret))
+        if (hit.transform.TryGetComponent(out Building building))
         {
 
-            if (turret.TurretOwnerID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID()) return;
-
-            if (turret != selectedTurret)
+            if (building is Turret)
             {
-
-                if (selectedTurret != null)
-                {
-                    RangeVisualisation.Instance.EraseCircle(selectedTurret.gameObject);
-                }
-
-                selectedTurret = turret;
-
-                turretEventChannel?.OnTurretSelected(new Dictionary<string, object> {{ "toggleValue", true },{ "turret", selectedTurret }});
-
-                RangeVisualisation.Instance.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, 0.25f);
+                ProcessTurret(building as Turret);
             }
+
+            if (building is Barrack)
+            {
+                ProcessBarrack(building as Barrack);
+            }
+
         }
         else
         {
@@ -87,14 +79,39 @@ public class BuildingSelection : MonoBehaviourSingleton<BuildingSelection>
 
     }
 
+    private void ProcessTurret(Turret turret)
+    {
+        if (turret.TurretOwnerID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID()) return;
+
+        if (turret != selectedBuilding)
+        {
+
+            if (selectedBuilding != null)
+            {
+                RangeVisualisation.Instance.EraseCircle(selectedBuilding.gameObject);
+            }
+
+            selectedBuilding = turret;
+
+            turretEventChannel?.OnTurretSelected(new Dictionary<string, object> { { "toggleValue", true }, { "turret", selectedBuilding } });
+
+            RangeVisualisation.Instance.DrawCircle(turret.gameObject, turret.GetTurretExecutable().Range.Value, 0.25f);
+        }
+    }
+
+    private void ProcessBarrack(Barrack barrack)
+    {
+
+    }
+
     private void DeselectBuilding()
     {
         if (MyUtils.IsPointerOverUI()) return;
 
-        if (selectedTurret == null) return;
+        if (selectedBuilding == null) return;
 
-        RangeVisualisation.Instance.EraseCircle(selectedTurret.gameObject);
-        selectedTurret = null;
+        RangeVisualisation.Instance.EraseCircle(selectedBuilding.gameObject);
+        selectedBuilding = null;
 
         turretEventChannel?.OnTurretSelected(new Dictionary<string, object> { { "toggleValue", false }, { "turret", null } });
     }

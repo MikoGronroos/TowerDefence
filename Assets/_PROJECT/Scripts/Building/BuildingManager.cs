@@ -1,6 +1,5 @@
 using UnityEngine;
 using Finark.Utils;
-using Photon.Pun;
 using System.Linq;
 
 public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
@@ -20,7 +19,7 @@ public class BuildingManager : MonoBehaviourSingleton<BuildingManager>
 
     }
 
-    public bool Build(Vector3 buildSpot, ShopItemBuilding build)
+    public bool Build(Vector3 buildSpot, ShopItemBarrack build)
     {
         if (MyUtils.IsPointerOverUI()) return false;
 

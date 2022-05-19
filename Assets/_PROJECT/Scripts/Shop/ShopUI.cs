@@ -69,7 +69,7 @@ public class ShopUI : MonoBehaviour
         {
             parent = turretShopItemParent;
         }
-        else if (item is ShopItemBuilding)
+        else if (item is ShopItemBarrack)
         {
             parent = buildingShopItemParent;
         }

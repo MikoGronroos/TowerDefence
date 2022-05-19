@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf77d8e7159cb6742b1d1c4b0c1c3cbd, type: 3}
-  m_Name: BuildingShopInventory
+  m_Name: BarrackShopInventory
   m_EditorClassIdentifier: 
-  Inventory: []
+  Inventory:
+  - {fileID: 11400000, guid: 776d10a3795f4fa488e0a5c4998b4f0f, type: 2}
