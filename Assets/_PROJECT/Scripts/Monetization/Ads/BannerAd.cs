@@ -8,7 +8,7 @@ public class BannerAd : MonoBehaviour
 
     [SerializeField] string _androidAdUnitId = "Banner_Android";
     [SerializeField] string _iOSAdUnitId = "Banner_iOS";
-    string _adUnitId = null; // This will remain null for unsupported platforms.
+    string _adUnitId = null;
 
     void Start()
     {

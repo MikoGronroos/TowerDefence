@@ -5090,7 +5090,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3988075578332944788}
-  - {fileID: 7748768603172462240}
   m_Father: {fileID: 463572498427892622}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5503,7 +5502,7 @@ GameObject:
   - component: {fileID: 3289827398233909154}
   - component: {fileID: 943604745587262700}
   m_Layer: 5
-  m_Name: ShopContentBuildings
+  m_Name: ShopContentBarracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5572,7 +5571,7 @@ GameObject:
   - component: {fileID: 3001395943735167312}
   - component: {fileID: 7381200690986607471}
   m_Layer: 5
-  m_Name: TitleBuilding
+  m_Name: TitleBarracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5625,7 +5624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop Buildings
+  m_text: Shop Barracks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5786,6 +5785,7 @@ RectTransform:
   m_Children:
   - {fileID: 3172970777854871887}
   - {fileID: 6570161477086265247}
+  - {fileID: 7748768603172462240}
   m_Father: {fileID: 8753096954025896482}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5867,7 +5867,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8753096954025896482}
+    m_TransformParent: {fileID: 3988075578332944788}
     m_Modifications:
     - target: {fileID: 1380799294194490736, guid: c6d42c176bafc0646b79bdf75e07692f, type: 3}
       propertyPath: m_Name
@@ -5883,7 +5883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1380799294194490737, guid: c6d42c176bafc0646b79bdf75e07692f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1380799294194490737, guid: c6d42c176bafc0646b79bdf75e07692f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5939,11 +5939,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1380799294194490737, guid: c6d42c176bafc0646b79bdf75e07692f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -24.888916
+      value: -25.00334
       objectReference: {fileID: 0}
     - target: {fileID: 1380799294194490737, guid: c6d42c176bafc0646b79bdf75e07692f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -24.999329
       objectReference: {fileID: 0}
     - target: {fileID: 1380799294194490737, guid: c6d42c176bafc0646b79bdf75e07692f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
