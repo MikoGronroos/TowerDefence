@@ -4,7 +4,7 @@ using Photon.Pun;
 using System.Collections.Generic;
 using Finark.Events;
 
-public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
+public class BuildingSelection : MonoBehaviourSingleton<BuildingSelection>
 {
 
     [SerializeField] private Turret selectedTurret;
@@ -39,7 +39,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
     }
 
-    public void SellSelectedTurret()
+    public void SellSelectedBuilding()
     {
         PhotonNetwork.Destroy(selectedTurret.gameObject.GetPhotonView());
 
@@ -56,7 +56,7 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
 
         if (hit == null)
         {
-            DeselectTurret();
+            DeselectBuilding();
             return;
         }
 
@@ -82,12 +82,12 @@ public class TurretSelection : MonoBehaviourSingleton<TurretSelection>
         }
         else
         {
-            DeselectTurret();
+            DeselectBuilding();
         }
 
     }
 
-    private void DeselectTurret()
+    private void DeselectBuilding()
     {
         if (MyUtils.IsPointerOverUI()) return;
 

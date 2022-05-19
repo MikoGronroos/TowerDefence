@@ -42,7 +42,7 @@ public class TurretSelectionUI : MonoBehaviour
     {
         sellTurretButton.onClick.AddListener(() => {
 
-            TurretSelection.Instance.SellSelectedTurret();
+            BuildingSelection.Instance.SellSelectedBuilding();
 
         });
     }
