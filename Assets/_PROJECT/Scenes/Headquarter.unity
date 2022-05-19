@@ -1342,7 +1342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 289.09467, y: 22.336975}
+  m_AnchoredPosition: {x: 289.09473, y: 22.336914}
   m_SizeDelta: {x: 578.1895, y: 44.674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &454209272
@@ -3729,9 +3729,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215311186}
+  - component: {fileID: 1215311188}
   - component: {fileID: 1215311187}
+  - component: {fileID: 1215311189}
   m_Layer: 0
-  m_Name: AdsTest
+  m_Name: Advertisement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3760,11 +3762,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1215311185}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3704b7ea18f1741ab12361fac24961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
+--- !u!114 &1215311188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215311185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 884316ee262e2884388faa0e3324049d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _androidAdUnitId: Interstitial_Android
-  _iOsAdUnitId: Interstitial_iOS
+  _iOSAdUnitId: Interstitial_iOS
+--- !u!114 &1215311189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215311185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9f7f52a2794cb47adc3c25b3da3460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bannerPosition: 4
+  _androidAdUnitId: Banner_Android
+  _iOSAdUnitId: Banner_iOS
 --- !u!1 &1217279078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5502,7 +5533,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1492414672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1215311187}
+        m_TargetAssemblyTypeName: RewardedAd, Assembly-CSharp
+        m_MethodName: ShowAd
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 2d07f5da6cd595e47b48ecc60c98c7e8, type: 2}
+          m_ObjectArgumentAssemblyTypeName: AdReward, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1492414672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6676,8 +6719,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215311187}
-        m_TargetAssemblyTypeName: AdsTest, Assembly-CSharp
+      - m_Target: {fileID: 1215311188}
+        m_TargetAssemblyTypeName: NonRewardedAd, Assembly-CSharp
         m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
@@ -7210,7 +7253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1076, y: -35.60797}
+  m_AnchoredPosition: {x: 1076, y: -35.60791}
   m_SizeDelta: {x: 558, y: 71.21588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814124857

@@ -2,17 +2,17 @@ using UnityEngine.Advertisements;
 using UnityEngine;
 using System;
 
-public class AdsTest : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
+public class NonRewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     [SerializeField] string _androidAdUnitId = "Interstitial_Android";
-    [SerializeField] string _iOsAdUnitId = "Interstitial_iOS";
+    [SerializeField] string _iOSAdUnitId = "Interstitial_iOS";
     string _adUnitId;
 
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
         _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
-            ? _iOsAdUnitId
+            ? _iOSAdUnitId
             : _androidAdUnitId;
     }
 
@@ -24,6 +24,7 @@ public class AdsTest : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListen
 
     public void ShowAd()
     {
+
         LoadAd(()=> {
             Advertisement.Show(_adUnitId, this);
         });
