@@ -15,7 +15,8 @@ MonoBehaviour:
   UnitID: 0
   StartHealth: 250
   Speed: 35
-  Damage: 11
+  Damage: 5000000
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+  MaxUnitHardness: 0
   XpAddonOnDestroyed: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4274290279886711121}
   - component: {fileID: -6102962136222540973}
   m_Layer: 0
-  m_Name: Barrack
+  m_Name: SupportCarBarrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559fac6dc3bea5248b2d1f064e70f599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrackLogic: {fileID: 11400000, guid: 06e8229cd9e037444acaf03607a9dc32, type: 2}
+  barrackLogic: {fileID: 11400000, guid: df9a2115ce7cba348b6366c207456638, type: 2}
 --- !u!114 &-3065848993545720402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c706eb530e4e9dc4b9015803b7b7126b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainKey: SoldierBarrack
+  mainKey: SupportCarBarrack
   graphicKey: 
 --- !u!114 &-6102962136222540973
 MonoBehaviour:

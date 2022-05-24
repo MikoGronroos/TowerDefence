@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf77d8e7159cb6742b1d1c4b0c1c3cbd, type: 3}
-  m_Name: BarrackShopInventory
+  m_Script: {fileID: 11500000, guid: 417473b6d819c4441ba7fa48e15f9283, type: 3}
+  m_Name: SupportCarBarrack
   m_EditorClassIdentifier: 
-  Inventory:
-  - {fileID: 11400000, guid: 776d10a3795f4fa488e0a5c4998b4f0f, type: 2}
-  - {fileID: 11400000, guid: 44b85b95b88c3064aad87576c7a2c6ab, type: 2}
+  UnitPrefab: {fileID: 1750303906499475433, guid: 2d7bba3e8f029d5498d73f8b15f1056a, type: 3}
+  SpawnInterval: 12
+  SpawnAmount: 1

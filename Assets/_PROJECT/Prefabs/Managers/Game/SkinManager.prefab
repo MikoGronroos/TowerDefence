@@ -69,3 +69,5 @@ MonoBehaviour:
       GraphicKey: 
     - MainKey: SoldierBarrack
       GraphicKey: 
+    - MainKey: SupportCarBarrack
+      GraphicKey: 

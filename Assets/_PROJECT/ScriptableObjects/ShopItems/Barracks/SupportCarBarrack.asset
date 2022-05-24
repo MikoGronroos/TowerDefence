@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28c8ff61cefda71409ccb878a1bd36ff, type: 3}
-  m_Name: SoldierBarrack
+  m_Name: SupportCarBarrack
   m_EditorClassIdentifier: 
-  Cost: 100
-  IconMainKey: SoldierBarrack
-  LevelToUnlock: 4
-  ItemPrefab: {fileID: 3013810798658635805, guid: cde6a179ae8bb174c8f1703d16c57c7a, type: 3}
+  Cost: 150
+  IconMainKey: SupportCarBarrack
+  LevelToUnlock: 6
+  ItemPrefab: {fileID: 3013810798658635805, guid: c3fbae9dd0eef3649aa975f7e5e069bf, type: 3}
   shopEventChannel: {fileID: 11400000, guid: a669f3b1a9c977e48bc88c7382ba57a2, type: 2}
   PlaceOnLocalBoard: 1
