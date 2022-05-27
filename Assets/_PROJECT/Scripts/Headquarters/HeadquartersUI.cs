@@ -17,12 +17,23 @@ public class HeadquartersUI : MonoBehaviour
     [SerializeField] private Canvas storeCanvas;
 
     [Header("Play")]
+
     [SerializeField] private Button playButton;
+
+    [Header("User Profile Info UI")]
+
+    [SerializeField] private Button userSmallInfoButton;
+    [SerializeField] private Button closeUserLargeInfoButton;
+
+    [SerializeField] private GameObject userlargeInfoGameObject;
+
 
     private bool _isTransistioning = false;
 
     private void Awake()
     {
+
+        #region Tab Buttons
 
         tabProfileButton.onClick.AddListener(()=> {
 
@@ -76,6 +87,18 @@ public class HeadquartersUI : MonoBehaviour
                 _isTransistioning = false;
 
             });
+        });
+
+        #endregion
+
+        userSmallInfoButton.onClick.AddListener(() => 
+        {
+            userlargeInfoGameObject.SetActive(true);
+        });
+
+        closeUserLargeInfoButton.onClick.AddListener(() => 
+        {
+            userlargeInfoGameObject.SetActive(false);
         });
 
     }

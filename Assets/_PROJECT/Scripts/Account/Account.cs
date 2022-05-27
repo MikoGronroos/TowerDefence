@@ -2,9 +2,10 @@
 public class Account
 {
 
-    public Account(int level)
+    public Account()
     {
-        AccountLevel = level;
+        AccountLevel = 1;
+        IsFirstLaunchOfTheGame = true;
     }
 
     public string AccountName;
@@ -12,9 +13,15 @@ public class Account
     public int AccountLevel;
     public int AccountXp;
 
-    public int Winstreak;
+    public int CurrentTrophies;
+    public int HighestTrophies;
+
+    public int CurrentWinstreak;
+    public int HighestWinstreak;
+
     public int GamesPlayed;
 
     public bool AdsRemoved;
+    public bool IsFirstLaunchOfTheGame;
 
 }

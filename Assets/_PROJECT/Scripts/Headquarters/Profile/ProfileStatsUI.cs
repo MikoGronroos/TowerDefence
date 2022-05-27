@@ -22,7 +22,7 @@ public class ProfileStatsUI : MonoBehaviour
 
         profileNameText.text = AccountManager.Instance.CurrentAccount.AccountName;
         profileLevelText.text = AccountManager.Instance.CurrentAccount.AccountLevel.ToString();
-        profileWinstreakText.text = AccountManager.Instance.CurrentAccount.Winstreak.ToString();
+        profileWinstreakText.text = AccountManager.Instance.CurrentAccount.CurrentWinstreak.ToString();
         profileGamesPlayedText.text = AccountManager.Instance.CurrentAccount.GamesPlayed.ToString();
 
     }

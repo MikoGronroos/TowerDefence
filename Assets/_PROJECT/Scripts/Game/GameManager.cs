@@ -66,13 +66,13 @@ public class GameManager : MonoBehaviour
 
         if (loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
         {
-            AccountManager.Instance.CurrentAccount.Winstreak++;
+            AccountManager.Instance.CurrentAccount.CurrentWinstreak++;
             playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency?.Invoke(new Dictionary<string, object> { { "Amount", reward.SoftCurrencyReward } });
             AccountManager.Instance.CurrentAccount.AccountXp += reward.ExperienceReward;
         }
         else
         {
-            AccountManager.Instance.CurrentAccount.Winstreak = 0;
+            AccountManager.Instance.CurrentAccount.CurrentWinstreak = 0;
         }
 
         AccountManager.Instance.CurrentAccount.GamesPlayed++;

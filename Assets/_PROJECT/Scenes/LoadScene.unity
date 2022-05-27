@@ -200,8 +200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.0000076294, y: 0.0000095367}
+  m_SizeDelta: {x: 405.7159, y: 112.4081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &418772816
 MonoBehaviour:
@@ -225,8 +225,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6785e48a958822343831170eb3b4ef3d, type: 2}
+  m_sharedMaterial: {fileID: 2269793554123077917, guid: 6785e48a958822343831170eb3b4ef3d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -250,10 +250,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.38
+  m_fontSize: 72
   m_fontSizeBase: 33.38
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -347,9 +347,13 @@ MonoBehaviour:
     AccountName: 
     AccountLevel: 0
     AccountXp: 0
-    Winstreak: 0
+    CurrentTrophies: 0
+    HighestTrophies: 0
+    CurrentWinstreak: 0
+    HighestWinstreak: 0
     GamesPlayed: 0
     AdsRemoved: 0
+    IsFirstLaunchOfTheGame: 1
   serverEventChannel: {fileID: 11400000, guid: 05554b3bf0dfbd44db0e7f09a294b5b0, type: 2}
 --- !u!1 &960466707
 GameObject:

@@ -28,7 +28,7 @@ public class LoadAccountData
         else
         {
             Debug.Log($"Creating Account Data For The First Time.");
-            data = new Account(1);
+            data = new Account();
             AccountManager.Instance.CurrentAccount = data;
         }
 
