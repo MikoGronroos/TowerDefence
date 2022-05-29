@@ -15,7 +15,7 @@ MonoBehaviour:
   StartingCurrency: 500
   StartingIncome: 100
   IncomeInterval: 5
-  StartingHealth: 10000000
+  StartingHealth: 10
   StartingLevel: 10
   CurrentMapIndex: 0
   StartingAmountOfMissions: 3

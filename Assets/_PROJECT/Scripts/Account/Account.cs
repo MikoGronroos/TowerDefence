@@ -19,6 +19,8 @@ public class Account
     public int CurrentWinstreak;
     public int HighestWinstreak;
 
+    public int TotalVictories;
+
     public int GamesPlayed;
 
     public bool AdsRemoved;

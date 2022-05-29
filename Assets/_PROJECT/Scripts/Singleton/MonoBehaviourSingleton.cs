@@ -13,7 +13,7 @@ public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
         }
     }
 
-    void OnEnable()
+    public virtual void OnEnable()
     {
 
         _instance = this;

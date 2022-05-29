@@ -12,6 +12,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     [SerializeField] private bool _isCreatingOrJoiningARoom = false;
 
+    private bool _isCustomGame = false;
+
     public void CreateRoom()
     {
         if (!_isCreatingOrJoiningARoom)
@@ -20,6 +22,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
             if (createRoomInput.text == "") return;
 
             _isCreatingOrJoiningARoom = true;
+            _isCustomGame = true;
             PhotonNetwork.CreateRoom(createRoomInput.text);
         }
     }
@@ -38,20 +41,29 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        _isCreatingOrJoiningARoom = false;
-        PhotonNetwork.LoadLevel(sceneToLoad);
+        if (_isCustomGame)
+        {
+            _isCreatingOrJoiningARoom = false;
+            PhotonNetwork.LoadLevel(sceneToLoad);
+        }
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        _isCreatingOrJoiningARoom = false;
-        base.OnCreateRoomFailed(returnCode, message);
+        if (_isCustomGame)
+        {
+            _isCreatingOrJoiningARoom = false;
+            base.OnCreateRoomFailed(returnCode, message);
+        }
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        _isCreatingOrJoiningARoom = false;
-        base.OnJoinRoomFailed(returnCode, message);
+        if (_isCustomGame)
+        {
+            _isCreatingOrJoiningARoom = false;
+            base.OnJoinRoomFailed(returnCode, message);
+        }
     }
 
 } 

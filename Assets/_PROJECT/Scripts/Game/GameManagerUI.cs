@@ -1,23 +1,20 @@
 using Finark.Events;
-using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManagerUI : MonoBehaviour
 {
 
-    [SerializeField] private PlayerEventChannel playerEventChannel;
-
     [SerializeField] private RoomEventChannel roomEventChannel;
 
     [Header("Game End Panel")]
 
-    [SerializeField] private TextMeshProUGUI winnerText;
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject defeatPanel;
+
     [SerializeField] private Button leaveTheRoomButton;
 
-    private bool _pressedLeftButton;
+    private bool _pressedLeftButton = false;
 
     private void Awake()
     {
@@ -31,32 +28,25 @@ public class GameManagerUI : MonoBehaviour
         });
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        playerEventChannel.OnPlayerDead += GameEndedUIToggle;
+        Debug.Log("Start");
+        GameEndScreen();
     }
 
-    private void OnDisable()
-    {
-        playerEventChannel.OnPlayerDead -= GameEndedUIToggle;
-    }
-
-    private void GameEndedUIToggle(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
+    private void GameEndScreen()
     {
 
-        int loserID = (int)args["loserID"];
-
-        string gameEndText;
-
-        if (PlayerManager.Instance.GetLocalPlayer().GetPlayerID() != loserID)
+        if (GameManager.Instance.IsWinner)
         {
-            gameEndText = "You won";
+            victoryPanel.SetActive(true);
+            Debug.Log("Victory");
         }
         else
         {
-            gameEndText = "You lost";
+            Debug.Log("Defeat");
+            defeatPanel.SetActive(true);
         }
-        winnerText.text = gameEndText;
     }
 
 }

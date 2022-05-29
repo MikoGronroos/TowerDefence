@@ -11,6 +11,8 @@ public class RoomController : MonoBehaviourPunCallbacks
 
     [SerializeField] private RoomEventChannel roomEventChannel;
 
+    private bool _executing;
+
     public override void OnEnable()
     {
         roomEventChannel.LeaveRoom += LeaveTheRoom;
@@ -24,18 +26,23 @@ public class RoomController : MonoBehaviourPunCallbacks
     private void LeaveTheRoom(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
 
-        StartCoroutine(LeavingTheRoom());
+        if (!_executing) StartCoroutine(LeavingTheRoom());
 
     }
 
     private IEnumerator LeavingTheRoom()
     {
+
+        _executing = true;
+
         PhotonNetwork.LeaveRoom();
 
         while (PhotonNetwork.InRoom)
             yield return null;
 
         SceneManager.LoadScene("Headquarter");
+
+        _executing = false;
     }
 
 }

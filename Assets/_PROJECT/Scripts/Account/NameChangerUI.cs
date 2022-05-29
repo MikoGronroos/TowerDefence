@@ -8,6 +8,7 @@ public class NameChangerUI : MonoBehaviour
 {
 
     [SerializeField] private TMP_InputField nameInputField;
+    [SerializeField] private TextMeshProUGUI nameInputFieldPlaceholder;
     [SerializeField] private Button nameApplyButton;
 
     [SerializeField] private AccountEventChannel accountEventChannel;
@@ -20,6 +21,7 @@ public class NameChangerUI : MonoBehaviour
     private void ChangeName()
     {
         var newName = nameInputField.text;
+        nameInputFieldPlaceholder.text = newName;
         nameInputField.text = "";
         accountEventChannel.OnNameChanged?.Invoke(new Dictionary<string, object> { { "Name", newName } });
     }

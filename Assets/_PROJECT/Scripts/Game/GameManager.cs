@@ -3,9 +3,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
@@ -19,13 +20,16 @@ public class GameManager : MonoBehaviour
 
     private PhotonView _photonView;
 
+    public bool IsWinner { get; private set; }
+
     private void Awake()
     {
         _photonView = GetComponent<PhotonView>();
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         playerEventChannel.OnPlayerDead += EndGame;
     }
 
@@ -64,27 +68,42 @@ public class GameManager : MonoBehaviour
 
         int loserID = (int)args["loserID"];
 
-        if (loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID())
+        IsWinner = loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID();
+
+        if (IsWinner)
         {
             AccountManager.Instance.CurrentAccount.CurrentWinstreak++;
-            playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency?.Invoke(new Dictionary<string, object> { { "Amount", reward.SoftCurrencyReward } });
+            AccountManager.Instance.CurrentAccount.TotalVictories++;
+            if (AccountManager.Instance.CurrentAccount.CurrentWinstreak > AccountManager.Instance.CurrentAccount.HighestWinstreak)
+            {
+                AccountManager.Instance.CurrentAccount.HighestWinstreak = AccountManager.Instance.CurrentAccount.CurrentWinstreak;
+            }
             AccountManager.Instance.CurrentAccount.AccountXp += reward.ExperienceReward;
+            AccountManager.Instance.CurrentAccount.CurrentTrophies = Mathf.Clamp(AccountManager.Instance.CurrentAccount.CurrentTrophies + 30, 0, int.MaxValue);
+            if (AccountManager.Instance.CurrentAccount.CurrentTrophies > AccountManager.Instance.CurrentAccount.HighestTrophies)
+            {
+                AccountManager.Instance.CurrentAccount.HighestTrophies = AccountManager.Instance.CurrentAccount.CurrentTrophies;
+            }
+            playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency?.Invoke(new Dictionary<string, object> { { "Amount", reward.SoftCurrencyReward } });
         }
-        else
+
+        if (!IsWinner)
         {
             AccountManager.Instance.CurrentAccount.CurrentWinstreak = 0;
+            AccountManager.Instance.CurrentAccount.CurrentTrophies = Mathf.Clamp(AccountManager.Instance.CurrentAccount.CurrentTrophies - 30, 0, int.MaxValue);
         }
 
         AccountManager.Instance.CurrentAccount.GamesPlayed++;
         AccountManager.Instance.SaveData();
 
-        sceneManagementEventChannel?.UnloadScenes(null, OnScenesUnloaded);
+        LoadGameEndScreen();
 
     }
 
-    private void OnScenesUnloaded(Dictionary<string, object> obj)
+    private void LoadGameEndScreen()
     {
-        PhotonNetwork.LoadLevel("GameEndScreen");
+        SceneManager.LoadScene("GameEndScreen", LoadSceneMode.Additive);
+
     }
 
     #endregion
