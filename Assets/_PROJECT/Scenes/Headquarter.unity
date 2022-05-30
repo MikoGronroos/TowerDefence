@@ -7456,6 +7456,7 @@ MonoBehaviour:
   cancelMatchmakingButton: {fileID: 1854047761}
   findMatchPanel: {fileID: 8624181466611179198}
   searchingMatchPanel: {fileID: 1854047758}
+  settings: {fileID: 11400000, guid: 865b00932aa31bb4c899403072c18eca, type: 2}
 --- !u!1 &2084653895
 GameObject:
   m_ObjectHideFlags: 0

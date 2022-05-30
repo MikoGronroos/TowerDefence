@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class MatchmakingManager : MonoBehaviourPunCallbacks
 {
@@ -11,6 +12,8 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private GameObject findMatchPanel;
     [SerializeField] private GameObject searchingMatchPanel;
+
+    [SerializeField] private MatchmakingSettings settings;
 
     private bool _isMatchmakingGame = false;
 
@@ -32,7 +35,9 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
         _isMatchmakingGame = true;
 
-        PhotonNetwork.JoinRandomRoom();
+        TypedLobby sqlLobby = new TypedLobby("rankedLobby", LobbyType.SqlLobby);
+        string sqlFilter = $"C0 BETWEEN {AccountManager.Instance.CurrentAccount.CurrentTrophies - settings.MaxTrophyDifference} AND {AccountManager.Instance.CurrentAccount.CurrentTrophies + settings.MaxTrophyDifference}";
+        PhotonNetwork.JoinRandomRoom(null, 2, MatchmakingMode.FillRoom, sqlLobby, sqlFilter, null);
     }
 
     private void StopMatchmaking()
@@ -42,6 +47,8 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         searchingMatchPanel.SetActive(false);
 
         _isMatchmakingGame = false;
+
+        Debug.Log("Stopped matchmaking and left the room!");
 
         PhotonNetwork.LeaveRoom();
     }
@@ -58,8 +65,13 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     private void MakeRoom()
     {
         int randomRoomName = Random.Range(0,5000);
-        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-        PhotonNetwork.CreateRoom("Room_" + randomRoomName, roomOptions);
+
+        RoomOptions roomOptions = new RoomOptions() { IsVisible = settings.Public, IsOpen = true, MaxPlayers = (byte)settings.MaxPlayers };
+        roomOptions.CustomRoomProperties = new Hashtable() { { "C0", AccountManager.Instance.CurrentAccount.CurrentTrophies } };
+        roomOptions.CustomRoomPropertiesForLobby = new string[] { "C0" };
+        TypedLobby sqlLobby = new TypedLobby("rankedLobby", LobbyType.SqlLobby);
+        PhotonNetwork.CreateRoom("Room_" + randomRoomName, roomOptions, sqlLobby);
+
         Debug.Log($"Created A Room: Room_{randomRoomName}.");
     }
 
@@ -67,6 +79,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     {
         if (_isMatchmakingGame)
         {
+
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2 && PhotonNetwork.IsMasterClient)
             {
                 Debug.Log("Starting The Game!");
@@ -74,4 +87,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
             }
         }
     }
+
 }
+
+
