@@ -3,14 +3,13 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
 
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI incomeAddonText;
 
     [SerializeField] private Image itemIcon;
-
 
     private ShopItem _thisItem;
 
@@ -22,6 +21,7 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        InGameShopTooltipManager.Instance.DisableTooltip();
         _thisItem.Buy();
     }
 
@@ -29,6 +29,30 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
 
     }
+
+    #region Tooltip
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+
+        if (_thisItem.ItemPrefab.TryGetComponent(out Turret turret))
+        {
+            InGameShopTooltipManager.Instance.StartEnablingTooltip(transform.position, turret, null);
+        }
+
+        if (_thisItem.ItemPrefab.TryGetComponent(out Unit unit))
+        {
+            InGameShopTooltipManager.Instance.StartEnablingTooltip(transform.position, null, unit);
+        }
+
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        InGameShopTooltipManager.Instance.DisableTooltip();
+    }
+
+    #endregion
 
     public void SetCostText(string content)
     {

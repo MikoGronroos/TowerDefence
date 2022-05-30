@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/_PROJECT/Scenes/GameModules/GameSystems.unity
     guid: b172285f5b250d9409a3da5cb011334a
   - enabled: 1
-    path: Assets/_PROJECT/Scenes/GameModules/UserInterface/UserInterface.unity
+    path: Assets/_PROJECT/Scenes/GameModules/UserInterface.unity
     guid: 30982cf59789fa143bf0f2ac697bea22
   - enabled: 1
     path: Assets/_PROJECT/Scenes/GameModules/MainCamera.unity
