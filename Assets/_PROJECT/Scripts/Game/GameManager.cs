@@ -52,11 +52,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         });
     }
 
-    public void StartChildCoroutine(IEnumerator coroutine)
-    {
-        StartCoroutine(coroutine);
-    }
-
     #region Game End
 
     private void EndGame(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
@@ -79,7 +74,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 AccountManager.Instance.CurrentAccount.HighestWinstreak = AccountManager.Instance.CurrentAccount.CurrentWinstreak;
             }
             AccountManager.Instance.CurrentAccount.AccountXp += reward.ExperienceReward;
-            AccountManager.Instance.CurrentAccount.CurrentTrophies = Mathf.Clamp(AccountManager.Instance.CurrentAccount.CurrentTrophies + 30, 0, int.MaxValue);
+            AccountManager.Instance.CurrentAccount.CurrentTrophies = Mathf.Clamp(AccountManager.Instance.CurrentAccount.CurrentTrophies + 31, 0, int.MaxValue);
             if (AccountManager.Instance.CurrentAccount.CurrentTrophies > AccountManager.Instance.CurrentAccount.HighestTrophies)
             {
                 AccountManager.Instance.CurrentAccount.HighestTrophies = AccountManager.Instance.CurrentAccount.CurrentTrophies;
@@ -90,7 +85,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if (!IsWinner)
         {
             AccountManager.Instance.CurrentAccount.CurrentWinstreak = 0;
-            AccountManager.Instance.CurrentAccount.CurrentTrophies = Mathf.Clamp(AccountManager.Instance.CurrentAccount.CurrentTrophies - 30, 0, int.MaxValue);
+            AccountManager.Instance.CurrentAccount.CurrentTrophies = Mathf.Clamp(AccountManager.Instance.CurrentAccount.CurrentTrophies - 29, 0, int.MaxValue);
         }
 
         AccountManager.Instance.CurrentAccount.GamesPlayed++;
