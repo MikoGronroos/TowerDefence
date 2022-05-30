@@ -28,11 +28,18 @@ public class GameStart : MonoBehaviour
 
         LocalPlayer local = new LocalPlayer();
 
-        int amountOfPlayers = PhotonNetwork.PlayerList.Length - 1;
+        int playerID;
 
-        local.IsLocal = true;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            playerID = 0;
+        }
+        else
+        {
+            playerID = 1;
+        }
 
-        local.SetPlayerID(amountOfPlayers);
+        local.SetPlayerID(playerID);
 
         PlayerManager.Instance.AddLocalPlayer(local);
 
@@ -128,11 +135,9 @@ public class GameStart : MonoBehaviour
         {
             _photonView.RPC("RPCStartGame", RpcTarget.All);
         }
-
 #if UNITY_EDITOR
         _photonView.RPC("RPCStartGame", RpcTarget.All);
 #endif
-
     }
 
     #region RPC Methods

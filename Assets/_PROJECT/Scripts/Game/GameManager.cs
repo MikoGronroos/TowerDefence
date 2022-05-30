@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
-        _photonView.RPC("SendLocalAccountData", RpcTarget.AllBuffered, PlayerManager.Instance.GetLocalPlayer().GetPlayerID(), AccountManager.Instance.CurrentAccount.AccountName);
+        _photonView.RPC("SendLocalAccountData", RpcTarget.All, PlayerManager.Instance.GetLocalPlayer().GetPlayerID(), AccountManager.Instance.CurrentAccount.AccountName);
     }
 
     [PunRPC]

@@ -8,8 +8,6 @@ public class LocalPlayer
 
     [SerializeField] private int playerId;
 
-    public bool IsLocal;
-
     public void TogglePlayerIsReady(bool value)
     {
         playerIsReady = value;

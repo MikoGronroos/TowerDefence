@@ -10,7 +10,6 @@ public class ParticipantsInfoUI : MonoBehaviour
 
 
     [SerializeField] private TextMeshProUGUI[] playerNames;
-    [SerializeField] private Image[] playerAvatars;
 
     [SerializeField] private RoomEventChannel roomEventChannel;
 

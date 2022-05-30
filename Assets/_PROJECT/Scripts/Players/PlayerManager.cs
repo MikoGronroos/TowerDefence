@@ -14,12 +14,4 @@ public class PlayerManager : MonoBehaviourSingletonDontDestroyOnLoad<PlayerManag
     {
         return localPlayer;
     }
-
-    public bool HasLocalPlayer()
-    {
-
-        return localPlayer != null;
-
-    }
-
 }
