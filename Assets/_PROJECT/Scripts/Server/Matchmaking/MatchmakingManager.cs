@@ -35,9 +35,8 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
         _isMatchmakingGame = true;
 
-        TypedLobby sqlLobby = new TypedLobby("rankedLobby", LobbyType.SqlLobby);
-        string sqlFilter = $"C0 BETWEEN {AccountManager.Instance.CurrentAccount.CurrentTrophies - settings.MaxTrophyDifference} AND {AccountManager.Instance.CurrentAccount.CurrentTrophies + settings.MaxTrophyDifference}";
-        PhotonNetwork.JoinRandomRoom(null, 2, MatchmakingMode.FillRoom, sqlLobby, sqlFilter, null);
+        JoinRoom();
+
     }
 
     private void StopMatchmaking()
@@ -62,9 +61,16 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         }
     }
 
+    private void JoinRoom()
+    {
+        TypedLobby sqlLobby = new TypedLobby("rankedLobby", LobbyType.SqlLobby);
+        string sqlFilter = $"C0 BETWEEN {AccountManager.Instance.CurrentAccount.CurrentTrophies - settings.MaxTrophyDifference} AND {AccountManager.Instance.CurrentAccount.CurrentTrophies + settings.MaxTrophyDifference}";
+        PhotonNetwork.JoinRandomRoom(null, (byte)settings.MaxPlayers, MatchmakingMode.FillRoom, sqlLobby, sqlFilter, null);
+    }
+
     private void MakeRoom()
     {
-        int randomRoomName = Random.Range(0,5000);
+        int randomRoomName = Random.Range(0,50000);
 
         RoomOptions roomOptions = new RoomOptions() { IsVisible = settings.Public, IsOpen = true, MaxPlayers = (byte)settings.MaxPlayers };
         roomOptions.CustomRoomProperties = new Hashtable() { { "C0", AccountManager.Instance.CurrentAccount.CurrentTrophies } };
