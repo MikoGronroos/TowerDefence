@@ -9,11 +9,15 @@ public class InGameShopTooltipManager : MonoBehaviourSingleton<InGameShopTooltip
     [Tooltip("How long must pointer be down on this object to trigger a long press")]
     [SerializeField] private float durationThreshold = 1.0f;
 
+    [SerializeField] private Vector3 tooltipOffset;
+
     private bool _isPointerDown = false;
     private bool _longPressTriggered = false;
     private float _timePressStarted;
 
     #region UI
+
+    [Header("UserInterface")]
 
     [SerializeField] private TextMeshProUGUI damageValueText;
     [SerializeField] private TextMeshProUGUI attackSpeedValueText;
@@ -73,7 +77,7 @@ public class InGameShopTooltipManager : MonoBehaviourSingleton<InGameShopTooltip
             damageValueText.text = unit.GetUnitStats().Damage.ToString();
         }
 
-        tooltipObject.transform.position = pos;
+        tooltipObject.transform.position = pos + tooltipOffset;
         tooltipObject.SetActive(true);
     }
 
