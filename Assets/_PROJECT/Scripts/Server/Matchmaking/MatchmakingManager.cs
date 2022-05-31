@@ -89,7 +89,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2 && PhotonNetwork.IsMasterClient)
             {
                 Debug.Log("Starting The Game!");
-                PhotonNetwork.LoadLevel("RoomView");
+                PhotonNetwork.LoadLevel("RankedRoomLobby");
             }
         }
     }

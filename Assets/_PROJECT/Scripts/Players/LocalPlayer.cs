@@ -8,6 +8,8 @@ public class LocalPlayer
 
     [SerializeField] private int playerId;
 
+    [SerializeField] private int amountOfMapSkips = 1;
+
     public void TogglePlayerIsReady(bool value)
     {
         playerIsReady = value;
@@ -26,6 +28,16 @@ public class LocalPlayer
     public void SetPlayerID(int id)
     {
         playerId = id;
+    }
+
+    public int GetAmountOfMapSkips()
+    {
+        return amountOfMapSkips;
+    }
+
+    public void SetAmountOfMapSkips(int amount)
+    {
+        amountOfMapSkips = amount;
     }
 
 }

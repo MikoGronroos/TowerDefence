@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Finark.Events;
 using System;
 
-public class GameSettingsManagerUI : MonoBehaviour
+public class CustomGameSettingsManagerUI : MonoBehaviour
 {
 
     [Header("Map Settings")]

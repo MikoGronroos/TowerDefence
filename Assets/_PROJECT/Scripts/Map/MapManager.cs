@@ -14,8 +14,6 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
 
     private PhotonView _photonView;
 
-    private const int _defaultMapIndex = 0;
-
     private void Awake()
     {
         _photonView = GetComponent<PhotonView>();
@@ -23,12 +21,25 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
 
     private void Start()
     {
-        MapIndexChanged(_defaultMapIndex);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            MapIndexChanged(GetRandomMapIndex());
+        }
     }
 
     public void ChangeMapIndex(int amount)
     {
         _photonView.RPC("RPCChangeMapIndex", RpcTarget.AllBuffered, amount);
+    }
+
+    public void TryToChangeTheMap()
+    {
+        if (PlayerManager.Instance.GetLocalPlayer().GetAmountOfMapSkips() > 0)
+        {
+            PlayerManager.Instance.GetLocalPlayer().SetAmountOfMapSkips(PlayerManager.Instance.GetLocalPlayer().GetAmountOfMapSkips() - 1);
+            int index = GetRandomMapIndex();
+            _photonView.RPC("RPCChangeMapIndex", RpcTarget.AllBuffered, index);
+        }
     }
 
     [PunRPC]
@@ -55,6 +66,11 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
         GameSettingsManager.Instance.GetGameSettings().CurrentMapIndex = index;
 
         roomEventChannel.OnMapChanged?.Invoke(new Dictionary<string, object> { { "Map", Maps[index] } });
+    }
+
+    private int GetRandomMapIndex()
+    {
+        return Random.Range(0, Maps.Length);
     }
 
 }
