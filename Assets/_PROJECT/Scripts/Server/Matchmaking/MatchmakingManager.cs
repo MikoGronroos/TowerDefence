@@ -16,6 +16,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     [SerializeField] private MatchmakingSettings settings;
 
     private bool _isMatchmakingGame = false;
+    private int _currentJoinAttempt = 0;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
         _isMatchmakingGame = true;
 
-        JoinRoom();
+        JoinRoom(AccountManager.Instance.CurrentAccount.CurrentTrophies - settings.MaxTrophyDifference, AccountManager.Instance.CurrentAccount.CurrentTrophies + settings.MaxTrophyDifference);
 
     }
 
@@ -56,20 +57,32 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     {
         if (_isMatchmakingGame)
         {
+            if (_currentJoinAttempt <= 2)
+            {
+                Debug.Log($"{_currentJoinAttempt} attemps to find a room!");
+                int lowElo = AccountManager.Instance.CurrentAccount.CurrentTrophies - (settings.MaxTrophyDifference * (_currentJoinAttempt + 1));
+                int highElo = AccountManager.Instance.CurrentAccount.CurrentTrophies + (settings.MaxTrophyDifference * (_currentJoinAttempt + 1));
+                JoinRoom(lowElo, highElo);
+                return;
+            }
             Debug.Log("Couldn't find a room - creating a room!");
             MakeRoom();
         }
     }
 
-    private void JoinRoom()
+    private void JoinRoom(int lowElo, int highElo)
     {
+        _currentJoinAttempt++;
         TypedLobby sqlLobby = new TypedLobby("rankedLobby", LobbyType.SqlLobby);
-        string sqlFilter = $"C0 BETWEEN {AccountManager.Instance.CurrentAccount.CurrentTrophies - settings.MaxTrophyDifference} AND {AccountManager.Instance.CurrentAccount.CurrentTrophies + settings.MaxTrophyDifference}";
+        string sqlFilter = $"C0 BETWEEN {lowElo} AND {highElo}";
         PhotonNetwork.JoinRandomRoom(null, (byte)settings.MaxPlayers, MatchmakingMode.FillRoom, sqlLobby, sqlFilter, null);
     }
 
     private void MakeRoom()
     {
+
+        _currentJoinAttempt = 0;
+
         int randomRoomName = Random.Range(0,50000);
 
         RoomOptions roomOptions = new RoomOptions() { IsVisible = settings.Public, IsOpen = true, MaxPlayers = (byte)settings.MaxPlayers };
@@ -82,9 +95,11 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
+    { 
         if (_isMatchmakingGame)
         {
+
+            _currentJoinAttempt = 0;
 
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2 && PhotonNetwork.IsMasterClient)
             {
