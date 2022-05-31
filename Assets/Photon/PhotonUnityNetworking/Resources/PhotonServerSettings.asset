@@ -47,6 +47,7 @@ MonoBehaviour:
   - RPCSetup
   - RPCChangeMapIndex
   - RPCLocalPlayerNotReady
+  - RPCChangeMapIndexByOne
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -111,7 +111,10 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     {
         if (currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1)
         {
-            _photonView.RPC("RPCStartGame", RpcTarget.All);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.LoadLevel(_sceneToLoad);
+            }
         }
     }
 
@@ -121,12 +124,6 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     private void PlayerJoinedOrLeft(bool value)
     {
         IncreaseAmountOfPlayersInTheRoom(null, null);
-    }
-
-    [PunRPC]
-    private void RPCStartGame()
-    {
-        PhotonNetwork.LoadLevel(_sceneToLoad);
     }
 
     #endregion

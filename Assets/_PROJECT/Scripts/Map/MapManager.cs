@@ -23,13 +23,13 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            MapIndexChanged(GetRandomMapIndex());
+            _photonView.RPC("RPCChangeMapIndex", RpcTarget.AllBuffered, GetRandomMapIndex());
         }
     }
 
-    public void ChangeMapIndex(int amount)
+    public void ChangeMapIndexByOne(int amount)
     {
-        _photonView.RPC("RPCChangeMapIndex", RpcTarget.AllBuffered, amount);
+        _photonView.RPC("RPCChangeMapIndexByOne", RpcTarget.AllBuffered, amount);
     }
 
     public void TryToChangeTheMap()
@@ -43,9 +43,8 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
     }
 
     [PunRPC]
-    private void RPCChangeMapIndex(int amount)
+    private void RPCChangeMapIndexByOne(int amount)
     {
-
         _currentMapIndex += amount;
 
         if (_currentMapIndex < 0)
@@ -58,7 +57,12 @@ public class MapManager : MonoBehaviourSingleton<MapManager>
         }
 
         MapIndexChanged(_currentMapIndex);
+    }
 
+    [PunRPC]
+    private void RPCChangeMapIndex(int index)
+    {
+        MapIndexChanged(index);
     }
 
     private void MapIndexChanged(int index)

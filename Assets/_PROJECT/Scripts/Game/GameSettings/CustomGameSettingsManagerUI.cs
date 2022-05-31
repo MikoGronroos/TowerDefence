@@ -20,10 +20,10 @@ public class CustomGameSettingsManagerUI : MonoBehaviour
     private void Awake()
     {
         decrementMapIndexButton.onClick.AddListener(() => {
-            MapManager.Instance.ChangeMapIndex(-1);
+            MapManager.Instance.ChangeMapIndexByOne(-1);
         });
         incrementMapIndexButton.onClick.AddListener(() => {
-            MapManager.Instance.ChangeMapIndex(1);
+            MapManager.Instance.ChangeMapIndexByOne(1);
         });
 
     }
