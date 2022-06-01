@@ -28,7 +28,7 @@ public class SkinManager : MonoBehaviourSingletonDontDestroyOnLoad<SkinManager>
             }
         }
 
-        SaveAccountData.SaveTheSkinManagerData(skins);
+        SaveData.SaveTheSkinManagerData(skins);
 
     }
 

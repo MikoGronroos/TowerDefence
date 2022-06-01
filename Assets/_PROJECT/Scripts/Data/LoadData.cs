@@ -2,10 +2,10 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
 
-public class LoadAccountData
+public class LoadData
 {
 
-    public static void LoadData()
+    public static void LoadDataFromPlayFab()
     {
         PlayFabClientAPI.GetUserData(new GetUserDataRequest(), OnDataReceived, OnError);
     }
@@ -39,7 +39,7 @@ public class LoadAccountData
         }
         else
         {
-            SaveAccountData.SaveTheSkinManagerData(SkinManager.Instance.GetGraphicsData());
+            SaveData.SaveTheSkinManagerData(SkinManager.Instance.GetGraphicsData());
         }
 
     }

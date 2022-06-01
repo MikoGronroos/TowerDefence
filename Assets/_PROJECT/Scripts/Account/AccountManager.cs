@@ -40,12 +40,12 @@ public class AccountManager : MonoBehaviourSingletonDontDestroyOnLoad<AccountMan
 
     public void LoadData()
     {
-        LoadAccountData.LoadData();
+        global::LoadData.LoadDataFromPlayFab();
     }
 
     public void SaveData()
     {
-        SaveAccountData.SaveTheAccountData(currentAccount);
+        global::SaveData.SaveTheAccountData(currentAccount);
     }
 
 }

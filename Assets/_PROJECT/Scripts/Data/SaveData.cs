@@ -3,7 +3,7 @@ using PlayFab;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveAccountData
+public class SaveData
 {
 
     public static void SaveTheAccountData(Account data)
