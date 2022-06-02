@@ -2,7 +2,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
 
-public class LoadData
+public static class LoadData
 {
 
     public static void LoadDataFromPlayFab()
@@ -18,18 +18,19 @@ public class LoadData
     {
 
         PlayerSkins graphicsData = null;
-        Account data = null;
+        Account accountData = null;
+        TimeData timeData = null;
 
         if (result.Data != null && result.Data.ContainsKey("AccountData"))
         {
-            data = JsonUtility.FromJson<Account>(result.Data["AccountData"].Value);
-            AccountManager.Instance.CurrentAccount = data;
+            accountData = JsonUtility.FromJson<Account>(result.Data["AccountData"].Value);
+            AccountManager.Instance.CurrentAccount = accountData;
         }
         else
         {
             Debug.Log($"Creating Account Data For The First Time.");
-            data = new Account();
-            AccountManager.Instance.CurrentAccount = data;
+            accountData = new Account();
+            AccountManager.Instance.CurrentAccount = accountData;
         }
 
         if (result.Data != null && result.Data.ContainsKey("SkinManagerData"))
@@ -40,6 +41,12 @@ public class LoadData
         else
         {
             SaveData.SaveTheSkinManagerData(SkinManager.Instance.GetGraphicsData());
+        }
+
+        if (result.Data != null && result.Data.ContainsKey("TimeManagerData"))
+        {
+            timeData = JsonUtility.FromJson<TimeData>(result.Data["TimeManagerData"].Value);
+            TimeManager.Instance.SetTimeData(timeData);
         }
 
     }

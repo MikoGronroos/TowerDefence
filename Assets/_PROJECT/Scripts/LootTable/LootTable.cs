@@ -24,7 +24,7 @@ namespace Finark.LootTable
         [SerializeField] private int generatedWeight;
         [SerializeField] private string generatedTier;
 
-        public LootTableTierReward GetLootTableTier()
+        public LootTableTierReward GetLootTableReward()
         {
 
             int totalWeights = 0;

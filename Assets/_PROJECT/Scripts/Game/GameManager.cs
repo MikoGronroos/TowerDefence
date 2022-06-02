@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         }
 
         AccountManager.Instance.CurrentAccount.GamesPlayed++;
-        AccountManager.Instance.SaveData();
+        AccountManager.Instance.SaveDataAccountData();
 
         LoadGameEndScreen();
 

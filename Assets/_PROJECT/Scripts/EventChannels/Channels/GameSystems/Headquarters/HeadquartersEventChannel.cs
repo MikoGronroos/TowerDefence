@@ -6,5 +6,6 @@ namespace Finark.Events
 	public class HeadquartersEventChannel : EventChannelBase
 	{
 		public EventChannel OnFirstTimeGameLoaded;
+		public EventChannel DailyRewardAvailability;
 	}
 }

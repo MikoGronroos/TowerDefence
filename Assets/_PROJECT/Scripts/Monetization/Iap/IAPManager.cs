@@ -23,7 +23,7 @@ public class IAPManager : MonoBehaviour
         if (product.definition.id == hardCurrency1000) playFabCurrencyEventChannel.ChangeAmountOfHardCurrency?.Invoke(new Dictionary<string, object> { { "Amount", 1000 } });
 
         if (!AccountManager.Instance.CurrentAccount.AdsRemoved) AccountManager.Instance.CurrentAccount.AdsRemoved = true;
-        AccountManager.Instance.SaveData();
+        AccountManager.Instance.SaveDataAccountData();
 
         Debug.Log(product.definition.id + " purchase was succesful!");
     }

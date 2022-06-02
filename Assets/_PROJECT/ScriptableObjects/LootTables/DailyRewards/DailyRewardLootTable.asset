@@ -15,20 +15,45 @@ MonoBehaviour:
   lootTableItems:
   - Name: Uncommon
     Weight: 60
-    LootTableItems: []
+    LootTableTierReward:
+      HardCurrencyAmount: 0
+      SoftCurrencyAmount: 0
+      XpAmount: 0
+      SkinID: 0
+      SkinGraphicMainKey: 
   - Name: Common
     Weight: 30
-    LootTableItems: []
+    LootTableTierReward:
+      HardCurrencyAmount: 0
+      SoftCurrencyAmount: 0
+      XpAmount: 0
+      SkinID: 0
+      SkinGraphicMainKey: 
   - Name: Rare
     Weight: 5
-    LootTableItems: []
+    LootTableTierReward:
+      HardCurrencyAmount: 0
+      SoftCurrencyAmount: 0
+      XpAmount: 0
+      SkinID: 0
+      SkinGraphicMainKey: 
   - Name: Epic
     Weight: 3
-    LootTableItems: []
+    LootTableTierReward:
+      HardCurrencyAmount: 0
+      SoftCurrencyAmount: 0
+      XpAmount: 0
+      SkinID: 0
+      SkinGraphicMainKey: 
   - Name: Legendary
     Weight: 2
-    LootTableItems: []
+    LootTableTierReward:
+      HardCurrencyAmount: 0
+      SoftCurrencyAmount: 0
+      XpAmount: 0
+      SkinID: 0
+      SkinGraphicMainKey: 
   useForcedWeight: 0
   forcedWeight: 100
-  generatedWeight: 58
+  generatedWeight: 11
   generatedTier: Uncommon

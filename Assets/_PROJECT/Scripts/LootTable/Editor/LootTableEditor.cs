@@ -16,7 +16,7 @@ namespace Finark.LootTable
 
             if (GUILayout.Button("Generate A Tier"))
             {
-                lootTable.GetLootTableTier();
+                lootTable.GetLootTableReward();
             }
             serializedObject.ApplyModifiedProperties();
         }

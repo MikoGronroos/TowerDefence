@@ -3,7 +3,7 @@ using PlayFab;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveData
+public static class SaveData
 {
 
     public static void SaveTheAccountData(Account data)
@@ -34,6 +34,19 @@ public class SaveData
 
         PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
 
+    }
+
+    public static void SaveTheTimeManagerData(TimeData data)
+    {
+        var request = new UpdateUserDataRequest
+        {
+            Data = new Dictionary<string, string>
+            {
+                { "TimeManagerData", JsonUtility.ToJson(data) }
+            }
+        };
+
+        PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
     }
 
     private static void OnError(PlayFabError error)

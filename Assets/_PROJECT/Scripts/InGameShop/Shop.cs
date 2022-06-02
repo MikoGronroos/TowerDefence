@@ -15,8 +15,9 @@ public class Shop : MonoBehaviourSingleton<Shop>
     [SerializeField] private ShopEventChannel shopEventChannel;
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         playerEventChannel.OnPlayerLevelUp += RefreshShop;
     }
 

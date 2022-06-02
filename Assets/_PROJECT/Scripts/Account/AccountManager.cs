@@ -35,17 +35,17 @@ public class AccountManager : MonoBehaviourSingletonDontDestroyOnLoad<AccountMan
 
     private void OnLoginListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        LoadData();
+        LoadDataAccountData();
     }
 
-    public void LoadData()
+    public void LoadDataAccountData()
     {
-        global::LoadData.LoadDataFromPlayFab();
+        LoadData.LoadDataFromPlayFab();
     }
 
-    public void SaveData()
+    public void SaveDataAccountData()
     {
-        global::SaveData.SaveTheAccountData(currentAccount);
+        SaveData.SaveTheAccountData(currentAccount);
     }
 
 }

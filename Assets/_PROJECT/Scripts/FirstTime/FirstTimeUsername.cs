@@ -43,7 +43,7 @@ public class FirstTimeUsername : MonoBehaviour
             AccountManager.Instance.CurrentAccount.AccountName = usernameInputField.text;
             AccountManager.Instance.CurrentAccount.IsFirstLaunchOfTheGame = false;
             usernameSetPanel.SetActive(false);
-            AccountManager.Instance.SaveData();
+            AccountManager.Instance.SaveDataAccountData();
         }
     }
 

@@ -22,7 +22,7 @@ public class NameChanger : MonoBehaviour
     private void NameChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
         AccountManager.Instance.CurrentAccount.AccountName = (string)args["Name"];
-        AccountManager.Instance.SaveData();
+        AccountManager.Instance.SaveDataAccountData();
     }
 
 }
