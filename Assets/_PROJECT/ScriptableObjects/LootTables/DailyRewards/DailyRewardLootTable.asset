@@ -16,44 +16,49 @@ MonoBehaviour:
   - Name: Uncommon
     Weight: 60
     LootTableTierReward:
+      Type: 0
+      SoftCurrencyAmount: 25
       HardCurrencyAmount: 0
-      SoftCurrencyAmount: 0
       XpAmount: 0
       SkinID: 0
       SkinGraphicMainKey: 
   - Name: Common
     Weight: 30
     LootTableTierReward:
+      Type: 0
+      SoftCurrencyAmount: 60
       HardCurrencyAmount: 0
-      SoftCurrencyAmount: 0
       XpAmount: 0
       SkinID: 0
       SkinGraphicMainKey: 
   - Name: Rare
     Weight: 5
     LootTableTierReward:
+      Type: 0
+      SoftCurrencyAmount: 100
       HardCurrencyAmount: 0
-      SoftCurrencyAmount: 0
       XpAmount: 0
       SkinID: 0
       SkinGraphicMainKey: 
   - Name: Epic
     Weight: 3
     LootTableTierReward:
-      HardCurrencyAmount: 0
+      Type: 1
       SoftCurrencyAmount: 0
+      HardCurrencyAmount: 10
       XpAmount: 0
       SkinID: 0
       SkinGraphicMainKey: 
   - Name: Legendary
     Weight: 2
     LootTableTierReward:
-      HardCurrencyAmount: 0
+      Type: 2
       SoftCurrencyAmount: 0
+      HardCurrencyAmount: 0
       XpAmount: 0
-      SkinID: 0
-      SkinGraphicMainKey: 
+      SkinID: 1
+      SkinGraphicMainKey: TowerOfMordor
   useForcedWeight: 0
   forcedWeight: 100
-  generatedWeight: 11
-  generatedTier: Uncommon
+  generatedWeight: 100
+  generatedTier: Legendary

@@ -27,4 +27,9 @@ public class TimeInfo
         return new DateTime(Year, Month, Day, Hour, Minute, Second);
     }
 
+    public bool IsEmpty()
+    {
+        return Year == 0 && Month == 0 && Day == 0 && Hour == 0 && Minute == 0 && Second == 0;
+    }
+
 }
