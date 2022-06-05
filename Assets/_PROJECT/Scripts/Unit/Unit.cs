@@ -21,6 +21,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     public int UnitInstanceId { get; private set; }
 
+    public string UnitPrefabName { get; set; }
+
     public int UnitOwnerID;
 
     private void Awake()
@@ -29,12 +31,11 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         _photonView = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         currentHealth = unitStats.StartHealth;
         _currentUnitHardness = unitStats.MaxUnitHardness;
         _followPath.SetSpeed(unitStats.Speed);
-        UnitInstanceId = Random.Range(0,99999999);
     }
 
     public void RemoveCurrentHealth(float amount, IEnumerable<ProjectileType> types)
@@ -96,8 +97,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
             { "UnitID", unitStats.UnitID },
             { "InstanceID", UnitInstanceId } 
         });
-        
-        if(_photonView.IsMine) PhotonNetwork.Destroy(_photonView);
+
+        if (_photonView.IsMine) UnitSpawner.Instance.DespawnUnit(gameObject);
 
     }
 
@@ -110,13 +111,12 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     {
         var photonView = gameObject.GetPhotonView();
         object[] data = photonView.InstantiationData;
-        if (data != null && data.Length == 1)
+        if (data != null && data.Length == 2)
         {
-            if (!photonView.IsMine)
-            {
-                photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
-            }
             UnitOwnerID = (int)data[0];
+            UnitInstanceId = (int)data[1];
+
+            UnitSpawner.Instance.AddUnitToList(gameObject, UnitInstanceId);
         }
     }
 }

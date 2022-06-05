@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 58779488}
   - component: {fileID: 58779487}
-  - component: {fileID: 58779485}
   - component: {fileID: 58779486}
   m_Layer: 0
   m_Name: LightArmorUnit_Default
@@ -142,18 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &58779485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58779484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c2694f9fe98ae44beb0b90d90f6e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &58779486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +158,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

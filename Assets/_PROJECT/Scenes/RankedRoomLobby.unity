@@ -1646,6 +1646,7 @@ MonoBehaviour:
   roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
   currentlyReadyPlayers: 0
   playersInTheRoom: 0
+  debugMode: 0
 --- !u!4 &1699627151
 Transform:
   m_ObjectHideFlags: 0
@@ -1654,7 +1655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699627148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1105.9348, y: 488.33557, z: -13.6383705}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1849,7 +1850,6 @@ MonoBehaviour:
   Maps:
   - {fileID: 11400000, guid: 617aa87d45d74474e896fadefa23ed49, type: 2}
   - {fileID: 11400000, guid: b67ddf50a61b99a44b49aaac569ab309, type: 2}
-  - {fileID: 11400000, guid: 3dff02369668d884987aa07b33cdc7ea, type: 2}
   roomEventChannel: {fileID: 11400000, guid: 982918cf8229d8a45a0427eefa23f3fc, type: 2}
 --- !u!4 &1702500854
 Transform:
