@@ -19,7 +19,10 @@ public class Goal : MonoBehaviour
 
             unitEventChannel.OnUnitReachedGoal?.Invoke(new Dictionary<string, object> { { "UnitID", unit.GetUnitStats().UnitID }, { "GoalOwnerID", goalOwnerID } });
 
-            PhotonNetwork.Destroy(collision.GetComponent<PhotonView>());
+            if (collision.GetComponent<PhotonView>().IsMine)
+            {
+                UnitSpawner.Instance.DespawnUnit(collision.gameObject);
+            }
 
         }
     }

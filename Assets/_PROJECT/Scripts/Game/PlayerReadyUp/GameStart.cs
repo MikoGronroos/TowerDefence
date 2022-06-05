@@ -12,6 +12,8 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
     [SerializeField] private int currentlyReadyPlayers = 0;
     [SerializeField] private int playersInTheRoom = 0;
 
+    [SerializeField] private bool debugMode;
+
     private string _sceneToLoad;
 
     private PhotonView _photonView;
@@ -109,7 +111,7 @@ public class GameStart : MonoBehaviourSingleton<GameStart>
 
     private void TryToStartTheGame()
     {
-        if (currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1)
+        if (currentlyReadyPlayers >= playersInTheRoom && playersInTheRoom > 1 || debugMode)
         {
             if (PhotonNetwork.IsMasterClient)
             {

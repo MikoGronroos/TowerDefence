@@ -49,4 +49,9 @@ public class FollowPath : MonoBehaviour
         this.pathCreator = pathCreator;
     }
 
+    public void ResetProgress()
+    {
+        _distanceTraveled = 0f;
+    }
+
 }
