@@ -2404,7 +2404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLootTable: {fileID: 11400000, guid: 26ba5c1d40c173249873b21129377cfb, type: 2}
-  debugMode: 1
+  debugMode: 0
   headquartersEventChannel: {fileID: 11400000, guid: 328638475a19d35498a536084b386b5b, type: 2}
   playFabCurrencyEventChannel: {fileID: 11400000, guid: 490c38d3436511a4288c5826fe97c372, type: 2}
 --- !u!114 &518712008
