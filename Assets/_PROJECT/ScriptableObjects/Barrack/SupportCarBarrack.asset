@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SupportCarBarrack
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 1750303906499475433, guid: 2d7bba3e8f029d5498d73f8b15f1056a, type: 3}
-  SpawnInterval: 12
+  SpawnInterval: 8
   SpawnAmount: 1
