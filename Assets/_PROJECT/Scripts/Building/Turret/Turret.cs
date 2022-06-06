@@ -47,8 +47,9 @@ public partial class Turret : Building, IPunInstantiateMagicCallback
         TurretSearching turretSearching = new TurretSearching(transform, turretExecutable, TurretOwnerID, this);
         TurretShoot turretShoot = new TurretShoot(turretExecutable, transform, this, shootSoundID, projectileMainKey);
 
-        AddAnyTransition(turretSearching, new List<Func<bool>> { CantShoot, NoTarget });
-        AddAnyTransition(turretShoot, new List<Func<bool>> { CanShoot, HasTarget });
+        AddAnyTransition(turretSearching, new List<Func<bool>> { NoTarget });
+        AddAnyTransition(turretSearching, new List<Func<bool>> { TargetNotVisible });
+        AddAnyTransition(turretShoot, new List<Func<bool>> { CanShoot, HasTarget, TargetIsVisible });
 
         SwitchState(turretSearching);
 
@@ -194,14 +195,19 @@ public partial class Turret : Building, IPunInstantiateMagicCallback
         return _canShoot;
     }
 
-    private bool CantShoot()
-    {
-        return !_canShoot;
-    }
-
     private bool NoTarget()
     {
         return target == null;
+    }
+
+    private bool TargetNotVisible()
+    {
+        return !target.gameObject.activeSelf;
+    }
+
+    private bool TargetIsVisible()
+    {
+        return target.gameObject.activeSelf;
     }
 
     #endregion
@@ -218,7 +224,7 @@ public partial class Turret : Building, IPunInstantiateMagicCallback
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
-        object[] data = this.gameObject.GetPhotonView().InstantiationData;
+        object[] data = gameObject.GetPhotonView().InstantiationData;
         if (data != null && data.Length == 1)
         {
             TurretOwnerID = (int)data[0];

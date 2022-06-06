@@ -38,7 +38,6 @@ public class ProjectileSpawner : MonoBehaviourSingleton<ProjectileSpawner>
 
         if (poolLists.ContainsKey(projectilePrefabName) && !poolLists[projectilePrefabName].IsEmpty())
         {
-            Debug.Log("Reused an old one");
             projectile = poolLists[projectilePrefabName].Dequeue();
             projectile.transform.position = position;
             if (projectile.TryGetComponent(out Projectile proj))
@@ -49,7 +48,6 @@ public class ProjectileSpawner : MonoBehaviourSingleton<ProjectileSpawner>
         }
         else
         {
-            Debug.Log("Spawned new");
             projectile = PhotonNetwork.Instantiate($"{path}{projectilePrefabName}", position, Quaternion.identity, 0, data);
             if (projectile.TryGetComponent(out Projectile proj))
             {
