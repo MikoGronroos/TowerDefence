@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPunInstantiateMagicCallback
 {
 
     private Vector3 _shootDir;
@@ -14,6 +14,10 @@ public class Projectile : MonoBehaviour
 
     private PhotonView _photonView;
     private SpriteRenderer _spriteRenderer;
+
+    public int InstanceId { get; private set; }
+
+    public string PrefabName { get; set; }
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class Projectile : MonoBehaviour
         _types = exec.ProjectileTypes;
         _speed = exec.ProjectileSpeed;
         _currentProjectilePenetration = exec.ProjectilePenetration;
+        _hitObject = false;
 
         _photonView.RPC("RPCSetup", RpcTarget.All, mainKey);
 
@@ -57,8 +62,7 @@ public class Projectile : MonoBehaviour
 
             if (!unit.CheckIfProjectilePenetrates(_currentProjectilePenetration))
             {
-
-                PhotonNetwork.Destroy(gameObject.GetPhotonView());
+                ProjectileSpawner.Instance.DespawnUnit(gameObject);
                 _hitObject = true;
             }
 
@@ -67,4 +71,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        var photonView = gameObject.GetPhotonView();
+        object[] data = photonView.InstantiationData;
+        if (data != null && data.Length == 1)
+        {
+            InstanceId = (int)data[0];
+
+            ProjectileSpawner.Instance.AddProjectileToList(gameObject, InstanceId);
+        }
+    }
 }

@@ -20,7 +20,7 @@ public class DestroyNetworkedObject : MonoBehaviour
         _photonView = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         if (destroyAfterTime) Invoke("Destroy", destroyTime);
     }
@@ -47,7 +47,7 @@ public class DestroyNetworkedObject : MonoBehaviour
     {
         if (_photonView.IsMine)
         {
-            PhotonNetwork.Destroy(_photonView);
+            ProjectileSpawner.Instance.DespawnUnit(gameObject);
         }
     }
 }

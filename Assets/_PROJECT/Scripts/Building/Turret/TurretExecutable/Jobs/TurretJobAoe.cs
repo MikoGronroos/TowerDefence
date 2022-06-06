@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public abstract class TurretJobAoe : ExecuteJob
 {
@@ -23,13 +22,11 @@ public abstract class TurretJobAoe : ExecuteJob
 
         yield return new WaitForSeconds(1);
 
-        GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{projectileprefab.name}", position, Quaternion.identity);
+        ProjectileSpawner.Instance.RequestProjectileSpawn(projectileprefab.name, position, new Vector2(0,0));
 
         SoundEffectManager.Instance.PlaySoundInstantlyWithID(shootSoundID, true);
 
-        CollidersLogic(position, GetCollidersInArea(position, 2), exec, clone.transform);
-
-        RangeVisualisation.Instance.DrawCircle(clone, 2, 0.1f);
+        CollidersLogic(position, GetCollidersInArea(position, 2), exec, null);
 
     }
 

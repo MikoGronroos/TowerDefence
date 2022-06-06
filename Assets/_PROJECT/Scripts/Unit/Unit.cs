@@ -19,9 +19,9 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     private PhotonView _photonView;
 
-    public int UnitInstanceId { get; private set; }
+    public int InstanceId { get; private set; }
 
-    public string UnitPrefabName { get; set; }
+    public string PrefabName { get; set; }
 
     public int UnitOwnerID;
 
@@ -95,7 +95,7 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
         unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> { 
             { "UnitID", unitStats.UnitID },
-            { "InstanceID", UnitInstanceId } 
+            { "InstanceID", InstanceId } 
         });
 
         if (_photonView.IsMine) UnitSpawner.Instance.DespawnUnit(gameObject);
@@ -114,9 +114,9 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         if (data != null && data.Length == 2)
         {
             UnitOwnerID = (int)data[0];
-            UnitInstanceId = (int)data[1];
+            InstanceId = (int)data[1];
 
-            UnitSpawner.Instance.AddUnitToList(gameObject, UnitInstanceId);
+            UnitSpawner.Instance.AddUnitToList(gameObject, InstanceId);
         }
     }
 }

@@ -49,12 +49,12 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
                 var currentPath = unit.GetComponent<FollowPath>();
                 currentPath.ResetProgress();
                 unit.transform.position = path.PathStartPos.position;
-                _photonView.RPC("RPCToggleGameObject", RpcTarget.All, unit.GetComponent<Unit>().UnitInstanceId, true);
+                _photonView.RPC("RPCToggleGameObject", RpcTarget.All, unit.GetComponent<Unit>().InstanceId, true);
             }
             else
             {
                 unit = PhotonNetwork.Instantiate($"Units/{unitPrefabName}", path.PathStartPos.position, Quaternion.identity, 0, data);
-                unit.GetComponent<Unit>().UnitPrefabName = unitPrefabName;
+                unit.GetComponent<Unit>().PrefabName = unitPrefabName;
                 var currentPath = unit.GetComponent<FollowPath>();
                 currentPath.SetPath(path.ThisPath);
             }
@@ -72,14 +72,14 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
 
         Unit despawningUnit = unit.GetComponent<Unit>();
 
-        if (!poolLists.ContainsKey(despawningUnit.UnitPrefabName))
+        if (!poolLists.ContainsKey(despawningUnit.PrefabName))
         {
-            poolLists.Add(despawningUnit.UnitPrefabName, new PoolList());
+            poolLists.Add(despawningUnit.PrefabName, new PoolList());
         }
 
-        poolLists[despawningUnit.UnitPrefabName].Enqueue(unit);
+        poolLists[despawningUnit.PrefabName].Enqueue(unit);
 
-        _photonView.RPC("RPCToggleGameObject", RpcTarget.All, despawningUnit.UnitInstanceId, false);
+        _photonView.RPC("RPCToggleGameObject", RpcTarget.All, despawningUnit.InstanceId, false);
 
     }
 

@@ -34,9 +34,8 @@ public class TurretJobBasicShoot : ExecuteJob
         for (int i = 0; i < amountOfShots; i++)
         {
             SoundEffectManager.Instance.PlaySoundInstantlyWithID(shootSoundID, true);
-            GameObject clone = PhotonNetwork.Instantiate($"Projectiles/{prefab.name}", position, Quaternion.identity);
-            var projectile = clone.GetComponent<Projectile>();
-            projectile.Setup(rotation, exec, mainKey);
+
+            ProjectileSpawner.Instance.RequestProjectileSpawn(prefab.name, position, rotation, exec, mainKey);
 
             yield return new WaitForSeconds(time);
         }
