@@ -31,11 +31,13 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         base.OnEnable();
         playerEventChannel.OnPlayerDead += EndGame;
+        roomEventChannel.OnPlayerSurrender += EndGame;
     }
 
     private void OnDisable()
     {
         playerEventChannel.OnPlayerDead -= EndGame;
+        roomEventChannel.OnPlayerSurrender -= EndGame;
     }
 
     private void Start()

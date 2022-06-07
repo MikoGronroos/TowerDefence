@@ -8,6 +8,7 @@ namespace Finark.Events
 
 		public EventChannel LeaveRoom;
 		public EventChannel OnJoinedRoom;
+		public EventChannel OnPlayerSurrender;
 
 		public EventChannel OnPlayerAmountChanged;
 		public EventChannel OnPlayerReadyUp;
@@ -16,11 +17,6 @@ namespace Finark.Events
 
 		public EventChannel OnPlayerInfoUpdate;
 
-		#region Settings
-
-		public EventChannel OnPlayModeChanged;
-
-        #endregion
 
     }
 }

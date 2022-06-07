@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: LightArmorUnit
   m_EditorClassIdentifier: 
   UnitID: 0
-  StartHealth: 65
+  StartHealth: 70
   Speed: 2.4
   Damage: 5
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
-  MaxUnitHardness: 50
+  MaxUnitHardness: 65
   XpAddonOnDestroyed: 6

@@ -5897,7 +5897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipObject: {fileID: 7497159222794648094}
-  durationThreshold: 0.8
+  durationThreshold: 0.3
   tooltipOffset: {x: 0, y: 4, z: 0}
   damageValueText: {fileID: 2085220756}
   attackSpeedValueText: {fileID: 1198524448}
