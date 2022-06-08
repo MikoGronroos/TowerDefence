@@ -15,13 +15,15 @@ public class Goal : MonoBehaviour
         if (collision.TryGetComponent(out Unit unit))
         {
 
-            HealthManager.Instance.RemoveHealthWithID(unit.GetUnitStats().Damage, goalOwnerID);
-
             unitEventChannel.OnUnitReachedGoal?.Invoke(new Dictionary<string, object> { { "UnitID", unit.GetUnitStats().UnitID }, { "GoalOwnerID", goalOwnerID } });
 
             if (collision.GetComponent<PhotonView>().IsMine)
             {
+
+                HealthManager.Instance.RemoveHealthWithID(unit.GetUnitStats().Damage, goalOwnerID);
+
                 UnitSpawner.Instance.DespawnUnit(collision.gameObject);
+
             }
 
         }

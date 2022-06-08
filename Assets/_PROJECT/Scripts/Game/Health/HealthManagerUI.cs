@@ -23,12 +23,11 @@ public class HealthManagerUI : MonoBehaviour
 
     public void UpdateHealthText(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-        var health = (PlayerHealth)args["PlayerHealth"];
-
-        var id = health.PlayerID;
+        var id = (int)args["ID"];
+        var amount = (int)args["amount"];
 
         var healthText = playerHealthTexts[id];
 
-        healthText.text = $"Health: {health.Health}";
+        healthText.text = $"Health: {amount}";
     }
 }

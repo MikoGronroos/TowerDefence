@@ -58,12 +58,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void EndGame(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
     {
-
+        _photonView.RPC("RPCEndGame", RpcTarget.AllBuffered, (int)args["loserID"]);
+    }
+    
+    [PunRPC]
+    private void RPCEndGame(int loserID)
+    {
         if (gameEnded) return;
 
         gameEnded = true;
-
-        int loserID = (int)args["loserID"];
 
         IsWinner = loserID != PlayerManager.Instance.GetLocalPlayer().GetPlayerID();
 

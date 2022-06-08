@@ -20,22 +20,22 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
     public void RemoveHealthWithID(int amount, int id)
     {
 
-        _photonView.RPC("RPCRemoveHealthWithID", RpcTarget.AllBuffered, amount, id);
+        var player = GetPlayerHealthWithID(id);
+        player.Health = Mathf.Clamp(player.Health -= amount, 0, player.Health);
+
+        _photonView.RPC("RPCRemoveHealthWithID", RpcTarget.AllBuffered, player.Health, id);
+
+        if (PlayerHealthBelowZero(player))
+        {
+            playerEventChannel?.OnPlayerDead(new Dictionary<string, object> { { "loserID", id } });
+        }
 
     }
 
     [PunRPC]
     private void RPCRemoveHealthWithID(int amount, int id)
     {
-        var player = GetPlayerHealthWithID(id);
-        player.Health = Mathf.Clamp(player.Health -= amount, 0, player.Health);
-        playerEventChannel?.OnHealthChanged(new Dictionary<string, object> { { "PlayerHealth", player } });
-
-        if (PlayerHealthBelowZero(player))
-        {
-            playerEventChannel?.OnPlayerDead(new Dictionary<string, object> { { "loserID", id} });
-        }
-
+        playerEventChannel?.OnHealthChanged(new Dictionary<string, object> { { "ID", id }, { "amount", amount } });
     }
 
     private bool PlayerHealthBelowZero(PlayerHealth player)
@@ -47,7 +47,7 @@ public class HealthManager : MonoBehaviourSingleton<HealthManager>
     {
         foreach (var player in playerHealths)
         {
-            playerEventChannel?.OnHealthChanged(new Dictionary<string, object> { { "PlayerHealth", player } });
+            playerEventChannel?.OnHealthChanged(new Dictionary<string, object> { { "ID", player.PlayerID }, { "amount", player.Health } });
         }
     }
 
