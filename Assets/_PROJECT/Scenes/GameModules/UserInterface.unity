@@ -234,13 +234,9 @@ PrefabInstance:
       propertyPath: openShopButton
       value: 
       objectReference: {fileID: 1030965052}
-    - target: {fileID: 6264565093366386783, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1280
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264565093366386783, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -194
+    - target: {fileID: 7230055648639334724, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
+      propertyPath: m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673745233185274353, guid: de680fc303d1f604abda1b90d25094b7, type: 3}
       propertyPath: m_AnchorMax.x
