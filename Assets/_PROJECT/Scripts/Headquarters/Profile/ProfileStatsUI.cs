@@ -1,9 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Finark.Events;
+using System.Collections.Generic;
+using System;
 
 public class ProfileStatsUI : MonoBehaviour
 {
+
+    [Header("Small User Info")]
+
+    [SerializeField] private TextMeshProUGUI smallProfileLevelText;
+    [SerializeField] private TextMeshProUGUI smallProfileUsernameText;
+
+    [Header("Large User Info")]
 
 	[SerializeField] private Button profileTabButton;
 
@@ -21,12 +31,29 @@ public class ProfileStatsUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI profileGamesPlayedText;
 
+    [SerializeField] private AccountEventChannel accountEventChannel;
+
     private void Awake()
     {
-        profileTabButton.onClick.AddListener(UpdateStats);
+        profileTabButton.onClick.AddListener(UpdateLargeProfileInfoStats);
     }
 
-    private void UpdateStats()
+    private void Start()
+    {
+        UpdateSmallProfileInfoStats();
+    }
+
+    private void OnEnable()
+    {
+        accountEventChannel.OnNameChanged += UpdateSmallProfileInfoStats;
+    }
+
+    private void OnDisable()
+    {
+        accountEventChannel.OnNameChanged -= UpdateSmallProfileInfoStats;
+    }
+
+    private void UpdateLargeProfileInfoStats()
     {
 
         profileNameText.text = AccountManager.Instance.CurrentAccount.AccountName;
@@ -43,6 +70,12 @@ public class ProfileStatsUI : MonoBehaviour
 
         profileGamesPlayedText.text = AccountManager.Instance.CurrentAccount.GamesPlayed.ToString();
 
+    }
+
+    private void UpdateSmallProfileInfoStats(Dictionary<string, object> args = null, Action<Dictionary<string, object>> callback = null)
+    {
+        smallProfileLevelText.text = AccountManager.Instance.CurrentAccount.AccountLevel.ToString();
+        smallProfileUsernameText.text = args != null ? (string)args["Name"] : AccountManager.Instance.CurrentAccount.AccountName;
     }
 
 }

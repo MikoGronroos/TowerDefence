@@ -245,7 +245,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "C:/Users/Miko Gr\xF6nroos/Desktop/GronroosGames/TowerDefence/user.keystore"
+  AndroidKeystoreName: "C:/Users/Miko Gr\xF6nroos/Desktop/GronroosGames/Grand Assault/user.keystore"
   AndroidKeyaliasName: tower defence
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
@@ -707,7 +707,7 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

@@ -15,7 +15,7 @@ MonoBehaviour:
   AppSettings:
     AppIdRealtime: ed7f853d-fe7e-444d-9d2b-41413f43fd5a
     AppIdFusion: 
-    AppIdChat: 
+    AppIdChat: 10781436-4ab8-4d29-a987-0745ce53da41
     AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
@@ -52,5 +52,5 @@ MonoBehaviour:
   - RPCSpawnProjectile
   - RPCEndGame
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
   DevRegionSetOnce: 1

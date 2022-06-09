@@ -39,11 +39,10 @@ public class ProjectileSpawner : MonoBehaviourSingleton<ProjectileSpawner>
         if (poolLists.ContainsKey(projectilePrefabName) && !poolLists[projectilePrefabName].IsEmpty())
         {
             projectile = poolLists[projectilePrefabName].Dequeue();
-            projectile.transform.position = position;
             if (projectile.TryGetComponent(out Projectile proj))
             {
+                _photonView.RPC("RPCToggleGameObject", RpcTarget.All, proj.InstanceId, true, position.x, position.y, position.z);
                 proj.Setup(rotation, exec, mainKey);
-                _photonView.RPC("RPCToggleGameObject", RpcTarget.All, proj.InstanceId, true);
             }
         }
         else
@@ -72,18 +71,21 @@ public class ProjectileSpawner : MonoBehaviourSingleton<ProjectileSpawner>
 
         poolLists[despawningProjectile.PrefabName].Enqueue(projectile);
 
-        _photonView.RPC("RPCToggleGameObject", RpcTarget.All, despawningProjectile.InstanceId, false);
+        _photonView.RPC("RPCToggleGameObject", RpcTarget.All, despawningProjectile.InstanceId, false, 0.0f, 0.0f, 0.0f);
 
     }
+
     public void AddProjectileToList(GameObject projectile, int instanceId)
     {
         allProjectiles.Add(new PoolObject(instanceId, projectile));
     }
 
     [PunRPC]
-    private void RPCToggleGameObject(int instanceId, bool toggleStatus)
+    private void RPCToggleGameObject(int instanceId, bool toggleStatus, float x, float y, float z)
     {
-        allProjectiles.Where(i => i.instanceId == instanceId).ToArray()[0].Go.SetActive(toggleStatus);
+        GameObject go = allProjectiles.Where(i => i.instanceId == instanceId).ToArray()[0].Go;
+        go.transform.position = new Vector3(x, y, z);
+        go.SetActive(toggleStatus);
     }
 
 
