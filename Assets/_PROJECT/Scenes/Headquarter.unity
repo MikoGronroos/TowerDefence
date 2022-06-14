@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.GronroosGames.TowerDefense.truckloadofgems
+  productId: com.gronroosgames.grandassault.truckloadofgems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -1738,6 +1738,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9205001426529242884, guid: d4c627dcfa1687a4dadf21ecb50ccf7e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000081981
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205001426529242884, guid: d4c627dcfa1687a4dadf21ecb50ccf7e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00001162
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c627dcfa1687a4dadf21ecb50ccf7e, type: 3}
 --- !u!224 &367455357 stripped
@@ -2253,7 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.GronroosGames.TowerDefense.removeads
+  productId: com.gronroosgames.grandassault.removeads
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -2707,7 +2715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.GronroosGames.TowerDefense.pouchofgems
+  productId: com.gronroosgames.grandassault.pouchofgems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -4731,7 +4739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1260058475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5309,7 +5317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.GronroosGames.TowerDefense.handfulofgems
+  productId: com.gronroosgames.grandassault.handfulofgems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
