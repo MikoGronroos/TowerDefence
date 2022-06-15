@@ -83,7 +83,7 @@ public class ProjectileSpawner : MonoBehaviourSingleton<ProjectileSpawner>
     [PunRPC]
     private void RPCToggleGameObject(int instanceId, bool toggleStatus, float x, float y, float z)
     {
-        GameObject go = allProjectiles.Where(i => i.instanceId == instanceId).ToArray()[0].Go;
+        GameObject go = allProjectiles.Where(i => i.InstanceId == instanceId).ToArray()[0].Go;
         go.transform.position = new Vector3(x, y, z);
         go.SetActive(toggleStatus);
     }

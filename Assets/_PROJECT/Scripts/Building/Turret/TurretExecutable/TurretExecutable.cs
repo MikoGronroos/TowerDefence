@@ -17,6 +17,8 @@ public class TurretExecutable
 
     public ProjectileType[] ProjectileTypes;
 
+    public UnitEffect UnitHitEffect;
+
     public int ProjectilePenetration;
 
     public float ProjectileSpeed;

@@ -90,10 +90,22 @@ public class UnitSpawner : MonoBehaviourSingleton<UnitSpawner>
         allUnits.Add(new PoolObject(instanceId, unit));
     }
 
+    public GameObject GetUnitFromPoolWithInstanceID(int instanceId)
+    {
+        foreach (var unit in allUnits)
+        {
+            if (unit.InstanceId == instanceId)
+            {
+                return unit.Go;
+            }
+        }
+        return null;
+    }
+
     [PunRPC]
     private void RPCToggleGameObject(int instanceId, bool toggleStatus)
     {
-        allUnits.Where(i => i.instanceId == instanceId).ToArray()[0].Go.SetActive(toggleStatus);
+        allUnits.Where(i => i.InstanceId == instanceId).ToArray()[0].Go.SetActive(toggleStatus);
     }
 
 }

@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour, IPunInstantiateMagicCallback
     private int _currentProjectilePenetration;
     private IEnumerable<ProjectileType> _types;
     private bool _hitObject;
+    private UnitEffect _hitEffect;
 
     private PhotonView _photonView;
     private SpriteRenderer _spriteRenderer;
@@ -31,6 +32,7 @@ public class Projectile : MonoBehaviour, IPunInstantiateMagicCallback
         _damage = exec.Damage.Value;
         _types = exec.ProjectileTypes;
         _speed = exec.ProjectileSpeed;
+        _hitEffect = exec.UnitHitEffect;
         _currentProjectilePenetration = exec.ProjectilePenetration;
         _hitObject = false;
 
@@ -68,6 +70,12 @@ public class Projectile : MonoBehaviour, IPunInstantiateMagicCallback
 
             _currentProjectilePenetration -= unit.GetHardness();
             unit.RemoveHardness(_currentProjectilePenetration);
+
+            if (_hitEffect != null)
+            {
+                UnitEffectManager.Instance.SpawnEffect(unit, _hitEffect);
+            }
+
         }
     }
 

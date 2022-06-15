@@ -7,12 +7,12 @@ namespace Finark.Pooling
     public class PoolObject
     {
 
-        public int instanceId;
+        public int InstanceId;
         public GameObject Go;
 
         public PoolObject(int instanceId, GameObject go)
         {
-            this.instanceId = instanceId;
+            this.InstanceId = instanceId;
             Go = go;
         }
     }

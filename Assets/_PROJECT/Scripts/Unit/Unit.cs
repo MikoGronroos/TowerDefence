@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using Photon.Pun;
 using Finark.Events;
 
@@ -12,6 +13,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField] private float currentHealth;
 
     [SerializeField] private UnitEventChannel unitEventChannel;
+
+    [SerializeField] private List<UnitEffect> currentEffects = new List<UnitEffect>();
 
     private FollowPath _followPath;
 
@@ -106,6 +109,32 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     {
         return unitStats;
     }
+
+    public FollowPath GetFollowPath()
+    {
+        return _followPath;
+    }
+
+    #region Effects
+
+    public void AddEffect(UnitEffect effect)
+    {
+        effect.StartEffect(this);
+        currentEffects.Add(effect);
+    }
+
+    public void RemoveEffect(UnitEffect effect)
+    {
+        effect.StopEffect(this);
+        currentEffects.Remove(effect);
+    }
+
+    public bool UnitAlreadyContainsEffectWithID(string id)
+    {
+        return currentEffects.Where(i => i.effectId == id).Count() > 0; 
+    }
+
+    #endregion
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {

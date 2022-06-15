@@ -9,7 +9,7 @@ public class FollowPath : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    private const float _rotationSpeed = 5.0f;
+    private const float _rotationSpeed = 6.0f;
 
     private PhotonView _view;
 
