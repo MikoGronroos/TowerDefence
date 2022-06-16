@@ -12,6 +12,7 @@ public class UnitEffectManager : MonoBehaviourSingleton<UnitEffectManager>
 
     private IEnumerator Effect(Unit target, UnitEffect effect)
     {
+
         if (target.UnitAlreadyContainsEffectWithID(effect.effectId)) yield break;
 
         target.AddEffect(effect);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4013285068488076142}
   - component: {fileID: 4013285068488076143}
   - component: {fileID: -386387518295195353}
+  - component: {fileID: -1658673798858406834}
   m_Layer: 0
   m_Name: IceEffect
   m_TagString: Untagged
@@ -4827,3 +4828,15 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-1658673798858406834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013285068488076140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e5cef43c35e394ca70df717a8a9837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -137,8 +137,11 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     public void AddEffect(UnitEffect effect)
     {
         effect.StartEffect(this);
-        var effectGameObject = PhotonNetwork.Instantiate($"Effects/{effect.effectPrefab.name}", transform.position, Quaternion.identity);
-        effectGameObject.transform.parent = transform;
+
+        object[] data = new object[1];
+        data[0] = InstanceId;
+
+        var effectGameObject = PhotonNetwork.Instantiate($"Effects/{effect.effectPrefab.name}", transform.position, Quaternion.identity, 0, data);
         currentEffects.Add(new UnitEffectWrapper(effect, effectGameObject));
     }
 
