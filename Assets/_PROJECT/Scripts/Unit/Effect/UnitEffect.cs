@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class UnitEffect : ScriptableObject
@@ -7,6 +8,8 @@ public class UnitEffect : ScriptableObject
 	[field: SerializeField] public float effectDuration { get; private set; }
 
 	public virtual void StartEffect(Unit unit) { }
+
+	public virtual void UpdateEffect(Unit unit) { }
 
 	public virtual void StopEffect(Unit unit) { }
 

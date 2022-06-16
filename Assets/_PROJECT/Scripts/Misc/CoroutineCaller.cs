@@ -7,4 +7,9 @@ public class CoroutineCaller : MonoBehaviourSingletonDontDestroyOnLoad<Coroutine
         StartCoroutine(method);
     }
 
+    public void StopChildCoroutine(IEnumerator method)
+    {
+        StopCoroutine(method);
+    }
+
 }

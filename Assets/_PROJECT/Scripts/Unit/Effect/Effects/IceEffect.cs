@@ -14,9 +14,7 @@ public class IceEffect : UnitEffect
 
     public override void StartEffect(Unit unit)
     {
-
         unit.GetFollowPath().SetSpeed(unit.GetUnitStats().Speed / speedSlowdownPercentage);
-
     }
 
     public override void StopEffect(Unit unit)

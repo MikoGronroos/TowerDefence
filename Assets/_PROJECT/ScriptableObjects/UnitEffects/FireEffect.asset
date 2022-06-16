@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <effectId>k__BackingField: FireAttack
   <effectPrefab>k__BackingField: {fileID: 713696194104503348, guid: 6747cd9e0eed50a4383f748ee710b1cf, type: 3}
-  <effectDuration>k__BackingField: 5
-  <damagePerSecond>k__BackingField: 2
+  <effectDuration>k__BackingField: 1000
+  <damageAmount>k__BackingField: 2
+  <damageInterval>k__BackingField: 2
+  <damageType>k__BackingField: {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}

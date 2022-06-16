@@ -14,7 +14,9 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     [SerializeField] private UnitEventChannel unitEventChannel;
 
-    [SerializeField] private List<UnitEffect> currentEffects = new List<UnitEffect>();
+    [Header("Effects")]
+
+    [SerializeField] private List<UnitEffectWrapper> currentEffects = new List<UnitEffectWrapper>();
 
     private FollowPath _followPath;
 
@@ -28,6 +30,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     public int UnitOwnerID;
 
+    #region MonoBehaviour Methods
+
     private void Awake()
     {
         _followPath = GetComponent<FollowPath>();
@@ -40,6 +44,18 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         _currentUnitHardness = unitStats.MaxUnitHardness;
         _followPath.SetSpeed(unitStats.Speed);
     }
+
+    private void Update()
+    {
+        if (!currentEffects.Any()) return;
+
+        for (int i = currentEffects.Count - 1; i >= 0; i--)
+        {
+            currentEffects[i].Effect.UpdateEffect(this);
+        }
+    }
+
+    #endregion
 
     public void RemoveCurrentHealth(float amount, IEnumerable<ProjectileType> types)
     {
@@ -94,6 +110,8 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     private void OnUnitDestroyed()
     {
 
+        RemoveAllEffects();
+
         PlayerLevel.Instance.AddXp(unitStats.XpAddonOnDestroyed);
 
         unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> { 
@@ -102,7 +120,6 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         });
 
         if (_photonView.IsMine) UnitSpawner.Instance.DespawnUnit(gameObject);
-
     }
 
     public UnitStats GetUnitStats()
@@ -120,18 +137,44 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
     public void AddEffect(UnitEffect effect)
     {
         effect.StartEffect(this);
-        currentEffects.Add(effect);
+        var effectGameObject = PhotonNetwork.Instantiate($"Effects/{effect.effectPrefab.name}", transform.position, Quaternion.identity);
+        effectGameObject.transform.parent = transform;
+        currentEffects.Add(new UnitEffectWrapper(effect, effectGameObject));
     }
 
     public void RemoveEffect(UnitEffect effect)
     {
-        effect.StopEffect(this);
-        currentEffects.Remove(effect);
+        var effectWrapper = GetEffectWrapperWithEffect(effect);
+
+        effectWrapper.Effect.StopEffect(this);
+        PhotonNetwork.Destroy(effectWrapper.EffectGameObject);
+        currentEffects.Remove(effectWrapper);
+    }
+
+    public void RemoveAllEffects()
+    {
+        for (int i = currentEffects.Count - 1; i >= 0; i--)
+        {
+            RemoveEffect(currentEffects[i].Effect);  
+        }
+        currentEffects.Clear();
     }
 
     public bool UnitAlreadyContainsEffectWithID(string id)
     {
-        return currentEffects.Where(i => i.effectId == id).Count() > 0; 
+        return currentEffects.Where(i => i.Effect.effectId == id).Count() > 0; 
+    }
+
+    private UnitEffectWrapper GetEffectWrapperWithEffect(UnitEffect effect)
+    {
+        foreach (var target in currentEffects)
+        {
+            if (target.Effect == effect)
+            {
+                return target;
+            }
+        }
+        return null;
     }
 
     #endregion
@@ -148,4 +191,5 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
             UnitSpawner.Instance.AddUnitToList(gameObject, InstanceId);
         }
     }
+
 }

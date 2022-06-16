@@ -12,18 +12,13 @@ public class UnitEffectManager : MonoBehaviourSingleton<UnitEffectManager>
 
     private IEnumerator Effect(Unit target, UnitEffect effect)
     {
-
         if (target.UnitAlreadyContainsEffectWithID(effect.effectId)) yield break;
-
-        var effectGO = PhotonNetwork.Instantiate($"Effects/{effect.effectPrefab.name}", target.transform.position, Quaternion.identity);
 
         target.AddEffect(effect);
 
         yield return new WaitForSeconds(effect.effectDuration);
 
         target.RemoveEffect(effect);
-
-        PhotonNetwork.Destroy(effectGO);
     }
 
 }
