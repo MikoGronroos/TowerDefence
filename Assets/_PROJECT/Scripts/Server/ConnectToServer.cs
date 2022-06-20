@@ -13,13 +13,13 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnEnable()
     {
         base.OnEnable();
-        serverEventChannel.OnLogin += ConnectToLobby;
+        serverEventChannel.OnAccountDataFetched += ConnectToLobby;
     }
 
     public override void OnDisable()
     {
         base.OnDisable();
-        serverEventChannel.OnLogin -= ConnectToLobby;
+        serverEventChannel.OnAccountDataFetched -= ConnectToLobby;
     }
 
     private void ConnectToLobby(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

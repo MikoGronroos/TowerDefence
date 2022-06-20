@@ -20,7 +20,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency += HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency += SoftCurrencyChanged;
         playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies += RefreshCurrencies;
-        serverEventChannel.OnLogin += OnLoginListener;
+        serverEventChannel.OnPlayfabLogin += OnLoginListener;
     }
 
     private void OnDisable()
@@ -28,7 +28,7 @@ public class PlayFabCurrencyManager : MonoBehaviourSingletonDontDestroyOnLoad<Pl
         playFabCurrencyEventChannel.ChangeAmountOfHardCurrency -= HardCurrencyChanged;
         playFabCurrencyEventChannel.ChangeAmountOfSoftCurrency -= SoftCurrencyChanged;
         playFabCurrencyEventChannel.RefreshHardAndSoftCurrencies -= RefreshCurrencies; 
-        serverEventChannel.OnLogin -= OnLoginListener;
+        serverEventChannel.OnPlayfabLogin -= OnLoginListener;
     }
 
     private void SoftCurrencyChanged(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

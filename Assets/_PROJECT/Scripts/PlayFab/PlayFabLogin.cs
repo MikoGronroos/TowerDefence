@@ -32,6 +32,6 @@ public class PlayFabLogin : MonoBehaviour
     private void OnSuccess(LoginResult result)
     {
         Debug.Log($"{result.PlayFabId}: has logged in!");
-        serverEventChannel.OnLogin?.Invoke();
+        serverEventChannel.OnPlayfabLogin?.Invoke();
     }
 }

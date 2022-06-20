@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Photon.Pun;
 using Finark.Events;
+using System;
 
 [RequireComponent(typeof(FollowPath))]
 public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
@@ -114,12 +115,13 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
         PlayerLevel.Instance.AddXp(unitStats.XpAddonOnDestroyed);
 
-        unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> { 
-            { "UnitID", unitStats.UnitID },
-            { "InstanceID", InstanceId } 
-        });
+        unitEventChannel.OnUnitKilled?.Invoke(new Dictionary<string, object> {
+                { "UnitID", unitStats.UnitID },
+                { "InstanceID", InstanceId }
+            });
 
         if (_photonView.IsMine) UnitSpawner.Instance.DespawnUnit(gameObject);
+
     }
 
     public UnitStats GetUnitStats()
@@ -136,12 +138,13 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
 
     public void AddEffect(UnitEffect effect)
     {
+
         effect.StartEffect(this);
 
         object[] data = new object[1];
         data[0] = InstanceId;
 
-        var effectGameObject = PhotonNetwork.Instantiate($"Effects/{effect.effectPrefab.name}", transform.position, Quaternion.identity, 0, data);
+        var effectGameObject = PhotonNetwork.Instantiate($"Effects/{(effect as UnitEffect).effectPrefab.name}", transform.position, Quaternion.identity, 0, data);
         currentEffects.Add(new UnitEffectWrapper(effect, effectGameObject));
     }
 
@@ -150,15 +153,16 @@ public class Unit : MonoBehaviour, IPunInstantiateMagicCallback
         var effectWrapper = GetEffectWrapperWithEffect(effect);
 
         effectWrapper.Effect.StopEffect(this);
-        PhotonNetwork.Destroy(effectWrapper.EffectGameObject);
         currentEffects.Remove(effectWrapper);
+        Destroy(effectWrapper.Effect);
+        if(_photonView.IsMine) PhotonNetwork.Destroy(effectWrapper.EffectGameObject);
     }
 
     public void RemoveAllEffects()
     {
         for (int i = currentEffects.Count - 1; i >= 0; i--)
         {
-            RemoveEffect(currentEffects[i].Effect);  
+            RemoveEffect(currentEffects[i].Effect);
         }
         currentEffects.Clear();
     }

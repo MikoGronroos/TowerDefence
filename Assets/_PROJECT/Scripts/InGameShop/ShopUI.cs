@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private ShopEventChannel shopEventChannel;
 
-    [Header("Colours")]
+    [Header("Colors")]
     [SerializeField] private Color positiveIncomeColor;
     [SerializeField] private Color negativeIncomeColor;
 
@@ -93,7 +93,13 @@ public class ShopUI : MonoBehaviour
             {
                 itemScript.SetIncomeAddonText("<sprite index=1>" + newItem.IncomeAddonFromSpawning.ToString() + " " + suffix, negativeIncomeColor);
             }
-
+        }
+        else if (item is ShopItemTurret)
+        {
+            if ((item as ShopItemTurret).TurretProjectileEffectIcon != null)
+            {
+                itemScript.SetProjectileEffectIcon((item as ShopItemTurret).TurretProjectileEffectIcon);
+            }
         }
 
         itemScript.SetItemIcon(GraphicsManager.Instance.GetSprite(SkinManager.Instance.GetGraphicKeyWithMainKey(item.IconMainKey)));

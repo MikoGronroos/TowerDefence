@@ -18,5 +18,6 @@ MonoBehaviour:
   Damage: 5
   ProjectileTypesAllowed:
   - {fileID: 11400000, guid: ac0fa60953397b849a4fcdca1603b161, type: 2}
+  - {fileID: 11400000, guid: 73b19e6bb6665324bafd628188fb7e28, type: 2}
   MaxUnitHardness: 65
   XpAddonOnDestroyed: 6

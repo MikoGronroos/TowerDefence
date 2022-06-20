@@ -1,5 +1,4 @@
-﻿using Photon.Pun;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class UnitEffectManager : MonoBehaviourSingleton<UnitEffectManager>
@@ -13,13 +12,16 @@ public class UnitEffectManager : MonoBehaviourSingleton<UnitEffectManager>
     private IEnumerator Effect(Unit target, UnitEffect effect)
     {
 
+        UnitEffect effectInstance = Instantiate(effect);
+
         if (target.UnitAlreadyContainsEffectWithID(effect.effectId)) yield break;
 
-        target.AddEffect(effect);
+        target.AddEffect(effectInstance);
 
         yield return new WaitForSeconds(effect.effectDuration);
 
-        target.RemoveEffect(effect);
+        target.RemoveEffect(effectInstance);
+
     }
 
 }

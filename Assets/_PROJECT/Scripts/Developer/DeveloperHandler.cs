@@ -11,12 +11,12 @@ public class DeveloperHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        serverEventChannel.OnLogin += OnLoginListener;
+        serverEventChannel.OnPlayfabLogin += OnLoginListener;
     }
 
         private void OnDisable()
     {
-        serverEventChannel.OnLogin -= OnLoginListener;
+        serverEventChannel.OnPlayfabLogin -= OnLoginListener;
     }
 
     private void OnLoginListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)

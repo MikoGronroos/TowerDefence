@@ -1,12 +1,16 @@
 using PlayFab;
 using PlayFab.ClientModels;
+using System;
 using UnityEngine;
 
 public static class LoadData
 {
 
-    public static void LoadDataFromPlayFab()
+    private static Action _callback;
+
+    public static void LoadDataFromPlayFab(Action callback)
     {
+        _callback = callback;
         PlayFabClientAPI.GetUserData(new GetUserDataRequest(), OnDataReceived, OnError);
     }
 
@@ -48,7 +52,7 @@ public static class LoadData
             timeData = JsonUtility.FromJson<TimeData>(result.Data["TimeManagerData"].Value);
             TimeManager.Instance.SetTimeData(timeData);
         }
-
+        _callback?.Invoke();
     }
 
 }

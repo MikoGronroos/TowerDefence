@@ -108,7 +108,8 @@ MonoBehaviour:
     FollowsTarget: 1
     ProjectileTypes:
     - {fileID: 11400000, guid: 2d7abff40a2e75f43a6719c6b2c0748f, type: 2}
-    ProjectilePenetration: 0
+    UnitHitEffect: {fileID: 11400000, guid: c7f2543e2f98c1649b3f46579f2a0dda, type: 2}
+    ProjectilePenetration: 2
     ProjectileSpeed: 15
     Damage:
       BaseValue: 1.6

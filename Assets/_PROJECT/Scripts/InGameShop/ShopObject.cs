@@ -10,6 +10,7 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IPoint
     [SerializeField] private TextMeshProUGUI incomeAddonText;
 
     [SerializeField] private Image itemIcon;
+    [SerializeField] private Image projectileEffectIcon;
 
     private ShopItem _thisItem;
 
@@ -68,6 +69,12 @@ public class ShopObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IPoint
     public void SetItemIcon(Sprite icon)
     {
         itemIcon.sprite = icon;
+    }
+
+    public void SetProjectileEffectIcon(Sprite icon)
+    {
+        projectileEffectIcon.enabled = true;
+        projectileEffectIcon.sprite = icon;
     }
 
     public void SetThisItem(ShopItem item)

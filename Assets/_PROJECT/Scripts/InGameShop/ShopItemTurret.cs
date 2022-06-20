@@ -4,6 +4,8 @@ using UnityEngine;
 public class ShopItemTurret : ShopItemBarrack
 {
 
+    public Sprite TurretProjectileEffectIcon;
+
     public override void Buy() 
     {
         BuyAction();

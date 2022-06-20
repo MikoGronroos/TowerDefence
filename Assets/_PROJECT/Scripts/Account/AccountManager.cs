@@ -25,12 +25,12 @@ public class AccountManager : MonoBehaviourSingletonDontDestroyOnLoad<AccountMan
     public override void OnEnable()
     {
         base.OnEnable();
-        serverEventChannel.OnLogin += OnLoginListener;
+        serverEventChannel.OnPlayfabLogin += OnLoginListener;
     }
 
     private void OnDisable()
     {
-        serverEventChannel.OnLogin -= OnLoginListener;
+        serverEventChannel.OnPlayfabLogin -= OnLoginListener;
     }
 
     private void OnLoginListener(Dictionary<string, object> args, Action<Dictionary<string, object>> callback)
@@ -40,7 +40,9 @@ public class AccountManager : MonoBehaviourSingletonDontDestroyOnLoad<AccountMan
 
     public void LoadDataAccountData()
     {
-        LoadData.LoadDataFromPlayFab();
+        LoadData.LoadDataFromPlayFab(()=> {
+            serverEventChannel.OnAccountDataFetched?.Invoke();
+        });
     }
 
     public void SaveDataAccountData()

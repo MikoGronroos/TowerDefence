@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Effects/Fire Effect")]
@@ -10,13 +9,6 @@ public class FireEffect : UnitEffect
     [field: SerializeField] public ProjectileType damageType { get; private set; }
 
     private float _timeLeft;
-
-    public void init(string effectId, float damageAmount, float damageInterval)
-    {
-        this.effectId = effectId;
-        this.damageAmount = damageAmount;
-        this.damageInterval = damageInterval;
-    }
 
     public override void StartEffect(Unit unit)
     {

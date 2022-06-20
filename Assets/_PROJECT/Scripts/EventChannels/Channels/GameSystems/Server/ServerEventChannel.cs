@@ -7,7 +7,8 @@ namespace Finark.Events
 	{
 
 		public EventChannel OnLobbyJoined;
-		public EventChannel OnLogin;
+		public EventChannel OnPlayfabLogin;
+		public EventChannel OnAccountDataFetched;
 
 	}
 }

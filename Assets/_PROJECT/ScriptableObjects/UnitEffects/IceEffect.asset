@@ -15,4 +15,4 @@ MonoBehaviour:
   <effectId>k__BackingField: IceEffect
   <effectPrefab>k__BackingField: {fileID: 4013285068488076140, guid: 0e7a0749ecbad58499852b2835d92de0, type: 3}
   <effectDuration>k__BackingField: 5
-  <speedSlowdownPercentage>k__BackingField: 1.5
+  <speedSlowdownPercentage>k__BackingField: 1.35
