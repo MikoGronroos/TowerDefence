@@ -11,6 +11,8 @@ public class ParticipantsInfoUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] playerNames;
 
+    [SerializeField] private TextMeshProUGUI[] playerTrophyAmounts;
+
     [SerializeField] private RoomEventChannel roomEventChannel;
 
     private void OnEnable()
@@ -29,8 +31,10 @@ public class ParticipantsInfoUI : MonoBehaviour
         int id = (int)args["ID"];
 
         string name = (string)args["Name"];
+        int trophyAmount = (int)args["Trophies"];
 
         playerNames[id].text = name;
+        playerTrophyAmounts[id].text = trophyAmount.ToString();
 
     }
 

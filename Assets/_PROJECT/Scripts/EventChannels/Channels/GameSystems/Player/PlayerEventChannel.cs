@@ -1,4 +1,3 @@
-using Finark.Events;
 using UnityEngine;
 
 namespace Finark.Events

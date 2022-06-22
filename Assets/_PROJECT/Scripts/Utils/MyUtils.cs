@@ -20,18 +20,26 @@ namespace Finark.Utils
         // Is Mouse over a UI Element? Used for ignoring World clicks through UI
         public static bool IsPointerOverUI()
         {
-            if (EventSystem.current.IsPointerOverGameObject())
+            return EventSystem.current.IsPointerOverGameObject();
+        }
+
+        public static bool IsPointerOverUIWithIgnores()
+        {
+            PointerEventData pe = new PointerEventData(EventSystem.current);
+            pe.position = Input.mousePosition;
+            List<RaycastResult> hits = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pe, hits);
+
+            for (int i = 0; i < hits.Count; i++)
             {
-                return true;
+                if (hits[i].gameObject.GetComponent<PointerOverUINotIgnore>() == null)
+                {
+                    hits.RemoveAt(i);
+                    i--;
+                }
             }
-            else
-            {
-                PointerEventData pe = new PointerEventData(EventSystem.current);
-                pe.position = Input.mousePosition;
-                List<RaycastResult> hits = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pe, hits);
-                return hits.Count > 0;
-            }
+
+            return hits.Count > 0;
         }
 
         // Get Mouse Position in World with Z = 0f

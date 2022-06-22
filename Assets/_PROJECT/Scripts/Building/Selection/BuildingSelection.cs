@@ -106,7 +106,7 @@ public class BuildingSelection : MonoBehaviourSingleton<BuildingSelection>
 
     private void DeselectBuilding()
     {
-        if (MyUtils.IsPointerOverUI()) return;
+        if (MyUtils.IsPointerOverUIWithIgnores()) return;
 
         if (selectedBuilding == null) return;
 

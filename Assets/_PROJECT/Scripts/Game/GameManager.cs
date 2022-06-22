@@ -42,15 +42,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
-        _photonView.RPC("SendLocalAccountData", RpcTarget.All, PlayerManager.Instance.GetLocalPlayer().GetPlayerID(), AccountManager.Instance.CurrentAccount.AccountName);
+        _photonView.RPC("SendLocalAccountData", RpcTarget.All, PlayerManager.Instance.GetLocalPlayer().GetPlayerID(),
+            AccountManager.Instance.CurrentAccount.AccountName, 
+            AccountManager.Instance.CurrentAccount.CurrentTrophies);
     }
 
     [PunRPC]
-    private void SendLocalAccountData(int id, string name)
+    private void SendLocalAccountData(int id, string name, int trophies)
     {
         roomEventChannel.OnPlayerInfoUpdate?.Invoke(new Dictionary<string, object> { 
             { "ID", id}, 
-            { "Name", name } 
+            { "Name", name },
+            { "Trophies", trophies }
         });
     }
 

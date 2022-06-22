@@ -105,6 +105,7 @@ MonoBehaviour:
   unitStats: {fileID: 11400000, guid: 85467655df787b24f8525eb5c051825c, type: 2}
   currentHealth: 10
   unitEventChannel: {fileID: 11400000, guid: 9cb7e6870d3751a4296a155f06a74c3f, type: 2}
+  currentEffects: []
   UnitOwnerID: 0
 --- !u!114 &-294378207455352393
 MonoBehaviour:

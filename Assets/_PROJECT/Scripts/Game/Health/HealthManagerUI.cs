@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System;
 using Finark.Events;
@@ -8,6 +9,8 @@ public class HealthManagerUI : MonoBehaviour
 {
 
     [SerializeField] private List<TextMeshProUGUI> playerHealthTexts = new List<TextMeshProUGUI>();
+
+    [SerializeField] private List<Slider> playerHealthBars = new List<Slider>();
 
     [SerializeField] private PlayerEventChannel playerEventChannel;
 
@@ -27,7 +30,9 @@ public class HealthManagerUI : MonoBehaviour
         var amount = (int)args["amount"];
 
         var healthText = playerHealthTexts[id];
+        var healthSlider = playerHealthBars[id];
 
-        healthText.text = $"Health: {amount}";
+        healthText.text = amount.ToString();
+        healthSlider.value = (float)amount / 75;
     }
 }
